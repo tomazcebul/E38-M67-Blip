@@ -1,0 +1,9 @@
+NAME,TELEGRAMM,TELNAME,ERGEBNIS,BYTE,MASK,VALUE,LNAME,TEXT_1,TEXT_0
+S_PTC_ABAKT,13B0,AOHt_stShutOff_mp,STAT_PTC_ABAKT_WERT,3,0x01,0x01,Abschaltbedingung,aktiv,nicht aktiv
+S_PTC_STURZ,13B0,AOHt_stShutOff_mp,STAT_PTC_STURZ_WERT,3,0x02,0x02,Sturzgas,aktiv,nicht aktiv
+S_PTC_SENSDEF,13B0,AOHt_stShutOff_mp,STAT_PTC_SENSDEF_WERT,3,0x04,0x04,"WTF, LTF, Endstufe defekt",aktiv,nicht aktiv
+S_PTC_START,13B0,AOHt_stShutOff_mp,STAT_PTC_START_WERT,3,0x08,0x08,Startverzoegerung,aktiv,nicht aktiv
+S_PTC_ANF,13B0,AOHt_stShutOff_mp,STAT_PTC_ANF_WERT,3,0x10,0x10,Anfahren,aktiv,nicht aktiv
+S_PTC_N,13B0,AOHt_stShutOff_mp,STAT_PTC_N_WERT,3,0x20,0x20,Motordrehzahl zu niedrig,aktiv,nicht aktiv
+S_PTC_VMIN,13B0,AOHt_stShutOff_mp,STAT_PTC_VMIN_WERT,3,0x40,0x40,Geschwindigkeit zu niedrig,aktiv,nicht aktiv
+S_PTC_TRQ,13B0,AOHt_stShutOff_mp,STAT_PTC_TRQ_WERT,3,0x80,0x80,Drehmomentüberwachung,aktiv,nicht aktiv

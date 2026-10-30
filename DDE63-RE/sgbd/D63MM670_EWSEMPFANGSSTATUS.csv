@@ -1,0 +1,13 @@
+STATI,TEXT
+0x00,Startwertprogrammierung bzw. -ruecksetzen war erfolgreich
+0x01,falscher Startwert beim Ruecksetzen (EWS u. DDE passen ni. zusammen)
+0x02,Telegramminhalt war kein Startwert (event. Wechselcode)
+0x03,Schnittstellenfehler DWA: Frame o. Parity oder kein Signal (Timeout)
+0x04,Prozess laeuft
+0x05,Programmierung bzw. Ruecksetzen im Fahrzyklus noch nicht ausgefuehrt
+0x06,gleiche Zufallszahl wie bei vorherigem Ruecksetzen trotz Weiterschaltung
+0x07,noch kein Startwert programmiert
+0x10,Startwert nicht korrekt in Flash programmiert
+0x11,Wechselcode nicht korrekt in EEPROM-Spiegel programmiert
+0x21,2-aus-3-Startwertablage im Flash nicht in Ordnung
+0xXY,Fehlerhafter Status

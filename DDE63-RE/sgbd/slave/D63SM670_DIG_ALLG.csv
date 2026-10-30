@@ -1,0 +1,14 @@
+NAME,TELEGRAMM,TELNAME,ERGEBNIS,BYTE,MASK,VALUE,LNAME,TEXT_1,TEXT_0
+S_BRL,13EC13ED15E4146E164500BF1482,BrkCD_stMnSwtRawVal,STAT_BLS_EIN,3,0x01,0x01,Eingang Bremslichtschalter,Pedal betaetigt (Ubatt),Pedal nicht betaetigt (Masse)
+S_BRT,13EC13ED15E4146E164500BF1482,BrkCD_stRedSwtRawVal,STAT_BLTS_EIN,5,0x01,0x01,Eingang Bremslichttestschalter,Pedal betaetigt (Ubatt),Pedal nicht betaetigt (Masse)
+S_KUP,13EC13ED15E4146E164500BF1482,ConvCD_stRawVal,STAT_KUP_EIN,9,0x01,0x01,Eingang Kupplungsschalter,Pedal betaetigt (Ubatt),Pedal nicht betaetigt (Masse)
+S_MFLEINP,13EC13ED15E4146E164500BF1482,CrCCD_stKey,STAT_MFLEINP_EIN,15,0x01,0x01,MFL Bedienteil Taste +,betaetigt,nicht betaetigt
+S_MFLEINM,13EC13ED15E4146E164500BF1482,CrCCD_stKey,STAT_MFLEINM_EIN,15,0x02,0x02,MFL Bedienteil Taste -,betaetigt,nicht betaetigt
+S_MFLWA,13EC13ED15E4146E164500BF1482,CrCCD_stKey,STAT_MFLWA_EIN,15,0x04,0x04,MFL Bedienteil Taste Wiederaufnahme,betaetigt,nicht betaetigt
+S_MFLAUS,13EC13ED15E4146E164500BF1482,CrCCD_stKey,STAT_MFLAUS_EIN,15,0x08,0x08,MFL Bedienteil Taste AUS,betaetigt,nicht betaetigt
+S_MFLINVALID,13EC13ED15E4146E164500BF1482,CrCCD_stKey,STAT_MFLINVALD_EIN,15,0x10,0x10,MFL Bedienteil ungültige Tastenkombination,betaetigt,nicht betaetigt
+S_MFLEINPOVR,13EC13ED15E4146E164500BF1482,CrCCD_stKey,STAT_MFLEINPOVR_EIN,15,0x20,0x20,MFL Bedienteil Taste + überdrückt (Stufentempomat),betaetigt,nicht betaetigt
+S_MFLEINMOVR,13EC13ED15E4146E164500BF1482,CrCCD_stKey,STAT_MFLEINMOVR_EIN,15,0x40,0x40,MFL Bedienteil Taste - überdrückt (Stufentempomat),betaetigt,nicht betaetigt
+S_AC,13EC13ED15E4146E164500BF1482,FrmMng_swtAC_mp,STAT_AC_EIN,7,0x07,0x00,Schalter Klimabereitschaft AC (CAN),nicht betaetigt,betaetigt
+S_EGS,13EC13ED15E4146E164500BF1482,Gearbx_swtType,STAT_GETRIEBEART_HAND_EIN,11,0x01,0x01,Getriebe,Automatik,Handschalter
+S_ODS,13EC13ED15E4146E164500BF1482,OPSCD_stSigOut,STAT_ODS_EIN,13,0x01,0x01,Eingang Oeldruckschalter,Oeldruck zu niedrig (Masse),Oeldruck io (Ubatt)

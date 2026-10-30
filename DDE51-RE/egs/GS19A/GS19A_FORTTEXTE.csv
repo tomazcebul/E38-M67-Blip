@@ -1,0 +1,112 @@
+ORT,ORTTEXT
+0x4E20,Elektronisches Drucksteuerventil 1
+0x4E21,Elektronisches Drucksteuerventil 2
+0x4E22,Elektronisches Drucksteuerventil 3
+0x4E23,Elektronisches Drucksteuerventil 4
+0x4E24,Elektronisches Drucksteuerventil 5
+0x4E25,Elektronisches Drucksteuerventil 6
+0x4E26,Stromfehler EDS in P/R/N
+0x4E84,Magnetventil  1
+0x4E85,Magnetventil  2
+0x4E86,Magnetventil  3
+0x4E87,Magnetventil  4 (Shiftlock)
+0x4E89,Magnetventil 1 oder Magnetventil 2 klemmt mechanisch
+0x4EE8,Turbinendrehzahlsensor
+0x4EE9,Abtriebsdrehzahlsensor
+0x4EEB,Abtriebsdrehzahl - Gradient zu hoch
+0x4EF2,Getriebeoeltemperatursensor
+0x4EF3,Steuergerät-Temperatursensor
+0x4EEA,Abtriebsdrehzahlsensor
+0x4F4B,Gangueberwachung R
+0x4F4C,Symptom Gangueberwachung
+0x4F4D,Gangueberwachung 1
+0x4F4E,Gangueberwachung 2
+0x4F4F,Gangueberwachung 3
+0x4F50,Gangueberwachung 4
+0x4F51,Gangueberwachung 5
+0x4F52,Gangueberwachung 6
+0x4F57,Schaltungsueberwachung 1-2
+0x4F58,Schaltungsueberwachung 2-3
+0x4F59,Schaltungsueberwachung 3-4
+0x4F5A,Schaltungsueberwachung 4-5
+0x4F5B,Schaltungsueberwachung 5-6
+0x4F5C,Schaltungsueberwachung 2-1
+0x4F5D,Schaltungsueberwachung 3-2
+0x4F5E,Schaltungsueberwachung 4-3
+0x4F5F,Schaltungsueberwachung 5-4
+0x4F60,Schaltungsueberwachung 6-5
+0x4F81,Übersetzungsueberwachung Kupplung A
+0x4F82,Übersetzungsueberwachung Kupplung B
+0x4F83,Übersetzungsueberwachung Kupplung C
+0x4F84,Übersetzungsueberwachung Kupplung D
+0x4F85,Übersetzungsueberwachung Kupplung E
+0x4F53,Wandlerüberbrückungskupplung fehlerhaft geöffnet
+0x4F87,Übersetzungsueberwachung Schaltung 1-2
+0x4F88,Übersetzungsueberwachung Schaltung 2-3
+0x4F89,Übersetzungsueberwachung Schaltung 3-4
+0x4F8A,Übersetzungsueberwachung Schaltung 4-5
+0x4F8B,Übersetzungsueberwachung Schaltung 5-6
+0x4F8C,Übersetzungsueberwachung Schaltung 6-5
+0x4F8D,Übersetzungsueberwachung Schaltung 5-4
+0x4F8E,Übersetzungsueberwachung Schaltung 4-3
+0x4F8F,Übersetzungsueberwachung Schaltung 3-2
+0x4F90,Übersetzungsueberwachung Schaltung 2-1
+0x4F91,Übersetzungsueberwachung Kupplung A-D
+0x4F92,Übersetzungsueberwachung Kupplung A-C
+0x4F93,Übersetzungsueberwachung Kupplung A-B
+0x4F94,Übersetzungsueberwachung Kupplung A-E
+0x4F95,Übersetzungsueberwachung Kupplung B-E
+0x4F96,Übersetzungsueberwachung Kupplung C-E
+0x4F97,Übersetzungsueberwachung Kupplung B-D
+0x4F6A,Getriebesteuerung: Abschaltung Übertemperatur
+0x4F6B,Ölalterungsschwelle
+0x4F6F,Hohe Drehungleichförmigkeit
+0x4F70,Motorüberdrehzahl
+0x4F71,Botschaft von der Instrumentenkombination fehlt während Notentriegelung Parksperre betätigt
+0x4F77,Fehlerhafter Positiver Motoreingriff
+0x4FB0,Getriebesteuerung:interner Fehler (EPROM/FLASH)
+0x4FB1,Getriebesteuerung:interner Fehler (EEPROM)
+0x4FB2,Getriebesteuerung:interner Fehler (Watchdog)
+0x4FB7,Getriebesteuerung:interner Fehler (EEPROM schreiben)
+0x4FB8,Getriebesteuerung:interner Fehler (Überwachungsebene 2)
+0x4FB9,Getriebesteuerung:interner Fehler (TPU/QADC
+0x4FB3,Getriebesteuerung:interner Fehler (VRAM
+0x4F78,Botschaft vom Längsdynamikmanagement (LDM) fehlt
+0x51AF,Botschaft vom Verteilergetriebe fehlt
+0x4F7A,Botschaft vom Verteilergetriebe fehlerhaft
+0x5014,"Versorgungsspannung, Getriebesteuerung"
+0x5015,EDS/MV Versorgungsspannung
+0x5016,Sensorversorgungsspannung
+0x5079,Botschaft über Serielle Leitung fehlt
+0x507A,Information Serielle Leitung unplausibel
+0x507B,Parksperrensensoren unplausibel
+0x507C,Parksperre fehlerhaft eingelegt
+0x507D,Parksperre fehlerhaft ausgelegt
+0x5087,Tipp- oder M-Gassenschalter
+0x5088,Getriebewahlschaltersensoren fehlerhaft
+0x5089,P/N-Leitung passt nicht zu Getriebeposition
+0x50DC,Getriebepositionssensor
+0x50DD,Aktivierung zweier Ersatzfunktionen gleicher Priorität
+0x5140,Botschaft von der Motosteuerung fehlt
+0x5141,Botschaft von der dynamischen Stabilitäts-Control fehlt
+0x5142,Botschaft von der Instrumentenkombination fehlt
+0x5143,Botschaft von der Active Cruise-Control fehlt
+0x5144,Botschaft vom Car Access System fehlt
+0x5145,Botschaft von der Parkbremse (EMF) fehlt
+0x5146,Botschaft vom Satellit Sitz Fahrer (SSFA) fehlt
+0x5147,Botschaft vom Schaltzentrum Lenksäule (SZL) fehlt
+0x5149,Botschaft vom Powermodul fehlt
+0x514A,Botschaft vom Schaltzentrum Mittelkonsole fehlt
+0x5150,Botschaft vom Anhängermodul fehlt
+0x51A5,Signal (Momentenschnittstelle) von der Motorsteuerung fehlerhaft
+0x51A7,Signal (Motordrehzahl) von der Motorsteuerung fehlerhaft
+0x51A8,Signal (Drosselklappe/Fahrpedal)von der Motorsteuerung fehlerhaft
+0x51AD,Botschaft (Raddrehzahlen) von der DSC fehlt
+0x51AA,Signal (Positionsinformation) vom Schaltzentrum Lenkäule fehlt
+0x51AB,Signal (P-Taster) vom Schaltzentrum Lenksäule fehlerhaft
+0x51AC,Signal (Identifikationsgeber steckt) vom Car Access System fehlerhaft
+0x51AE,Botschaft (Bremslichtschalter) von der Motorsteuerung unplausibel
+0x51B0,Botschaft (Bremslichtschalter) von der DSC unplausibel
+0xCF07,Kommunikationsfehler:PT-CAN
+0x51A4,Botschaft CAN11-Stand fehlerhaft
+0xFFFF,unbekannter Fehlerort

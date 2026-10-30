@@ -1,0 +1,34 @@
+WERT,UWTEXT
+0x00,Schaltart nicht definiert
+0x01,Schaltart 1 nach 1
+0x02,Schaltart 2 nach 2
+0x03,Schaltart 3 nach 3
+0x04,Schaltart 4 nach 4
+0x05,Schaltart 5 nach 5
+0x06,Schaltart 6 nach 6
+0x07,Schaltart R nach R
+0x08,Schaltart 1 nach 2
+0x09,Schaltart 2 nach 3
+0x0A,Schaltart 3 nach 4
+0x0B,Schaltart 4 nach 5
+0x0C,Schaltart 5 nach 6
+0x0D,Schaltart 6 nach 5
+0x0E,Schaltart 5 nach 4
+0x0F,Schaltart 4 nach 3
+0x10,Schaltart 3 nach 2
+0x11,Schaltart 2 nach 1
+0x12,Schaltart D1 nach R
+0x13,Schaltart D2 nach R
+0x14,Schaltart R nach D1
+0x15,Schaltart R nach D2
+0x16,Schaltart NPD nach R
+0x17,Schaltart NPR nach D
+0x18,Schaltart R nach P
+0x19,Vorhalt
+0x1A,Schaltart D nach P
+0x1B,Vorhalt
+0x1C,Schaltart R nach N
+0x1D,Schaltart D nach N
+0x1E,Schaltart P nach P
+0x1F,Schaltart N nach N
+0xXY,Schaltart unplausibel

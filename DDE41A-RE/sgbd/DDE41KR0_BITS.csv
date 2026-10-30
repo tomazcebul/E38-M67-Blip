@@ -1,0 +1,31 @@
+TELNAME,TELEGRAMM,NAME,BYTE,MASK,VALUE,LNAME,TEXT_0,TEXT_1
+dimDIGprel,0F70,S_BRL,6,0x01,0x01,Eingang Bremslichtschalter,Pedal nicht betaetigt (Masse),Pedal betaetigt (Ubatt)
+dimDIGprel,0F70,S_BRT,6,0x02,0x02,Eingang Bremslichttestschalter,Pedal nicht betaetigt (Masse),Pedal betaetigt (Ubatt)
+dimDIGprel,0F70,S_GZS_1,6,0x10,0x10,Eingang Gluehzeitrelais 1,HIGH (Ubatt) = GLUEHEN EIN wenn System ok,LOW (Masse) = GLUEHEN AUS wenn System ok
+dimDIGprel,0F70,S_GZS_2,6,0x20,0x20,Eingang Gluehzeitrelais 2,HIGH (Ubatt) = GLUEHEN EIN wenn System ok,LOW (Masse) = GLUEHEN AUS wenn System ok
+dimDIGprel,0F70,S_KUP,7,0x20,0x20,Eingang Kupplungsschalter,Pedal nicht betaetigt (Masse),Pedal betaetigt (Ubatt)
+comGTR_opt,1C00,S_EGS,9,0x01,0x01,Getriebe,Automat,Handschalt
+dimF_MFL,2F74,S_MFLWA,11,0x09,0x09,MFL Bedienteil WA Wiederaufnahme,betaetigt,nicht betaetigt
+dimF_MFL,2F74,S_MFLEINP,11,0x12,0x12,MFL Bedienteil EIN +,betaetigt,nicht betaetigt
+dimF_MFL,2F74,S_MFLAUS,11,0x20,0x20,MFL Bedienteil AUS,betaetigt,nicht betaetigt
+dimF_MFL,2F74,S_MFLEINM,11,0x40,0x40,MFL Bedienteil EIN -,betaetigt,nicht betaetigt
+dimF_MFL,2F74,S_MFLTGL,11,0x80,0x80,MFL Bedienteil Togglebit,Zustand 0,Zustand 1
+fbmDIA_C,DF01,S_DIALA,13,0x01,0x01,Status Diagnoselampe (CAN),nicht angesteuert,angesteuert
+fbmMIL_C,DF02,S_MILLA,15,0x01,0x01,Status MIL Diagnoselampe (CAN),nicht angesteuert,angesteuert
+mroFGR_ABN,DF08,S_RFGRGNG,16,0x01,0x01,Reversible FGR Abschaltbedingung,io,kein gueltiger Gang
+mroFGR_ABN,DF08,S_RFGRABS,16,0x02,0x02,Reversible FGR Abschaltbedingung,io,Abschaltung aktiv
+mroFGR_ABN,DF08,S_IKUP,16,0x10,0x10,Irreversible FGR Abschaltbedingung,io,Fehler Kupplung
+mroFGR_ABN,DF08,S_IBRE,16,0x20,0x20,Irreversible FGR Abschaltbedingung,io,Fehler Bremse
+mroFGR_ABN,DF08,S_IMFLTGL,16,0x40,0x40,Irreversible FGR Abschaltbedingung,io,Fehler MFL Togglebit
+mroFGR_ABN,DF08,S_IOPT,16,0x80,0x80,Irreversible FGR Abschaltbedingung,io,FGR nicht variantencodiert
+mroFGR_ABN,DF08,S_RFGRKUP,17,0x01,0x01,Reversible FGR Abschaltbedingung,io,durch Kupplung betaetigt
+mroFGR_ABN,DF08,S_RFGRVNM,17,0x02,0x02,Reversible FGR Abschaltbedingung,io,durch Hochdrehen
+mroFGR_ABN,DF08,S_RFGRBRK,17,0x04,0x04,Reversible FGR Abschaltbedingung,io,durch Bremse betaetigt
+mroFGR_ABN,DF08,S_RFGRVMN,17,0x08,0x08,Reversible FGR Abschaltbedingung,io,durch Geschwindigkeit zu klein
+mroFGR_ABN,DF08,S_RFGRVZG,17,0x10,0x10,Reversible FGR Abschaltbedingung,io,durch Verzoegerung zu gross
+mroFGR_ABN,DF08,S_RFGRUEB,17,0x20,0x20,Reversible FGR Abschaltbedingung,io,durch  Geschwindigkeit zu gross
+mroFGR_ABN,DF08,S_RFGRVMR,17,0x40,0x40,Reversible FGR Abschaltbedingung,io,Einschaltgeschwindigkeit zu gering
+mroFGR_ABN,DF08,S_RFGRMSW,17,0x80,0x80,Reversible FGR Abschaltbedingung,io,Mainswitch nicht eingeschaltet
+mroKickDwn,1F9A,S_KD,19,0x01,0x01,Kick Down,nicht betaetigt,betaetigt
+camS_KO,1FB0,S_KO,21,0x01,0x01,Schalter Klimakompressor KO (CAN),nicht betaetigt,betaetigt
+camS_AC,1FB1,S_AC,23,0x01,0x01,Schalter Klimabereitschaft AC (CAN),nicht betaetigt,betaetigt

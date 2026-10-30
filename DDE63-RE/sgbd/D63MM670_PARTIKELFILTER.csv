@@ -1,0 +1,13 @@
+LABEL,TEXT,LID,SID,BYTES,FACT_A,FACT_B,CID,OELVERDUENNUNG,LEISTUNGSMANGEL,SGDEFEKT,OELWECHSEL,FILTERTAUSCH,DRUCKSENSOR,BANDENDE
+ASKM,Lesen KM-Stand für nächsten Ascheabgleich,0x0142,0x0142,4,"1,0","0,0",0x2E,-,-,-,-,5000,-,-
+ASME,Lesen Aschemenge für Ascheabgleich,0x0141,0x0141,2,"1,0","0,0",0x2E,-,-,0,-,-,-,-
+BEGMOM,Begrenzungsmoment bei Partikelfilterfehler,0x0130,0x0130,2,"1,0","0,0",0x2E,0,0,0,-,-,-,-
+CSFLSUM,gefahrene Strecke seit letzter erfolgr. Reg. (m),0x0103,0x26,4,"1,0","0,0",0x31,3000,3000,3000,-,0,-,-
+CSFMSOT,mSot-Partikelmasse (g),0x0101,0x22,2,"0,01","0,0",0x31,0,0,0,-,0,-,0
+CSFPDIFF,Abgleichwerte fuer den Abgasdrucksensor,0x21,0x21,4,"1,0","0,0",0x31,-,-,0,-,-,0,-
+CSFQFL,verbr. Kraftstoffmasse s. letzt. erfolgr.Reg. (l),0x0104,0x24,2,"0,01","0,0",0x31,200,200,200,-,100,-,140
+CSFQFLTOT,verbrauchte Gesamt-Kraftstoffmasse (l),0x0108,0x20,4,"0,01","0,0",0x31,-,-,-,-,0,-,-
+CSFTILCK,Dauer Regeneration gesperrt (s),0x0105,0x27,4,"0,01","0,0",0x31,0,0,0,-,0,-,-
+CSFTIOP,Betriebsdauer s. letzt. erfolgr. Regeneration (s),0x0102,0x25,4,"1,0","0,0",0x31,0,0,0,-,0,-,-
+OELREG,Lfd. Summenreg.dauer fuer zul. Oelverduennung,0x01F0,0x01F0,4,"1,0","0,0",0x2E,0,-,0,0,-,-,-
+--,-,0x00,0x00,0,"1,0","0,0",-,-,-,-,-,-,-,-

@@ -1,0 +1,261 @@
+id,ram_address,sgbd_name,unit,factor,offset,description
+0x0005,0xC086,,,,,
+0x000B,0xC116,,,,,
+0x000C,0xC0A8,,,,,
+0x000D,0xC0A0,,,,,
+0x000F,0xC060,,,,,
+0x0010,0xDC68,,,,,
+0x0011,0xC068,,,,,
+0x0E00,0xC004,edmRSTCD,-,1,0,Restart Code
+0x0E81,0xC18E,ehmFLDS1,%,0.01,0,Tastverhaeltnis Ansteuerung Ladedrucksteller 1
+0x0E87,0xC19C,ehmFGRS,%,0.01,0,Tastverhaeltnis Ansteuerung Gluehrelais 1
+0x0E8B,0xC190,ehmFLDS2,%,0.01,0,Tastverhaeltnis Ansteuerung Ladedrucksteller 2
+0x0E91,0xC1AC,ehmFKLI,%,0.01,0,Tastverhaeltnis Ansteuerung Klimakompressor
+0x0E9F,0xC192,ehmFMML1,%,0.01,0,Tastverhaeltnis Ansteuerung Motorlager 1
+0x0EA0,0xC1A0,,,,,
+0x0EA2,0xC198,ehmFMLS,%,0.01,0,Tastverhaeltnis Ansteuerung Elektroluefter
+0x0EA3,0xC1A6,ehmFZHR,%,0.01,0,Tastverhaeltnis Ansteuerung Zusatzheizung
+0x0EA6,0xC1AA,ehmFEKP,%,0.01,0,Tastverhaeltnis Ansteuerung Vorfoerderpumpe
+0x0EAB,0xC192,,,,,
+0x0EE0,0xDC7A,aroREGSTAT,-,1,0,Status der ARF-Abschaltbedingungen
+0x0F00,0xC086,anmWTF,Grad C,0.1,-273.14,WTF Wassertemperatur
+0x0F01,0xC060,anmLTF2,Grad C,0.1,-273.14,LTF2 Lufttemperatur 2
+0x0F02,0xC070,,,,,
+0x0F07,0xC072,,,,,
+0x0F08,0xC0A0,fgmFGAKT,km/h,0.01,0,aktuelle Geschwindigkeit
+0x0F09,0xC0B2,mrmFG_SOLL,km/h,0.01,0,V Sollwert Fahrgeschwindigkeit von FGR
+0x0F0A,0xC0A2,fgmBESCH,m/s^2,0.0847711,-10.8507031,Beschleunigung
+0x0F0B,0xC0A4,fgm_VzuN,(km/h)/(1/min),0.0000391,0,Verhaeltnis Geschwindigkeit/Drehzahl (V/N aktuell) 
+0x0F0C,0xC0EC,mrmV_SOLHN,km/h,0.01,0,HGB nachg. v-Soll
+0x0F10,0xC0A8,dzmNmit,1/min,1,0,N Drehzahl
+0x0F2C,0xC10C,armM_List1,mg/Hub Luft,0.1,0,M_L aktuelle Luftmasse 1
+0x0F2D,0xC10E,armM_List2,mg/Hub Luft,0.1,0,M_L aktuelle Luftmasse 2
+0x0F30,0xC10A,armM_List,mg/Hub Luft,0.1,0,M_L aktuelle Luftmasse
+0x0F31,0xDC92,aroSOLL_5,mg/Hub Luft,0.1,0,M_L Luft-Sollwert nach Sollwertbegrenzung
+0x0F32,0xC276,armM_Lsoll,mg/Hub Luft,0.1,0,M_L Sollwert fuer AGR-Regelung
+0x0F34,0xDC2C,anoU_LMM2,V,0.0048875855,0,LMM2 Spannung Luftmassenmesser 2
+0x0F35,0xDC38,anoU_PWG,V,0.0048875855,0,PWG Spannung Pedalwertgeber Poti 1
+0x0F40,0xC116,ldmP_Llin,mbar,1,0,aktueller Ladedruck  / Luftdruck
+0x0F41,0xC114,ldmADF,mbar,1,0,aktueller Atmosphaerendruck
+0x0F42,0xC278,ldmP_Lsoll,mbar,1,0,Sollwert Ladedruck
+0x0F48,0xC118,ldmT_LTGG,Grad C,0.1,-273.14,Errechnete Lufttemperatur
+0x0F49,0xDA96,ldoTVsteu,%,0.01,0,Tastverhaeltnis Steuerung
+0x0F60,0xC068,anmPWG,%,0.01,0,PWG Pedalwertgeber Poti 1
+0x0F61,0xC056,anmLMM2,%,0.01,0,LMM2 Luftmasse 2
+0x0F63,0xC044,anmADF,mbar,1,0,ADF Atmosphaerendruck
+0x0F65,0xC08E,anmUBT,V,0.0236197458,0,UBT Batteriespannung
+0x0F6C,0xC180,dimDIG_0,-,1,0,Auf logisch 0 erkannte Digitaleingaenge
+0x0F6D,0xC182,dimDIG_1,-,1,0,Auf logisch 1 erkannte Digitaleingaenge
+0x0F70,0xC17E,dimDIGprel,-,1,0,Entprellte logische Zustaende der digitalen Eingaenge
+0x0F71,0xC17E,,,,,
+0x0F7E,0xC0B4,mrmF_GANG,-,1,0,FGR aktuelle Gangstufe
+0x0F7F,0xC218,mrmSTATUS,-,1,0,Status Motorbetriebsphase
+0x0F80,0xC0DE,mrmM_EAKT,mm^3,0.01,0,M_E Aktuelle Einspritzmenge (ohne ARD)
+0x0F82,0xC0F6,mrmM_ESTAR,mm^3,0.01,0,M_E resultierender Startmengen-Sollwert
+0x0F83,0xC0D6,mrmPWGfi,%,0.01,0,PWG gefilterte Pedalwertgeber-Position
+0x0F84,0xC0D8,mrmM_EPWG,mm^3,0.01,0,M_E Wunschmenge = f(PWG) aus Fahrverhaltenkennfeld
+0x0F85,0xC0BA,mrmM_EFGR,mm^3,0.01,0,M_E Wunschmenge aus Fahrgeschwindigkeitsregelung
+0x0F86,0xC0BC,mrmM_EWUNF,mm^3,0.01,0,M_E Fahrerwunschmenge aus PWG oder FGR
+0x0F89,0xC0E8,mrmM_DXMSR,mm^3,0.01,0,M_E externer Momenteneingriff MSR
+0x0F8A,0xC0E0,mrmM_EBEGR,mm^3,0.01,0,M_E resultierende Begrenzungsmenge
+0x0F8B,0xC0C0,mrmM_EWUN,mm^3,0.01,0,M_E Fahrerwunschmenge nach externem Mengeneingriff
+0x0F8C,0xC214,mrmM_EMOT,mm^3,0.01,0,M_E Einspritzmenge nach ARD
+0x0F8D,0xC0DA,mrmM_ELLR,mm^3,0.01,0,M_E Menge aus Leerlaufregelung
+0x0F9A,0xD828,mroFABZUST,-,1,0,Zustand Ablaufsteuerung
+0x0F9B,0xD828,,,,,
+0x0FAE,0xC28C,xcmZ_E,-,1,0,EWS Uebertragungsfehlerzaehler
+0x0FD0,0xC0D2,mrmKM_akt,km,10,0,aktueller km-Stand von Kombiinstrument
+0x0FD7,0xC312,,,,,
+0x0FF6,0xC092,anmUG1,V,0.01764418377,0,"UG1 Speisespannung 1 fuer Luftmassenmesser 2, Pedalwertgeber PGS"
+0x0FF7,0xC096,anmUG2,V,0.01764418377,0,"UG2 Speisespannung 2 fuer Pedalwertgeber, Vorfoerderdruckfuehler"
+0x0FF8,0xC03C,anmUC1,V,0.0205718988,0,UC1 Kondensatorspannung 1 fuer Zylinder 3 und 5
+0x0FF9,0xC040,anmUC2,V,0.0205718988,0,UC2 Kondensatorspannung 2 fuer Zylinder 2 und 8
+0x0FFA,0xC06C,anmPGS,%,0.01,0,PGS Pedalwertgeber Poti 2
+0x0FFB,0xC076,,,,,
+0x0FFD,0xC07E,,,,,
+0x1000,0xC307,fbmSDIAL,-,1,0,"Anforderung Diagnoselampe aus Fehlerbehandlung (0:Aus,1:Ein,2:Blinken)"
+0x1300,0xC26E,fbmBSTZ_UB,h,0.1,0,UB Betriebsstunden
+0x1301,0xC26E,,,,,
+0x1302,0xC26E,,,,,
+0x1C00,0xC2FC,comGTR_opt,-,1,0,Identifikation Handschalter/Automatik
+0x1C20,0xDAC8,mroACC_ZST,-,1,0,ACC Zustand in der Motorsteuerung
+0x1C21,0xDAB4,mroACC_ABB,-,1,0,Abbruchbedingung fuer Adaptive Cruise Control ACC
+0x1E90,0xC19A,,,,,
+0x1E91,0xC1A2,,,,,
+0x1E95,0xC1A4,,,,,
+0x1E96,0xC19E,ehmFGRS2,%,0.01,0,Tastverhaeltnis Ansteuerung Gluehrelais 2
+0x1E97,0xC1AE,ehmFZME,%,0.01,0,Tastverhaeltnis Ansteuerung elektrisches Abschaltventil
+0x1F06,0xC09A,anmVDF,bar,0.001,0,VDF Vorfoerderdruck
+0x1F23,0xC07A,,,,,
+0x1F24,0xC082,,,,,
+0x1F25,0xC048,anmIZE,mA,4.995005,0,IZE Istwert Stromregelung Zumesseinheit
+0x1F26,0xC04C,anmLDF1,mbar,1,0,LDF Ladedruck
+0x1F27,0xC052,anmLMM1,%,0.01,0,LMM1 Luftmasse 1
+0x1F28,0xC05E,anmLTF1,Grad C,0.1,-273.14,LTF1 Lufttemperatur 1
+0x1F5A,0xC234,zumAB_HE,Grad KW,0.0234375,0,Ansteuerbeginn Haupteinspritzung
+0x1F5D,0xC20E,zumP_RAIL,bar,10.235414,0,Raildruck fuer Mengenzumessung
+0x1F5E,0xC20C,zumPQsoll,bar,10.235414,0,Raildruck Sollwert
+0x1F60,0xC228,zumAB_NE,Grad KW,0.0234375,0,Ansteuerbeginn Nacheinspritzung
+0x1F61,0xC22C,zumAD_NE2,us,1,0,Ansteuerdauer Nacheinspritzung Abgastrakt 2
+0x1F9A,0xD88E,mroKickDwn,-,1,0,Schalter Kickdown
+0x1FB0,0xC32A,camS_KO,-,1,0,Schalter Klimakompressor
+0x1FB1,0xC32B,camS_AC,-,1,0,Schalter Klimabereitschaft
+0x2000,0xC088,admWTF,Grad C,0.1,-273.14,WTF Rohwert Wassertemperatur
+0x2001,0xC062,admLTF2,Grad C,0.1,-273.14,LTF2 Rohwert Lufttemperatur 2
+0x2006,0xC09C,admVDF,bar,0.001,0,VDF Rohwert Vorfoerderdruck
+0x2007,0xC074,,,,,
+0x2041,0xC046,admADF,mbar,1,0,ADF Rohwert Atmosphaerendruck
+0x2060,0xC06A,admPWG,%,0.01,0,PWG Rohwert Pedalwertgeber Poti 1
+0x2061,0xC058,admLMM2,%,0.01,0,LMM2 Rohwert Luftmasse 2
+0x2065,0xC090,admUBT,V,0.0236197458,0,UBT Rohwert Batteriespannung
+0x2151,0xDA1A,,,,,
+0x2152,0xDA18,gsoGS_Pha,-,1,0,Gluehzeitsteuerung Gluehphase
+0x2153,0xDA16,gsoEmByte,-,1,0,GZS empfangenes Byte
+0x2160,0xDCBC,caoVERB,ul,1,0,Kraftstoffverbrauch fuer CAN DDE4-VERBRAUCH
+0x2210,0xD8AA,mroMD_SOLL,Nm,3.137255,0,Sollmoment
+0x2211,0xD8A2,mroMD_FAHR,Nm,3.137255,0,Fahrerwunschmoment
+0x2212,0xD8A8,mroMD_REIB,Nm,3.137255,0,Reibmoment
+0x2220,0xC172,camN_EL,1/min,0.0915555284,0,MLS Drehzahlstufe E-Luefter
+0x2F14,0xC358,zhmUM_ZA,-,1,0,Umdrehungszaehler (1 Tick = 2 Umdrehungen)
+0x2F23,0xC07C,,,,,
+0x2F24,0xC084,,,,,
+0x2F25,0xC04A,admIZE,mA,4.995005,0,IZE Rohwert Istwert Stromregelung Zumesseinheit
+0x2F74,0xC17C,dimF_MFL,-,1,0,FGR Multifunktionslenkrad
+0x2F75,0xC316,mrmL_FGR,-,1,0,FGR-Status-Indicator-Lampe ueber CAN
+0x2FF6,0xC094,admUG1,V,0.01764418377,0,"UG1 Rohwert Speisespannung 1 fuer Luftmassenmesser 2, Pedalwertgeber PGS"
+0x2FF7,0xC098,admUG2,V,0.01764418377,0,"UG2 Rohwert Speisespannung 2 fuer Pedalwertgeber, Vorfoerderdruckfuehler"
+0x2FF8,0xC038,admUC1,V,0.0205718988,0,UC1 Rohwert Kondensatorspannung 1 fuer Zylinder 3 und 5
+0x2FF9,0xC03A,admUC2,V,0.0205718988,0,UC2 Rohwert Kondensatorspannung 2 fuer Zylinder 2 und 8
+0x2FFA,0xC06E,admPGS,%,0.01,0,PGS Rohwert Pedalwertgeber Poti 2
+0x2FFB,0xC078,,,,,
+0x2FFD,0xC080,,,,,
+0x3002,0xDC54,anoU_WTF,V,0.0048875855,0,WTF Spannung Wassertemperaturfuehler
+0x3006,0xDC34,anoU_PGS,V,0.0048875855,0,PGS Spannung Pedalwertgeber Poti 2
+0x3008,0xDC4A,anoU_UC1,V,0.0048875855,0,UC1 Spannung Kondensatorspannung 1 fuer Zylinder 3 und 5
+0x3009,0xDC4C,anoU_UC2,V,0.0048875855,0,UC2 Spannung Kondensatorspannung 2 fuer Zylinder 2 und 8
+0x300E,0xDC30,anoU_LTF2,V,0.0048875855,0,LTF2 Spannung Lufttemperaturfuehler 2
+0x300F,0xDC44,,,,,
+0x3010,0xDC3C,,,,,
+0x3011,0xDC22,anoU_ADF,V,0.0048875855,0,ADF Spannung Atmosphaerendruckfuehler
+0x3013,0xDC48,anoU_UBT,V,0.0048875855,0,UBT Spannung Batteriespannung
+0x3014,0xDC32,,,,,
+0x3016,0xDC4E,anoU_UG1,V,0.01764418377,0,"UG1 Spannung Speisespannung 1 fuer Luftmassenmesser 2, Pedalwertgeber PGS"
+0x3017,0xDC50,anoU_UG2,V,0.01764418377,0,"UG2 Spannung Speisespannung 2 fuer Pedalwertgeber, Vorfoerderdruckfuehler"
+0x301A,0xDC52,anoU_VDF,V,0.0048875855,0,VDF Spannung Vorfoerderdruckfuehler
+0x3023,0xDC46,,,,,
+0x3024,0xDC3E,,,,,
+0xDE00,0xDD01,,,,,
+0xDE02,0xDD02,,,,,
+0xDE04,0xDD07,,,,,
+0xDE05,0xDD0A,,,,,
+0xDE06,0xDD0C,,,,,
+0xDE08,0xDD0B,,,,,
+0xDE09,0xDD12,,,,,
+0xDE0A,0xDD13,,,,,
+0xDE0B,0xDD14,,,,,
+0xDE0C,0xDD15,,,,,
+0xDE0F,0xDD19,,,,,
+0xDE10,0xDD1A,,,,,
+0xDE11,0xDD1C,,,,,
+0xDE12,0xDD20,,,,,
+0xDE18,0xDD29,,,,,
+0xDE1C,0xDD3E,,,,,
+0xDE20,0xDD30,,,,,
+0xDE21,0xDD33,,,,,
+0xDE22,0xDD34,,,,,
+0xDE23,0xDD36,,,,,
+0xDE24,0xDD00,,,,,
+0xDE25,0xDD37,,,,,
+0xDE2A,0xDD38,,,,,
+0xDE2C,0xDD39,,,,,
+0xDE2D,0xDD3A,,,,,
+0xDE30,0xDD3C,,,,,
+0xDE31,0xDD3D,,,,,
+0xDE34,0xDD3F,,,,,
+0xDE36,0xDD03,,,,,
+0xDE37,0xDD04,,,,,
+0xDE38,0xDD05,,,,,
+0xDE39,0xDD08,,,,,
+0xDE3A,0xDD0E,,,,,
+0xDE3B,0xDD06,,,,,
+0xDE3C,0xDD2F,,,,,
+0xDE3D,0xDD25,,,,,
+0xDE3F,0xDD23,,,,,
+0xDE40,0xDD26,,,,,
+0xDE42,0xDD42,,,,,
+0xDE43,0xDD43,,,,,
+0xDE44,0xDD44,,,,,
+0xDE45,0xDD45,,,,,
+0xDE46,0xDD46,,,,,
+0xDE47,0xDD47,,,,,
+0xDE48,0xDD48,,,,,
+0xDE49,0xDD49,,,,,
+0xDE4B,0xDD27,,,,,
+0xDE4C,0xDD2B,,,,,
+0xDE4D,0xDD4A,,,,,
+0xDE56,0xDD24,,,,,
+0xDE5A,0xDD10,,,,,
+0xDE5B,0xDD16,,,,,
+0xDE5C,0xDD17,,,,,
+0xDE60,0xDD0D,,,,,
+0xDE6E,0xDD1E,,,,,
+0xDE7E,0xDD4C,,,,,
+0xDE7F,0xDD28,,,,,
+0xDECD,0xDDCA,,,,,
+0xDEE0,0xDDE0,,,,,
+0xDEE1,0xDDE0,,,,,
+0xDEE2,0xDDE2,,,,,
+0xDEE3,0xDDE2,,,,,
+0xDEE4,0xDDE4,,,,,
+0xDEE5,0xDDE4,,,,,
+0xDEE6,0xDDE6,,,,,
+0xDEE7,0xDDE6,,,,,
+0xDEE8,0xDDE8,,,,,
+0xDEE9,0xDDE8,,,,,
+0xDEEA,0xDDEA,,,,,
+0xDEEB,0xDDEA,,,,,
+0xDEEC,0xDDEC,,,,,
+0xDEED,0xDDED,,,,,
+0xDEEE,0xDDEE,,,,,
+0xDEEF,0xDDEF,,,,,
+0xDF00,0xDA0A,fboDIALA,-,1,0,Diagnose - Lampe Status (255 = EIN)
+0xDF01,0xC32F,fbmDIA_C,-,1,0,Diagnoselampe ueber CAN
+0xDF02,0xC330,fbmMIL_C,-,1,0,MIL Malfunction Indikator Lamp ueber CAN
+0xDF08,0xD836,mroFGR_ABN,-,1,0,FGR Abschalt-Bedingungen
+0xDF09,0xD836,,,,,
+0xDF0E,0xDC6C,aroIST_51,mg/Hub Luft,0.1,0,M_L normierte Luftmasse 1 (nicht T_L/P_ADF-korrig.)
+0xDF13,0xC01A,mrmLLRIAnt,mm^3,0.01,0,M_E Menge aus I-Anteil des PI-Leerlaufreglers
+0xDF14,0xC018,mrmLLRPAnt,mm^3,0.01,0,M_E Menge aus P-Anteil des PI-Leerlaufreglers
+0xDF20,0xC0F2,mrmCASE_L,-,1,0,LLR Zustand-Bits der Leerlaufregelung
+0xDF21,0xC0F4,mrmCASE_A,-,1,0,ARD Zustand-Bits der aktiven Ruckeldaempfung
+0xDF24,0xDC6E,aroIST_52,mg/Hub Luft,0.1,0,M_L normierte Luftmasse 2 (nicht T_L/P_ADF-korrig.)
+0xDF28,0xDC70,aroLMX,-,0.0256,0,LMX Luftmassenindex = (M_L1 - M_L2) / (M_L1 + M_L2)
+0xDF70,0xDD60,fboS_00,-,1,0,Defekte Pfade 1 bis 16
+0xDF71,0xDD60,,,,,
+0xDF72,0xDD62,fboS_02,-,1,0,Defekte Pfade 17 bis 32
+0xDF73,0xDD62,,,,,
+0xDF74,0xDD64,fboS_04,-,1,0,Defekte Pfade 33 bis 48
+0xDF75,0xDD64,,,,,
+0xDF76,0xDD66,fboS_06,-,1,0,Defekte Pfade 49 bis 64
+0xDF77,0xDD66,,,,,
+0xDF78,0xDD68,fboS_08,-,1,0,Defekte Pfade 65 bis 80
+0xDF79,0xDD68,,,,,
+0xDF7A,0xDD6A,,,,,
+0xDF7B,0xDD6A,,,,,
+0xDF7E,0xDD6E,,,,,
+0xDF7F,0xDD6F,,,,,
+0xE012,0xDD22,,,,,
+0xE019,0xDACE,,,,,
+0xE020,0xDCEC,,,,,
+0xE021,0xDCEC,,,,,
+0xE022,0xDD35,,,,,
+0xE023,0xDD0F,,,,,
+0xE024,0xDD11,,,,,
+0xE025,0xDD18,,,,,
+0xE029,0xDD1B,,,,,
+0xE02A,0xDD1D,,,,,
+0xE02B,0xDD1F,,,,,
+0xE02C,0xDD2A,,,,,
+0xE02D,0xDD21,,,,,
+0xE02E,0xDD4E,,,,,
+0xE02F,0xDD31,,,,,

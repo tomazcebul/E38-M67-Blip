@@ -1,0 +1,18 @@
+LABEL,TEXT,LID,VALUE
+AFSRE,Rücksetzen der AFS-Erkennung,0xF4,-
+ARSRE,Rücksetzen ARS-Status- Erkennung,0x0110,-
+DCCRE,Rücksetzen der DCC-Erkennung,0xFE,-
+EKPRE,Rücksetzen der EKP-Lernwerte im EEPROM,0xFA,-
+LASTKOLL,Rücksetzen Fahrzeugbenutzungsprofil,0xFC,-
+LASTZEIT,Rücksetzen Fahrzeugbenutzungsprofil-Betriebsstunde,0xFD,-
+LSUADAP,Lambda Sonden Adaption,0xF8,0x00
+LSUKALT,Lambda Sonden Kaltstartzähler,0xF9,-
+MASLRE,Rücksetzen Master/Slave Erkennung,0x0100,-
+MMAR,Rücksetzen der MMA,0xF60701,-
+NMKINJALT,NMK-Tausch alter Injektoren,0xF7,0x0300
+NMKINJEIN,NMK-Tausch einzelner Injektoren,0xF7,0x0400
+NMKINJTAU,NMK-Tausch aller Injektoren,0xF7,0x0500
+NMKSGD,NMK-SG defekt,0xF7,0x0200
+NMKSGT,NMK-SG Tausch,0xF7,0x0100
+PWRHISTRES,Powermangement Start Steuern Histogramm Reset,0xF5,-
+--,-,-,-

@@ -1,0 +1,13 @@
+ARTMASKE,ARTNR,ARTTEXT
+xxxxxxx0,10,Fehler nicht im Shadow eingetragen
+xxxxxxx1,11,Fehler im Shadow eingetragen
+xxxxxx0x,20,Umweltbedingungen 1. Block ungültig (Fehler bereits mehrmals aufgetreten)
+xxxxxx1x,21,Umweltbedingungen 1. Block gültig (Fehler nur einmal aufgetreten)
+xxxxx0xx,30,Umweltbedingungen 2. Block ungültig (Fehler nur einmal aufgetreten)
+xxxxx1xx,31,Umweltbedingungen 2. Block gültig (Fehler bereits mehrmals aufgetreten)
+xxxx0xxx,40,--
+xxxx1xxx,41,Error-Flag gesetzt
+xxx0xxxx,50,--
+xxx1xxxx,51,MIL ein
+xx0xxxxx,60,--
+xx1xxxxx,61,Fehler in Entprellphase

@@ -1,0 +1,18 @@
+IDENTIFIER,SIGNAL,0X00,0X01,0X02
+0x01,MV1,AUS,-,EIN
+0x02,MV2,AUS,-,EIN
+0x03,MV3,AUS,-,EIN
+0x10,EDS1,<=100mA,-,>100mA
+0x11,EDS2,<=100mA,-,>100mA
+0x12,EDS3,<=100mA,-,>100mA
+0x13,EDS4,<=100mA,-,>100mA
+0x14,EDS5,<=100mA,-,>100mA
+0x15,EDS6,<=100mA,-,>100mA
+0x20,L1,L-Leitung LOW,-,L-Leitung HIGH
+0x21,L2,L-Leitung LOW,-,L-Leitung HIGH
+0x22,L3,L-Leitung LOW,-,L-Leitung HIGH
+0x23,L4,L-Leitung LOW,-,L-Leitung HIGH
+0x24,P_Leitung,AUS,-,EIN
+0x30,Shiftlock,AUS,-,EIN
+0x31,Interlock,AUS,-,EIN
+0x00,,-,-,-

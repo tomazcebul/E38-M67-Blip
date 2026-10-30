@@ -1,0 +1,120 @@
+ARTNR,ARTTEXT
+0x0000,kein passendes Fehlersymptom
+0x0001,Signal oder Wert oberhalb Schwelle
+0x0002,Signal oder Wert unterhalb Schwelle
+0x0004,kein Signal oder Wert
+0x0008,unplausibles Signal oder Wert
+0x0010,Checksummenfehler
+0x0020,Timeout-Fehler
+0x0030,Alivecounter-Fehler
+0x0040,nicht belegt
+0x0051,Plausibilität
+0x0052,"Plausibilität CGT, CChip"
+0x0053,Unplausibles Signal oder Wert
+0x0054,Parksperrenposition unplausibel
+0x0055,Abtrieb unplausibel zu Turbine/Räder
+0x0056,Tipp- und M-Gassenschalter unplausibel
+0x0057,Raddrehzahl unplausibel zu Abtrieb/Turbine
+0x0058,Leitungscodierung des Positionssensors ist unplausibel
+0x0059,Status Anlasserfreigabe unplausibel zur Getriebeposition
+0x005A,Plausibilisierung der zurückgelesenen Sendebotschaft ist fehlgeschlagen
+0x005B,unerlaubte EDS-Ansteuerung
+0x0060,Abtriebsdrehzahl grösser Schwelle
+0x0061,Motordrehzahl grösser Schwelle
+0x0062,Turbinendrehzahl grösser/kleiner Schwelle
+0x0063,analoger Temperaturwert oberhalb Schwelle
+0x0064,analoger Temperaturwert unterhalb Schwelle
+0x0067,Schlupf Wandlerkupplung grösser Schwelle
+0x0068,EDS-Strom ausserhalb der Schwellen
+0x0069,Nebenschlusstrom grösser Schwelle
+0x006A,"Versorgungsspannung kleiner Schwelle, Aktuator-Versorgung nicht gewährleistet"
+0x006B,Abfall des Abtriebsgradienten grösser Schwelle
+0x006C,Versorgungsspannung grösser Schwelle
+0x006D,Ölverschleiß aufgrund hoher Temperaturbeanspruchung
+0x006E,Versorgungsspannung bei EGS-Abschaltgrenze
+0x006F,Temperatursprung CGT
+0x0070,"elektrischer Fehler (KSP, KSM, U)"
+0x0071,Kurzschluß nach Plus
+0x0072,Kurzschluss nach Masse
+0x0073,Unterbrechung
+0x0074,Kurzschluss nach Masse oder Unterbrechung
+0x0075,Kurzschluss im Sensor
+0x0076,elektrischer Fehler L3
+0x0077,Kurzschluss nach Plus oder Unterbrechung
+0x0078,elektrischer Fehler L4
+0x007A,Symptom Schaltungsüberwachung
+0x0080,CAN-Kommunikation gestört
+0x0081,CAN und serielles Signal vom SZL defekt
+0x0082,CAN-Signal eines Antriebsrades ist fehlerhaft
+0x0083,während Initialisierung: Watchdog-Fehler allgemein _1
+0x0084,Watchdog-Fehler allgemein _1 (Plausibilität FET Aktivierungsfehler)
+0x0085,"Watchdog-Fehler allgemein _2 (KS Plus, KS Masse, Unterbrechung)"
+0x0086,"Watchdog-Fehler allgemein _3 (Laufzeitfehler, Signal zu groß, Signal zu klein)"
+0x0087,Checksummenfehler im Flash-Speicher
+0x0088,SoftwareVerif bei EEProm-Emulation fehlgeschlagen
+0x0089,Defekt im EEPROM-Bereich
+0x0090,allgemeiner Fehler
+0x0091,Kollision von Ersatzmaßnahmen
+0x0092,Symptom Gangüberwachung
+0x0093,Gangüberwachung Rückwärtsgang
+0x0094,Hochtemperatur-Abschaltung
+0x0095,Fehlerstatus digitaler Sensor
+0x0096,keine Fahrerinfo möglich über betätigte Notentriegelung
+0x0097,spezielle Stromüberwachung
+0x0098,serieller Timeout
+0x0099,EGS-Reset
+0x009A,Störung im Verteilergetriebe
+0x009B,Signal Verteilergetriebe fehlerhaft
+0x009C,Zwangshochschaltung 5-6 durch DME
+0x009D,Auto-P wegen PowerModul Abschaltung
+0x009E,Auto-P wegen Absicherung EMF
+0x009F,Auto-P wegen Hilferuf EMF
+0x00A0,Auto-N wegen Zwischenposition SZL
+0x00A1,Auto-P wegen Wegfall CAN-Information SZL
+0x00A2,Motordrehungleichförmigkeit
+0x00A3,MV1 -2 fehlerhaft offen
+0x00A4,Parksperre fehlerhaft eingelegt
+0x00A5,pos. Motoreingriff fehlerhaft (ZF)
+0x00A6,"Überwachungsebene2-Berechnung, shift by wire"
+0x00A7,Überwachungsebene2-Berechnung pos. Motoreingriff
+0x00A8,Fehler TPURAM
+0x00A9,Fehler TPU AliveCounter
+0x00AA,leichter Fehler QADC
+0x00AB,schwerer Fehler QADC
+0x00AC,Parksperre fehlerhaft ausgelegt
+0x00AD,Chip- oder Öltemperatur zu groß
+0x00AE,CG122 konnte nicht abschalten
+0x00AF,Störzähler1>Grenzwert
+0x00B0,Störzähler2>Grenzwert
+0x00B1,Störzähler3>Grenzwert
+0x00B2,Störzähler4>Grenzwert
+0x00B3,Störzähler14>Grenzwert
+0x00B4,Störzähler1<Grenzwert
+0x00B5,Störzähler2<Grenzwert
+0x00B6,Störzähler3<Grenzwert
+0x00B7,Störzähler4<Grenzwert
+0x00B8,Störzähler14<Grenzwert
+0x00B9,Exception
+0x00BA,WD Fehlerzähler
+0x00BB,Vermutlich Unterspannung in Init
+0x00BC,Vermutlich Unterspannung in Cruise oder Limp-Home
+0x00BD,Vermutlich Unterspannung in Standby
+0x00BE,Inkonsistenzen von Istgang und Zielgang
+0x00BF,Inkonsistenzen von Kraftflussvariablen
+0x00C0,Inkonsistenzen von Kraftfluss zu Gang
+0x00C1,Inkonsistenzen von Ventilen/Kupplung
+0x00C2,Pull-Up Spannung zu klein
+0x00C3,Spannung M3 oder M2 > Grenzwert
+0x00C4,Grenzwert der Getriebeölschädigung erreicht
+0x00C5,Funktion Hotmode Stufe 1
+0x00C6,Funktion Hotmode Stufe 2
+0x00C7,Funktion Hotmode Stufe 3
+0x00C8,Status Bremslichtschalter fehlerhaft
+0x00C9,Status Bremsdrucksignal fehlerhaft
+0x00CA,Überwachung des Nachrichteninhalts
+0x00CB,Überwachung auf Fehlerwert
+0x00CC,Level 2 Überwachung
+0x00CD,Inhalt Sende-Rücklesebotschaft unplausibel
+0x00CE,HPSYS-Plausibilisierung
+0x00CF,Codierung war fehlerhaft
+0xFFFF,unbekannte Fehlerart

@@ -1,0 +1,145 @@
+"""Decode the GS19.04 transmission calibration (6HP26, program 7557063A) and compare engine variants.
+
+Data files (BMW-SPdaten-v.60.1/E65/data/GKE194, all for program 7557063A):
+  A7559201 M67D40 (M67D39 3.9 l), A7559199 / A7577366 M57D30 TU, A7559189 N62B36, A7559191 N62B44, A7559203 N73B60
+
+Layout of the data (file 0xE0000-0xFFFFF, mapped at 0x6E0000 in the ECU):
+  0xE0080  pointer table, 4843 x 32-bit addresses (0x6E....), ends with the string "DAE22036"
+           (parameter references in code order; pointers repeat)
+  objects  sorted unique pointers; object size = distance to the next pointer
+  curves   int16 n, x[n], y[n]                  (size 2 + 4n)
+  maps     int16 nx, ny, x[nx], y[ny], z[nx*ny]  (size 4 + 2(nx + ny + nx*ny)); value order chosen by smoothness
+           over all variants
+
+Each object is classified as generic (same for all engines), diesel (M67 = M57, differs from petrol) or
+M67 (differs from M57).
+
+Usage: python egs_cal.py   -> out/egs_cal.md, egs/egs_objects.json
+"""
+import json
+import os
+import struct
+import subprocess
+import sys
+from collections import Counter
+
+import mem as M
+
+HEX2BIN = os.path.join(M.REPO, "DDE41A-RE", "tools", "hex2bin.py")
+EGS_BIN = os.path.join(M.ROOT, "egs", "bin")
+DATA_DIR = os.path.join(M.SP, "data", "GKE194")
+VARIANTS = {"M67D40": "A7559201", "M57D30TU": "A7559199", "M57D30TU_10": "A7577366",
+            "N62B36": "A7559189", "N62B44": "A7559191", "N73B60": "A7559203"}
+FILE_BASE, ECU_BASE, PTR_TABLE = 0xE0000, 0x6E0000, 0xE0080
+
+
+def load(name):
+    out = os.path.join(EGS_BIN, name + ".bin")
+    if not os.path.exists(out):
+        os.makedirs(EGS_BIN, exist_ok=True)
+        subprocess.run([sys.executable, HEX2BIN, os.path.join(DATA_DIR, name + ".0da"), out, "--base", hex(FILE_BASE),
+                        "--size", "0x20000"], check=True, capture_output=True)
+    return open(out, "rb").read()
+
+
+def s16(d, a):
+    return struct.unpack_from(">h", d, a - ECU_BASE)[0]
+
+
+def increasing(v):
+    return all(v[i] < v[i + 1] for i in range(len(v) - 1))
+
+
+def roughness(z, nx, ny, xfast):
+    g = (lambda i, j: z[j * nx + i]) if xfast else (lambda i, j: z[i * ny + j])
+    return (sum(abs(g(i + 1, j) - g(i, j)) for i in range(nx - 1) for j in range(ny)) +
+            sum(abs(g(i, j + 1) - g(i, j)) for i in range(nx) for j in range(ny - 1)))
+
+
+def decode(d, a, n):
+    k = s16(d, a)
+    if 2 <= k <= 40 and n == 2 + 4 * k:
+        x = [s16(d, a + 2 + 2 * i) for i in range(k)]
+        if increasing(x):
+            return dict(type="KL", x=x)
+    ny = s16(d, a + 2)
+    if 2 <= k <= 40 and 2 <= ny <= 40 and n == 4 + 2 * (k + ny + k * ny):
+        x = [s16(d, a + 4 + 2 * i) for i in range(k)]
+        y = [s16(d, a + 4 + 2 * k + 2 * i) for i in range(ny)]
+        if increasing(x) and increasing(y):
+            return dict(type="KF", x=x, y=y)
+    return None
+
+
+def values(d, a, o):
+    if o["type"] == "KL":
+        n = len(o["x"])
+        return [s16(d, a + 2 + 2 * n + 2 * i) for i in range(n)]
+    nx, ny = len(o["x"]), len(o["y"])
+    b = a + 4 + 2 * (nx + ny)
+    return [s16(d, b + 2 * i) for i in range(nx * ny)]
+
+
+def main():
+    data = {k: load(v) for k, v in VARIANTS.items()}
+    ref = data["M67D40"]
+    nptr = 0
+    while ECU_BASE <= struct.unpack_from(">I", ref, PTR_TABLE - FILE_BASE + 4 * nptr)[0] < 0x700000:
+        nptr += 1
+    ptrs = [struct.unpack_from(">I", ref, PTR_TABLE - FILE_BASE + 4 * k)[0] for k in range(nptr)]
+    for k, d in data.items():
+        if d[PTR_TABLE - FILE_BASE:PTR_TABLE - FILE_BASE + 4 * nptr] != ref[PTR_TABLE - FILE_BASE:PTR_TABLE - FILE_BASE + 4 * nptr]:
+            raise SystemExit(f"{k}: pointer table differs")
+    addrs = sorted(set(ptrs)) + [0x6FFFC4]
+    objs = []
+    for i in range(len(addrs) - 1):
+        a, n = addrs[i], addrs[i + 1] - addrs[i]
+        raw = {k: d[a - ECU_BASE:a - ECU_BASE + n] for k, d in data.items()}
+        m = raw["M67D40"]
+        cls = "generic" if all(v == m for v in raw.values()) else "diesel" if m == raw["M57D30TU"] else "M67"
+        o = dict(addr=f"{a:06X}", size=n, cls=cls, refs=ptrs.count(a))
+        st = decode(ref, a, n)
+        if st:
+            o.update(st)
+            z = {k: values(d, a, st) for k, d in data.items()}
+            if st["type"] == "KF":
+                nx, ny = len(st["x"]), len(st["y"])
+                xf = sum(roughness(v, nx, ny, True) for v in z.values()) <= sum(roughness(v, nx, ny, False) for v in z.values())
+                o["order"] = "x fastest" if xf else "y fastest"
+                z = {k: [[(v[j * nx + i] if xf else v[i * ny + j]) for i in range(nx)] for j in range(ny)] for k, v in z.items()}
+            o["z"] = z
+        objs.append(o)
+    json.dump(objs, open(os.path.join(M.ROOT, "egs", "egs_objects.json"), "w"))
+
+    cls = Counter(o["cls"] for o in objs)
+    kinds = Counter((o.get("type", "other"), o["cls"]) for o in objs)
+    lines = ["# GS19.04 transmission calibration (A7559201, M67D40)\n",
+             f"Generated by `tools/egs_cal.py`. Pointer table at 0xE0080: {nptr} references to {len(objs)} objects "
+             f"(generic {cls['generic']}, diesel {cls['diesel']}, M67-specific {cls['M67']}).\n",
+             "| Kind | generic | diesel | M67 |\n|---|---|---|---|"]
+    for t in ("KL", "KF", "other"):
+        lines.append(f"| {t} | {kinds[(t, 'generic')]} | {kinds[(t, 'diesel')]} | {kinds[(t, 'M67')]} |")
+    lines.append("\nValues are raw int16. Rows = y, columns = x. Other engines shown where they differ from the M67.\n")
+    for o in objs:
+        if "type" not in o:
+            continue
+        dims = f"{len(o['x'])}" if o["type"] == "KL" else f"{len(o['x'])}x{len(o['y'])}"
+        lines.append(f"## {o['addr']} {o['type']} {dims} ({o['cls']})\n\n```text\nx : {' '.join(map(str, o['x']))}")
+        if o["type"] == "KF":
+            lines.append(f"y : {' '.join(map(str, o['y']))}   ({o['order']})")
+        for k, z in o["z"].items():
+            if k != "M67D40" and z == o["z"]["M67D40"]:
+                continue
+            if o["type"] == "KL":
+                lines.append(f"{k:<12}: {' '.join(map(str, z))}")
+            else:
+                lines.append(f"{k}:")
+                for yv, row in zip(o["y"], z):
+                    lines.append(f"  {yv:>6} | " + " ".join(f"{v:5d}" for v in row))
+        lines.append("```\n")
+    open(os.path.join(M.OUT, "egs_cal.md"), "w", encoding="utf-8").write("\n".join(lines) + "\n")
+    print(f"{nptr} references, {len(objs)} objects {dict(cls)}; curves/maps {dict(kinds)}")
+
+
+if __name__ == "__main__":
+    main()

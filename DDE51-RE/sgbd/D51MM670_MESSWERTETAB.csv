@@ -1,0 +1,221 @@
+ARG,ID,RESULTNAME,DATENTYP,L/H,EINHEIT,NAME,MUL,DIV,ADD,LABEL,INFO
+ISKLV,0x00E5,STAT_KLIMA_VERBAUT_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ACCD_stACPresent,Klimaanlage im Auto vorhanden
+INLKG,0x0052,STAT_LUFTMASSE_NORMALISIERT_WERT,unsigned int,-,Kg/h,-,0.048829,-,-1599.971484,AFSCD_dmAirNorm,Normalisierte Luftmasse
+ILMKG,0x002E,STAT_LUFTMASSE_WERT,unsigned int,-,Kg/h,-,0.048829,-,-1599.971484,AFSCD_dmAirPerTime,HFM Luftmassenstrom
+RLMKG,0x0010,STAT_LUFTMASSE_ROH_WERT,unsigned int,-,Kg/h,-,0.036001,-,0.000000,AFSCD_dmAirRawPerTime,LMM Luftmassenmesser HFM
+ILMMG,0x0050,STAT_LUFTMASSE_PRO_HUB_WERT,unsigned int,-,mg/Hub,-,0.048829,-,-1599.971484,AFSCD_mAirPerCyl,angesaugte Luftmasse pro Zylinder
+ITTAN,0x004B,STAT_ANSAUGLUFTTEMPERATUR_TASTVERHAELTNIS_WERT,unsigned int,-,mg/Hub,-,0.048829,-,-1599.971484,AFSCD_rAir,duty cycle of the air temparature signal
+OCBS_bos01_w,0x005F,STAT_OCBS_bos01_w_WERT,unsigned int,-,%,-,0.010000,-,0.000000,OCBS_bos01_w,Output rest kilometer BOS messages
+PFlt_stEngPOp1_mp,0x00DD,STAT_PFlt_stEngPOp1_mp_WERT,unsigned int,-,%,-,0.010000,-,0.000000,PFlt_stEngPOp1_mp,engine state calculated by range check 1
+AFSCD_tAir_mp,0x000F,STAT_AFSCD_tAir_mp_WERT,unsigned int,-,deg C,-,1.000240,-,-41.084307,AFSCD_tAir_mp,linearisierter Wert aus HWK vorm Aufruf der Übergangsfunktion
+RLMPE,0x0051,STAT_LUFTMASSE_PERIODENDAUER_ROH_WERT,unsigned int,-,us,-,0.100000,-,0.000000,AFSCD_tiRaw,Periodendauerrohwert des Luftmassensensors
+OCBS_zrbosmld,0x0060,STAT_OCBS_zrbosmld_WERT,unsigned int,-,us,-,0.100000,-,0.000000,OCBS_zrbosmld,Output service counter BOS messages
+PFlt_stEngPOp2_mp,0x00DE,STAT_PFlt_stEngPOp2_mp_WERT,unsigned int,-,us,-,0.100000,-,0.000000,PFlt_stEngPOp2_mp,engine state calculated by range check 2
+ITZUH,0x00E9,STAT_ZUHEIZER_ANSTEUERUNG_WERT,unsigned int,-,%,-,0.010000,-,0.000000,AOHtCD_rOut_mp,Meßpunkt fuer korrigiertes Tastverhaeltnis der Zuheizeransteuerung
+AOHt_stShutOff_mp,0x0099,STAT_AOHt_stShutOff_mp,unsigned int,-,-,-,1.000000,-,0.000000,AOHt_stShutOff_mp,Überblick auf alle Abschaltbedingungen
+IFPWG,0x0066,STAT_FAHRERWUNSCH_PEDAL_WERT,unsigned int,-,%,-,0.003052,-,0.000000,APPCD_rFlt,gefiltertes Pedalwertgebersignal
+IPPW1,0x0048,STAT_PWG1_WERT,unsigned int,-,%,-,0.003052,-,0.000000,APPCD_rLinAPP1,linearisierter APP1
+IPPW2,0x0049,STAT_PWG2_WERT,unsigned int,-,%,-,0.003052,-,0.000000,APPCD_rLinAPP2,linearisierter APP2
+IKICK,0x00C8,STAT_KICKDOWNSCHALTER_WERT,unsigned int,-,-,-,1.000000,-,0.000000,APPCD_stKickDown,Schalter KIck Down
+IUPW1,0x0064,STAT_PWG1_SPANNUNG_WERT,unsigned int,-,V,-,0.000611,-,0.000000,APPCD_uRawAPP1,Fahrpedal 1 Position Rohwert
+IUPW2,0x0065,STAT_PWG2_SPANNUNG_WERT,unsigned int,-,V,-,0.000611,-,0.000000,APPCD_uRawAPP2,Fahrpedal 2 Position Rohwert
+IPUMG,0x006E,STAT_UMGEBUNGSDRUCK_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,APSCD_pVal,Atmosphärendruck
+IUUMG,0x006F,STAT_UMGEBUNGSDRUCK_SPANNUNG_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,APSCD_uRaw,Rohspannung ADC-Signal Atmosphärendruck
+IMARD,0x00DC,STAT_MOMENTFORDERUNG_ARD_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,ASDdc_trq,Momentforderung Aktiver Ruckeldämpfer (Störungsregler)
+IFWUR,0x003C,STAT_FAHRERWUNSCHMOMENT_ROH_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.058653,AccPed_trqDes,Fahrerwunsch Rohwert
+AddPCD_stCo_mp,0x003E,STAT_AddPCD_stCo_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,AddPCD_stCo_mp,state of AddPCD-statemachine
+AddPCD_volAddTot,0x00AE,STAT_AddPCD_volAddTot_WERT,unsigned int,-,ml,-,0.012500,-,0.000000,AddPCD_volAddTot,total injected additive-volume
+AddPCD_volAddTotFine_mp,0x003F,STAT_AddPCD_volAddTotFine_mp_WERT,unsigned int,-,ml,-,0.001000,-,0.000000,AddPCD_volAddTotFine_mp,total injected add.volume fine resolution
+AddPmp_volAddTotDem,0x0040,STAT_AddPmp_volAddTotDem_WERT,unsigned int,-,ml,-,0.012500,-,0.000000,AddPmp_volAddTotDem,total desired additive quantity since last service
+SLMMG,0x0088,STAT_LUFTMASSE_SOLL_WERT,unsigned int,-,mg/Hub,-,0.048829,-,-1599.971484,AirCtl_mDesVal,Luftmassensollwert
+ILMRE,0x0056,STAT_LUFTMASSE_REGELABWEICHUNG_WERT,unsigned int,-,mg/Hub,-,0.048829,-,-1599.971484,AirCtl_mGvnrDvt,Regelabweichung
+AirCtl_stAirCtlBits10_mp,0x0041,STAT_AirCtl_stAirCtlBits10_WERT,unsigned int,-,-,-,1.000000,-,0.000000,AirCtl_stAirCtlBits1_mp,AirCtl_stAirCtlBits_mp LowWord LowByte (->Signals)
+AirCtl_stAirCtlBits11_mp,0x0042,STAT_AirCtl_stAirCtlBits11_WERT,unsigned int,-,-,-,1.000000,-,0.000000,AirCtl_stAirCtlBits1_mp,AirCtl_stAirCtlBits_mp LowWord HighByte (->Signals)
+AirCtl_stAirCtlBits20_mp,0x0043,STAT_AirCtl_stAirCtlBits20_WERT,unsigned int,-,-,-,1.000000,-,0.000000,AirCtl_stAirCtlBits2_mp,AirCtl_stAirCtlBits_mp HighWord LowByte (->Signals)
+AirCtl_stAirCtlBits21_mp,0x0044,STAT_AirCtl_stAirCtlBits21_WERT,unsigned int,-,-,-,1.000000,-,0.000000,AirCtl_stAirCtlBits2_mp,AirCtl_stAirCtlBits_mp HighWord HighByte (->Signals)
+IGENL,0x0082,STAT_GENERATORLAST_WERT,unsigned int,-,%,-,0.003052,-,0.000000,AltCD_rAltLoad,linearisiertes und fehlerentprelltes Generatorlastsignals
+IALDS,0x007B,STAT_LADEDRUCKSTELLER_ANSTEUERUNG_WERT,unsigned int,-,%,-,0.010000,-,0.000000,BPACD_rOut,Tastverhältnis zur Endstufenansteuerung
+IKLIS,0x003D,STAT_KLIMAKOMPRESSOR_STATUS_WERT,unsigned int,-,%,-,0.010000,-,0.000000,ACCtl_stLogicOut,Status of AC Compressor
+BPSCD_pLin,0x000B,STAT_'BPSCD_pLin_WERT,unsigned int,-,hPa,-,10.002401,-,0.000000,BPSCD_pLin,Mittelere Ladedruck-Wert (liniarisiert)
+IPLAD,0x003A,STAT_LADEDRUCK_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,BPSCD_pOutVal,Ladedruckwert
+IULDF,0x0039,STAT_LADEDRUCK_SPANNUNG_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,BPSCD_uRawVal,Spannungsrohwert des Ladedrucksensors
+IUBAT,0x002F,STAT_UBATT_WERT,unsigned int,-,V,-,0.002456,-,0.000000,BattCD_u,Batteriespannung
+ISBLS,0x005C,STAT_BREMSLICHTSCHALTER_EIN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,BrkCD_stMnSwtRawVal,Rohwert Bremskontakt nicht entprellt
+ISBLT,0x005D,STAT_BREMSLICHTTESTSCHALTER_EIN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,BrkCD_stRedSwtRawVal,Rohwert redundanter Bremskontakt nicht entprellt
+BrkCD_tiDebTmrPlaus_mp,0x00F8,STAT_BrkCD_tiDebTmrPlaus_mp_WERT,unsigned int,-,ms,-,10.000000,-,0.000000,BrkCD_tiDebTmrPlaus_mp,Entprelltimer für Bremssignal-Plausibilitaets-Check
+ITKUM,0x002C,STAT_KUEHLMITTELTEMPERATUR_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,CTSCD_tClnt,Kühlmitteltemperatur
+CTSCD_tClntLin,0x0005,STAT_CTSCD_tClntLin_WERT,unsigned int,-,deg C,-,1.000240,-,-41.084307,CTSCD_tClntLin,linearisierter Wert aus HWK vorm Aufruf der Übergangsfunktion
+RUTKU,0x002B,STAT_KUEHLMITTELTEMPERATUR_SPANNUNG_ROH_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,CTSCD_uRaw,Wassertemperatur Spannungsrohwert
+ITKAS,0x0075,STAT_KÜHLMITTELTEMPERATUR_ANSTIEG_SEIT_START_WERT,unsigned int,-,deg C,-,0.100000,-,0.000000,Clg_dtDynTst,Ansteig der Wassertemperatur seit start
+ITKET,0x0077,STAT_KÜHLMITTELTEMPERATUR_AM_ENDE_DES_TESTS_WERT,unsigned int,-,deg C,-,1.000240,-,-41.084307,Clg_tEndDynTst,CTSCD_tClnt am Ende des Tests
+IZTKT,0x0074,STAT_KÜHLMITTELTEMPERATUR_TESTZEIT_WERT,unsigned int,-,s,-,0.010000,-,0.000000,Clg_tiDynTst,"Abgelaufene Zeit, seit der der dynamische plausibilitätstest aktiv ist"
+IAMMM,0x0004,STAT_VERHAELTNIS_AKTUELLES_MOMENT_MAXIMALMOMENT_WERT,unsigned int,-,%,-,0.393699,-,0.000000,CoEng_rTrq,Verhältnis aktuelles Moment zu Maximalmoment
+ISABU,0x008E,STAT_TYP_WIRKSAME_ABSCHALTURSACHE_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CoEng_stShutOff,Typ der wirksamen Abschaltursache (0: Nachlauf; 1: reversibel; 2: irreversibel)
+SMIBA,0x008F,STAT_MOTORMOMENT_SOLL_NACH_BEGRENZUNG_VOR_ARD_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,CoEng_trqInrLtd,"inneres Moment Sollwert nach Begrenzung, vor Eingriff ARD-Störungsregler"
+SMOMO,0x0057,STAT_MOTORMOMENT_SOLL_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,CoEng_trqInrSet,inneres Moment Sollwert (>Mengenberechnung)
+IMBEG,0x0094,STAT_MOTORMOMENT_BEGRENZUNG_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,CoEng_trqLimMin_mp,"Begrenzungsmoment, falls kein momentenbegrenzender Systemfehler vorliegt (Minimum aus Rauchgrenze un Motormech.schutz)"
+IVABS,0x00CB,STAT_KRAFTSTOFFVERBRAUCH_ABSOLUT_WERT,unsigned int,-,ul,-,20.844624,-,-683015.800225,CoEng_voltotFlConsum,Absoluter Kraftstoffverbrauch
+IMWVO,0x0095,STAT_MOTORMOMENT_WUNSCH_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.058653,CoVM_trqPrpDes,Wunsch Vortriebsmoment
+RSKUP,0x005E,STAT_KUPPLUNGSSCHALTER_ROH_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ConvCD_stRawVal,Kupplungssignal Rohwert
+CrCCD_stKey,0x00D0,STAT_CrCCD_stKey,unsigned int,-,-,-,1.000000,-,0.000000,CrCCD_stKey,Rückgabewert
+IGAFG,0x008D,STAT_GANG_FGR_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_numGear,Gang FGR
+ISFGL,0x00D1,STAT_LAMPE_FGR_EIN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_stLampOut,Status der CrCtl-Lampe (wird über CAN versendet)
+CrCtl_stShutOffCode10_mp,0x00F0,STAT_CrCtl_stShutOffCode10_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_stShutOffCode1_mp,LowWord LowByte von CrCtl_shutOffCode (Verwendung als Signal)
+CrCtl_stShutOffCode11_mp,0x00F1,STAT_CrCtl_stShutOffCode11_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_stShutOffCode1_mp,LowWord HighByte von CrCtl_shutOffCode (Verwendung als Signal)
+CrCtl_stShutOffCode20_mp,0x00F2,STAT_CrCtl_stShutOffCode20_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_stShutOffCode2_mp,HighWord LowByte von CrCtl_shutOffCode (Verwendung als Signal)
+CrCtl_stShutOffCode21_mp,0x00F3,STAT_CrCtl_stShutOffCode21_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_stShutOffCode2_mp,HighWord HighByte von CrCtl_shutOffCode (Verwendung als Signal)
+CrCtl_stShutOffFrz10_mp,0x00F4,STAT_CrCtl_stShutOffFrz10_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_stShutOffFrz1_mp,latched shutoff reason
+CrCtl_stShutOffFrz11_mp,0x00F5,STAT_CrCtl_stShutOffFrz11_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_stShutOffFrz1_mp,latched shutoff reason
+CrCtl_stShutOffFrz20_mp,0x00F6,STAT_CrCtl_stShutOffFrz20_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_stShutOffFrz2_mp,latched shutoff reason
+CrCtl_stShutOffFrz21_mp,0x00F7,STAT_CrCtl_stShutOffFrz21_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_stShutOffFrz2_mp,latched shutoff reason
+IMANF,0x0091,STAT_MOTORMOMENT_ANFORDERUNG_FGR_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.058653,CrCtl_trqDes,Momentenanforderung FGR
+SGEFG,0x0083,STAT_GESCHWINDIGKEIT_FGR_SOLL_WERT,unsigned int,-,km/h,-,0.003815,-,0.000000,CrCtl_vDes,Sollgeschwindigkeit FGR
+DSMDur_ctDfctDur1,0x00D7,STAT_DSMDur_ctDfctDur1_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSMDur_ctDfctDur1,Wert Fehlerdauerzähler
+DSMDur_ctDfctDur1_OBD,0x0021,STAT_'DSMDur_ctDfctDur1_OBD_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSMDur_ctDfctDur1,Wert Fehlerdauerzähler
+DSMDur_ctDfctDur2,0x00D8,STAT_DSMDur_ctDfctDur2_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSMDur_ctDfctDur2,Wert Fehlerdauerzähler 2
+DSMDur_stGlobalDefCnt_mp,0x00D9,STAT_DSMDur_stGlobalDefCnt_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSMDur_stGlobalDefCnt_mp,Aktivierungs und Resetzustand der beiden globalen Fehlerdauerzähler
+IAOBF,0x0080,STAT_ANZAHL_OBD_FEHLER_IM_FEHLERSPEICHER_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_ctOBDPath,Anzahl der momentanen OBD-fehler im Fehlerspeicher
+DSM_ctRdyActCyc_mp,0x0089,STAT_DSM_ctRdyActCyc_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_ctRdyActCyc_mp,Status für jedes Readinessbit aus dem aktuellen driving cycle
+DSM_ctRdyTstCompr_mp,0x008B,STAT_DSM_ctRdyTstCompr_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_ctRdyTstCompr_mp,Anzahl von in diesem Zyklus getesteten Fehlerpfaden die zum Readiness Bit Comprehensive Components  gehören.
+DSM_ctRdyTstEGR_mp,0x0092,STAT_DSM_ctRdyTstEGR_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_ctRdyTstEGR_mp,Anzahl von in diesem Zyklus getesteten Fehlerpfaden die zum Readiness Bit EGR gehören.
+DSM_ctRdyTstFuel_mp,0x0093,STAT_DSM_ctRdyTstFuel_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_ctRdyTstFuel_mp,Anzahl von in diesem Zyklus getesteten Fehlerpfaden die zum Readiness Bit Fuel System gehören.
+DSM_ctRdyTstMisf_mp,0x0098,STAT_DSM_ctRdyTstMisf_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_ctRdyTstMisf_mp,Anzahl von in diesem Zyklus getesteten Fehlerpfaden die zum Readiness Bit Misfire  gehören.
+IFEHAN,0x0087,STAT_ANZAHL_GETESTETE_FEHLERPFADE_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_ctTstPath,Anzahl der getesteten Fehlerpfade
+DSM_stCycles,0x0085,STAT_DSM_stCycles_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_stCycles,"Status der DSM Trigger Zyklen (WUC, DC, ...)"
+ISMIL,0x002A,STAT_MIL_EIN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_stMIL,"DSM Mil Anforderungsstatus (1 = kontinuierlich, 2 blinkend)"
+ISRAB,0x009C,STAT_READINESS_BYTES_AB_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_stRdyAB,Readiness Status für Diagnoseschnittstelle gemäß SAE J1979 PID1 Byte A + B
+ISRCD,0x00CD,STAT_READINESS_BYTES_CD_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_stRdyCD,Readiness Status für Diagnoseschnittstelle gemäß SAE J1979 PID1 Byte C * D
+ISSLA,0x0029,STAT_ANFORDERUNGSSTATUS_SYSTEMLAMPE_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_stSysLamp,DSM System Lampen Anforderungsstatus (1 = kontinuierlich)
+DSM_tiDCDelay_mp,0x0086,STAT_DSM_tiDCDelay_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_tiDCDelay_mp,aktuelle Zeit für Driving cycle Verzögerungszeit
+IAAGR,0x007A,STAT_ABGASRUECKFUEHRSTELLER_ANSTEUERUNG_WERT,unsigned int,-,%,-,0.010000,-,0.000000,EGRCD_rOut,Tastverhältnis zur Endstufenansteuerung
+ISGEF,0x0030,STAT_GEFAHRENE STRECKE_WERT,unsigned int,-,%,-,0.010000,-,0.000000,VehDa_lSum,Erfassung gefahrene Strecke
+IBKLI,0x00CA,STAT_BEREITSCHAFT_KLIMA_WERT,unsigned int,-,-,-,1.000000,-,0.000000,FrmMng_swtACComp_mp,Klimabereitschaft
+ISSYN,0x00B0,STAT_SYNCHRONISATION_KW_NW_WERT,unsigned int,-,-,-,1.000000,-,0.000000,EngM_stSync,Meta-Status der KW- und NW-Ereignisverwaltung (Motorpositions-Management)
+IMORE,0x00CE,STAT_REIBMOMENT_AKTUELL_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,EngM_trqFrc,aktuelles Reibmoment
+INMOT,0x002D,STAT_MOTORDREHZAHL_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,Eng_nAvrg,mittlere Motordrehzahl
+INMOTCARB,0x000C,STAT_MOTORDREHZAHL_CARB_WERT,unsigned int,-,rpm,-,0.250000,-,0.000000,Eng_nAvrg,mittlere Motordrehzahl
+IMOAI,0x0096,STAT_MOTORMOMENT_INNERES_AKTUELL_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,FMTC_trqInr,aktuelles rückgerechnetes inneres Motormoment
+ITKRS,0x005B,STAT_KRAFTSTOFFTEMPERATURK_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,FTSCD_tFuel,Kraftstofftemperatur
+ISKRS,0x00D4,STAT_KRAFTSTOFFTEMPERATURK_SPANNUNG_ROH_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,FTSCD_uRaw,Spannungsrohwert der Kraftstoffstemperatur
+FanCD_dcycRaw_mp,0x00E8,STAT_FanCD_dcycRaw_mp_WERT,unsigned int,-,%,-,0.010000,-,0.000000,FanCD_dcycRaw_mp,dutycycle Ubatt-corrected
+FlSys_volDetRefuel,0x004A,STAT_FlSys_volDetRefuel_WERT,unsigned int,-,l,-,0.050000,-,0.000000,FlSys_volDetRefuel,fuel level before tank stop
+FlSys_volTotalRef_mp,0x004C,STAT_FlSys_volTotalRef_mp_WERT,unsigned int,-,l,-,0.050000,-,0.000000,FlSys_volTotalRef_mp,fuel level before tank stop
+ISKME,0x009A,STAT_KILOMETERSTAND_WERT,unsigned int,-,km,-,8.000000,-,0.000000,FrmMng_lSum,Kilometerstand des Fahrzeugs
+INELU,0x00CF,STAT_ELEKTROLUEFTERDREHZAHL_WERT,unsigned int,-,1/min,-,0.011445,-,0.000000,FrmMng_nFan,Lüfterdrehzahl
+IAHEI,0x00E4,STAT_HEIZLEISTUNGSANFORDERUNG_UEBER_CAN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,FrmMng_stACHtgReq,Heizleistungsanforderung über CAN
+ISKLI,0x00C9,STAT_KLIMA_EIN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,FrmMng_swtAC_mp,Schalter Klimakompressor
+ITUMG,0x00E3,STAT_UMGEBUNGSTEMPERATUR_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,FrmMng_tEnv,Umgebungstemperatur
+IDKLI,0x00E7,STAT_DIGITAL_KLIMA_EIN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ACCD_rDigOut_mp,Digitalausgang Ansteuerung Klimakompressor
+IGETT,0x00A0,STAT_GETRIEBETYP_WERT,unsigned int,-,-,-,1.000000,-,0.000000,Gearbx_swtType,Getriebetyp (0: manuell(MT); 1: automatisch(AT); 2: Schaltautomatisch(AST); 3: StufenlosesGetriebe (CVT); 4:automatic Z-Car)
+IAGLU,0x007C,STAT_GLUEHSYSTEM_ANSTEUERUNG_WERT,unsigned int,-,-,-,1.000000,-,0.000000,GlwCtl_rPwrOut,Glühanforderung
+HWEMon_numRecovery,0x0073,STAT_HWEMon_numRecovery_WERT,unsigned int,-,-,-,1.000000,-,0.000000,HWEMon_numRecovery,Herkunft des letzten Reset ( >0 = Recovery )
+HWEMon_recLocHigh_mp,0x00FF,STAT_HWEMon_recLocHigh_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,HWEMon_recLocHigh_mp,HighAdresse recovery location
+HWEMon_recLocLow0_mp,0x00FD,STAT_HWEMon_recLocLow_WERT,unsigned int,-,-,-,1.000000,-,0.000000,HWEMon_recLocLow_mp,LowAdresse recovery location
+HWEMon_recLocLow1_mp,0x00FE,STAT_HWEMon_recLocLow_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,HWEMon_recLocLow_mp,LowAdresse recovery location
+ITANS,0x0038,STAT_ANSAUGLUFTTEMPERATUR_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,IATSCD_tAir,Ansauglufttemperatur
+ITLAL,0x0036,STAT_LADELUFTTEMPERATUR_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,IATSCD_tAirCats,Ladelufttemperatur nach Ladeluftkühler
+ITLLL,0x007D,STAT_LADELUFTTEMPERATUR_LINEARISIERT_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,IATSCD_tAirLinCats,Ladelufttemperatur - Linearisierter Wert aus HWK vor Aufruf der Übergangsfunktion
+RSLAL,0x0037,STAT_LADELUFTTEMPERATUR_SPANNUNG_ROH_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,IATSCD_uRaw,Lufttemperatur Spannungsrohwert
+FlFCD_stFlFltRawVal,0x00DF,STAT_FlFCD_stFlFltRawVal_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,FlFCD_stFlFltRawVal,fuel filter temp and pressure monitoring
+OPSCD_stpOEL,0x0047,STAT_OPSCD_stpOEL_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,OPSCD_stpOEL,oil pressure sensor signal
+SPEKA,0x0058,STAT_EINLASSKANALABSCHALTUNG_POSITION_SOLL_WERT,unsigned int,-,%,-,0.010000,-,0.000000,IndSys_rVSA,Sollposition für Einlaßkanalabschaltung
+IWHE1,0x00BF,STAT_BEZUGSWINKEL_BEGINN_HAUPTEINSPRITZUNG1_WERT,unsigned int,-,deg CrS,-,0.002930,-,-90.351389,InjCrv_phiMI1Des,gewünschter Bezugswinkel für Beginn der MI1
+IWVE1,0x00B1,STAT_WINKELKOMPONENTE_BEGINN_VOREINSPRITZUNG1_WERT,unsigned int,-,deg CrS,-,0.002930,-,-90.351389,InjCrv_phiPiI1Des,gewünschter Winkelkomponente Ansteuerbeginn PiI1
+IWVE2,0x00B2,STAT_WINKELKOMPONENTE_BEGINN_VOREINSPRITZUNG2_WERT,unsigned int,-,deg CrS,-,0.002930,-,-90.351389,InjCrv_phiPiI2Des,gewünschte Winkelkomponente Ansteuerbeginn PiI2
+IWVE3,0x00B3,STAT_WINKELKOMPONENTE_BEGINN_VOREINSPRITZUNG3_WERT,unsigned int,-,deg CrS,-,0.002930,-,-90.351389,InjCrv_phiPiI3Des,gewünschte Winkelkomponente Ansteuerbeginn PiI3
+IWNE1,0x00C4,STAT_BEZUGSWINKEL_BEGINN_NACHEINSPRITZUNG1_WERT,unsigned int,-,deg CrS,-,0.002930,-,-90.351389,InjCrv_phiPoI1Des,gewünschter Bezugswinkel für Beginn der PoI1
+InjCrv_phiPoI2Des,0x00C5,STAT_InjCrv_phiPoI2Des_WERT,unsigned int,-,deg CrS,-,0.002930,-,-90.351389,InjCrv_phiPoI2Des,basevalue (angle)
+IMHE1,0x00C1,STAT_MENGE_HAUPTEINSPRITZUNG1_WERT,unsigned int,-,mg/inj,-,0.001526,-,0.000000,InjCrv_qMI1Des,Sollmenge Haupteinspritzung
+IMGV1,0x00BD,STAT_MENGE_VOREINSPRITZUNG1_GRUNDWERT_WERT,unsigned int,-,mg/inj,-,0.001526,-,0.000000,InjCrv_qPiI1Bas_mp,Einspritzmenge PiI1 Grundwert
+IMVE1,0x00B7,STAT_MENGE_VOREINSPRITZUNG1_WERT,unsigned int,-,mg/inj,-,0.001526,-,0.000000,InjCrv_qPiI1Des,gewünschte Einspritzmenge PiI 1
+IMGV2,0x00BE,STAT_MENGE_VOREINSPRITZUNG2_GRUNDWERT_WERT,unsigned int,-,mg/inj,-,0.001526,-,0.000000,InjCrv_qPiI2Bas_mp,Einspritzmenge PiI2 Grundwert
+IMVE2,0x00B8,STAT_MENGE_VOREINSPRITZUNG2_WERT,unsigned int,-,mg/inj,-,0.001526,-,0.000000,InjCrv_qPiI2Des,gewünschte Einspritzmenge PiI 2
+IMVE3,0x00B9,STAT_MENGE_VOREINSPRITZUNG3_WERT,unsigned int,-,mg/inj,-,0.001526,-,0.000000,InjCrv_qPiI3Des,gewünschte Einspritzmenge PiI 3
+ISVE1,0x00BA,STAT_FREIGABESTATUS_VOREINSPRITZUNG1_WERT,unsigned int,-,-,-,1.000000,-,0.000000,InjCrv_stPiI1_mp,Freigabestatus PiI1
+ISVE2,0x00BB,STAT_FREIGABESTATUS_VOREINSPRITZUNG2_WERT,unsigned int,-,-,-,1.000000,-,0.000000,InjCrv_stPiI2_mp,Freigabestatus PiI2
+IDGH1,0x00C0,STAT_ANSTEUERDAUER_HAUPTEINSPRITZUNG1_GESCHAETZT_WERT,unsigned int,-,us,-,0.152594,-,0.000000,InjCrv_tiMI1ET,geschätzte Ansteuerdauer MI1
+IMEIA,0x0055,STAT_EINSPRITZMENGE_AKTUELL_WERT,unsigned int,-,mg/cyc,-,0.003052,-,-99.998993,InjCtl_qCurr,Einspritzmenge aktueller Wert
+SMEIN,0x0034,STAT_EINSPRITZMENGE_SOLL_WERT,unsigned int,-,mg/cyc,-,0.003052,-,-99.998993,InjCtl_qSet,Einspritzmenge Sollwert
+IDHE1,0x00BC,STAT_ANSTEUERDAUER_HAUPTEINSPRITZUNG1_WERT,unsigned int,-,us,-,0.152594,-,0.000000,InjVCD_tiMI1ET_mp,Ansteuerdauer der Haupteinspritzung 1
+IDVE1,0x00B4,STAT_ANSTEUERDAUER_VOREINSPRITZUNG1_WERT,unsigned int,-,us,-,0.152594,-,0.000000,InjVCD_tiPiI1ET_mp,Ansteuerdauer der Voreinspritzung 1
+IDVE2,0x00B5,STAT_ANSTEUERDAUER_VOREINSPRITZUNG2_WERT,unsigned int,-,us,-,0.152594,-,0.000000,InjVCD_tiPiI2ET_mp,Ansteuerdauer der Voreinspritzung 2
+IDVE3,0x00B6,STAT_ANSTEUERDAUER_VOREINSPRITZUNG3_WERT,unsigned int,-,us,-,0.152594,-,0.000000,InjVCD_tiPiI3ET_mp,Ansteuerdauer der Voreinspritzung 3
+IDNE1,0x00C6,STAT_ANSTEUERDAUER_NACHEINSPRITZUNG1_WERT,unsigned int,-,us,-,0.152594,-,0.000000,InjVCD_tiPoI1ET_mp,Ansteuerdauer Nacheinspritzung 1
+IDNE2,0x00C7,STAT_ANSTEUERDAUER_NACHEINSPRITZUNG2_WERT,unsigned int,-,us,-,0.152594,-,0.000000,InjVCD_tiPoI2ET_mp,Ansteuerdauer der Nacheinspritzung 2
+INZZ1,0x00A1,STAT_MOTORDREHZAHL_ZYLINDERSPEZIFISCH_ZYL1_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,InjVlv_nCyl1,Zylinderspezifische Drehzahl für Zylinder 1
+INZZ2,0x00A2,STAT_MOTORDREHZAHL_ZYLINDERSPEZIFISCH_ZYL2_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,InjVlv_nCyl2,Zylinderspezifische Drehzahl für Zylinder 2
+INZZ3,0x00A3,STAT_MOTORDREHZAHL_ZYLINDERSPEZIFISCH_ZYL3_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,InjVlv_nCyl3,Zylinderspezifische Drehzahl für Zylinder 3
+INZZ4,0x00A4,STAT_MOTORDREHZAHL_ZYLINDERSPEZIFISCH_ZYL4_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,InjVlv_nCyl4,Zylinderspezifische Drehzahl für Zylinder 4
+INZZ5,0x00A5,STAT_MOTORDREHZAHL_ZYLINDERSPEZIFISCH_ZYL5_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,InjVlv_nCyl5,Zylinderspezifische Drehzahl für Zylinder 5
+INZZ6,0x00A6,STAT_MOTORDREHZAHL_ZYLINDERSPEZIFISCH_ZYL6_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,InjVlv_nCyl6,Zylinderspezifische Drehzahl für Zylinder 6
+IATSCD_uRawCats,0x0078,STAT_IATSCD_uRawCats_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,IATSCD_uRawCats,Output for IATSCD
+ISRDR,0x0079,STAT_STATUS_RAILDRUCKREGLER_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,Rail_stCtlLoop,Zustand der Steuerung Raildruckregler
+IMKZ1,0x00A7,STAT_MENGENKORREKTUR_ZYLINDERSPEZIFISCH_ZYL1_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,InjVlv_qFBCCyl1,Zylinderselektive FBC-Mengenkorrektur für Zylinder 1
+IMKZ2,0x00A8,STAT_MENGENKORREKTUR_ZYLINDERSPEZIFISCH_ZYL2_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,InjVlv_qFBCCyl2,Zylinderselektive FBC-Mengenkorrektur für Zylinder 2
+IMKZ3,0x00A9,STAT_MENGENKORREKTUR_ZYLINDERSPEZIFISCH_ZYL3_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,InjVlv_qFBCCyl3,Zylinderselektive FBC-Mengenkorrektur für Zylinder 3
+IMKZ4,0x00AA,STAT_MENGENKORREKTUR_ZYLINDERSPEZIFISCH_ZYL4_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,InjVlv_qFBCCyl4,Zylinderselektive FBC-Mengenkorrektur für Zylinder 4
+IMKZ5,0x00AB,STAT_MENGENKORREKTUR_ZYLINDERSPEZIFISCH_ZYL5_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,InjVlv_qFBCCyl5,Zylinderselektive FBC-Mengenkorrektur für Zylinder 5
+IMKZ6,0x00AC,STAT_MENGENKORREKTUR_ZYLINDERSPEZIFISCH_ZYL6_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,InjVlv_qFBCCyl6,Zylinderselektive FBC-Mengenkorrektur für Zylinder 6
+IGABE,0x00DA,STAT_BERECHNETER_GANG_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,Gearbx_stGear,Ganginformation
+IAMOL,0x00DB,STAT_MOTORLAGER_ANSTEUERUNG_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,EngM_stOut,"state of engine bearing depending on engine speed, engine temperature and gear state"
+LIGov_nSetpoint,0x0031,STAT_LIGov_nSetpoint_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,LIGov_nSetpoint,Untergrenze Drehzahlintervall des LIGov
+ISLLR,0x00E2,STAT_STATUS_LEERLAUFREGLER_WERT,unsigned int,-,-,-,1.000000,-,0.000000,LIGov_st,Zustand des Leerlaufreglers
+IMLLR,0x0097,STAT_LEERLAUFREGLERMOMENT_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,LIGov_trq,Leerlaufreglermoment
+IAMRV,0x00EC,STAT_MENGENREGELVENTIL_ANSTEUERUNG_WERT,unsigned int,-,%,-,0.010000,-,0.000000,MeUnCD_dcycOut_mp,Ausgangstastverhältnis
+IIMRV,0x007F,STAT_STROM_MENGENREGELVENTIL_WERT,unsigned int,-,mA,-,0.228891,-,0.000000,MeUnCD_iActFlt_mp,Zumesseinheit-Stromregelung gefilterter Strom-Istwert
+SIMRV,0x0045,STAT_STROM_MENGENREGELVENTIL_SOLL_WERT,unsigned int,-,mA,-,0.228891,-,0.000000,MeUn_iSet_mp,Sollstrom für die Zumesseinheit
+IAGLL,0x0061,STAT_GLUEHANZEIGE_ANSTEUERUNG_WERT,unsigned int,-,km,-,12.499234,-,0.000000,GlwCtl_stLampOut,Zustand der Glühanzeige
+ACCtl_stShutOff_mp,0x0046,STAT_ACCtl_stShutOff_mp,unsigned int,-,%,-,1.000000,-,0.000000,ACCtl_stShutOff_mp,AC shut off status
+EBAFCD_stSigOut,0x0062,STAT_EBAFCD_stSigOut,unsigned int,-,-,-,1.000000,-,0.000000,EBAFCD_stSigOut,source of activation for electrical power stage of EBAFCD output
+ISOED,0x00AF,STAT_OELDRUCKSCHALTER_EIN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,OPSCD_stSigOut,Ausgangssignal Öldruckschalter
+Ertm_tiload_u32,0x00E6,STAT_Ertm_tiload_u32_WERT,unsigned int,-,-,-,1.000000,-,0.000000,Ertm_tiload_u32,CPU Last
+GlwCD_RawVal_mp,0x005A,STAT_GlwCD_RawVal_mp_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,GlwCD_RawVal_mp,Rohwert für das Glühanforderungsregister des Glühcontrollers
+ITAVO,0x009B,STAT_ABGASTEMPERATUR_VOR_KATALYSATOR_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,OxiCCD_tPre,Abgastemperatur vor Oxidationskatalysator
+RUAVO,0x00D5,STAT_ABGASTEMPERATUR_VOR_KATALYSATOR_SPANNUNG_ROH_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,OxiCCD_uRawTempPre,Abgastemperatur vor Oxidationskatalysator Rohwert
+SPLAD,0x008A,STAT_LADEDRUCK_SOLL_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PCR_pDesVal,Ladedrucksollwert
+SMEIO,0x0059,STAT_EINSPRITZMENGE_SOLL_OHNE_MENGENAUSGLEICH_WERT,unsigned int,-,%,-,0.003052,-,0.000000,InjCtl_qSetUnBal,Einspritzmenge Sollwert ohne Mengenausgleichsregelung
+ISLDR,0x004D,STAT_STATUS_ABSCHALTUNG_LADEDRUCKREGELUNG_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PCR_stMonitor,Statusangabe bei Abschaltung der Regelung
+IARDS,0x00ED,STAT_RAILDRUCKREGELVENTIL_ANSTEUERUNG_WERT,unsigned int,-,%,-,0.010000,-,0.000000,PCVCD_dcycOut_mp,Ausgangstastverhältnis
+PCVCD_iActVal,0x009E,STAT_PCVCD_iActVal_WERT,unsigned int,-,mA,-,0.228891,-,0.000000,PCVCD_iActVal,Analogeingang Strom-Istwert
+ITAVP,0x009D,STAT_ABGASTEMPERATUR_VOR_PARTIKELFILTER_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,PFltCD_tPre,Abgastemp. vor Partikelfilter erster Sensor
+RUTVP,0x00D6,STAT_ABGASTEMPERATUR_VOR_PARTIKELFILTER_SPANNUNG_ROH_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,PFltCD_uRawTempPre,Spannungsrohwert der Abgastemperatur vor dem Partikelfilter
+IVABP,0x004E,STAT_ABGASVOLUMENSTROM_IM_PARTIKELFILTER_BERECHNET_WERT,unsigned int,-,m^3/h,-,0.100000,-,0.000000,PFlt_dvol,berechneter Abgasvolumenstrom im Partikelfilter
+IKOAD,0x004F,STAT_KORREKTURFAKTOR_ADDITIVASCHE_WERT,unsigned int,-,-,-,0.000122,-,0.000000,PFlt_facMltCor_mp,Korrekturfaktor Additivasche
+ISLRE,0x0053,STAT_GEFAHRENE_STRECKE_BEI_LETZTER_ERFOLGREICHER_REGENERATION_WERT,unsigned int,-,m,-,1.000000,-,0.000000,PFlt_lSum_mp,ges. gefahrene Strecke bei der letzten erfolgr. Regeneration
+PFlt_mAsh_mp,0x006C,STAT_PFlt_mAsh_mp_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mAsh_mp,Aschemasse
+IMRUP,0x0068,STAT_RUSSMASSE_IM_PARTIKELFILTER_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mSot,Rußmasse im Partikelfilter
+IWSMP,0x006A,STAT_STROEMUNGSWIDERSTAND_UMGERECHNET_IN_PARTIKELMASSE_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mSotMeasRaw_mp,Strömungswdst. in Partikelmasse umgerechnet
+IMPAK,0x0069,STAT_PARTIKELMASSE_ADDITIVKORRIGIERT_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mSotMeas_mp,Partikelmasse additivkorrigiert
+IMPAS,0x006B,STAT_PARTIKELMASSE_SIMULIERT_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mSotSim_mp,simulierte Partikelmasse
+IREPM,0x006D,STAT_REGENERIERMASSNAHME_WEGEN_PARTIKELFILTER_UND_MOTORZUSTAND_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_numEngPOp_mp,Regeneriermaßnahme aufgrund PFlt- und Motorzustand
+IREAN,0x0070,STAT_REGENERATIONSANFORDERUNG_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_numRgn_mp,gesamte Regenerationsanforderung
+IPDIP,0x0054,STAT_DIFFERENZDRUCK_UEBER_PARTIKELFILTER_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PFlt_pDiff,Differenzdruck über Partikelfilter
+IVTLR,0x007E,STAT_VERBRAUCHTER_KRAFTSTOFF_SEIT_LETZTER_ERFOLGREICHER_REGENERATION_WERT,unsigned int,-,l,-,0.010000,-,0.000000,PFlt_qFl_mp,verbrauchter Treibstoff seit der letzten erfolgreichen Regeneration
+IWSTR,0x008C,STAT_STROEMUNGSWIDERSTAND_WERT,unsigned int,-,hPa/(m^3/h),-,0.001000,-,0.000000,PFlt_resFlow,Strömungswiderstand
+IWSTO,0x00AD,STAT_STROEMUNGSWIDERSTAND_OFFSET_WERT,unsigned int,-,hPa/(m^3/h),-,0.001000,-,0.000000,PFlt_resFlowOfs,Strömungswiderstandoffset
+RWSTR,0x00CC,STAT_STROEMUNGSWIDERSTAND_OFFSET_WERT,unsigned int,-,hPa/(m^3/h),-,0.001000,-,0.000000,PFlt_resFlowRaw_mp,Strömungswiderstand Rohwert
+ISPFL1,0x00F9,STAT_STATUS_PARTIKELFILTER_LOWWORD_LOWBYTE_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_st1_mp,Status des Partikelfilters  LowWord LowByte (->Signals)
+ISPFL,0x00FA,STAT_STATUS_PARTIKELFILTER_LOWBYTE_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_st1_mp,Status des Partikelfilters  LowByte (->Signals)
+ISPFH1,0x00FB,STAT_STATUS_PARTIKELFILTER_HIGHWORD_LOWBYTE_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_st2_mp,Status des Partikelfilters HighWord LowByte (->Signals)
+ISPFH,0x00FC,STAT_STATUS_PARTIKELFILTER_HIGHBYTE_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_st2_mp,Status des Partikelfilters  HighByte (->Signals)
+IBEMO,0x00D2,STAT_MOTORBETRIEBSPUNKT_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_stEngPOp,Motorbetriebspunkt
+PFlt_stEngPOp3_mp,0x00EE,STAT_PFlt_stEngPOp3_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_stEngPOp3_mp,engine state calculated by range check 3
+PFlt_stEngPOp4_mp,0x00EF,STAT_PFlt_stEngPOp4_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_stEngPOp4_mp,engine state calculated by range check 4
+PFlt_stEngPOp5_mp,0x0063,STAT_PFlt_stEngPOp5_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_stEngPOp5_mp,engine state calculated by range check 5
+ITVPG,0x0071,STAT_ABGASTEMPERATUR_VOR_PARTIKELFILTER_GEFILTERT_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,PFlt_tPreFlt_mp,PFlt_tPre PT1 gefiltert
+IVKMG,0x0072,STAT_GESCHWINDIGKEIT_GEFILTERT_WERT,unsigned int,-,km/h,-,0.003815,-,0.000000,PFlt_vVehFlt_mp,VSSCD_v PT1 gefiltert
+PSPCD_dvolOut,0x0081,STAT_PSPCD_dvolOut_WERT,unsigned int,-,l/h,-,0.208446,-,-6830.158002,PSPCD_dvolOut,Pre Supply Pump output value
+IPRDR,0x00C2,STAT_RAILDRUCK_WERT,unsigned int,-,bar,-,0.030518,-,0.000000,RailCD_pPeak,maximaler Raildruck der letzten 10ms
+IURDR,0x00D3,STAT_RAILDRUCK_SPANNUNG_ROH_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,RailCD_uPeakRaw,Rohwert des Raildrucks
+SVRDR,0x0035,STAT_VOLUMENSTROM_RAILDRUCKREGELUNG_SOLL_WERT,unsigned int,-,mm3/s,-,10.000000,-,0.000000,Rail_dvolMeUnSet,Sollwert (Volumenstrom) von der Raildruckregelung
+SPRDR,0x00C3,STAT_RAILDRUCK_SOLL_WERT,unsigned int,-,bar,-,0.030518,-,0.000000,Rail_pSetPoint,Raildruck-sollwert
+Ad_NumTyp_FreeApplic2_CSTR,0x00E0,STAT_Ad_NumTyp_FreeApplic2_WERT,unsigned int,-,-,-,1.000000,-,0.000000,Ad_NumTyp_FreeApplic2_CSTR,struct with applicationparameter
+StSys_trqStrt,0x0090,STAT_StSys_trqStrt_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,StSys_trqStrt,inneres Moment Startwert
+RWKUP,0x003B,STAT_WAKEUP_ROH_WERT,unsigned int,-,-,-,1.000000,-,0.000000,T15CD_stWakeUpRawVal_mp,Rohwert des Wake Up Signals aus der HWE
+TVACD_rOut,0x00EA,STAT_TVACD_rOut_WERT,unsigned int,-,%,-,0.010000,-,0.000000,TVACD_rOut,Tastverhältnis zur Endstufenansteuerung
+VSACD_rOut,0x00EB,STAT_VSACD_rOut_WERT,unsigned int,-,%,-,0.010000,-,0.000000,VSACD_rOut,Tastverhältnis zur Endstufenansteuerung
+IAFZG,0x0033,STAT_FAHRZEUGBESCHLEUNIGUNG_WERT,unsigned int,-,m/s^2,-,0.000305,-,-9.999899,VSSCD_a,Fahrbeschleunigung
+IVKMH,0x0032,STAT_GESCHWINDIGKEIT_WERT,unsigned int,-,km/h,-,0.003815,-,0.000000,VSSCD_v,Fahrzeuggeschwindigkeit
+VSSCD_vSensVal,0x000D,STAT_VSSCD_vSensVal_WERT,unsigned int,-,km/h,-,0.999001,-,0.000000,VSSCD_vSensVal,Vehicle speed sensed value
+IVVZN,0x0084,STAT_VERHAELTNIS_FAHRGESCHWINDIGKEIT_ZU_MOTORDREHZAHL_WERT,unsigned int,-,(km/h)/rpm,-,0.000002,-,0.000000,VehDa_rVn,Verhältnis von Fahrgeschwindigkeit zur Motordrehzahl
+IZBST,0x009F,STAT_BETRIEBSSTUNDENZAEHLER_WERT,unsigned int,-,s,-,99.900100,-,0.000000,VehDa_tiEngOn,Erfassung der aktuellen Betriebszeit

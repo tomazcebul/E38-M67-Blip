@@ -1,0 +1,223 @@
+NAME,TELEGRAM,POS_ADR,LEN_ADR,ADR,BYTE,DATA_TYPE,COMPU_TYPE,FACT_A,FACT_B,MASK,VALUE,ANZ,MEAS,RANGE,JOBNAME,LNAME
+ACCD_stACPresent,B812F1042C100000,07,2,0x00E5,06,05,--,1.000000,0.000000,0,0,5.1f,-,,ACCD_stACPresent,AC is present in the vehicle
+AFSCD_dmAirNorm,B812F1042C100000,07,2,0x0052,06,05,--,0.048829,-1599.971484,0,0,8.3f,Kg/h,,AFSCD_dmAirNorm,HFM Luftmassenstrom
+AFSCD_dmAirPerTime,B812F1042C100000,07,2,0x002E,06,05,--,0.048829,-1599.971484,0,0,8.3f,Kg/h,,AFSCD_dmAirPerTime,airmass per unit time
+AFSCD_dmAirRawPerTime,B812F1042C100000,07,2,0x0010,06,05,--,0.036001,0.000000,0,0,8.3f,Kg/h,,AFSCD_dmAirRawPerTime,LMM Luftmassenmesser HFM
+AFSCD_mAirPerCyl,B812F1042C100000,07,2,0x0050,06,05,--,0.048829,-1599.971484,0,0,8.3f,mg/Hub,,AFSCD_mAirPerCyl,angesaugte Luftmasse pro Zylinder
+AFSCD_mAirPerCyl2,B812F1042C100000,07,2,0x004B,06,05,--,0.048829,-1599.971484,0,0,8.3f,mg/Hub,,AFSCD_mAirPerCyl2,airmass per cylinder 2
+AFSCD_rAir,B812F1042C100000,07,2,0x005F,06,05,--,0.010000,0.000000,0,0,8.4f,%,,AFSCD_rAir,linearisierter APP1
+AFSCD_rAir2,B812F1042C100000,07,2,0x00DD,06,05,--,0.010000,0.000000,0,0,8.4f,%,,AFSCD_rAir2,Statuswort Regeneration unterbrochen
+AFSCD_tAir,B812F1042C100000,07,2,0x000F,06,05,--,1.000240,-41.084307,0,0,8.3f,deg C,,AFSCD_tAir,linearisierter Wert aus HWK vorm Aufruf der Übergangsfunktion
+AFSCD_tiRaw,B812F1042C100000,07,2,0x0051,06,05,--,0.100000,0.000000,0,0,8.3f,us,,AFSCD_tiRaw,duty cycle of the air temparature signal
+AFSCD_tiRaw1,B812F1042C100000,07,2,0x0060,06,05,--,0.100000,0.000000,0,0,8.3f,us,,AFSCD_tiRaw1,linearisierter APP2
+AFSCD_tiRaw2,B812F1042C100000,07,2,0x00DE,06,05,--,0.100000,0.000000,0,0,8.3f,us,,AFSCD_tiRaw2,Regeneration Blockierung und Freigabe
+AOHtCD_rOut_mp,B812F1042C100000,07,2,0x00E9,06,05,--,0.010000,0.000000,0,0,8.4f,%,,AOHtCD_rOut_mp,Meßpunkt fuer korrigiertes Tastverhaeltnis der Zuheizeransteuerung
+AOHt_stShutOff_mp,B812F1042C100000,07,2,0x0099,06,05,--,1.000000,0.000000,0,0,8.2f,-,,AOHt_stShutOff_mp,overview to all switch off contitions
+APPCD_rFlt,B812F1042C100000,07,2,0x0066,06,05,--,0.003052,0.000000,0,0,8.4f,%,,APPCD_rFlt,gefiltertes Pedalwertgebersignal
+APPCD_rLinAPP1,B812F1042C100000,07,2,0x0048,06,05,--,0.003052,0.000000,0,0,8.4f,%,,APPCD_rLinAPP1,Accelerator Pedal 1 linearised value in percent
+APPCD_rLinAPP2,B812F1042C100000,07,2,0x0049,06,05,--,0.003052,0.000000,0,0,8.4f,%,,APPCD_rLinAPP2,Accelerator Pedal 2 linearised value in percent
+APPCD_stKickDown,B812F1042C100000,07,2,0x00C8,06,05,--,1.000000,0.000000,0,0,5.1f,-,,APPCD_stKickDown,kick down state of accelerator pedal
+APPCD_uRawAPP1,B812F1042C100000,07,2,0x0064,06,05,--,0.000611,0.000000,0,0,8.1f,V,,APPCD_uRawAPP1,Fahrpedal 1 Position Rohwert
+APPCD_uRawAPP2,B812F1042C100000,07,2,0x0065,06,05,--,0.000611,0.000000,0,0,8.1f,V,,APPCD_uRawAPP2,Fahrpedal 2 Position Rohwert
+APSCD_pVal,B812F1042C100000,07,2,0x006E,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,APSCD_pVal,Atmosphärendruck
+APSCD_uRaw,B812F1042C100000,07,2,0x006F,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,APSCD_uRaw,Rohspannung ADC-Signal Atmosphärendruck
+ASDdc_trq,B812F1042C100000,07,2,0x00DC,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,ASDdc_trq,ASD disturbance compensator torque output
+AccPed_trqDes,B812F1042C100000,07,2,0x003C,06,05,--,0.114445,-2500.058653,0,0,8.3f,Nm,,AccPed_trqDes,driver torque raw value of propulsion
+AddPCD_stCo_mp,B812F1042C100000,07,2,0x003E,06,05,--,1.000000,0.000000,0,0,5.1f,-,,AddPCD_stCo_mp,state of AddPCD-statemachine
+AddPCD_volAddTot,B812F1042C100000,07,2,0x00AE,06,05,--,0.012500,0.000000,0,0,8.3f,ml,,AddPCD_volAddTot,source of activation for electrical power stage of EBAFCD output
+AddPCD_volAddTotFine_mp,B812F1042C100000,07,2,0x003F,06,05,--,0.001000,0.000000,0,0,13.5f,ml,,AddPCD_volAddTotFine_mp,total injected add.volume fine resolution
+AddPmp_volAddTotDem,B812F1042C100000,07,2,0x0040,06,05,--,0.012500,0.000000,0,0,8.3f,ml,,AddPmp_volAddTotDem,total desired additive quantity since last service
+AirCtl_mDesVal,B812F1042C100000,07,2,0x0088,06,05,--,0.048829,-1599.971484,0,0,8.3f,mg/Hub,,AirCtl_mDesVal,Luftmassensollwert
+AirCtl_mGvnrDvt,B812F1042C100000,07,2,0x0056,06,05,--,0.048829,-1599.971484,0,0,8.3f,mg/Hub,,AirCtl_mGvnrDvt,Aircontrol governor deviation
+AirCtl_stAirCtlBits1_mp,B812F1042C100000,07,2,0x0041,06,05,--,1.000000,0.000000,0,0,8.2f,-,,AirCtl_stAirCtlBits1_mp,Status of AirCtl as LowWord-LowByte
+AirCtl_stAirCtlBits1_mp1,B812F1042C100000,07,2,0x0042,06,05,--,1.000000,0.000000,0,0,8.2f,-,,AirCtl_stAirCtlBits1_mp1,Status of AirCtl as LowWord-HighByte
+AirCtl_stAirCtlBits2_mp,B812F1042C100000,07,2,0x0043,06,05,--,1.000000,0.000000,0,0,8.2f,-,,AirCtl_stAirCtlBits2_mp,Status of AirCtl as HighWord-LowByte
+AirCtl_stAirCtlBits2_mp1,B812F1042C100000,07,2,0x0044,06,05,--,1.000000,0.000000,0,0,8.2f,-,,AirCtl_stAirCtlBits2_mp1,Status of AirCtl as HighWord-HighByte
+AltCD_rAltLoad,B812F1042C100000,07,2,0x0082,06,05,--,0.003052,0.000000,0,0,8.4f,%,,AltCD_rAltLoad,linearisiertes und fehlerentprelltes Generatorlastsignals
+BPACD_rOut,B812F1042C100000,07,2,0x007B,06,05,--,0.010000,0.000000,0,0,8.4f,%,,BPACD_rOut,Tastverhältnis zür Endstufenansteuerung
+BPACD_rOut2,B812F1042C100000,07,2,0x003D,06,05,--,0.010000,0.000000,0,0,8.4f,%,,BPACD_rOut2,Duty Cycle 2
+BPSCD_pLin,B812F1042C100000,07,2,0x000B,06,05,--,10.002401,0.000000,0,0,8.2f,hPa,,BPSCD_pLin,Mittelere Ladedruck-Wert (liniarisiert)
+BPSCD_pOutVal,B812F1042C100000,07,2,0x003A,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,BPSCD_pOutVal,Actual Boost Pressure
+BPSCD_uRawVal,B812F1042C100000,07,2,0x0039,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,BPSCD_uRawVal,Actual Boost Pressure
+BattCD_u,B812F1042C100000,07,2,0x002F,06,05,--,0.002456,0.000000,0,0,8.1f,V,,BattCD_u,Battery Voltage
+BrkCD_stMnSwtRawVal,B812F1042C100000,07,2,0x005C,06,05,--,1.000000,0.000000,0,0,5.1f,-,,BrkCD_stMnSwtRawVal,Brake main switch raw value
+BrkCD_stRedSwtRawVal,B812F1042C100000,07,2,0x005D,06,05,--,1.000000,0.000000,0,0,5.1f,-,,BrkCD_stRedSwtRawVal,Brake redundant switch raw value
+BrkCD_tiDebTmrPlaus_mp,B812F1042C100000,07,2,0x00F8,06,05,--,10.000000,0.000000,0,0,8.1f,ms,,BrkCD_tiDebTmrPlaus_mp,Maximaldruck Motorschutz
+CTSCD_tClnt,B812F1042C100000,07,2,0x002C,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,CTSCD_tClnt,Coolant Temperature
+CTSCD_tClntLin,B812F1042C100000,07,2,0x0005,06,05,--,1.000240,-41.084307,0,0,8.3f,deg C,,CTSCD_tClntLin,linearisierter Wert aus HWK vorm Aufruf der Übergangsfunktion
+CTSCD_uRaw,B812F1042C100000,07,2,0x002B,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,CTSCD_uRaw,Actual Engine Temperature
+Clg_dtDynTst,B812F1042C100000,07,2,0x0075,06,05,--,0.100000,0.000000,0,0,8.3f,deg C,,Clg_dtDynTst,rise in temperature since start of test
+Clg_tEndDynTst,B812F1042C100000,07,2,0x0077,06,05,--,1.000240,-41.084307,0,0,8.3f,deg C,,Clg_tEndDynTst,CTSCD_tClnt at the end of test
+Clg_tiDynTst,B812F1042C100000,07,2,0x0074,06,05,--,0.010000,0.000000,0,0,13.4f,s,,Clg_tiDynTst,actual time of test
+CoEng_rTrq,B812F1042C100000,07,2,0x0004,06,05,--,0.393699,0.000000,0,0,8.4f,%,,CoEng_rTrq,Verhältnis aktuelles Moment zu Maximalmoment
+CoEng_stShutOff,B812F1042C100000,07,2,0x008E,06,05,--,1.000000,0.000000,0,0,5.1f,-,,CoEng_stShutOff,global shut off reasons ( afterrun / reversible / irreversible
+CoEng_trqInrLtd,B812F1042C100000,07,2,0x008F,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,CoEng_trqInrLtd,Wassertemperatur Spannungsrohwert
+CoEng_trqInrSet,B812F1042C100000,07,2,0x0057,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,CoEng_trqInrSet,Inner torque set value
+CoEng_trqLimMin_mp,B812F1042C100000,07,2,0x0094,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,CoEng_trqLimMin_mp,Fahrzeuggeschwindigkeit
+CoEng_voltotFlConsum,B812F1042C100000,07,2,0x00CB,06,05,--,20.844624,-683015.800225,0,0,13.2f,ul,,CoEng_voltotFlConsum,Fuel consumption integral
+CoVM_trqPrpDes,B812F1042C100000,07,2,0x0095,06,05,--,0.114445,-2500.058653,0,0,8.3f,Nm,,CoVM_trqPrpDes,desired torque for propulsion
+ConvCD_stRawVal,B812F1042C100000,07,2,0x005E,06,05,--,1.000000,0.000000,0,0,5.1f,-,,ConvCD_stRawVal,Clutch switch raw value
+CrCCD_stKey,B812F1042C100000,07,2,0x00D0,06,05,--,1.000000,0.000000,0,0,5.1f,-,,CrCCD_stKey,Return value of key pressed
+CrCtl_numGear,B812F1042C100000,07,2,0x008D,06,05,--,1.000000,0.000000,0,0,5.1f,-,,CrCtl_numGear,gear for cruise control
+CrCtl_stLampOut,B812F1042C100000,07,2,0x00D1,06,05,--,1.000000,0.000000,0,0,5.1f,-,,CrCtl_stLampOut,Status Indikator Lamp FGR
+CrCtl_stShutOffCode1_mp,B812F1042C100000,07,2,0x00F0,06,05,--,1.000000,0.000000,0,0,8.2f,-,,CrCtl_stShutOffCode1_mp,Shutoff code
+CrCtl_stShutOffCode1_mp1,B812F1042C100000,07,2,0x00F1,06,05,--,1.000000,0.000000,0,0,8.2f,-,,CrCtl_stShutOffCode1_mp1,Shutoff code
+CrCtl_stShutOffCode2_mp,B812F1042C100000,07,2,0x00F2,06,05,--,1.000000,0.000000,0,0,8.2f,-,,CrCtl_stShutOffCode2_mp,Shutoff code
+CrCtl_stShutOffCode2_mp1,B812F1042C100000,07,2,0x00F3,06,05,--,1.000000,0.000000,0,0,8.2f,-,,CrCtl_stShutOffCode2_mp1,Shutoff code
+CrCtl_stShutOffFrz1_mp,B812F1042C100000,07,2,0x00F4,06,05,--,1.000000,0.000000,0,0,8.2f,-,,CrCtl_stShutOffFrz1_mp,Shutoff code Frz
+CrCtl_stShutOffFrz1_mp1,B812F1042C100000,07,2,0x00F5,06,05,--,1.000000,0.000000,0,0,8.2f,-,,CrCtl_stShutOffFrz1_mp1,Shutoff code Frz
+CrCtl_stShutOffFrz2_mp,B812F1042C100000,07,2,0x00F6,06,05,--,1.000000,0.000000,0,0,8.2f,-,,CrCtl_stShutOffFrz2_mp,Shutoff code Frz
+CrCtl_stShutOffFrz2_mp1,B812F1042C100000,07,2,0x00F7,06,05,--,1.000000,0.000000,0,0,8.2f,-,,CrCtl_stShutOffFrz2_mp1,berechneter Abgasvolumenstrom im Partikelfilter
+CrCtl_trqDes,B812F1042C100000,07,2,0x0091,06,05,--,0.114445,-2500.058653,0,0,8.3f,Nm,,CrCtl_trqDes,mittlere Motordrehzahl
+CrCtl_vDes,B812F1042C100000,07,2,0x0083,06,05,--,0.003815,0.000000,0,0,8.4f,km/h,,CrCtl_vDes,setpoint speed cruise control
+DSMDur_ctDfctDur1,B812F1042C100000,07,2,0x00D7,06,05,--,1.000000,0.000000,0,0,8.2f,-,,DSMDur_ctDfctDur1,Defect duration counter value
+DSMDur_ctDfctDur11,B812F1042C100000,07,2,0x0021,06,05,--,1.000000,0.000000,0,0,8.2f,-,,DSMDur_ctDfctDur11,OBD: Travelled Distance with MIL on
+DSMDur_ctDfctDur2,B812F1042C100000,07,2,0x00D8,06,05,--,1.000000,0.000000,0,0,8.2f,-,,DSMDur_ctDfctDur2,Defect duration counter 2 value
+DSMDur_stGlobalDefCnt_mp,B812F1042C100000,07,2,0x00D9,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSMDur_stGlobalDefCnt_mp,enable and reset status of the two global duration counters
+DSM_ctOBDPath,B812F1042C100000,07,2,0x0080,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_ctOBDPath,Pre Supply Pump output value
+DSM_ctRdyActCyc_mp,B812F1042C100000,07,2,0x0089,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_ctRdyActCyc_mp,Status for each Readinessbit only in the current driving cycle
+DSM_ctRdyTstCompr_mp,B812F1042C100000,07,2,0x008B,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_ctRdyTstCompr_mp,Number of in this cycle tested fault paths belonging to Readiness Bit Comprehensive Components
+DSM_ctRdyTstEGR_mp,B812F1042C100000,07,2,0x0092,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_ctRdyTstEGR_mp,Number of in this cycle tested fault paths belonging to Readiness Bit EGR
+DSM_ctRdyTstFuel_mp,B812F1042C100000,07,2,0x0093,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_ctRdyTstFuel_mp,Batteriespannung
+DSM_ctRdyTstMisf_mp,B812F1042C100000,07,2,0x0098,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_ctRdyTstMisf_mp,Untergrenze Drehzahlintervall des LIGov
+DSM_ctTstPath,B812F1042C100000,07,2,0x0087,06,05,--,1.000000,0.000000,0,0,8.2f,-,,DSM_ctTstPath,Number of in this driving cycle tested  fault paths
+DSM_stCycles,B812F1042C100000,07,2,0x0085,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_stCycles,Status of DSM trigger cycles
+DSM_stMIL,B812F1042C100000,07,2,0x002A,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_stMIL,Status of MIL
+DSM_stRdyAB,B812F1042C100000,07,2,0x009C,06,05,--,1.000000,0.000000,0,0,8.2f,-,,DSM_stRdyAB,Ansauglufttemperatur
+DSM_stRdyCD,B812F1042C100000,07,2,0x00CD,06,05,--,1.000000,0.000000,0,0,8.2f,-,,DSM_stRdyCD,Readiness status for Diagnostic interface SAE J1979 PID1 Byte C + D
+DSM_stSysLamp,B812F1042C100000,07,2,0x0029,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_stSysLamp,Status of Sys lamp
+DSM_tiDCDelay_mp,B812F1042C100000,07,2,0x0086,06,05,--,1.000000,0.000000,0,0,8.2f,-,,DSM_tiDCDelay_mp,actual time for Dcy delay time
+EGRCD_rOut,B812F1042C100000,07,2,0x007A,06,05,--,0.010000,0.000000,0,0,8.4f,%,,EGRCD_rOut,Tastverhältnis zür Endstufenansteuerung
+EGRCD_rOut2,B812F1042C100000,07,2,0x0030,06,05,--,0.010000,0.000000,0,0,8.4f,%,,EGRCD_rOut2,Output Duty Cycle
+EngM_stOut,B812F1042C100000,07,2,0x00CA,06,05,--,1.000000,0.000000,0,0,5.1f,-,,EngM_stOut,Output for engine mechanics
+EngM_stSync,B812F1042C100000,07,2,0x00B0,06,05,--,1.000000,0.000000,0,0,5.1f,-,,EngM_stSync,Meta-Status der KW- und NW-Ereignisverwaltung (Motorpositions-Management)
+EngM_trqFrc,B812F1042C100000,07,2,0x00CE,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,EngM_trqFrc,current friction torque
+Eng_nAvrg,B812F1042C100000,07,2,0x002D,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,Eng_nAvrg,Average engine speed
+Eng_nAvrg_Carb,B812F1042C100000,07,2,0x000C,06,05,--,0.250000,0.000000,0,0,8.2f,rpm,,Eng_nAvrg_Carb,Avarage engine speed
+FMTC_trqInr,B812F1042C100000,07,2,0x0096,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,FMTC_trqInr,aktuelles rückgerechnetes inneres Motormoment
+FTSCD_tFuel,B812F1042C100000,07,2,0x005B,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,FTSCD_tFuel,Kraftstofftemperatur
+FTSCD_uRaw,B812F1042C100000,07,2,0x00D4,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,FTSCD_uRaw,Spannungsrohwert der Kraftstoffstemperatur
+FanCD_dcycRaw_mp,B812F1042C100000,07,2,0x00E8,06,05,--,0.010000,0.000000,0,0,8.4f,%,,FanCD_dcycRaw_mp,dutycycle Ubatt-corrected
+FlSys_volDetRefuel,B812F1042C100000,07,2,0x004A,06,05,--,0.050000,0.000000,0,0,8.3f,l,,FlSys_volDetRefuel,detected refuel quantity
+FlSys_volTotalRef_mp,B812F1042C100000,07,2,0x004C,06,05,--,0.050000,0.000000,0,0,8.3f,l,,FlSys_volTotalRef_mp,fuel level before tank stop
+FrmMng_lSum,B812F1042C100000,07,2,0x009A,06,05,--,8.000000,0.000000,0,0,13.2f,km,,FrmMng_lSum,Ladelufttemperatur nach Ladeluftkühler
+FrmMng_nFan,B812F1042C100000,07,2,0x00CF,06,05,--,0.011445,0.000000,0,0,8.3f,1/min,,FrmMng_nFan,Fan-speed
+FrmMng_stACHtgReq,B812F1042C100000,07,2,0x00E4,06,05,--,1.000000,0.000000,0,0,5.1f,-,,FrmMng_stACHtgReq,Heating power request via CAN
+FrmMng_swtAC_mp,B812F1042C100000,07,2,0x00C9,06,05,--,1.000000,0.000000,0,0,5.1f,-,,FrmMng_swtAC_mp,Switch air conditioning compressor
+FrmMng_tEnv,B812F1042C100000,07,2,0x00E3,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,FrmMng_tEnv,Environment air temperature
+Gearbx_stGear,B812F1042C100000,07,2,0x00E7,06,05,--,1.000000,0.000000,0,0,5.1f,-,,Gearbx_stGear,Digitalausgang Ansteuerung Klimakompressor
+Gearbx_swtType,B812F1042C100000,07,2,0x00A0,06,05,--,1.000000,0.000000,0,0,5.3f,-,,Gearbx_swtType,Abgastemperatur vor Oxidationskatalysator
+GlwCtl_rPwrOut,B812F1042C100000,07,2,0x007C,06,05,--,1.000000,0.000000,0,0,5.1f,-,,GlwCtl_rPwrOut,Glühanforderung
+HWEMon_numRecovery,B812F1042C100000,07,2,0x0073,06,05,--,1.000000,0.000000,0,0,8.2f,-,,HWEMon_numRecovery,Herkunft des letzten Reset ( >0 = Recovery )
+HWEMon_recLocHigh_mp,B812F1042C100000,07,2,0x00FF,06,05,--,1.000000,0.000000,0,0,8.2f,-,,HWEMon_recLocHigh_mp,HighAdresse recovery location
+HWEMon_recLocLow_mp,B812F1042C100000,07,2,0x00FD,06,05,--,1.000000,0.000000,0,0,8.2f,-,,HWEMon_recLocLow_mp,lowWord-lowByte adress recoverylocation
+HWEMon_recLocLow_mp1,B812F1042C100000,07,2,0x00FE,06,05,--,1.000000,0.000000,0,0,8.2f,-,,HWEMon_recLocLow_mp1,LowAdresse recovery location
+IATSCD_tAir,B812F1042C100000,07,2,0x0038,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,IATSCD_tAir,Actual Intake Air Temperature
+IATSCD_tAirCats,B812F1042C100000,07,2,0x0036,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,IATSCD_tAirCats,charge air temperature current value
+IATSCD_tAirLinCats,B812F1042C100000,07,2,0x007D,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,IATSCD_tAirLinCats,Charge air temperature without substitute value
+IATSCD_uRaw,B812F1042C100000,07,2,0x0037,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,IATSCD_uRaw,Actual Intake Air Temperature
+IATSCD_uRawCats,B812F1042C100000,07,2,0x00DF,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,IATSCD_uRawCats,charge air temperature raw value
+IATSCD_uRawCats1,B812F1042C100000,07,2,0x0047,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,IATSCD_uRawCats1,Output for IATSCD
+IndSys_rVSA,B812F1042C100000,07,2,0x0058,06,05,--,0.010000,0.000000,0,0,8.4f,%,,IndSys_rVSA,duty-cycle for variable swirl actuator
+InjCrv_phiMI1Des,B812F1042C100000,07,2,0x00BF,06,05,--,0.002930,-90.351389,0,0,8.4f,deg CrS,,InjCrv_phiMI1Des,"injection quantity MI1, if 1st injection"
+InjCrv_phiPiI1Des,B812F1042C100000,07,2,0x00B1,06,05,--,0.002930,-90.351389,0,0,8.4f,deg CrS,,InjCrv_phiPiI1Des,value for SOE angle-component PiI1
+InjCrv_phiPiI2Des,B812F1042C100000,07,2,0x00B2,06,05,--,0.002930,-90.351389,0,0,8.4f,deg CrS,,InjCrv_phiPiI2Des,value for SOE angle-component PiI2
+InjCrv_phiPiI3Des,B812F1042C100000,07,2,0x00B3,06,05,--,0.002930,-90.351389,0,0,8.4f,deg CrS,,InjCrv_phiPiI3Des,value for SOE angle-component PiI3
+InjCrv_phiPoI1Des,B812F1042C100000,07,2,0x00C4,06,05,--,0.002930,-90.351389,0,0,8.4f,deg CrS,,InjCrv_phiPoI1Des,basevalue ( angle
+InjCrv_phiPoI2Des,B812F1042C100000,07,2,0x00C5,06,05,--,0.002930,-90.351389,0,0,8.4f,deg CrS,,InjCrv_phiPoI2Des,basevalue ( angle
+InjCrv_qMI1Des,B812F1042C100000,07,2,0x00C1,06,05,--,0.001526,0.000000,0,0,8.4f,mg/inj,,InjCrv_qMI1Des,setpoint quantity for main injection
+InjCrv_qPiI1Bas_mp,B812F1042C100000,07,2,0x00BD,06,05,--,0.001526,0.000000,0,0,8.4f,mg/inj,,InjCrv_qPiI1Bas_mp,injection quantity PiI1 base value
+InjCrv_qPiI1Des,B812F1042C100000,07,2,0x00B7,06,05,--,0.001526,0.000000,0,0,8.4f,mg/inj,,InjCrv_qPiI1Des,desired PiI1 quantity including cylinder balancing ...
+InjCrv_qPiI2Bas_mp,B812F1042C100000,07,2,0x00BE,06,05,--,0.001526,0.000000,0,0,8.4f,mg/inj,,InjCrv_qPiI2Bas_mp,injection quantity PiI2 base value
+InjCrv_qPiI2Des,B812F1042C100000,07,2,0x00B8,06,05,--,0.001526,0.000000,0,0,8.4f,mg/inj,,InjCrv_qPiI2Des,desired PiI2 quantity including cylinder balancing ...
+InjCrv_qPiI3Des,B812F1042C100000,07,2,0x00B9,06,05,--,0.001526,0.000000,0,0,8.4f,mg/inj,,InjCrv_qPiI3Des,desired PiI3 quantity including cylinder balancing ...
+InjCrv_stPiI1_mp,B812F1042C100000,07,2,0x00BA,06,05,--,1.000000,0.000000,0,0,5.1f,-,,InjCrv_stPiI1_mp,release state of PiI1
+InjCrv_stPiI2_mp,B812F1042C100000,07,2,0x00BB,06,05,--,1.000000,0.000000,0,0,5.1f,-,,InjCrv_stPiI2_mp,release state of PiI2
+InjCrv_tiMI1ET,B812F1042C100000,07,2,0x00C0,06,05,--,0.152594,0.000000,0,0,8.2f,us,,InjCrv_tiMI1ET,estimated ET of MI1
+InjCrv_tiPiI1Bas_mp,B812F1042C100000,07,2,0x0076,06,05,--,0.152594,0.000000,0,0,8.2f,us,,InjCrv_tiPiI1Bas_mp,injection quantity PiI1 base value
+InjCtl_qCurr,B812F1042C100000,07,2,0x0055,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/cyc,,InjCtl_qCurr,Einspritzmenge aktueller Wert
+InjCtl_qSet,B812F1042C100000,07,2,0x0034,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/cyc,,InjCtl_qSet,Actual Injection Quantity
+InjVCD_tiMI1ET_mp,B812F1042C100000,07,2,0x00BC,06,05,--,0.152594,0.000000,0,0,8.2f,us,,InjVCD_tiMI1ET_mp,energising time of main injection
+InjVCD_tiPiI1ET_mp,B812F1042C100000,07,2,0x00B4,06,05,--,0.152594,0.000000,0,0,8.2f,us,,InjVCD_tiPiI1ET_mp,energising time of pilot injection 1
+InjVCD_tiPiI2ET_mp,B812F1042C100000,07,2,0x00B5,06,05,--,0.152594,0.000000,0,0,8.2f,us,,InjVCD_tiPiI2ET_mp,energising time of pilot injection 2
+InjVCD_tiPiI3ET_mp,B812F1042C100000,07,2,0x00B6,06,05,--,0.152594,0.000000,0,0,8.2f,us,,InjVCD_tiPiI3ET_mp,energising time of pilot injection 3
+InjVCD_tiPoI1ET_mp,B812F1042C100000,07,2,0x00C6,06,05,--,0.152594,0.000000,0,0,8.2f,us,,InjVCD_tiPoI1ET_mp,energising time of post injection 1
+InjVCD_tiPoI2ET_mp,B812F1042C100000,07,2,0x00C7,06,05,--,0.152594,0.000000,0,0,8.2f,us,,InjVCD_tiPoI2ET_mp,energising time of post injection 2
+InjVlv_nCyl1,B812F1042C100000,07,2,0x00A1,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl1,cylinder specific engine speed for cylinder 1
+InjVlv_nCyl2,B812F1042C100000,07,2,0x00A2,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl2,cylinder specific engine speed for cylinder 2
+InjVlv_nCyl3,B812F1042C100000,07,2,0x00A3,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl3,cylinder specific engine speed for cylinder 3
+InjVlv_nCyl4,B812F1042C100000,07,2,0x00A4,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl4,cylinder specific engine speed for cylinder 4
+InjVlv_nCyl5,B812F1042C100000,07,2,0x00A5,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl5,cylinder specific engine speed for cylinder 5
+InjVlv_nCyl6,B812F1042C100000,07,2,0x00A6,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl6,cylinder specific engine speed for cylinder 6
+InjVlv_nCyl7,B812F1042C100000,07,2,0x0078,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl7,cylinder specific engine speed for cylinder 7
+InjVlv_nCyl8,B812F1042C100000,07,2,0x0079,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl8,cylinder specific engine speed for cylinder 8
+InjVlv_qFBCCyl1,B812F1042C100000,07,2,0x00A7,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl1,cylinder specific FBC adjustment quantity for cylinder 1
+InjVlv_qFBCCyl2,B812F1042C100000,07,2,0x00A8,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl2,cylinder specific FBC adjustment quantity for cylinder 2
+InjVlv_qFBCCyl3,B812F1042C100000,07,2,0x00A9,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl3,cylinder specific FBC adjustment quantity for cylinder 3
+InjVlv_qFBCCyl4,B812F1042C100000,07,2,0x00AA,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl4,cylinder specific FBC adjustment quantity for cylinder 4
+InjVlv_qFBCCyl5,B812F1042C100000,07,2,0x00AB,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl5,cylinder specific FBC adjustment quantity for cylinder 5
+InjVlv_qFBCCyl6,B812F1042C100000,07,2,0x00AC,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl6,cylinder specific FBC adjustment quantity for cylinder 6
+InjVlv_qFBCCyl7,B812F1042C100000,07,2,0x00DA,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl7,cylinder specific FBC adjustment quantity for cylinder 7
+InjVlv_qFBCCyl8,B812F1042C100000,07,2,0x00DB,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl8,cylinder specific FBC adjustment quantity for cylinder 8
+LIGov_nSetpoint,B812F1042C100000,07,2,0x0031,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,LIGov_nSetpoint,Increased Idle Speed
+LIGov_st,B812F1042C100000,07,2,0x00E2,06,05,--,1.000000,0.000000,0,0,8.2f,-,,LIGov_st,state of LIGov
+LIGov_trq,B812F1042C100000,07,2,0x0097,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,LIGov_trq,Leerlaufreglermoment
+MeUnCD_dcycOut_mp,B812F1042C100000,07,2,0x00EC,06,05,--,0.010000,0.000000,0,0,8.4f,%,,MeUnCD_dcycOut_mp,Ausgangstastverhältnis
+MeUnCD_iActFlt_mp,B812F1042C100000,07,2,0x007F,06,05,--,0.228891,0.000000,0,0,8.2f,mA,,MeUnCD_iActFlt_mp,actual value of current filtered by metering unit current regulator
+MeUn_iSet_mp,B812F1042C100000,07,2,0x0045,06,05,--,0.228891,0.000000,0,0,8.2f,mA,,MeUn_iSet_mp,electrical set value of current for metering unit
+OCBS_bos01_w,B812F1042C100000,07,2,0x0061,06,05,--,12.499234,0.000000,0,0,8.1f,km,,OCBS_bos01_w,Zustand der Glühanzeige
+OCBS_bosbtvfbk,B812F1042C100000,07,2,0x0046,06,05,--,1.000000,0.000000,0,0,5.1f,%,,OCBS_bosbtvfbk,Output availibility BOS messages
+OCBS_zrbosmld,B812F1042C100000,07,2,0x0062,06,05,--,1.000000,0.000000,0,0,5.1f,-,,OCBS_zrbosmld,Ausgang Glührelais
+OPSCD_stSigOut,B812F1042C100000,07,2,0x00AF,06,05,--,1.000000,0.000000,0,0,5.1f,-,,OPSCD_stSigOut,Ausgangssignal Öldruckschalter
+OPSCD_stpOEL,B812F1042C100000,07,2,0x00E6,06,05,--,1.000000,0.000000,0,0,5.1f,-,,OPSCD_stpOEL,dutycycle Ubatt-corrected
+OTSCD_tEngOil,B812F1042C100000,07,2,0x005A,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,OTSCD_tEngOil,Engine oil temperature
+OxiCCD_tPre,B812F1042C100000,07,2,0x009B,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,OxiCCD_tPre,Lufttemperatur Spannungsrohwert
+OxiCCD_uRawTempPre,B812F1042C100000,07,2,0x00D5,06,05,--,0.610958,0.000000,0,0,8.3f,mV,,OxiCCD_uRawTempPre,Exhaust gas temperature (before oxidation catalyst
+PCR_pDesVal,B812F1042C100000,07,2,0x008A,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PCR_pDesVal,Ladedrucksollwert
+PCR_rBPA,B812F1042C100000,07,2,0x0059,06,05,--,0.003052,0.000000,0,0,8.4f,%,,PCR_rBPA,Einspritzmenge Sollwert ohne Mengenausgleichsregelung
+PCR_stMonitor,B812F1042C100000,07,2,0x004D,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PCR_stMonitor,Status of PCR monitoring
+PCVCD_dcycOut_mp,B812F1042C100000,07,2,0x00ED,06,05,--,0.010000,0.000000,0,0,8.4f,%,,PCVCD_dcycOut_mp,Ausgangstastverhältnis
+PCVCD_iActVal,B812F1042C100000,07,2,0x009E,06,05,--,0.228891,0.000000,0,0,8.2f,mA,,PCVCD_iActVal,Ladedruckwert
+PFltCD_tPre,B812F1042C100000,07,2,0x009D,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,PFltCD_tPre,Spannungsrohwert des Ladedrucksensors
+PFltCD_uRawTempPre,B812F1042C100000,07,2,0x00D6,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,PFltCD_uRawTempPre,Spannungsrohwert der Abgastemperatur vor dem Partikelfilter
+PFlt_dvol,B812F1042C100000,07,2,0x004E,06,05,--,0.100000,0.000000,0,0,8.3f,m^3/h,,PFlt_dvol,air volume per time unit across particle filter
+PFlt_facMltCor_mp,B812F1042C100000,07,2,0x004F,06,05,--,0.000122,0.000000,0,0,8.6f,-,,PFlt_facMltCor_mp,correction factor
+PFlt_lSum_mp,B812F1042C100000,07,2,0x0053,06,05,--,1.000000,0.000000,0,0,13.2f,m,,PFlt_lSum_mp,ges. gefahrene Strecke bei der letzten erfolgr. Regeneration
+PFlt_mAsh_mp,B812F1042C100000,07,2,0x006C,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mAsh_mp,Ölaschenmasse
+PFlt_mSot,B812F1042C100000,07,2,0x0068,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mSot,Rußmasse im Partikelfilter
+PFlt_mSotMeasRaw_mp,B812F1042C100000,07,2,0x006A,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mSotMeasRaw_mp,air stream resistance converted to soot mass
+PFlt_mSotMeas_mp,B812F1042C100000,07,2,0x0069,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mSotMeas_mp,soot mass additive offset corrected
+PFlt_mSotSim_mp,B812F1042C100000,07,2,0x006B,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mSotSim_mp,simulated soot mass
+PFlt_numEngPOp_mp,B812F1042C100000,07,2,0x006D,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_numEngPOp_mp,Regeneriermaßnahme aufgrund PFlt- und Motorzustand
+PFlt_numRgn_mp,B812F1042C100000,07,2,0x0070,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_numRgn_mp,gesamte Regenerationsanforderung
+PFlt_pDiff,B812F1042C100000,07,2,0x0054,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PFlt_pDiff,Differenzdruck über Partikelfilter
+PFlt_qFl_mp,B812F1042C100000,07,2,0x007E,06,05,--,0.010000,0.000000,0,0,8.4f,l,,PFlt_qFl_mp,verbrauchter Treibstoff seit der letzten erfolgreichen Regeneration
+PFlt_resFlow,B812F1042C100000,07,2,0x008C,06,05,--,0.001000,0.000000,0,0,8.5f,hPa/(m^3/h),,PFlt_resFlow,air stream resistance
+PFlt_resFlowOfs,B812F1042C100000,07,2,0x00AD,06,05,--,0.001000,0.000000,0,0,8.5f,hPa/(m^3/h),,PFlt_resFlowOfs,air stream resistance offset value
+PFlt_resFlowRaw_mp,B812F1042C100000,07,2,0x00CC,06,05,--,0.001000,0.000000,0,0,8.5f,hPa/(m^3/h),,PFlt_resFlowRaw_mp,air stream resistance raw value
+PFlt_st1_mp,B812F1042C100000,07,2,0x00F9,06,05,--,1.000000,0.000000,0,0,8.2f,-,,PFlt_st1_mp,lowWord-lowByte of regeneration status word
+PFlt_st1_mp1,B812F1042C100000,07,2,0x00FA,06,05,--,1.000000,0.000000,0,0,8.2f,-,,PFlt_st1_mp1,Status des Partikelfilters  LowByte (->Signals)
+PFlt_st2_mp,B812F1042C100000,07,2,0x00FB,06,05,--,1.000000,0.000000,0,0,8.2f,-,,PFlt_st2_mp,highWord-lowByte of regeneration status word
+PFlt_st2_mp1,B812F1042C100000,07,2,0x00FC,06,05,--,1.000000,0.000000,0,0,8.2f,-,,PFlt_st2_mp1,Status des Partikelfilters  HighByte (->Signals)
+PFlt_stEngPOp,B812F1042C100000,07,2,0x00D2,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_stEngPOp,Motorbetriebspunkt
+PFlt_stEngPOp3_mp,B812F1042C100000,07,2,0x00EE,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_stEngPOp3_mp,engine state calculated by range check 3
+PFlt_stEngPOp4_mp,B812F1042C100000,07,2,0x00EF,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_stEngPOp4_mp,engine state calculated by range check 4
+PFlt_stEngPOp5_mp,B812F1042C100000,07,2,0x0063,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_stEngPOp5_mp,engine state calculated by range check 5
+PFlt_tPreFlt_mp,B812F1042C100000,07,2,0x0071,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,PFlt_tPreFlt_mp,PFlt_tPre PT1 filtered
+PFlt_vVehFlt_mp,B812F1042C100000,07,2,0x0072,06,05,--,0.003815,0.000000,0,0,8.4f,km/h,,PFlt_vVehFlt_mp,VSSCD_v PT1 filtered
+PSPCD_dvolOut,B812F1042C100000,07,2,0x0081,06,05,--,0.208446,-6830.158002,0,0,8.4f,l/h,,PSPCD_dvolOut,Vorförderpumpe Ansteuertastverhältnis
+RailCD_pPeak,B812F1042C100000,07,2,0x00C2,06,05,--,0.030518,0.000000,0,0,5.3f,bar,,RailCD_pPeak,maximaler Raildruck der letzten 10ms
+RailCD_uPeakRaw,B812F1042C100000,07,2,0x00D3,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,RailCD_uPeakRaw,Rohwert des Raildrucks
+Rail_dvolMeUnSet,B812F1042C100000,07,2,0x0035,06,05,--,10.000000,0.000000,0,0,8.1f,mm3/s,,Rail_dvolMeUnSet,flow of fuel set value for MeUn
+Rail_pSetPoint,B812F1042C100000,07,2,0x00C3,06,05,--,0.030518,0.000000,0,0,5.3f,bar,,Rail_pSetPoint,Raildruck-sollwert
+Rail_stCtlLoop,B812F1042C100000,07,2,0x00E0,06,05,--,1.000000,0.000000,0,0,5.1f,-,,Rail_stCtlLoop,rail pressure governor state
+Rail_stCtlLoop1,B812F1042C100000,07,2,0x0067,06,05,--,1.000000,0.000000,0,0,5.1f,-,,Rail_stCtlLoop1,Output for Rail status
+StSys_trqStrt,B812F1042C100000,07,2,0x0090,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,StSys_trqStrt,Kühlmitteltemperatur
+T15CD_stWakeUpRawVal_mp,B812F1042C100000,07,2,0x003B,06,05,--,1.000000,0.000000,0,0,5.1f,-,,T15CD_stWakeUpRawVal_mp,raw value of Wake Up input
+TVACD_rOut,B812F1042C100000,07,2,0x00EA,06,05,--,0.010000,0.000000,0,0,8.4f,%,,TVACD_rOut,Tastverhältnis zür Endstufenansteuerung
+VSACD_rOut,B812F1042C100000,07,2,0x00EB,06,05,--,0.010000,0.000000,0,0,8.4f,%,,VSACD_rOut,Tastverhältnis zür Endstufenansteuerung
+VSSCD_a,B812F1042C100000,07,2,0x0033,06,05,--,0.000305,-9.999899,0,0,8.5f,m/s^2,,VSSCD_a,Actual Vehicle Acceleration
+VSSCD_v,B812F1042C100000,07,2,0x0032,06,05,--,0.003815,0.000000,0,0,8.4f,km/h,,VSSCD_v,vehicle speed
+VSSCD_vSensVal,B812F1042C100000,07,2,0x000D,06,05,--,0.999001,0.000000,0,0,8.4f,km/h,,VSSCD_vSensVal,Vehicle speed sensed value
+VehDa_rVn,B812F1042C100000,07,2,0x0084,06,05,--,0.000002,0.000000,0,0,9.7f,(km/h)/rpm,,VehDa_rVn,ratio of vehicle speed to engine speed
+VehDa_tiEngOn,B812F1042C100000,07,2,0x009F,06,05,--,99.900100,0.000000,0,0,13.2f,s,,VehDa_tiEngOn,Erfassung der aktuellen Betriebszeit

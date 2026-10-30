@@ -1,0 +1,13 @@
+LABEL,TEXT,LID,SID,BYTES,FACT_A,FACT_B,CID,OELVERDUENNUNG,LEISTUNGSMANGEL,SGDEFEKT,OELWECHSEL,FILTERTAUSCH,DRUCKSENSOR,BANDENDE
+ASKMB2,Lesen KM-Stand für nächsten Ascheabgleich Bank2,0x0142,0x0142,4,"1,0","0,0",0x2E,-,-,-,-,5000,-,-
+ASMEB2,Lesen Aschemenge für Ascheabgleich Bank2,0x0145,0x0145,2,"1,0","0,0",0x2E,-,-,0,-,-,-,-
+BEGMOMB2,Begrenzungsmoment bei Partikelfilterfehler Bank2,0x0130,0x0130,2,"1,0","0,0",0x2E,0,0,0,-,-,-,-
+CSFLSUMB2,gefahrene Strecke seit letzter erfolgr. Reg. B2(m),0x0203,0x46,4,"1,0","0,0",0x31,3000,3000,3000,-,0,-,-
+CSFMSOTB2,mSot-Partikelmasse Bank2 (g),0x0201,0x42,2,"0,01","0,0",0x31,0,0,0,-,0,-,0
+CSFPDIFFB2,Abgleichwerte fuer den Abgasdrucksensor Bank2,0x21,0x41,4,"1,0","0,0",0x31,-,-,0,-,-,0,-
+CSFQFLB2,verbr. Kraftstoffmasse s. letzt. erfolgr.Reg. B(l),0x0204,0x44,2,"0,01","0,0",0x31,200,200,200,-,0,-,140
+CSFQFLTOTB2,verbrauchte Gesamt-Kraftstoffmasse Bank2 (l),0x0208,0x40,4,"0,01","0,0",0x31,-,-,-,-,0,-,-
+CSFTILCKB2,Dauer Regeneration gesperrt (s),0x0105,0x27,4,"0,01","0,0",0x31,0,0,0,-,0,-,-
+CSFTIOPB2,Betriebsdauer s. letzt. erfolgr. Reg. Bank2 (s),0x0202,0x45,4,"1,0","0,0",0x31,0,0,0,-,0,-,-
+OELREGB2,Lfd. Summenreg.dauer fuer zul. Oelverduennung B2,0x01F0,0x01F0,4,"0,01","0,0",0x2E,0,-,0,0,-,-,-
+--,-,0x00,0x00,0,"1,0","0,0",-,-,-,-,-,-,-,-

@@ -1,0 +1,5 @@
+WERT,UWTEXT
+0x00,Wandlerkupplung offen
+0x20,Wandlerkupplung geregelt
+0x40,Wandlerkupplung zu
+0xXY,Wandlerkupplung unplausibel

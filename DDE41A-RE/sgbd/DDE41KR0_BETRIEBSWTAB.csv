@@ -1,0 +1,137 @@
+NAME,TELEGRAM,POS_ADR,LEN_ADR,ADR,BYTE,DATA_TYPE,COMPU_TYPE,FACT_A,FACT_B,MASK,VALUE,ANZ,MEAS,RANGE,JOBNAME,LNAME
+anmPWG,B812F1042C100000,06,2,0x0F60,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,anmPWG,PWG Pedalwertgeber Poti 1
+anmUBT,B812F1042C100000,06,2,0x0F65,06,5,--,0.0236197458,0,0x00,0x00,6.2f,V,--,anmUBT,UBT Batteriespannung
+anmVDF,B812F1042C100000,06,2,0x1F06,06,5,--,0.001,0,0x00,0x00,6.2f,bar,--,anmVDF,VDF Vorfoerderdruck
+anmWTF,B812F1042C100000,06,2,0x0F00,06,5,--,0.1,-273.14,0x00,0x00,6.2f,Grad C,--,anmWTF,WTF Wassertemperatur
+armM_List,B812F1042C100000,06,2,0x0F30,06,5,--,0.1,0,0x00,0x00,6.2f,mg/Hub Luft,--,armM_List,M_L aktuelle Luftmasse
+armM_Lsoll,B812F1042C100000,06,2,0x0F32,06,5,--,0.1,0,0x00,0x00,6.2f,mg/Hub Luft,--,armM_Lsoll,M_L Sollwert fuer AGR-Regelung
+dzmNmit,B812F1042C100000,06,2,0x0F10,06,5,--,1,0,0x00,0x00,6.2f,1/min,--,dzmNmit,N Drehzahl
+ehmFEKP,B812F1042C100000,06,2,0x0EA6,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,ehmFEKP,Tastverhaeltnis Ansteuerung Vorfoerderpumpe
+ehmFGRS,B812F1042C100000,06,2,0x0E87,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,ehmFGRS,Tastverhaeltnis Ansteuerung Gluehrelais 1
+ehmFGRS2,B812F1042C100000,06,2,0x1E96,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,ehmFGRS2,Tastverhaeltnis Ansteuerung Gluehrelais 2
+ehmFKLI,B812F1042C100000,06,2,0x0E91,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,ehmFKLI,Tastverhaeltnis Ansteuerung Klimakompressor
+ehmFZME,B812F1042C100000,06,2,0x1E97,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,ehmFZME,Tastverhaeltnis Ansteuerung elektrisches Abschaltventil
+ehmFLDS1,B812F1042C100000,06,2,0x0E81,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,ehmFLDS1,Tastverhaeltnis Ansteuerung Ladedrucksteller 1
+ehmFLDS2,B812F1042C100000,06,2,0x0E8B,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,ehmFLDS2,Tastverhaeltnis Ansteuerung Ladedrucksteller 2
+ehmFMLS,B812F1042C100000,06,2,0x0EA2,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,ehmFMLS,Tastverhaeltnis Ansteuerung Elektroluefter
+ldmP_Llin,B812F1042C100000,06,2,0x0F40,06,5,--,1,0,0x00,0x00,6.2f,mbar,--,ldmP_Llin,aktueller Ladedruck  / Luftdruck
+ehmFMML1,B812F1042C100000,06,2,0x0E9F,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,ehmFMML1,Tastverhaeltnis Ansteuerung Motorlager 1
+ldmP_Lsoll,B812F1042C100000,06,2,0x0F42,06,5,--,1,0,0x00,0x00,6.2f,mbar,--,ldmP_Lsoll,Sollwert Ladedruck
+zumP_RAIL,B812F1042C100000,06,2,0x1F5D,06,5,--,10.235414,0,0x00,0x00,6.2f,bar,--,zumP_RAIL,Raildruck fuer Mengenzumessung
+zumPQsoll,B812F1042C100000,06,2,0x1F5E,06,5,--,10.235414,0,0x00,0x00,6.2f,bar,--,zumPQsoll,Raildruck Sollwert
+admADF,B812F1042C100000,06,2,0x2041,06,5,--,1,0,0x00,0x00,6.2f,mbar,--,admADF,ADF Rohwert Atmosphaerendruck
+admIZE,B812F1042C100000,06,2,0x2F25,06,5,--,4.995005,0,0x00,0x00,6.2f,mA,--,admIZE,IZE Rohwert Istwert Stromregelung Zumesseinheit
+admLMM2,B812F1042C100000,06,2,0x2061,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,admLMM2,LMM2 Rohwert Luftmasse 2
+admLTF2,B812F1042C100000,06,2,0x2001,06,5,--,0.1,-273.14,0x00,0x00,6.2f,Grad C,--,admLTF2,LTF2 Rohwert Lufttemperatur 2
+admPGS,B812F1042C100000,06,2,0x2FFA,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,admPGS,PGS Rohwert Pedalwertgeber Poti 2
+admPWG,B812F1042C100000,06,2,0x2060,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,admPWG,PWG Rohwert Pedalwertgeber Poti 1
+admUBT,B812F1042C100000,06,2,0x2065,06,5,--,0.0236197458,0,0x00,0x00,6.2f,V,--,admUBT,UBT Rohwert Batteriespannung
+admUC1,B812F1042C100000,06,2,0x2FF8,06,5,--,0.0205718988,0,0x00,0x00,6.2f,V,--,admUC1,UC1 Rohwert Kondensatorspannung 1 fuer Zylinder 3 und 5
+admUC2,B812F1042C100000,06,2,0x2FF9,06,5,--,0.0205718988,0,0x00,0x00,6.2f,V,--,admUC2,UC2 Rohwert Kondensatorspannung 2 fuer Zylinder 2 und 8
+admUG1,B812F1042C100000,06,2,0x2FF6,06,5,--,0.01764418377,0,0x00,0x00,6.2f,V,--,admUG1,"UG1 Rohwert Speisespannung 1 fuer Luftmassenmesser 2, Pedalwertgeber PGS"
+admUG2,B812F1042C100000,06,2,0x2FF7,06,5,--,0.01764418377,0,0x00,0x00,6.2f,V,--,admUG2,"UG2 Rohwert Speisespannung 2 fuer Pedalwertgeber, Vorfoerderdruckfuehler"
+admVDF,B812F1042C100000,06,2,0x2006,06,5,--,0.001,0,0x00,0x00,6.2f,bar,--,admVDF,VDF Rohwert Vorfoerderdruck
+admWTF,B812F1042C100000,06,2,0x2000,06,5,--,0.1,-273.14,0x00,0x00,6.2f,Grad C,--,admWTF,WTF Rohwert Wassertemperatur
+anmADF,B812F1042C100000,06,2,0x0F63,06,5,--,1,0,0x00,0x00,6.2f,mbar,--,anmADF,ADF Atmosphaerendruck
+anmIZE,B812F1042C100000,06,2,0x1F25,06,5,--,4.995005,0,0x00,0x00,6.2f,mA,--,anmIZE,IZE Istwert Stromregelung Zumesseinheit
+anmLDF1,B812F1042C100000,06,2,0x1F26,06,5,--,1,0,0x00,0x00,6.2f,mbar,--,anmLDF1,LDF Ladedruck
+anmLMM1,B812F1042C100000,06,2,0x1F27,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,anmLMM1,LMM1 Luftmasse 1
+anmLMM2,B812F1042C100000,06,2,0x0F61,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,anmLMM2,LMM2 Luftmasse 2
+anmLTF1,B812F1042C100000,06,2,0x1F28,06,5,--,0.1,-273.14,0x00,0x00,6.2f,Grad C,--,anmLTF1,LTF1 Lufttemperatur 1
+anmLTF2,B812F1042C100000,06,2,0x0F01,06,5,--,0.1,-273.14,0x00,0x00,6.2f,Grad C,--,anmLTF2,LTF2 Lufttemperatur 2
+anmPGS,B812F1042C100000,06,2,0x0FFA,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,anmPGS,PGS Pedalwertgeber Poti 2
+anmUC1,B812F1042C100000,06,2,0x0FF8,06,5,--,0.0205718988,0,0x00,0x00,6.2f,V,--,anmUC1,UC1 Kondensatorspannung 1 fuer Zylinder 3 und 5
+anmUC2,B812F1042C100000,06,2,0x0FF9,06,5,--,0.0205718988,0,0x00,0x00,6.2f,V,--,anmUC2,UC2 Kondensatorspannung 2 fuer Zylinder 2 und 8
+anmUG1,B812F1042C100000,06,2,0x0FF6,06,5,--,0.01764418377,0,0x00,0x00,6.2f,V,--,anmUG1,"UG1 Speisespannung 1 fuer Luftmassenmesser 2, Pedalwertgeber PGS"
+anmUG2,B812F1042C100000,06,2,0x0FF7,06,5,--,0.01764418377,0,0x00,0x00,6.2f,V,--,anmUG2,"UG2 Speisespannung 2 fuer Pedalwertgeber, Vorfoerderdruckfuehler"
+anoU_ADF,B812F1042C100000,06,2,0x3011,06,5,--,0.0048875855,0,0x00,0x00,6.2f,V,--,anoU_ADF,ADF Spannung Atmosphaerendruckfuehler
+anoU_LMM2,B812F1042C100000,06,2,0x0F34,06,5,--,0.0048875855,0,0x00,0x00,6.2f,V,--,anoU_LMM2,LMM2 Spannung Luftmassenmesser 2
+anoU_LTF2,B812F1042C100000,06,2,0x300E,06,5,--,0.0048875855,0,0x00,0x00,6.2f,V,--,anoU_LTF2,LTF2 Spannung Lufttemperaturfuehler 2
+anoU_PGS,B812F1042C100000,06,2,0x3006,06,5,--,0.0048875855,0,0x00,0x00,6.2f,V,--,anoU_PGS,PGS Spannung Pedalwertgeber Poti 2
+anoU_PWG,B812F1042C100000,06,2,0x0F35,06,5,--,0.0048875855,0,0x00,0x00,6.2f,V,--,anoU_PWG,PWG Spannung Pedalwertgeber Poti 1
+anoU_UBT,B812F1042C100000,06,2,0x3013,06,5,--,0.0048875855,0,0x00,0x00,6.2f,V,--,anoU_UBT,UBT Spannung Batteriespannung
+anoU_UC1,B812F1042C100000,06,2,0x3008,06,5,--,0.0048875855,0,0x00,0x00,6.2f,V,--,anoU_UC1,UC1 Spannung Kondensatorspannung 1 fuer Zylinder 3 und 5
+anoU_UC2,B812F1042C100000,06,2,0x3009,06,5,--,0.0048875855,0,0x00,0x00,6.2f,V,--,anoU_UC2,UC2 Spannung Kondensatorspannung 2 fuer Zylinder 2 und 8
+anoU_UG1,B812F1042C100000,06,2,0x3016,06,5,--,0.01764418377,0,0x00,0x00,6.2f,V,--,anoU_UG1,"UG1 Spannung Speisespannung 1 fuer Luftmassenmesser 2, Pedalwertgeber PGS"
+anoU_UG2,B812F1042C100000,06,2,0x3017,06,5,--,0.01764418377,0,0x00,0x00,6.2f,V,--,anoU_UG2,"UG2 Spannung Speisespannung 2 fuer Pedalwertgeber, Vorfoerderdruckfuehler"
+anoU_VDF,B812F1042C100000,06,2,0x301A,06,5,--,0.0048875855,0,0x00,0x00,6.2f,V,--,anoU_VDF,VDF Spannung Vorfoerderdruckfuehler
+anoU_WTF,B812F1042C100000,06,2,0x3002,06,5,--,0.0048875855,0,0x00,0x00,6.2f,V,--,anoU_WTF,WTF Spannung Wassertemperaturfuehler
+armM_List1,B812F1042C100000,06,2,0x0F2C,06,5,--,0.1,0,0x00,0x00,6.2f,mg/Hub Luft,--,armM_List1,M_L aktuelle Luftmasse 1
+armM_List2,B812F1042C100000,06,2,0x0F2D,06,5,--,0.1,0,0x00,0x00,6.2f,mg/Hub Luft,--,armM_List2,M_L aktuelle Luftmasse 2
+aroIST_51,B812F1042C100000,06,2,0xDF0E,06,5,--,0.1,0,0x00,0x00,6.2f,mg/Hub Luft,--,aroIST_51,M_L normierte Luftmasse 1 (nicht T_L/P_ADF-korrig.)
+aroIST_52,B812F1042C100000,06,2,0xDF24,06,5,--,0.1,0,0x00,0x00,6.2f,mg/Hub Luft,--,aroIST_52,M_L normierte Luftmasse 2 (nicht T_L/P_ADF-korrig.)
+aroLMX,B812F1042C100000,06,2,0xDF28,06,7,--,0.0256,0,0x00,0x00,6.2f,-,--,aroLMX,LMX Luftmassenindex = (M_L1 - M_L2) / (M_L1 + M_L2)
+aroREGSTAT,B812F1042C100000,06,2,0x0EE0,06,5,--,1,0,0x00,0x00,6.2f,-,--,aroREGSTAT,Status der ARF-Abschaltbedingungen
+aroSOLL_5,B812F1042C100000,06,2,0x0F31,06,5,--,0.1,0,0x00,0x00,6.2f,mg/Hub Luft,--,aroSOLL_5,M_L Luft-Sollwert nach Sollwertbegrenzung
+camN_EL,B812F1042C100000,06,2,0x2220,06,5,--,0.0915555284,0,0x00,0x00,6.2f,1/min,--,camN_EL,MLS Drehzahlstufe E-Luefter
+camS_AC,B812F1042C100000,06,2,0x1FB1,06,2,--,1,0,0x00,0x00,6.2f,-,--,camS_AC,Schalter Klimabereitschaft
+camS_KO,B812F1042C100000,06,2,0x1FB0,06,2,--,1,0,0x00,0x00,6.2f,-,--,camS_KO,Schalter Klimakompressor
+caoVERB,B812F1042C100000,06,2,0x2160,06,5,--,1,0,0x00,0x00,6.2f,ul,--,caoVERB,Kraftstoffverbrauch fuer CAN DDE4-VERBRAUCH
+comGTR_opt,B812F1042C100000,06,2,0x1C00,06,5,--,1,0,0x00,0x00,6.2f,-,--,comGTR_opt,Identifikation Handschalter/Automatik
+dimDIG_0,B812F1042C100000,06,2,0x0F6C,06,5,--,1,0,0x00,0x00,6.2f,-,--,dimDIG_0,Auf logisch 0 erkannte Digitaleingaenge
+dimDIG_1,B812F1042C100000,06,2,0x0F6D,06,5,--,1,0,0x00,0x00,6.2f,-,--,dimDIG_1,Auf logisch 1 erkannte Digitaleingaenge
+dimDIGprel,B812F1042C100000,06,2,0x0F70,06,5,--,1,0,0x00,0x00,6.2f,-,--,dimDIGprel,Entprellte logische Zustaende der digitalen Eingaenge
+dimF_MFL,B812F1042C100000,06,2,0x2F74,06,5,--,1,0,0x00,0x00,6.2f,-,--,dimF_MFL,FGR Multifunktionslenkrad
+edmRSTCD,B812F1042C100000,06,2,0x0E00,06,5,--,1,0,0x00,0x00,6.2f,-,--,edmRSTCD,Restart Code
+ehmFZHR,B812F1042C100000,06,2,0x0EA3,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,ehmFZHR,Tastverhaeltnis Ansteuerung Zusatzheizung
+fbmBSTZ_UB,B812F1042C100000,06,2,0x1300,06,5,--,0.1,0,0x00,0x00,6.2f,h,--,fbmBSTZ_UB,UB Betriebsstunden
+fbmDIA_C,B812F1042C100000,06,2,0xDF01,06,2,--,1,0,0x00,0x00,6.2f,-,--,fbmDIA_C,Diagnoselampe ueber CAN
+fbmMIL_C,B812F1042C100000,06,2,0xDF02,06,2,--,1,0,0x00,0x00,6.2f,-,--,fbmMIL_C,MIL Malfunction Indikator Lamp ueber CAN
+fbmSDIAL,B812F1042C100000,06,2,0x1000,06,2,--,1,0,0x00,0x00,6.2f,-,--,fbmSDIAL,"Anforderung Diagnoselampe aus Fehlerbehandlung (0:Aus,1:Ein,2:Blinken)"
+fboDIALA,B812F1042C100000,06,2,0xDF00,06,5,--,1,0,0x00,0x00,6.2f,-,--,fboDIALA,Diagnose - Lampe Status (255 = EIN)
+fboS_00,B812F1042C100000,06,2,0xDF70,06,5,--,1,0,0x00,0x00,6.2f,-,--,fboS_00,Defekte Pfade 1 bis 16
+fboS_02,B812F1042C100000,06,2,0xDF72,06,5,--,1,0,0x00,0x00,6.2f,-,--,fboS_02,Defekte Pfade 17 bis 32
+fboS_04,B812F1042C100000,06,2,0xDF74,06,5,--,1,0,0x00,0x00,6.2f,-,--,fboS_04,Defekte Pfade 33 bis 48
+fboS_06,B812F1042C100000,06,2,0xDF76,06,5,--,1,0,0x00,0x00,6.2f,-,--,fboS_06,Defekte Pfade 49 bis 64
+fboS_08,B812F1042C100000,06,2,0xDF78,06,5,--,1,0,0x00,0x00,6.2f,-,--,fboS_08,Defekte Pfade 65 bis 80
+fgm_VzuN,B812F1042C100000,06,2,0x0F0B,06,5,--,0.0000391,0,0x00,0x00,6.2f,(km/h)/(1/min),--,fgm_VzuN,Verhaeltnis Geschwindigkeit/Drehzahl (V/N aktuell) 
+fgmBESCH,B812F1042C100000,06,2,0x0F0A,06,7,--,0.0847711,-10.8507031,0x00,0x00,6.2f,m/s^2,--,fgmBESCH,Beschleunigung
+fgmFGAKT,B812F1042C100000,06,2,0x0F08,06,5,--,0.01,0,0x00,0x00,6.2f,km/h,--,fgmFGAKT,aktuelle Geschwindigkeit
+gsoEmByte,B812F1042C100000,06,2,0x2153,06,5,--,1,0,0x00,0x00,6.2f,-,--,gsoEmByte,GZS empfangenes Byte
+gsoGS_Pha,B812F1042C100000,06,2,0x2152,06,5,--,1,0,0x00,0x00,6.2f,-,--,gsoGS_Pha,Gluehzeitsteuerung Gluehphase
+ldmADF,B812F1042C100000,06,2,0x0F41,06,5,--,1,0,0x00,0x00,6.2f,mbar,--,ldmADF,aktueller Atmosphaerendruck
+ldmT_LTGG,B812F1042C100000,06,2,0x0F48,06,5,--,0.1,-273.14,0x00,0x00,6.2f,Grad C,--,ldmT_LTGG,Errechnete Lufttemperatur
+ldoTVsteu,B812F1042C100000,06,2,0x0F49,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,ldoTVsteu,Tastverhaeltnis Steuerung
+mrmCASE_A,B812F1042C100000,06,2,0xDF21,06,5,--,1,0,0x00,0x00,6.2f,-,--,mrmCASE_A,ARD Zustand-Bits der aktiven Ruckeldaempfung
+mrmCASE_L,B812F1042C100000,06,2,0xDF20,06,5,--,1,0,0x00,0x00,6.2f,-,--,mrmCASE_L,LLR Zustand-Bits der Leerlaufregelung
+mrmF_GANG,B812F1042C100000,06,2,0x0F7E,06,5,--,1,0,0x00,0x00,6.2f,-,--,mrmF_GANG,FGR aktuelle Gangstufe
+mrmFG_SOLL,B812F1042C100000,06,2,0x0F09,06,5,--,0.01,0,0x00,0x00,6.2f,km/h,--,mrmFG_SOLL,V Sollwert Fahrgeschwindigkeit von FGR
+mrmKM_akt,B812F1042C100000,06,2,0x0FD0,06,5,--,10,0,0x00,0x00,6.2f,km,--,mrmKM_akt,aktueller km-Stand von Kombiinstrument
+mrmL_FGR,B812F1042C100000,06,2,0x2F75,06,2,--,1,0,0x00,0x00,6.2f,-,--,mrmL_FGR,FGR-Status-Indicator-Lampe ueber CAN
+mrmLLRIAnt,B812F1042C100000,06,2,0xDF13,06,7,--,0.01,0,0x00,0x00,6.2f,mm^3,--,mrmLLRIAnt,M_E Menge aus I-Anteil des PI-Leerlaufreglers
+mrmLLRPAnt,B812F1042C100000,06,2,0xDF14,06,7,--,0.01,0,0x00,0x00,6.2f,mm^3,--,mrmLLRPAnt,M_E Menge aus P-Anteil des PI-Leerlaufreglers
+mrmM_DXMSR,B812F1042C100000,06,2,0x0F89,06,7,--,0.01,0,0x00,0x00,6.2f,mm^3,--,mrmM_DXMSR,M_E externer Momenteneingriff MSR
+mrmM_EAKT,B812F1042C100000,06,2,0x0F80,06,7,--,0.01,0,0x00,0x00,6.2f,mm^3,--,mrmM_EAKT,M_E Aktuelle Einspritzmenge (ohne ARD)
+mrmM_EBEGR,B812F1042C100000,06,2,0x0F8A,06,7,--,0.01,0,0x00,0x00,6.2f,mm^3,--,mrmM_EBEGR,M_E resultierende Begrenzungsmenge
+mrmM_EFGR,B812F1042C100000,06,2,0x0F85,06,7,--,0.01,0,0x00,0x00,6.2f,mm^3,--,mrmM_EFGR,M_E Wunschmenge aus Fahrgeschwindigkeitsregelung
+mrmM_ELLR,B812F1042C100000,06,2,0x0F8D,06,7,--,0.01,0,0x00,0x00,6.2f,mm^3,--,mrmM_ELLR,M_E Menge aus Leerlaufregelung
+mrmM_EMOT,B812F1042C100000,06,2,0x0F8C,06,7,--,0.01,0,0x00,0x00,6.2f,mm^3,--,mrmM_EMOT,M_E Einspritzmenge nach ARD
+mrmM_EPWG,B812F1042C100000,06,2,0x0F84,06,7,--,0.01,0,0x00,0x00,6.2f,mm^3,--,mrmM_EPWG,M_E Wunschmenge = f(PWG) aus Fahrverhaltenkennfeld
+mrmM_ESTAR,B812F1042C100000,06,2,0x0F82,06,7,--,0.01,0,0x00,0x00,6.2f,mm^3,--,mrmM_ESTAR,M_E resultierender Startmengen-Sollwert
+mrmM_EWUN,B812F1042C100000,06,2,0x0F8B,06,7,--,0.01,0,0x00,0x00,6.2f,mm^3,--,mrmM_EWUN,M_E Fahrerwunschmenge nach externem Mengeneingriff
+mrmM_EWUNF,B812F1042C100000,06,2,0x0F86,06,7,--,0.01,0,0x00,0x00,6.2f,mm^3,--,mrmM_EWUNF,M_E Fahrerwunschmenge aus PWG oder FGR
+mrmPWGfi,B812F1042C100000,06,2,0x0F83,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,mrmPWGfi,PWG gefilterte Pedalwertgeber-Position
+mrmSTATUS,B812F1042C100000,06,2,0x0F7F,06,5,--,1,0,0x00,0x00,6.2f,-,--,mrmSTATUS,Status Motorbetriebsphase
+mrmV_SOLHN,B812F1042C100000,06,2,0x0F0C,06,5,--,0.01,0,0x00,0x00,6.2f,km/h,--,mrmV_SOLHN,HGB nachg. v-Soll
+mroFABZUST,B812F1042C100000,06,2,0x0F9A,06,5,--,1,0,0x00,0x00,6.2f,-,--,mroFABZUST,Zustand Ablaufsteuerung
+mroFGR_ABN,B812F1042C100000,06,2,0xDF08,06,5,--,1,0,0x00,0x00,6.2f,-,--,mroFGR_ABN,FGR Abschalt-Bedingungen
+mroKickDwn,B812F1042C100000,06,2,0x1F9A,06,5,--,1,0,0x00,0x00,6.2f,-,--,mroKickDwn,Schalter Kickdown
+mroMD_FAHR,B812F1042C100000,06,2,0x2211,06,5,--,3.137255,0,0x00,0x00,6.2f,Nm,--,mroMD_FAHR,Fahrerwunschmoment
+mroMD_REIB,B812F1042C100000,06,2,0x2212,06,5,--,3.137255,0,0x00,0x00,6.2f,Nm,--,mroMD_REIB,Reibmoment
+mroMD_SOLL,B812F1042C100000,06,2,0x2210,06,5,--,3.137255,0,0x00,0x00,6.2f,Nm,--,mroMD_SOLL,Sollmoment
+xcmZ_E,B812F1042C100000,06,2,0x0FAE,06,5,--,1,0,0x00,0x00,6.2f,-,--,xcmZ_E,EWS Uebertragungsfehlerzaehler
+zumAB_HE,B812F1042C100000,06,2,0x1F5A,06,7,--,0.0234375,0,0x00,0x00,6.2f,Grad KW,--,zumAB_HE,Ansteuerbeginn Haupteinspritzung
+zumAB_NE,B812F1042C100000,06,2,0x1F60,06,7,--,0.0234375,0,0x00,0x00,6.2f,Grad KW,--,zumAB_NE,Ansteuerbeginn Nacheinspritzung
+zumAD_NE2,B812F1042C100000,06,2,0x1F61,06,5,--,1,0,0x00,0x00,6.2f,us,--,zumAD_NE2,Ansteuerdauer Nacheinspritzung Abgastrakt 2
+anmLTF1,B812F1042C100000,06,2,0x1F28,06,5,--,0.1,-273.14,0x00,0x00,6.2f,Grad C,--,AN_LUFTTEMPERATUR1,LTF1 Lufttemperatur 1
+anmLTF2,B812F1042C100000,06,2,0x0F01,06,5,--,0.1,-273.14,0x00,0x00,6.2f,Grad C,--,AN_LUFTTEMPERATUR2,LTF2 Lufttemperatur 2
+anmLDF1,B812F1042C100000,06,2,0x1F26,06,5,--,1,0,0x00,0x00,6.2f,mbar,--,LADEDRUCK,LDF Ladedruck
+dzmNmit,B812F1042C100000,06,2,0x0F10,06,5,--,1,0,0x00,0x00,6.2f,1/min,--,MOTORDREHZAHL,N Drehzahl
+anmWTF,B812F1042C100000,06,2,0x0F00,06,5,--,0.1,-273.14,0x00,0x00,6.2f,Grad C,--,MOTORTEMPERATUR,WTF Wassertemperatur
+anmPWG,B812F1042C100000,06,2,0x0F60,06,5,--,0.01,0,0x00,0x00,6.2f,%,--,PWG_FAHRERWUNSCH,PWG Pedalwertgeber Poti 1
+anoU_PWG,B812F1042C100000,06,2,0x0F35,06,5,--,0.0048875855,0,0x00,0x00,6.2f,V,--,PWG_POTI_SPANNUNG,PWG Spannung Pedalwertgeber Poti 1
+mroACC_ABB,B812F1042C100000,06,2,0x1C21,06,5,--,1,0,0x00,0x00,6.2f,-,--,mroACC_ABB,Abbruchbedingung fuer Adaptive Cruise Control ACC
+mroACC_ZST,B812F1042C100000,06,2,0x1C20,06,5,--,1,0,0x00,0x00,6.2f,-,--,mroACC_ZST,ACC Zustand in der Motorsteuerung
+zhmUM_ZA,B812F1042C100000,06,2,0x2F14,06,2,--,1,0,0x00,0x00,6.2f,-,--,zhmUM_ZA,Umdrehungszaehler (1 Tick = 2 Umdrehungen)
+anmUBT,B812F1042C100000,06,2,0x0F65,06,5,--,0.0236197458,0,0x00,0x00,6.2f,V,--,UBATT,UBT Batteriespannung
+anmVDF,B812F1042C100000,06,2,0x1F06,06,5,--,0.001,0,0x00,0x00,6.2f,bar,--,VORFOERDERDRUCK,VDF Vorfoerderdruck

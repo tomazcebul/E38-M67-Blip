@@ -1,0 +1,65 @@
+ARTNR,ARTTEXT
+0x00,--
+0x1,AGR-Steller 1 Kurzschluss nach B+
+0x2,AGR-Steller 1 Unterbrechung oder Kurzschluss nach B-
+0x3,AGR-Steller 2 Kurzschluss nach B+
+0x4,AGR-Steller 2 Unterbrechung oder Kurzschluss nach B-
+0x5,Allgemeine Abgleiche Checksumme
+0x6,Ausfall Drehzahlgebersignal Kurbelwelle
+0x7,Ausfall Nockenwellengebersignal
+0x8,Baustein defekt
+0x9,Baustein offline
+0xA,Checksummenfehler
+0xB,GAD40 Quervergleich gestoert
+0xC,Injektorabgleich Checksumme
+0xD,Kommunikation mit EEPROM
+0xE,Korrekturmenge zu gross
+0xF,Kurbelwellengebersignal dynamisch unplausibel
+0x10,Kurzschluss nach B+
+0x11,Kurzschluss nach B-
+0x12,Lastabfall
+0x13,Leckage
+0x14,Maximaldruck ueberschritten
+0x15,Mengendriftkompensation Checksumme
+0x16,Microcontroller (Gate-Array Kommunikation)
+0x17,Minimaldruck ueber Motordrehzahl zu klein
+0x18,Motor hat ueberdreht
+0x19,n-sync. Empfangsobjekt verzoegert
+0x1A,n-sync. Objekt nicht versendet
+0x1B,Nockenwellengebersignal Freqenz zu hoch
+0x1C,Plausibilitaet im Nachlauf
+0x1D,Plausibilitaet mit redundantem Kontakt
+0x1E,Raildruckregelventil klemmt
+0x1F,Regelabweichung ueber Motordrehzahl zu gross
+0x20,Relais schaltet zu frueh ab
+0x21,Relais schaltet zu spaet ab
+0x22,Schnell-Loeschfehler
+0x23,Signal dynamisch unplausibel
+0x24,Spannung zu hoch
+0x25,Spannung zu niedrig
+0x26,Speisespannungsfehler
+0x27,Strom an High Side zu gross
+0x28,Strom an Low Side zu gross
+0x29,t-sync. Empfangsobjekte verzoegert
+0x2A,Ueberwachung aus Master
+0x2B,Unterbrechung oder Kurzschluss nach B+
+0x2C,Unterbrechung oder Kurzschluss nach B-
+0x2D,Versorgungsspannung DDE ueberschritten
+0x2E,Versorgungsspannung DDE unterschritten
+0x2F,Zuendstellung 2 Plausibilitaet nach Steuergeraet-Initialisierung
+0x30,Raildruckueberhoehung
+0x31,Ansteuerung wegen Fehler Raildruck-Regelung
+0x32,Kein Raildruckaufbau
+0xEB,Fehler momentan nicht vorhanden
+0xEC,Fehler momentan vorhanden
+0xED,--
+0xEE,sporadischer Fehler
+0xEF,--
+0xF0,--
+0xF1,--
+0xF2,--
+0xF3,--
+0xF4,--
+0xF5,--
+0xF6,--
+0xFF,unbekannte Fehlerart

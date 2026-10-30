@@ -1,0 +1,133 @@
+ARTNR,ARTTEXT
+0x00,--
+0x1,Adaptive Cruise Control ACC Alive - Fehler
+0x2,Adaptive Cruise Control ACC Botschaften unplausibel
+0x3,AGR 1 Negative Regelabweichung / Luftmasse zu hoch
+0x4,AGR 1 Positive Regelabweichung / Luftmasse zu niedrig
+0x5,AGR 2 Negative Regelabweichung / Luftmasse zu hoch
+0x6,AGR 2 Positive Regelabweichung / Luftmasse zu niedrig
+0x7,AGR-Steller 1 Kurzschluss nach B+
+0x8,AGR-Steller 1 Unterbrechung oder Kurzschluss nach B-
+0x9,AGR-Steller 2 Kurzschluss nach B+
+0xA,AGR-Steller 2 Unterbrechung oder Kurzschluss nach B-
+0xB,Allgemeine Abgleiche Checksumme
+0xC,Ansteuerung Kurzschluss nach B+
+0xD,Ansteuerung Unterbrechung oder Kurzschluss nach B-
+0xE,Ausfall Drehzahlgebersignal Kurbelwelle
+0xF,Baustein defekt
+0x10,Baustein offline
+0x11,CAN-Bus Baustein defekt
+0x12,CAN-Bus Baustein offline
+0x13,Checksummenfehler
+0x14,Empfangsfehler ACC
+0x15,Empfangsfehler ASC
+0x16,Empfangsfehler Elektronische Getriebesteuerung (EGS)
+0x17,Empfangsfehler Kombi-Instrument (INSTR2)
+0x18,Empfangsfehler Kombi-Instrument (INSTR3)
+0x19,Endstufenfehler
+0x1A,Ansteuersignal Ladedrucksteller 1 unplausibel
+0x1B,Versorgungsspannung Ladedrucksteller 1 zu niedrig
+0x1C,Fehler beim Abstellen ueber Injektor Endstufe (OFF)
+0x1D,Fehler beim Abstellen ueber Nullmenge
+0x1E,elektrischer Ladedrucksteller 1 oder VNT 1 defekt
+0x1F,elektrischer Ladedrucksteller 2 oder VNT 2 defekt
+0x20,GAD40 Quervergleich gestoert
+0x22,Geschwindigkeit zu gross
+0x23,Gleichstellungsregler
+0x24,"Gluehsystemfehler Zylinder 1, 4, 6, 7"
+0x25,"Gluehsystemfehler Zylinder 2, 3, 5, 8"
+0x26,HFM1 Luftmasse zu gering
+0x27,HFM1 Ueberwachung aus Slave
+0x28,HFM2 Kurzschluss nach B+
+0x29,HFM2 Luftmasse zu gering
+0x2A,HFM2 Speisespannungsfehler
+0x2B,HFM2 Unterbrechung oder Kurzschluss nach B-
+0x2C,kein Signal vom Multifunktionslenkrad
+0x2D,Kommunikation mit EEPROM
+0x2E,Korrekturmenge zu gross
+0x2F,Kurbelwellengebersignal dynamisch unplausibel
+0x30,Kurbelwellensignal-Leitung vom Slave zum Master defekt
+0x31,Kurzschluss nach B+
+0x32,Kurzschluss nach B-
+0x33,Ladedrucksteller 1 Kurzschluss nach B+
+0x34,Ladedrucksteller 1 Unterbrechung oder Kurzschluss nach B-
+0x35,Ladedrucksteller 2 Kurzschluss nach B+
+0x36,Ladedrucksteller 2 Unterbrechung oder Kurzschluss nach B-
+0x37,Lastabfall
+0x38,Leckage
+0x39,Leerlauf-Testimpuls-Fehler
+0x3A,Luftmassenabweichungsindex zu gross
+0x3B,Manipulationsversuch
+0x3C,Maximaldruck ueberschritten
+0x3D,Mengenreduktion wegen geringem Vorfoerderdruck
+0x3E,Microcontroller (Gate-Array Kommunikation)
+0x3F,Minimaldruck ueber Motordrehzahl zu klein
+0x40,Motor hat ueberdreht
+0x41,n-sync. Empfangsobjekte verzoegert
+0x44,Negative Regelabweichung / Ladedruck zu hoch
+0x45,obere Referenzspannungsgrenze im Master ueberschritten
+0x46,obere Referenzspannungsgrenze im Slave ueberschritten
+0x47,Plausibilitaet im Nachlauf
+0x48,Plausibilitaet mit Atmosphaerendruckfuehler bei Leerlauf
+0x49,Plausibilitaet mit Einspritzmenge und Motordrehzahl
+0x4A,Plausibilitaet mit redundantem Kontakt
+0x4B,Plausibilitaet Starterpfad
+0x4C,Plausibilitaet zwischen Poti 1 und 2 verletzt
+0x4D,Positive Regelabweichung / Ladedruck zu niedrig
+0x4E,Raildruckregelventil klemmt
+0x4F,Recovery aufgetreten
+0x50,redundante Schubueberwachung
+0x51,Regelabweichung ueber Motordrehzahl zu gross
+0x52,Relais schaltet zu frueh ab
+0x53,Relais schaltet zu spaet ab
+0x54,Schnell-Loeschfehler
+0x55,Signal dynamisch unplausibel
+0x56,Signal fehlerhaft
+0x57,Spannung zu hoch
+0x58,Spannung zu niedrig
+0x59,Speisespannungsfehler
+0x5A,Strom an High Side zu gross
+0x5B,Strom an Low Side zu gross
+0x5C,t-sync. Empfangsobjekte (teilweise) verzoegert
+0x5D,Timeout abgelaufen
+0x5E,Uebertragungsfehler
+0x5F,Ueberwachung aus Slave
+0x60,Unterbrechung oder Kurzschluss nach B+
+0x61,Unterbrechung oder Kurzschluss nach B-
+0x62,untere Referenzspannungsgrenze im Master unterschritten
+0x63,untere Referenzspannungsgrenze im Slave unterschritten
+0x64,Urcode (UC) im EEPROM defekt
+0x65,Versorgungsspannung DDE ueberschritten
+0x66,Versorgungsspannung DDE unterschritten
+0x67,Vorfoerderdruck unter Mindestwert fuer Motorstart
+0x68,Wechselcode (WC) im EEPROM defekt
+0x69,zu gross
+0x6A,zu klein
+0x6B,Zuendstellung 2 Plausibilitaet nach Steuergeraet-Initialisierung
+0x6C,Ansteuersignal Ladedrucksteller 2 unplausibel
+0x6D,Versorgungsspannung Ladedrucksteller 2 zu niedrig
+0x6E,Adaptive Cruise Control ACC Reaktions / Rampen - Timeout
+0x6F,Nachlauftest Gate-Array Mengenstop im Master fehlgeschlagen
+0x70,Nachlauftest Gate-Array Mengenstop im Slave fehlgeschlagen
+0x71,Fehler beim Abstellen ueber Injektor Endstufe (OFF) im Master
+0x72,Fehler beim Abstellen ueber Nullmenge im Master
+0x73,Fehler beim Abstellen ueber Injektor Endstufe (OFF) im Slave
+0x74,Fehler beim Abstellen ueber Nullmenge im Slave
+0x75,Blockiererkennung
+0x76,Blockiererkennung2
+0x77,Blockiererkennung3
+0x78,Abgefallener Ladeluftschlauch
+0x79,Raildruckueberhoehung
+0xEB,Fehler momentan nicht vorhanden
+0xEC,Fehler momentan vorhanden
+0xED,--
+0xEE,sporadischer Fehler
+0xEF,--
+0xF0,--
+0xF1,--
+0xF2,--
+0xF3,--
+0xF4,--
+0xF5,--
+0xF6,--
+0xFF,unbekannte Fehlerart

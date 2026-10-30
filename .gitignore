@@ -1,0 +1,13 @@
+# BMW SP-Daten (proprietary BMW programming data, ~1.6 GB)
+/BMW-SPdaten-v.60.1/
+
+# Firmware images (converted from BMW/Bosch files, flash dumps, patched images).
+# Regenerate them from SP-Daten with the tools in */tools (see the READMEs).
+*.bin
+*.BIN
+*.ori
+*.ORI
+
+# Python
+__pycache__/
+*.pyc

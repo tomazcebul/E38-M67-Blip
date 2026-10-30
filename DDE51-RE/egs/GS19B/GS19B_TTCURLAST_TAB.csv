@@ -1,0 +1,7 @@
+WERT,UWTEXT
+0x00,undefiniert
+0x01,Reset in Initilisation
+0x02,Reset in Standby
+0x03,Reset in Betrieb
+0x04,Reset in Limp-Home
+0xXY,Fehler

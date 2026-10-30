@@ -1,0 +1,13 @@
+ARTMASKE,ARTNR,ARTTEXT
+xxxxxxx0,10,--
+xxxxxxx1,11,Diagnose aktiv
+xxxxxx0x,20,--
+xxxxxx1x,21,Diagnose gestoppt
+xxxxx0xx,30,--
+xxxxx1xx,31,Zyklus-Flag gesetzt
+xxxx0xxx,40,--
+xxxx1xxx,41,Error-Flag gesetzt
+xxx0xxxx,50,--
+xxx1xxxx,51,MIL ein
+xx0xxxxx,60,--
+xx1xxxxx,61,Fehler in Entprellphase

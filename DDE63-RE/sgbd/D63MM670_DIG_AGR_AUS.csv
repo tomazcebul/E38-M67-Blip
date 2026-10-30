@@ -1,0 +1,21 @@
+NAME,TELEGRAMM,TELNAME,ERGEBNIS,BYTE,MASK,VALUE,LNAME,TEXT_1,TEXT_0
+S_AGR_UKN,13E313E4,AirCtl_stAirCtlBits1_mp,STAT_AGR_UKN_WERT,3,0x01,0x01,keine Abschaltung,aktiv,nicht aktiv
+S_AGR_SUB,13E313E4,AirCtl_stAirCtlBits1_mp,STAT_AGR_SUB_WERT,3,0x02,0x02,Schubbetrieb,aktiv,nicht aktiv
+S_AGR_SAL,13E313E4,AirCtl_stAirCtlBits1_mp,STAT_AGR_SAL_WERT,3,0x04,0x04,Schaltvorgang,aktiv,nicht aktiv
+S_AGR_LL,13E313E4,AirCtl_stAirCtlBits1_mp,STAT_AGR_LL_WERT,3,0x08,0x08,langer Leerlauf,aktiv,nicht aktiv
+S_AGR_REG,13E313E4,AirCtl_stAirCtlBits1_mp,STAT_AGR_REG_WERT,3,0x10,0x10,Regeneration EGT,aktiv,nicht aktiv
+S_AGR_SYS,13E313E4,AirCtl_stAirCtlBits1_mp,STAT_AGR_SYS_WERT,3,0x20,0x20,Systemfehler,aktiv,nicht aktiv
+S_AGR_NAT,13E313E4,AirCtl_stAirCtlBits1_mp,STAT_AGR_NAT_WERT,3,0x80,0x80,zu niedriger Atmosphärendruck,aktiv,nicht aktiv
+S_AGR_NWT,13E313E4,AirCtl_stAirCtlBits1_mp,STAT_AGR_NWT_WERT,2,0x01,0x01,zu niedrige Kühlwassertemperatur,aktiv,nicht aktiv
+S_AGR_RA,13E313E4,AirCtl_stAirCtlBits1_mp,STAT_AGR_RA_WERT,2,0x04,0x04,bleibende Regelabweichung,aktiv,nicht aktiv
+S_AGR_QMX,13E313E4,AirCtl_stAirCtlBits1_mp,STAT_AGR_QMX_WERT,2,0x08,0x08,große Einspritzmenge,aktiv,nicht aktiv
+S_AGR_KLT,13E313E4,AirCtl_stAirCtlBits1_mp,STAT_AGR_KLT_WERT,2,0x10,0x10,Kaltstart,aktiv,nicht aktiv
+S_AGR_NLT,13E313E4,AirCtl_stAirCtlBits1_mp,STAT_AGR_NLT_WERT,2,0x20,0x20,zu niedrige Lufttemperatur,aktiv,nicht aktiv
+S_AGR_HLT,13E313E4,AirCtl_stAirCtlBits1_mp,STAT_AGR_HLT_WERT,2,0x40,0x40,zu hohe Lufttemperatur,aktiv,nicht aktiv
+S_AGR_NIN,13E313E4,AirCtl_stAirCtlBits1_mp,STAT_AGR_MIN_WERT,2,0x80,0x80,zu kleine Drehzahl,aktiv,nicht aktiv
+S_AGR_NMX,13E313E4,AirCtl_stAirCtlBits2_mp,STAT_AGR_NMX_WERT,5,0x01,0x01,zu hohe Drehzahl,aktiv,nicht aktiv
+S_AGR_KOO,13E313E4,AirCtl_stAirCtlBits2_mp,STAT_AGR_KOO_WERT,5,0x04,0x04,Abschaltkoordinationsanforderung,aktiv,nicht aktiv
+S_AGR_HWT,13E313E4,AirCtl_stAirCtlBits2_mp,STAT_AGR_HWT_WERT,5,0x08,0x08,zu hohe Kühlwassertemperatur,aktiv,nicht aktiv
+S_AGR_BAT,13E313E4,AirCtl_stAirCtlBits2_mp,STAT_AGR_BAT_WERT,5,0x10,0x10,zu niedrige Batteriespannung,aktiv,nicht aktiv
+S_AGR_HFKOMP,13E313E4,AirCtl_stAirCtlBits2_mp,STAT_AGR_HFKOMP_WERT,5,0x20,0x20,HFM Drift Kompensation,aktiv,nicht aktiv
+S_AGR_PLBRK,13E313E4,AirCtl_stAirCtlBits2_mp,STAT_AGR_PLBRK_WERT,5,0x40,0x40,AGR-Tellerbruch,aktiv,nicht aktiv

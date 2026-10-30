@@ -1,0 +1,15 @@
+TELNAME,TELEGRAMM,NAME,ERGEBNIS,BYTE,MASK,VALUE,LNAME,TEXT_1,TEXT_0
+DSM_stRdyAB,009C00CD,S_MISFIRE,STAT_MISFIRE_WERT,2,0x01,0x01,Misfire Monitoring,supported,not supported
+DSM_stRdyAB,009C00CD,S_FUELSYST,STAT_FUELSYST_WERT,2,0x02,0x02,Fuel System Monitoring,supported,not supported
+DSM_stRdyAB,009C00CD,S_COMPMON,STAT_COMPMON_WERT,2,0x04,0x04,Comprehensive Component Monitoring,supported,not supported
+DSM_stRdyAB,009C00CD,S_STATMISFIRE,STAT_STATMISFIRE_WERT,2,0x10,0x10,Status Misfire Monitoring,not ready,ready
+DSM_stRdyAB,009C00CD,S_STATFUELSYST,STAT_STATFUELSYST_WERT,2,0x20,0x20,Status Fuel System Monitoring,not ready,ready
+DSM_stRdyAB,009C00CD,S_STATCOMPMON,STAT_STATCOMPMON_WERT,2,0x40,0x40,Status Comprehensive Component Monitoring,not ready,ready
+DSM_stRdyCD,009C00CD,S_STATCATALYST,STAT_STATCATALYST_WERT,4,0x01,0x01,Status Catalyst Monitoring,not ready,ready
+DSM_stRdyCD,009C00CD,S_CATALYST,STAT_CATALYST_WERT,5,0x01,0x01,Catalyst Monitoring,supported,not supported
+DSM_stRdyCD,009C00CD,S_STATOXYGEN,STAT_STATOXYGEN_WERT,4,0x20,0x20,Status Oxygen Sensor Monitoring,not ready,ready
+DSM_stRdyCD,009C00CD,S_OXYGEN,STAT_OXYGEN_WERT,5,0x20,0x20,Oxygen Sensor Monitoring,supported,not supported
+DSM_stRdyCD,009C00CD,S_STATOXYHEAT,STAT_STATOXYHEAT_WERT,4,0x40,0x40,Status Oxygen Sensor Heater Monitoring,not ready,ready
+DSM_stRdyCD,009C00CD,S_OXYHEAT,STAT_OXYHEAT_WERT,5,0x40,0x40,Oxygen Sensor Heater Monitoring,supported,not supported
+DSM_stRdyCD,009C00CD,S_STATEGRSYST,STAT_STATEGRSYST_WERT,4,0x80,0x80,Status EGR System Monitoring,not ready,ready
+DSM_stRdyCD,009C00CD,S_EGRSYST,STAT_EGRSYST_WERT,5,0x80,0x80,EGR System Monitoring,supported,not supported

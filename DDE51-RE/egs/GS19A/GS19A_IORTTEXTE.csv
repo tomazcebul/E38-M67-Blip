@@ -1,0 +1,17 @@
+ORT,ORTTEXT
+0x4F80,Übersetzungsueberwachung Symptom Gangueberwachung
+0x4F86,Übersetzungsueberwachung Symptom Schaltungsueberwachung
+0x5118,Infozähler1 - EGS-Reset
+0x5113,Infozähler2 - DME-Zwangshochschaltung
+0x510E,Infozähler3 - Auto-P PM
+0x510F,Infozähler4 - Auto-P EMF
+0x5110,Infozähler5 - Auto-P EMF
+0x5111,Infozähler6 - Auto-N SZL
+0x5112,Infozähler7 - Auto-P SZL
+0x5119,Reset im Bosch SW-Teil
+0x511A,Reset im ZF SW-Teil
+0x5114,"Funktionalität der Hotmode Stufe 1,2 oder 3 ausgelöst"
+0x5115,Anzeige für Hotmode Stufe 1 oder 2 ausgelöst
+0x4F4C,Symptom Gangueberwachung
+0x4F56,Schaltungsueberwachung Überschneidungsschaltung
+0xFFFF,unbekannter Fehlerort

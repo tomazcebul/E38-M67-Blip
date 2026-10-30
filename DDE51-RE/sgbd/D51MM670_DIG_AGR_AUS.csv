@@ -1,0 +1,19 @@
+TELNAME,TELEGRAMM,NAME,ERGEBNIS,BYTE,MASK,VALUE,LNAME,TEXT_1,TEXT_0
+AirCtl_stAirCtlBits1_mp,00410043,S_AGR_UKN,STAT_AGR_UKN_WERT,3,0x01,0x01,keine Abschaltung,aktiv,nicht aktiv
+AirCtl_stAirCtlBits1_mp,00410043,S_AGR_SUB,STAT_AGR_SUB_WERT,3,0x02,0x02,Schubbetrieb,aktiv,nicht aktiv
+AirCtl_stAirCtlBits1_mp,00410043,S_AGR_SAL,STAT_AGR_SAL_WERT,3,0x04,0x04,Schaltvorgang,aktiv,nicht aktiv
+AirCtl_stAirCtlBits1_mp,00410043,S_AGR_LL,STAT_AGR_LL_WERT,3,0x08,0x08,langer Leerlauf,aktiv,nicht aktiv
+AirCtl_stAirCtlBits1_mp,00410043,S_AGR_REG,STAT_AGR_REG_WERT,3,0x10,0x10,Regeneration EGT,aktiv,nicht aktiv
+AirCtl_stAirCtlBits1_mp,00410043,S_AGR_SYS,STAT_AGR_SYS_WERT,3,0x20,0x20,Systemfehler,aktiv,nicht aktiv
+AirCtl_stAirCtlBits1_mp,00410043,S_AGR_NAT,STAT_AGR_NAT_WERT,3,0x80,0x80,zu niedriger Atmosphärendruck,aktiv,nicht aktiv
+AirCtl_stAirCtlBits1_mp,00410043,S_AGR_NWT,STAT_AGR_NWT_WERT,2,0x01,0x01,zu niedrige Kühlwassertemperatur,aktiv,nicht aktiv
+AirCtl_stAirCtlBits1_mp,00410043,S_AGR_RA,STAT_AGR_RA_WERT,2,0x04,0x04,bleibende Regelabweichung,aktiv,nicht aktiv
+AirCtl_stAirCtlBits1_mp,00410043,S_AGR_QMX,STAT_AGR_QMX_WERT,2,0x08,0x08,große Einspritzmenge,aktiv,nicht aktiv
+AirCtl_stAirCtlBits1_mp,00410043,S_AGR_KLT,STAT_AGR_KLT_WERT,2,0x10,0x10,Kaltstart,aktiv,nicht aktiv
+AirCtl_stAirCtlBits1_mp,00410043,S_AGR_NLT,STAT_AGR_NLT_WERT,2,0x20,0x20,zu niedrige Lufttemperatur,aktiv,nicht aktiv
+AirCtl_stAirCtlBits1_mp,00410043,S_AGR_HLT,STAT_AGR_HLT_WERT,2,0x40,0x40,zu hohe Lufttemperatur,aktiv,nicht aktiv
+AirCtl_stAirCtlBits1_mp,00410043,S_AGR_NIN,STAT_AGR_MIN_WERT,2,0x80,0x80,zu kleine Drehzahl,aktiv,nicht aktiv
+AirCtl_stAirCtlBits2_mp,00410043,S_AGR_NMX,STAT_AGR_NMX_WERT,5,0x01,0x01,zu hohe Drehzahl,aktiv,nicht aktiv
+AirCtl_stAirCtlBits2_mp,00410043,S_AGR_KOO,STAT_AGR_KOO_WERT,5,0x04,0x04,Abschaltkoordinationsanforderung,aktiv,nicht aktiv
+AirCtl_stAirCtlBits2_mp,00410043,S_AGR_HWT,STAT_AGR_HWT_WERT,5,0x08,0x08,zu hohe Kühlwassertemperatur,aktiv,nicht aktiv
+AirCtl_stAirCtlBits2_mp,00410043,S_AGR_BAT,STAT_AGR_BAT_WERT,5,0x10,0x10,zu niedrige Batteriespannung,aktiv,nicht aktiv

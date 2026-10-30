@@ -1,0 +1,8 @@
+{
+  "r2": "0100F0",
+  "r2_note": "set at 0x821A88 (lis r2,1; addi r2,r2,0xF0); confirmed by the CAN signal table at r2-0x7784 = 0x896C",
+  "r14": "8261AC",
+  "r14_note": "set at 0x821A90 (lis r14,0x82; addi r14,r14,0x61AC)",
+  "r13": "409800",
+  "r13_note": "assumed; r13 is set in the unsupplied boot code"
+}

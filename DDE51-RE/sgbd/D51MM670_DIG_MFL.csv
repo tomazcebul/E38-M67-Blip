@@ -1,0 +1,5 @@
+TELNAME,TELEGRAMM,NAME,ERGEBNIS,BYTE,MASK,VALUE,LNAME,TEXT_1,TEXT_0
+CrCCD_stKey,00D0,S_MFLEINP,STAT_MFLEINP_WERT,3,0x01,0x01,MFL Bedienteil Taste +,betaetigt,nicht betaetigt
+CrCCD_stKey,00D0,S_MFLEINM,STAT_MFLEINM_WERT,3,0x02,0x02,MFL Bedienteil Taste -,betaetigt,nicht betaetigt
+CrCCD_stKey,00D0,S_MFLWA,STAT_MFLWA_WERT,3,0x04,0x04,MFL Bedienteil Taste Wiederaufnahme,betaetigt,nicht betaetigt
+CrCCD_stKey,00D0,S_MFLAUS,STAT_MFLAUS_WERT,3,0x08,0x08,MFL Bedienteil Taste AUS,betaetigt,nicht betaetigt

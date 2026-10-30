@@ -1,0 +1,18 @@
+WERT,TEXT
+0x00,"0 keine Ruhestromverletzung, keine Standverbraucher aktiv"
+0x01,"1 Ruhestrom 80 bis 200mA aktiv, keine Standverbraucher aktiv"
+0x02,"2 Ruhestrom 200 bis 1000mA aktiv, keine Standverbraucher aktiv"
+0x03,"3 Ruhestrom über 1000mA aktiv, keine Standverbraucher aktiv"
+0x04,"4 keine Ruhestromverletzung, Standverbraucher Licht aktiv"
+0x05,"5 Ruhestrom 80 bis 200mA aktiv, Standverbraucher Licht aktiv"
+0x06,"6 Ruhestrom 200 bis 1000mA aktiv, Standverbraucher Licht aktiv"
+0x07,"7 Ruhestrom über 1000mA aktiv, Standverbraucher Licht aktiv"
+0x08,"8 keine Ruhestromverletzung, Standverbraucher Standheizung aktiv"
+0x09,"9 Ruhestrom 80 bis 200mA aktiv, Standverbraucher Standheizung aktiv"
+0x0A,"10 Ruhestrom 200 bis 1000mA aktiv, Standverbraucher Standheizung aktiv"
+0x0B,"11 Ruhestrom über 1000mA aktiv, Standverbraucher Standheizung aktiv"
+0x0C,"12 keine Ruhestromverletzung, Standverbraucher Sonstige aktiv"
+0x0D,"13 Ruhestrom 80 bis 200mA aktiv, Standverbraucher Sonstige aktiv"
+0x0E,"14 Ruhestrom 200 bis 1000mA aktiv, Standverbraucher Sonstige aktiv"
+0x0F,"15 Ruhestrom über 1000mA aktiv, Standverbraucher Sonstige aktiv"
+0xFF,255 Status unbekannt

@@ -1,0 +1,117 @@
+UWNR,UWTEXT,UW_EINH,L/H,UWTYP,NAME,MUL,DIV,ADD
+0x01,Getriebeoeltemperatur,Grad C,-,unsigned char,-,1,1,-40
+0x02,Versorgungsspannung DR/MV,Volt,-,unsigned char,-,0.08,1,0
+0x03,Abbtriebsdrehzahl,1/min,-,unsigned char,-,32,1,0
+0x04,Batteriespannung,Volt,-,unsigned char,-,0.08,1,0
+0x05,Motordrehzahl,1/min,-,unsigned char,-,32,1,0
+0x06,Substrattemperatur,Grad C,-,unsigned char,-,1,1,-40
+0x07,Turbinendrehzahl,1/min,-,unsigned char,-,32,1,0
+0x08,Motortemperatur,Grad C,-,unsigned char,-,1,1,-48
+0x09,Fahrpedalwinkel,%,-,unsigned char,-,100,255,0
+0x0A,Sollmoment fuer Motoreingriff,Nm,-,unsigned char,-,4,1,0
+0x0B,Motoristmoment,Nm,-,unsigned char,-,4,1,-100
+0x0C,Zeit nach Reset/ Zuendung AUS-EIN,ms,-,unsigned char,-,30,1,0
+0x0D,CAN Stand,-,-,unsigned char,-,1,1,0
+0x0E,Mittl. Radgeschw. ang.Raeder,km/h,-,unsigned char,-,2,1,0
+0x0F,Mittl. Radgeschw. nicht ang.Raeder,km/h,-,unsigned char,-,2,1,0
+0x10,Mittl. Radgeschw. alle Raeder,km/h,-,unsigned char,-,2,1,0
+0x11,Oeltemp. bei Heißabschaltung,Grad C,-,unsigned char,-,1,1,-40
+0x12,Substrattemp. bei Heißabschaltung,Grad C,-,unsigned char,-,1,1,-40
+0x13,Status Oeltemperatursensor,0-n,-,0x03,TEMP1_TAB,-,-,-
+0x14,Status Substrattemperatursensor,0-n,-,0x0B,TEMP2_TAB,-,-,-
+0x15,"Status Spannungsregelung (0=iO, 1=niO)",0/1,-,0x10,-,-,-,-
+0x16,"Heissabschaltung in Initphase (0=nein, 1=ja)",0/1,-,0x20,-,-,-,-
+0x18,Letzte exception number vor Reset,-,-,unsigned char,-,1,1,0
+0x19,Hot Mode Zähler zgt_HotByte0,-,-,unsigned char,-,1,1,0
+0x1A,Hot Mode Zähler zgt_HOTbyte1,-,-,unsigned char,-,1,1,0
+0x1B,Chiptemperatur bei Fehlereintrag KFC_INFOHOT,Grad C,-,unsigned char,-,1,1,-40
+0x1C,Getriebeöltemperatur bei Fehlereintrag KFC_INFOHOT,Grad C,-,unsigned char,-,1,1,-40
+0x20,Zustand WK,0-n,-,0x60,WK_TAB,-,-,-
+0x21,Schaltart,0-n,-,0x1F,SA_TAB,-,-,-
+0x22,Sollzustand M1            (0=aus 1=an),0/1,-,0x80,-,-,-,-
+0x23,Sollzustand M2            (0=aus 1=an),0/1,-,0x40,-,-,-,-
+0x24,Sollzustand M3 Peek Phase (0=aus 1=an),0/1,-,0x20,-,-,-,-
+0x25,Sollzustand M3 Hold Phase (0=aus 1=an),0/1,-,0x10,-,-,-,-
+0x26,Sollzustand M4            (0=aus 1=an),0/1,-,0x08,-,-,-,-
+0x30,Pegel an L1 Pin           (1=low 0=high),0/1,-,0x80,-,-,-,-
+0x31,Pegel an L2 Pin           (1=low 0=high),0/1,-,0x40,-,-,-,-
+0x32,Pegel an L3 Pin           (1=low 0=high),0/1,-,0x20,-,-,-,-
+0x33,Pegel an L4 Pin           (1=low 0=high),0/1,-,0x10,-,-,-,-
+0x34,Pegel an Tip+ Pin         (1=low 0=high),0/1,-,0x08,-,-,-,-
+0x35,Pegel an Tip- Pin         (1=low 0=high),0/1,-,0x04,-,-,-,-
+0x36,Pegel an M-Gassen Pin     (1=low 0=high),0/1,-,0x02,-,-,-,-
+0x40,"Status Substrattemp.      (0=iO, 1=F/ES)",0/1,-,0x20,-,-,-,-
+0x41,"Status Getriebeoeltemp.   (0=iO, 1=F/ES)",0/1,-,0x10,-,-,-,-
+0x42,"Status Parksperrensensor  (0=iO, 1=F/ES)",0/1,-,0x08,-,-,-,-
+0x43,"Status Positionssensor    (0=iO, 1=F/ES)",0/1,-,0x04,-,-,-,-
+0x44,"Status Turbinendrehzahl   (0=iO, 1=F/ES)",0/1,-,0x02,-,-,-,-
+0x45,"Status Abtriebsdrehzahl   (0=iO, 1=F/ES)",0/1,-,0x01,-,-,-,-
+0x50,"Status Motordrehzahl      (0=iO, 1=F/ES)",0/1,-,0x80,-,-,-,-
+0x51,"Status Fahrpedal          (0=iO, 1=F/ES)",0/1,-,0x40,-,-,-,-
+0x52,"Status Parksperrenanf.    (0=aus,1=ein )",0/1,-,0x20,-,-,-,-
+0x53,"Status Motoristmoment     (0=iO, 1=F/ES)",0/1,-,0x01,-,-,-,-
+0x60,"Status Bremssignal        (0=iO, 1=F/ES)",0/1,-,0x20,-,-,-,-
+0x61,"Status Drehrichtung       (0=iO, 1=F/ES)",0/1,-,0x10,-,-,-,-
+0x62,"Status Radgeschw HL       (0=iO, 1=F/ES)",0/1,-,0x08,-,-,-,-
+0x63,"Status Radgeschw HR       (0=iO, 1=F/ES)",0/1,-,0x04,-,-,-,-
+0x64,"Status Radgeschw VL       (0=iO, 1=F/ES)",0/1,-,0x02,-,-,-,-
+0x65,"Status Radgeschw VR       (0=iO, 1=F/ES)",0/1,-,0x01,-,-,-,-
+0x70,"Status S-Taster CAN       (0=iO, 1=F/ES)",0/1,-,0x80,-,-,-,-
+0x71,"Status Tip-Taster CAN     (0=iO, 1=F/ES)",0/1,-,0x40,-,-,-,-
+0x72,"Status Position ser. Ltg  (0=iO, 1=F/ES)",0/1,-,0x20,-,-,-,-
+0x73,"Status Position CAN       (0=iO, 1=F/ES)",0/1,-,0x10,-,-,-,-
+0x74,"Status Fahrertuer CAN     (0=iO, 1=F/ES)",0/1,-,0x08,-,-,-,-
+0x75,"Status Fahrersitz CAN     (0=iO, 1=F/ES)",0/1,-,0x04,-,-,-,-
+0x76,"Status Schluessel CAN     (0=iO, 1=F/ES)",0/1,-,0x02,-,-,-,-
+0x77,"Status Kl15 Signal CAN    (0=iO, 1=F/ES)",0/1,-,0x01,-,-,-,-
+0x80,"Standardabsicherung ACC   (0=iO, 1=Fehler)",0/1,-,0x10,-,-,-,-
+0x81,"Standardabsicherung CAS   (0=iO, 1=Fehler)",0/1,-,0x08,-,-,-,-
+0x82,"Standardabsicherung DME3  (0=iO, 1=Fehler)",0/1,-,0x04,-,-,-,-
+0x83,"Standardabsicherung DME2  (0=iO, 1=Fehler)",0/1,-,0x02,-,-,-,-
+0x84,"Standardabsicherung DME1  (0=iO, 1=Fehler)",0/1,-,0x01,-,-,-,-
+0x90,Status Zuendung,0-n,-,0x07,ZUEND_TAB,-,-,-
+0x91,"Abgleichdaten Checksumme  (0=iO, 1=Fehler)",0/1,-,0x10,-,-,-,-
+0x92,"Bootloader Checksumme     (0=iO, 1=Fehler)",0/1,-,0x08,-,-,-,-
+0x93,"Kundenblock Checksumme    (0=iO, 1=Fehler)",0/1,-,0x04,-,-,-,-
+0x94,"Drive Programm Checksumme (0=iO, 1=Fehler)",0/1,-,0x02,-,-,-,-
+0x95,"Drive Daten Checksumme    (0=iO, 1=Fehler)",0/1,-,0x01,-,-,-,-
+0x98,"Daten FastChecksumme      (0=iO, 1=Fehler)",0/1,-,0x02,-,-,-,-
+0x99,"Konstanten FastChecksumme (0=iO, 1=Fehler)",0/1,-,0x01,-,-,-,-
+0xA0,"Stand By Control AUS      (0=iO, 1=aktiv)",0/1,-,0x80,-,-,-,-
+0xA1,"Lowside FETs AUS          (0=iO, 1=aktiv)",0/1,-,0x40,-,-,-,-
+0xA2,"MV4 Lowside AUS           (0=iO, 1=aktiv)",0/1,-,0x20,-,-,-,-
+0xA3,"MV3 Lowside AUS           (0=iO, 1=aktiv)",0/1,-,0x10,-,-,-,-
+0xA4,"Notlaufflag ACC           (0=iO, 1=aktiv)",0/1,-,0x08,-,-,-,-
+0xA5,"Max.Systemdruck           (0=iO, 1=aktiv)",0/1,-,0x04,-,-,-,-
+0xA6,"Reduzierung Anfahrbeschl. (0=iO, 1=aktiv)",0/1,-,0x02,-,-,-,-
+0xA7,"Mechanischer Notlauf      (0=iO, 1=aktiv)",0/1,-,0x01,-,-,-,-
+0xA8,"Schalten in G4 und halten (0=iO, 1=aktiv)",0/1,-,0x80,-,-,-,-
+0xA9,"Schalten in G5 und halten (0=iO, 1=aktiv)",0/1,-,0x40,-,-,-,-
+0xAA,"Aktuellen Gang halten     (0=iO, 1=aktiv)",0/1,-,0x20,-,-,-,-
+0xAB,"Shift Lock AUS            (0=iO, 1=aktiv)",0/1,-,0x10,-,-,-,-
+0xAC,"Nab aus Nrad              (0=iO, 1=aktiv)",0/1,-,0x08,-,-,-,-
+0xAD,"Nrad aus Nab              (0=iO, 1=aktiv)",0/1,-,0x04,-,-,-,-
+0xAE,"Kein S/M Programm         (0=iO, 1=aktiv)",0/1,-,0x02,-,-,-,-
+0xAF,"Wandlerkupplung AUF       (0=iO, 1=aktiv)",0/1,-,0x01,-,-,-,-
+0xB0,"Adaptionswerte AUS        (0=iO, 1=aktiv)",0/1,-,0x80,-,-,-,-
+0xB1,nicht realisiert                         ,0/1,-,0x40,-,-,-,-
+0xB2,nicht realisiert                         ,0/1,-,0x20,-,-,-,-
+0xB3,nicht realisiert                         ,0/1,-,0x10,-,-,-,-
+0xB4,"El. Notprogramm G5/G3     (0=iO, 1=aktiv)",0/1,-,0x08,-,-,-,-
+0xB5,"El. Notprogramm G5        (0=iO, 1=aktiv)",0/1,-,0x04,-,-,-,-
+0xB6,nicht realisiert                         ,0/1,-,0x02,-,-,-,-
+0xB7,nicht realisiert                         ,0/1,-,0x01,-,-,-,-
+0xB8,"Position P halten         (0=iO, 1=aktiv)",0/1,-,0x80,-,-,-,-
+0xB9,"Kein Fahrerwunsch D       (0=iO, 1=aktiv)",0/1,-,0x40,-,-,-,-
+0xBA,"Bedingtes Schalten G2     (0=iO, 1=aktiv)",0/1,-,0x20,-,-,-,-
+0xBB,"Bedingtes Schalten G1     (0=iO, 1=aktiv)",0/1,-,0x10,-,-,-,-
+0xBC,"Bedingtes Schalten G4     (0=iO, 1=aktiv)",0/1,-,0x08,-,-,-,-
+0xBD,"Bedingtes Schalten G3     (0=iO, 1=aktiv)",0/1,-,0x04,-,-,-,-
+0xBE,"Kein Fahrerwunsch R       (0=iO, 1=aktiv)",0/1,-,0x02,-,-,-,-
+0xBF,"Moduliertes Schalten G3   (0=iO, 1=aktiv)",0/1,-,0x01,-,-,-,-
+0xC0,Zeitpunkt des Resets,0-n,-,0x07,TTCurLast_TAB,-,-,-
+0xD1,Zähler Hot Mode Stufe 1                  ,0-n,-,0x1F,-,-,-,-
+0xD3,Zähler Hot Mode Stufe 3                  ,0-n,-,0x7C,-,-,-,-
+0xFE,nicht definiert,1,-,unsigned char,-,1,1,0
+0xFF,ohne Bedeutung,1,-,unsigned char,-,1,1,0
+0xXY,unbekannte Umweltbedingung,1,-,unsigned char,-,1,1,0

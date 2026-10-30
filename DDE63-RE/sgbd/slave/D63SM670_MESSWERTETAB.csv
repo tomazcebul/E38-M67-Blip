@@ -1,0 +1,546 @@
+ARG,ID,RESULTNAME,DATENTYP,L/H,EINHEIT,NAME,MUL,DIV,ADD,LABEL,INFO
+ISKLV,0x1392,STAT_KLIMA_VERBAUT_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ACCD_stACPresent,Klimaanlage im Auto vorhanden
+ACCtl_trqLim,0x139C,STAT_ACCtl_trqLim_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,ACCtl_trqLim,Contains Limited Torque
+INLKG,0x13A6,STAT_LUFTMASSE_NORMALISIERT_WERT,unsigned int,-,Kg/h,-,0.048829,-,-1599.971484,AFSCD_dmAirNorm,Normalisierte Luftmasse
+ILMKG,0x0080,STAT_LUFTMASSE_WERT,unsigned int,-,Kg/h,-,0.048829,-,-1599.971484,AFSCD_dmAirPerTime,HFM Luftmassenstrom
+RLMKG,0x0010,STAT_LUFTMASSE_ROH_WERT,unsigned int,-,Kg/h,-,0.036001,-,0.000000,AFSCD_dmAirRawPerTime,LMM Luftmassenmesser HFM
+ILMMG,0x0081,STAT_LUFTMASSE_PRO_HUB_WERT,unsigned int,-,mg/Hub,-,0.048829,-,-1599.971484,AFSCD_mAirPerCyl,angesaugte Luftmasse pro Zylinder
+ILMMGB1,0x00DB,STAT_LUFTMASSE_PRO_HUB_BANK1_WERT,unsigned int,-,mg/Hub,-,0.048829,-,-1599.971484,AFSCD_mAirPerCyl1,Luftmasse pro Zylinder bank1
+ILMMGB2,0x0082,STAT_LUFTMASSE_PRO_HUB_BANK2_WERT,unsigned int,-,mg/Hub,-,0.048829,-,-1599.971484,AFSCD_mAirPerCyl2,Luftmasse pro Zylinder bank2
+ITTAN,0x0083,STAT_ANSAUGLUFTTEMPERATUR_TASTVERHAELTNIS_WERT,unsigned int,-,%,-,0.010000,-,0.000000,AFSCD_rAir,duty cycle of the air temparature signal
+ITTANB2,0x0084,STAT_ANSAUGLUFTTEMPERATUR_TASTVERHAELTNIS_BANK2_WERT,unsigned int,-,%,-,0.010000,-,0.000000,AFSCD_rAir2,Output 2 für HFM6
+ITANSHFMB1,0x00BA,STAT_ANSAUGLUFTTEMPERATUR_HFM_BANK1_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,AFSCD_tAir1,Air temperature current value
+ITANSHFMB2,0x00BB,STAT_ANSAUGLUFTTEMPERATUR_HFM_BANK2_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,AFSCD_tAir2,Air temperature current value 2
+ITANSHFM,0x000F,STAT_ANSAUGLUFTTEMPERATUR_HFM_WERT,unsigned int,-,deg C,-,1.000240,-,-41.084307,AFSCD_tAir_mp,linearisierter Wert aus HWK vorm Aufruf der Übergangsfunktion
+RLMPE,0x13A7,STAT_LUFTMASSE_PERIODENDAUER_ROH_WERT,unsigned int,-,us,-,0.100000,-,0.000000,AFSCD_tiRaw,Periodendauerrohwert des Luftmassensensors
+AFSCD_tiRaw2,0x13A8,STAT_AFSCD_tiRaw2_WERT,unsigned int,-,us,-,0.100000,-,0.000000,AFSCD_tiRaw2,Output für HFM6
+ITZUH,0x0085,STAT_ZUHEIZER_ANSTEUERUNG_WERT,unsigned int,-,%,-,0.010000,-,0.000000,AOHtCD_rOut_mp,Meßpunkt fuer korrigiertes Tastverhaeltnis der Zuheizeransteuerung
+AOHt_stShutOff_mp,0x13B0,STAT_AOHt_stShutOff_mp,unsigned int,-,-,-,1.000000,-,0.000000,AOHt_stShutOff_mp,Überblick auf alle Abschaltbedingungen
+IFPWG,0x0086,STAT_FAHRERWUNSCH_PEDAL_WERT,unsigned int,-,%,-,0.003052,-,0.000000,APPCD_rFlt,gefiltertes Pedalwertgebersignal
+IKICK,0x13BA,STAT_KICKDOWNSCHALTER_WERT,unsigned int,-,-,-,1.000000,-,0.000000,APPCD_stKickDown,Schalter KIck Down
+IUPW1,0x0089,STAT_PWG1_SPANNUNG_WERT,unsigned int,-,V,-,0.000611,-,0.000000,APPCD_uRawAPP1,Fahrpedal 1 Position Rohwert
+IUPW2,0x008A,STAT_PWG2_SPANNUNG_WERT,unsigned int,-,V,-,0.000611,-,0.000000,APPCD_uRawAPP2,Fahrpedal 2 Position Rohwert
+IPUMG,0x008B,STAT_UMGEBUNGSDRUCK_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,APSCD_pVal,Atmosphärendruck
+IUUMG,0x008C,STAT_UMGEBUNGSDRUCK_SPANNUNG_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,APSCD_uRaw,Rohspannung ADC-Signal Atmosphärendruck
+IMARD,0x13C4,STAT_MOMENTFORDERUNG_ARD_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,ASDdc_trq,Momentforderung Aktiver Ruckeldämpfer (Störungsregler)
+absch_korr,0x00F0,STAT_Absch_korr_WERT,unsigned int,-,-,-,0.004579,-,-100.022880,absch_korr,Correction value shut off
+IFWUR,0x13CE,STAT_FAHRERWUNSCHMOMENT_ROH_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.058653,AccPed_trqDes,Fahrerwunsch Rohwert
+SLMMG,0x008D,STAT_LUFTMASSE_SOLL_WERT,unsigned int,-,mg/Hub,-,0.048829,-,-1599.971484,AirCtl_mDesVal,Luftmassensollwert
+ILMRE,0x13E2,STAT_LUFTMASSE_REGELABWEICHUNG_WERT,unsigned int,-,mg/Hub,-,0.048829,-,-1599.971484,AirCtl_mGvnrDvt,Regelabweichung
+ILMREB2,0x13E5,STAT_LUFTMASSE_REGELABWEICHUNG_BANK2_WERT,unsigned int,-,mg/Hub,-,0.048829,-,-1599.971484,AirCtl_mGvnrDvt2,Regelabweichung
+AirCtl_mMaxDvt,0x13E7,STAT_AirCtl_mMaxDvt_WERT,unsigned int,-,mg/Hub,-,0.048829,-,-1599.971484,AirCtl_mMaxDvt,Upper limits for detection of persistent control deviation
+AirCtl_mMinDvt,0x13E8,STAT_AirCtl_mMinDvt_WERT,unsigned int,-,mg/Hub,-,0.048829,-,-1599.971484,AirCtl_mMinDvt,Lower limits for detection of persistent control deviation
+AirCtl_stAirCtl,0x13E9,STAT_AirCtl_stAirCtl_WERT,unsigned int,-,-,-,1.000000,-,0.000000,AirCtl_stAirCtl,Status of monitoring number
+AirCtl_stAirCtlBits1_mp,0x13E3,STAT_AirCtl_stAirCtlBits1_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,AirCtl_stAirCtlBits1_mp,AirCtl_stAirCtlBits_mp LowByte (->Signals)
+AirCtl_stAirCtlBits2_mp,0x13E4,STAT_AirCtl_stAirCtlBits2_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,AirCtl_stAirCtlBits2_mp,AirCtl_stAirCtlBits_mp HighByte (->Signals)
+AirCtl_stMonitor,0x13E6,STAT_AirCtl_stMonitor_WERT,unsigned int,-,-,-,1.000000,-,0.000000,AirCtl_stMonitor,Status of monitoring
+IGENL,0x008E,STAT_GENERATORLAST_WERT,unsigned int,-,%,-,0.003052,-,0.000000,AltCD_rAltLoad,linearisiertes und fehlerentprelltes Generatorlastsignals
+IALDS,0x008F,STAT_LADEDRUCKSTELLER_ANSTEUERUNG_WERT,unsigned int,-,%,-,0.010000,-,0.000000,BPACD_rOut,Tastverhältnis zur Endstufenansteuerung - BPA
+IALDSB2,0x0090,STAT_LADEDRUCKSTELLER_ANSTEUERUNG_BANK2_WERT,unsigned int,-,%,-,0.010000,-,0.000000,BPACD_rOut2,Tastverhältnis zur Endstufenansteuerung - BPA2
+BPSCD_pLin,0x000B,STAT_BPSCD_pLin_WERT,unsigned int,-,hPa,-,10.002401,-,0.000000,BPSCD_pLin,Mittelere Ladedruck-Wert (liniarisiert)
+IPLAD,0x0091,STAT_LADEDRUCK_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,BPSCD_pOutVal,Ladedruckwert
+IULDF,0x0092,STAT_LADEDRUCK_SPANNUNG_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,BPSCD_uRawVal,Spannungsrohwert des Ladedrucksensors
+IUBAT,0x0093,STAT_UBATT_WERT,unsigned int,-,V,-,0.002456,-,0.000000,BattCD_u,Batteriespannung
+BrkCD_ctUnPlaus_mp,0x13EE,STAT_BrkCD_ctUnPlaus_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,BrkCD_ctUnPlaus_mp,Debounce counter of break-plausibility-check
+ISBLS,0x13EC,STAT_BREMSLICHTSCHALTER_EIN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,BrkCD_stMnSwtRawVal,Rohwert Bremskontakt nicht entprellt
+ISBLT,0x13ED,STAT_BREMSLICHTTESTSCHALTER_EIN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,BrkCD_stRedSwtRawVal,Rohwert redundanter Bremskontakt nicht entprellt
+CBACD_stLogicOut_mp,0x0094,STAT_CBACD_stLogicOut_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CBACD_stLogicOut_mp,Status of compressor bypass valve actuator output
+ITKUM,0x0095,STAT_KUEHLMITTELTEMPERATUR_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,CTSCD_tClnt,Kühlmitteltemperatur
+CTSCD_tClntLin,0x0005,STAT_CTSCD_tClntLin_WERT,unsigned int,-,deg C,-,1.000240,-,-41.084307,CTSCD_tClntLin,linearisierter Wert aus HWK vorm Aufruf der Übergangsfunktion
+RUTKU,0x0096,STAT_KUEHLMITTELTEMPERATUR_SPANNUNG_ROH_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,CTSCD_uRaw,Wassertemperatur Spannungsrohwert
+ICLGDT,0x13FD,STAT_KUEHLER_TEMPERATURANSTIEG_SEIT_START_WERT,unsigned int,-,deg C,-,0.012500,-,-50.000763,Clg_dtDynTst,rise in temperature since start of test
+IDLGTEND,0x13FF,STAT_KUEHLER_TEMPERATUR_BEI_TESTENDE_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,Clg_tEndDynTst,CTSCD_tClnt at the end of test
+ICLGTI,0x13FC,STAT_KUEHLER_TESTDAUER_WERT,unsigned int,-,s,-,0.999001,-,0.000000,Clg_tiDynTst,actual time of test
+CoEng_ctUnpla,0x1B6E,STAT_CoEng_ctUnpla_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CoEng_ctUnpla,unplausibility between layer 1 and 2
+IAMMM,0x0004,STAT_VERHAELTNIS_AKTUELLES_MOMENT_MAXIMALMOMENT_WERT,unsigned int,-,%,-,0.393699,-,0.000000,CoEng_rTrq,Verhältnis aktuelles Moment zu Maximalmoment
+INAZU,0x1B6C,STAT_NACHLAUFZUSTAND,unsigned int,-,-,-,1.000000,-,0.000000,CoEng_stAftRun,State variable of the afterrun state machine
+CoEng_stCurrLimActive,0x1B6D,STAT_CoEng_stCurrLimActive_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CoEng_stCurrLimActive,status word for type of lowest active torque limitation
+CoEng_stEng,0x00BC,STAT_CoEng_stEng_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CoEng_stEng,current engine status
+CoEng_stIRevShutOff,0x1457,STAT_CoEng_stIRevShutOff_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CoEng_stIRevShutOff,"activated shut off reasons (irreversible shut off), low word"
+CoEng_stIRevShutOff1,0x1458,STAT_CoEng_stIRevShutOff1_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CoEng_stIRevShutOff1,"activated shut off reasons (irreversible shut off), high word"
+CoEng_stRevShutOff,0x1455,STAT_CoEng_stRevShutOff_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CoEng_stRevShutOff,"activated shut off reasons (reversible shut off), low word"
+CoEng_stRevShutOff1,0x1456,STAT_CoEng_stRevShutOff1_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CoEng_stRevShutOff1,"activated shut off reasons (reversible shut off), high word"
+ISABU,0x1450,STAT_TYP_WIRKSAME_ABSCHALTURSACHE_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CoEng_stShutOff,Typ der wirksamen Abschaltursache (0: Nachlauf; 1: reversibel; 2: irreversibel)
+IMOAK,0x0097,STAT_MOTORMOMENT_AKTUELL_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,CoEng_trq,current engine torque output
+SMIBA,0x1451,STAT_MOTORMOMENT_SOLL_NACH_BEGRENZUNG_VOR_ARD_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,CoEng_trqInrLtd,"inneres Moment Sollwert nach Begrenzung, vor Eingriff ARD-Störungsregler"
+SMOMO,0x00EE,STAT_MOTORMOMENT_SOLL_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,CoEng_trqInrSet,inneres Moment Sollwert (>Mengenberechnung)
+IMBEG,0x1453,STAT_MOTORMOMENT_BEGRENZUNG_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,CoEng_trqLimMin_mp,"Begrenzungsmoment, falls kein momentenbegrenzender Systemfehler vorliegt (Minimum aus Rauchgrenze un Motormech.schutz)"
+IVABS,0x1454,STAT_KRAFTSTOFFVERBRAUCH_ABSOLUT_WERT,unsigned int,-,ul,-,20.844624,-,-683015.800225,CoEng_voltotFlConsum,Absoluter Kraftstoffverbrauch
+IMWVO,0x1464,STAT_MOTORMOMENT_WUNSCH_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.058653,CoVM_trqPrpDes,Wunsch Vortriebsmoment
+RSKUP,0x146E,STAT_KUPPLUNGSSCHALTER_ROH_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ConvCD_stRawVal,Kupplungssignal Rohwert
+CpBVlv_stOpn,0x1478,STAT_CpBVlv_stOpn_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CpBVlv_stOpn,Zustand Kompressorbypass-Ventil
+CrCCD_stKey,0x1482,STAT_CrCCD_stKey_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCCD_stKey,Rückgabewert
+IGAFG,0x148C,STAT_GANG_FGR_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_numGear,Gang FGR
+ISFGL,0x148D,STAT_LAMPE_FGR_EIN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_stLampOut,Status der CrCtl-Lampe (wird über CAN versendet)
+CrCtl_stShutOffCode1_mp,0x148E,STAT_CrCtl_stShutOffCode1_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_stShutOffCode1_mp,Low Byte von CrCtl_shutOffCode (Verwendung als Signal)
+CrCtl_stShutOffCode2_mp,0x148F,STAT_CrCtl_stShutOffCode2_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_stShutOffCode2_mp,Low Byte von CrCtl_shutOffCode (Verwendung als Signal)
+CrCtl_stShutOffFrz1_mp,0x1490,STAT_CrCtl_stShutOffFrz1_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_stShutOffFrz1_mp,latched shutoff reason
+CrCtl_stShutOffFrz2_mp,0x1491,STAT_CrCtl_stShutOffFrz2_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,CrCtl_stShutOffFrz2_mp,latched shutoff reason
+IMANF,0x1492,STAT_MOTORMOMENT_ANFORDERUNG_FGR_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.058653,CrCtl_trqDes,Momentenanforderung FGR
+SGEFG,0x1493,STAT_GESCHWINDIGKEIT_FGR_SOLL_WERT,unsigned int,-,km/h,-,0.003815,-,0.000000,CrCtl_vDes,Sollgeschwindigkeit FGR
+DSMDur_ctDfctDur1,0x14B4,STAT_DSMDur_ctDfctDur1_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSMDur_ctDfctDur1,Wert Fehlerdauerzähler
+IMILANKM,0x0021,STAT_WEGSTRECKE_MIT_MIL_AN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSMDur_ctDfctDur1_Carb,OBD: Travelled Distance with MIL on
+DSMDur_ctDfctDur2,0x14B5,STAT_DSMDur_ctDfctDur2_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSMDur_ctDfctDur2,Wert Fehlerdauerzähler 2
+DSMDur_stGlobalDefCnt_mp,0x14B6,STAT_DSMDur_stGlobalDefCnt_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSMDur_stGlobalDefCnt_mp,Aktivierungs und Resetzustand der beiden globalen Fehlerdauerzähler
+IAOBF,0x14B7,STAT_ANZAHL_OBD_FEHLER_IM_FEHLERSPEICHER_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_ctOBDPath,Anzahl der momentanen OBD-fehler im Fehlerspeicher
+DSM_ctRdyActCyc_mp,0x14B8,STAT_DSM_ctRdyActCyc_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_ctRdyActCyc_mp,Status für jedes Readinessbit aus dem aktuellen driving cycle
+DSM_ctRdyTstCompr_mp,0x14B9,STAT_DSM_ctRdyTstCompr_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_ctRdyTstCompr_mp,Anzahl von in diesem Zyklus getesteten Fehlerpfaden die zum Readiness Bit Comprehensive Components  gehören.
+DSM_ctRdyTstEGR_mp,0x14BA,STAT_DSM_ctRdyTstEGR_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_ctRdyTstEGR_mp,Anzahl von in diesem Zyklus getesteten Fehlerpfaden die zum Readiness Bit EGR gehören.
+DSM_ctRdyTstFuel_mp,0x14BB,STAT_DSM_ctRdyTstFuel_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_ctRdyTstFuel_mp,Anzahl von in diesem Zyklus getesteten Fehlerpfaden die zum Readiness Bit Fuel System gehören.
+DSM_ctRdyTstMisf_mp,0x14BC,STAT_DSM_ctRdyTstMisf_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_ctRdyTstMisf_mp,Anzahl von in diesem Zyklus getesteten Fehlerpfaden die zum Readiness Bit Misfire  gehören.
+IFEHAN,0x14BD,STAT_ANZAHL_GETESTETE_FEHLERPFADE_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_ctTstPath,Anzahl der getesteten Fehlerpfade
+DSM_stCycles,0x14BE,STAT_DSM_stCycles_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_stCycles,"Status der DSM Trigger Zyklen (WUC, DC, ...)"
+ISMIL,0x14BF,STAT_MIL_EIN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_stMIL,"DSM Mil Anforderungsstatus (1 = kontinuierlich, 2 blinkend)"
+ISRAB,0x14C0,STAT_READINESS_BYTES_AB_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_stRdyAB,Readiness Status für Diagnoseschnittstelle gemäß SAE J1979 PID1 Byte A + B
+ISRCD,0x14C1,STAT_READINESS_BYTES_CD_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_stRdyCD,Readiness Status für Diagnoseschnittstelle gemäß SAE J1979 PID1 Byte C * D
+ISSLA,0x14C2,STAT_ANFORDERUNGSSTATUS_SYSTEMLAMPE_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_stSysLamp,DSM System Lampen Anforderungsstatus (1 = kontinuierlich)
+DSM_tiDCDelay_mp,0x14C3,STAT_DSM_tiDCDelay_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,DSM_tiDCDelay_mp,aktuelle Zeit für Driving cycle Verzögerungszeit
+d_soc,0x00F1,STAT_D_soc_WERT,unsigned int,-,-,-,0.004578,-,-100.004574,d_soc,Battery load state
+EBAFCD_stSigOut,0x0098,STAT_EBAFCD_stSigOut_WERT,unsigned int,-,-,-,1.000000,-,0.000000,EBAFCD_stSigOut,source of activation for electrical power stage of EBAFCD output
+EBTSCD_tECU,0x14E6,STAT_EBTSCD_tECU_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,EBTSCD_tECU,ECU temperature current value
+EGPpCD_stActrOut,0x00EA,STAT_EGPpCD_stActrOut_WERT,unsigned int,-,-,-,1.000000,-,0.000000,EGPpCD_stActrOut,state of EGPpCD
+IAAGR,0x0099,STAT_ABGASRUECKFUEHRSTELLER_ANSTEUERUNG_WERT,unsigned int,-,%,-,0.010000,-,0.000000,EGRCD_rOut,Tastverhältnis zür Endstufenansteuerung
+IAAGRB2,0x009A,STAT_ABGASRUECKFUEHRSTELLER_ANSTEUERUNG_BANK2_WERT,unsigned int,-,%,-,0.010000,-,0.000000,EGRCD_rOut2,Tastverhältnis zur Endstufenansteuerung - EGR2
+EGSys_ctCldStrtLSU_mp[0],0x1518,STAT_EGSys_ctCldStrtLSU_mp[0]_WERT,unsigned int,-,-,-,1.000000,-,0.000000,EGSys_ctCldStrtLSU_mp[0],Status bit for valid gas pulse detected
+EGSys_stHtgLSU[0],0x1519,STAT_EGSys_stHtgLSU_WERT,unsigned int,-,-,-,1.000000,-,0.000000,EGSys_stHtgLSU[0],Status bit for Lambda probe 0 heating On/Off
+EGSys_tEGLSU[0],0x151B,STAT_EGSys_tEGLSU_WERT,unsigned int,-,deg C,-,1.000240,-,-51.086707,EGSys_tEGLSU[0],Abgas-Temperatur an Sensor-Position
+EGSys_tWallLSU[0],0x151A,STAT_EGSys_tWallLSU_WERT,unsigned int,-,deg C,-,1.000240,-,-51.086707,EGSys_tWallLSU[0],Wandtemperatur am Sondeneinbauort
+EGSys_wLSU_mp[0],0x151C,STAT_EGSys_wLSU_mp_WERT,unsigned int,-,kJ,-,1.000000,-,0.000000,EGSys_wLSU_mp[0],integrierte Waermemenge an Sensor-Position
+EGT_st,0x009B,STAT_EGT_st_WERT,unsigned int,-,-,-,1.000000,-,0.000000,EGT_st,Regenerationsanforderung fuer Abgasnachbehandlung (drehzahlsynchron)
+IZOEV,0x1522,STAT_KRITISCHE_ZEIT_FUER_OELVERDUENNUNG_WERT,unsigned int,-,s,-,0.999001,-,0.000000,EGT_tiRgnOilDil,Critical time for oil dilution
+INMKL0,0x152C,STAT_NMK_LERNZYKLUSZAEHLER_0_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ETClb_ctLrn_mp[0],learn cycle counter et calibration
+INMKL1,0x152D,STAT_NMK_LERNZYKLUSZAEHLER_1_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ETClb_ctLrn_mp[1],learn cycle counter et calibration
+INMKL2,0x152E,STAT_NMK_LERNZYKLUSZAEHLER_2_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ETClb_ctLrn_mp[2],learn cycle counter et calibration
+INMK00,0x152F,STAT_ANSTEUERDAUER_KORR_PIL0_ZYL1_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt0_mp[0],Ansteuerdauer der Voreinspritzung 0
+INMK01,0x1530,STAT_ANSTEUERDAUER_KORR_PIL0_ZYL2_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt0_mp[1],Ansteuerdauer der Voreinspritzung 0
+INMK02,0x1531,STAT_ANSTEUERDAUER_KORR_PIL0_ZYL3_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt0_mp[2],Ansteuerdauer der Voreinspritzung 0
+INMK03,0x1532,STAT_ANSTEUERDAUER_KORR_PIL0_ZYL4_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt0_mp[3],Ansteuerdauer der Voreinspritzung 0
+INMK04,0x1533,STAT_ANSTEUERDAUER_KORR_PIL0_ZYL5_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt0_mp[4],Ansteuerdauer der Voreinspritzung 0
+INMK05,0x1534,STAT_ANSTEUERDAUER_KORR_PIL0_ZYL6_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt0_mp[5],Ansteuerdauer der Voreinspritzung 0
+INMK06,0x1535,STAT_ANSTEUERDAUER_KORR_PIL0_ZYL7_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt0_mp[6],Ansteuerdauer der Voreinspritzung 0
+INMK07,0x1536,STAT_ANSTEUERDAUER_KORR_PIL0_ZYL8_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt0_mp[7],Ansteuerdauer der Voreinspritzung 0
+INMK10,0x1537,STAT_ANSTEUERDAUER_KORR_PIL1_ZYL1_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt1_mp[0],Ansteuerdauer der Voreinspritzung 1
+INMK11,0x1538,STAT_ANSTEUERDAUER_KORR_PIL1_ZYL2_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt1_mp[1],Ansteuerdauer der Voreinspritzung 1
+INMK12,0x1539,STAT_ANSTEUERDAUER_KORR_PIL1_ZYL3_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt1_mp[2],Ansteuerdauer der Voreinspritzung 1
+INMK13,0x153A,STAT_ANSTEUERDAUER_KORR_PIL1_ZYL4_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt1_mp[3],Ansteuerdauer der Voreinspritzung 1
+INMK14,0x153B,STAT_ANSTEUERDAUER_KORR_PIL1_ZYL5_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt1_mp[4],Ansteuerdauer der Voreinspritzung 1
+INMK15,0x153C,STAT_ANSTEUERDAUER_KORR_PIL1_ZYL6_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt1_mp[5],Ansteuerdauer der Voreinspritzung 1
+INMK16,0x153D,STAT_ANSTEUERDAUER_KORR_PIL1_ZYL7_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt1_mp[6],Ansteuerdauer der Voreinspritzung 1
+INMK17,0x153E,STAT_ANSTEUERDAUER_KORR_PIL1_ZYL8_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt1_mp[7],Ansteuerdauer der Voreinspritzung 1
+INMK20,0x153F,STAT_ANSTEUERDAUER_KORR_PIL2_ZYL1_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt2_mp[0],Ansteuerdauer der Voreinspritzung 2
+INMK21,0x1540,STAT_ANSTEUERDAUER_KORR_PIL2_ZYL2_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt2_mp[1],Ansteuerdauer der Voreinspritzung 2
+INMK22,0x1541,STAT_ANSTEUERDAUER_KORR_PIL2_ZYL3_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt2_mp[2],Ansteuerdauer der Voreinspritzung 2
+INMK23,0x1542,STAT_ANSTEUERDAUER_KORR_PIL2_ZYL4_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt2_mp[3],Ansteuerdauer der Voreinspritzung 2
+INMK24,0x1543,STAT_ANSTEUERDAUER_KORR_PIL2_ZYL5_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt2_mp[4],Ansteuerdauer der Voreinspritzung 2
+INMK25,0x1544,STAT_ANSTEUERDAUER_KORR_PIL2_ZYL6_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt2_mp[5],Ansteuerdauer der Voreinspritzung 2
+INMK26,0x1545,STAT_ANSTEUERDAUER_KORR_PIL2_ZYL7_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt2_mp[6],Ansteuerdauer der Voreinspritzung 2
+INMK27,0x1546,STAT_ANSTEUERDAUER_KORR_PIL2_ZYL8_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_dtiETFlt2_mp[7],Ansteuerdauer der Voreinspritzung 2
+ISNFR,0x1547,STAT_NULLMENGENADAPTION_STATUS_FREIGABEN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ETClb_stCor,Statusanzeige der Freigaben für die Ansteuerdauerkorrektur der Nullmengenkalibrierung
+ISNFZ,0x1548,STAT_NULLMENGENADAPTION_STATUS_FREIGABEN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ETClb_stRlsCylCor_mp,Zylinderspezifische Freigabe der Ansteuerdauerkorrektur der Ansteuerdauerkalibrierung
+ISNMA,0x1549,STAT_NULLMENGENADAPTION_STATUS_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ETClb_st_mp,state of ET calibration
+ISNSC,0x154A,STAT_NULLMENGENADAPTION_SCHALTER_SCHNELLLERNEN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ETClb_swtQckClb_mp,switch for quick calibration
+INMKZ400,0x154B,STAT_ANSTEUERDAUER_AKTUELLER_ZYLINDER_400BAR_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_tiETMinEff_mp[0],Ansteuerdauer der Nullmenge des aktuellen Zylinders für Raildruckbereich 0
+INMKZ700,0x154C,STAT_ANSTEUERDAUER_AKTUELLER_ZYLINDER_700BAR_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_tiETMinEff_mp[1],Ansteuerdauer der Nullmenge des aktuellen Zylinders für Raildruckbereich 1
+INMKZ1000,0x154D,STAT_ANSTEUERDAUER_AKTUELLER_ZYLINDER_1000BAR_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ETClb_tiETMinEff_mp[2],Ansteuerdauer der Nullmenge des aktuellen Zylinders für Raildruckbereich 2
+IAMOL,0x009C,STAT_MOTORLAGER_ANSTEUERUNG_WERT,unsigned int,-,-,-,1.000000,-,0.000000,EngM_stOut,"state of engine bearing depending on engine speed, engine temperature and gear state"
+ISSYN,0x009D,STAT_SYNCHRONISATION_KW_NW_WERT,unsigned int,-,-,-,1.000000,-,0.000000,EngM_stSync,Meta-Status der KW- und NW-Ereignisverwaltung (Motorpositions-Management)
+IMORE,0x1554,STAT_REIBMOMENT_AKTUELL_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,EngM_trqFrc,aktuelles Reibmoment
+INMOTCARB,0x000C,STAT_MOTORDREHZAHL_WERT,unsigned int,-,rpm,-,0.250000,-,0.000000,Eng_nAvrg_Carb,mittlere Motordrehzahl
+INMOT,0x009E,STAT_MOTORDREHZAHL_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,Eng_nAvrg,mittlere Motordrehzahl
+ErLpCD_stMil,0x155E,STAT_ErLpCD_stMil_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ErLpCD_stMil,Status of the MIL and source of activation
+IZTF00,0x157C,STAT_ZAHNTEILUNGSFEHLER_REL_00_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[0],relativer gefilterter Zahnteilungsfehler 00
+IZTF10,0x1586,STAT_ZAHNTEILUNGSFEHLER_REL_10_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[10],relativer gefilterter Zahnteilungsfehler 10
+IZTF11,0x1587,STAT_ZAHNTEILUNGSFEHLER_REL_11_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[11],relativer gefilterter Zahnteilungsfehler 11
+IZTF12,0x1588,STAT_ZAHNTEILUNGSFEHLER_REL_12_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[12],relativer gefilterter Zahnteilungsfehler 12
+IZTF13,0x1589,STAT_ZAHNTEILUNGSFEHLER_REL_13_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[13],relativer gefilterter Zahnteilungsfehler 13
+IZTF14,0x158A,STAT_ZAHNTEILUNGSFEHLER_REL_14_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[14],relativer gefilterter Zahnteilungsfehler 14
+IZTF15,0x158B,STAT_ZAHNTEILUNGSFEHLER_REL_15_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[15],relativer gefilterter Zahnteilungsfehler 15
+IZTF01,0x157D,STAT_ZAHNTEILUNGSFEHLER_REL_01_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[1],relativer gefilterter Zahnteilungsfehler 01
+IZTF02,0x157E,STAT_ZAHNTEILUNGSFEHLER_REL_02_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[2],relativer gefilterter Zahnteilungsfehler 02
+IZTF03,0x157F,STAT_ZAHNTEILUNGSFEHLER_REL_03_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[3],relativer gefilterter Zahnteilungsfehler 03
+IZTF04,0x1580,STAT_ZAHNTEILUNGSFEHLER_REL_04_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[4],relativer gefilterter Zahnteilungsfehler 04
+IZTF05,0x1581,STAT_ZAHNTEILUNGSFEHLER_REL_05_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[5],relativer gefilterter Zahnteilungsfehler 05
+IZTF06,0x1582,STAT_ZAHNTEILUNGSFEHLER_REL_06_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[6],relativer gefilterter Zahnteilungsfehler 06
+IZTF07,0x1583,STAT_ZAHNTEILUNGSFEHLER_REL_07_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[7],relativer gefilterter Zahnteilungsfehler 07
+IZTF08,0x1584,STAT_ZAHNTEILUNGSFEHLER_REL_08_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[8],relativer gefilterter Zahnteilungsfehler 08
+IZTF09,0x1585,STAT_ZAHNTEILUNGSFEHLER_REL_09_WERT,unsigned int,-,%,-,0.000036,-,-1.170332,FBC_DXSl_mp[9],relativer gefilterter Zahnteilungsfehler 09
+IFMA00,0x1591,STAT_MENGENMITTELWERTADAPTION_ROW0_0_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow0_mp[0],FMA Adaptive map - elements of Row 0
+IFMA01,0x1592,STAT_MENGENMITTELWERTADAPTION_ROW0_1_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow0_mp[1],FMA Adaptive map - elements of Row 0
+IFMA02,0x1593,STAT_MENGENMITTELWERTADAPTION_ROW0_2_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow0_mp[2],FMA Adaptive map - elements of Row 0
+IFMA03,0x1594,STAT_MENGENMITTELWERTADAPTION_ROW0_3_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow0_mp[3],FMA Adaptive map - elements of Row 0
+IFMA04,0x1595,STAT_MENGENMITTELWERTADAPTION_ROW0_4_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow0_mp[4],FMA Adaptive map - elements of Row 0
+IFMA05,0x1596,STAT_MENGENMITTELWERTADAPTION_ROW0_5_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow0_mp[5],FMA Adaptive map - elements of Row 0
+IFMA06,0x1597,STAT_MENGENMITTELWERTADAPTION_ROW0_6_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow0_mp[6],FMA Adaptive map - elements of Row 0
+IFMA07,0x1598,STAT_MENGENMITTELWERTADAPTION_ROW0_7_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow0_mp[7],FMA Adaptive map - elements of Row 0
+IFMA10,0x1599,STAT_MENGENMITTELWERTADAPTION_ROW1_0_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow1_mp[0],FMA Adaptive map - elements of Row 1
+IFMA11,0x159A,STAT_MENGENMITTELWERTADAPTION_ROW1_1_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow1_mp[1],FMA Adaptive map - elements of Row 1
+IFMA12,0x159B,STAT_MENGENMITTELWERTADAPTION_ROW1_2_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow1_mp[2],FMA Adaptive map - elements of Row 1
+IFMA13,0x159C,STAT_MENGENMITTELWERTADAPTION_ROW1_3_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow1_mp[3],FMA Adaptive map - elements of Row 1
+IFMA14,0x159D,STAT_MENGENMITTELWERTADAPTION_ROW1_4_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow1_mp[4],FMA Adaptive map - elements of Row 1
+IFMA15,0x159E,STAT_MENGENMITTELWERTADAPTION_ROW1_5_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow1_mp[5],FMA Adaptive map - elements of Row 1
+IFMA16,0x159F,STAT_MENGENMITTELWERTADAPTION_ROW1_6_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow1_mp[6],FMA Adaptive map - elements of Row 1
+IFMA17,0x15A0,STAT_MENGENMITTELWERTADAPTION_ROW1_7_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow1_mp[7],FMA Adaptive map - elements of Row 1
+IFMA20,0x15A1,STAT_MENGENMITTELWERTADAPTION_ROW2_0_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow2_mp[0],FMA Adaptive map - elements of Row 2
+IFMA21,0x15A2,STAT_MENGENMITTELWERTADAPTION_ROW2_1_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow2_mp[1],FMA Adaptive map - elements of Row 2
+IFMA22,0x15A3,STAT_MENGENMITTELWERTADAPTION_ROW2_2_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow2_mp[2],FMA Adaptive map - elements of Row 2
+IFMA23,0x15A4,STAT_MENGENMITTELWERTADAPTION_ROW2_3_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow2_mp[3],FMA Adaptive map - elements of Row 2
+IFMA24,0x15A5,STAT_MENGENMITTELWERTADAPTION_ROW2_4_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow2_mp[4],FMA Adaptive map - elements of Row 2
+IFMA25,0x15A6,STAT_MENGENMITTELWERTADAPTION_ROW2_5_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow2_mp[5],FMA Adaptive map - elements of Row 2
+IFMA26,0x15A7,STAT_MENGENMITTELWERTADAPTION_ROW2_6_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow2_mp[6],FMA Adaptive map - elements of Row 2
+IFMA27,0x15A8,STAT_MENGENMITTELWERTADAPTION_ROW2_7_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow2_mp[7],FMA Adaptive map - elements of Row 2
+IFMA30,0x15A9,STAT_MENGENMITTELWERTADAPTION_ROW3_0_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow3_mp[0],FMA Adaptive map - elements of Row 3
+IFMA31,0x15AA,STAT_MENGENMITTELWERTADAPTION_ROW3_1_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow3_mp[1],FMA Adaptive map - elements of Row 3
+IFMA32,0x15AB,STAT_MENGENMITTELWERTADAPTION_ROW3_2_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow3_mp[2],FMA Adaptive map - elements of Row 3
+IFMA33,0x15AC,STAT_MENGENMITTELWERTADAPTION_ROW3_3_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow3_mp[3],FMA Adaptive map - elements of Row 3
+IFMA34,0x15AD,STAT_MENGENMITTELWERTADAPTION_ROW3_4_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow3_mp[4],FMA Adaptive map - elements of Row 3
+IFMA35,0x15AE,STAT_MENGENMITTELWERTADAPTION_ROW3_5_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow3_mp[5],FMA Adaptive map - elements of Row 3
+IFMA36,0x15AF,STAT_MENGENMITTELWERTADAPTION_ROW3_6_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow3_mp[6],FMA Adaptive map - elements of Row 3
+IFMA37,0x15B0,STAT_MENGENMITTELWERTADAPTION_ROW3_7_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow3_mp[7],FMA Adaptive map - elements of Row 3
+IFMA40,0x15B1,STAT_MENGENMITTELWERTADAPTION_ROW4_0_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow4_mp[0],FMA Adaptive map - elements of Row 4
+IFMA41,0x15B2,STAT_MENGENMITTELWERTADAPTION_ROW4_1_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow4_mp[1],FMA Adaptive map - elements of Row 4
+IFMA42,0x15B3,STAT_MENGENMITTELWERTADAPTION_ROW4_2_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow4_mp[2],FMA Adaptive map - elements of Row 4
+IFMA43,0x15B4,STAT_MENGENMITTELWERTADAPTION_ROW4_3_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow4_mp[3],FMA Adaptive map - elements of Row 4
+IFMA44,0x15B5,STAT_MENGENMITTELWERTADAPTION_ROW4_4_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow4_mp[4],FMA Adaptive map - elements of Row 4
+IFMA45,0x15B6,STAT_MENGENMITTELWERTADAPTION_ROW4_5_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow4_mp[5],FMA Adaptive map - elements of Row 4
+IFMA46,0x15B7,STAT_MENGENMITTELWERTADAPTION_ROW4_6_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow4_mp[6],FMA Adaptive map - elements of Row 4
+IFMA47,0x15B8,STAT_MENGENMITTELWERTADAPTION_ROW4_7_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow4_mp[7],FMA Adaptive map - elements of Row 4
+IFMA50,0x15B9,STAT_MENGENMITTELWERTADAPTION_ROW5_0_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow5_mp[0],FMA Adaptive map - elements of Row 5
+IFMA51,0x15BA,STAT_MENGENMITTELWERTADAPTION_ROW5_1_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow5_mp[1],FMA Adaptive map - elements of Row 5
+IFMA52,0x15BB,STAT_MENGENMITTELWERTADAPTION_ROW5_2_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow5_mp[2],FMA Adaptive map - elements of Row 5
+IFMA53,0x15BC,STAT_MENGENMITTELWERTADAPTION_ROW5_3_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow5_mp[3],FMA Adaptive map - elements of Row 5
+IFMA54,0x15BD,STAT_MENGENMITTELWERTADAPTION_ROW5_4_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow5_mp[4],FMA Adaptive map - elements of Row 5
+IFMA55,0x15BE,STAT_MENGENMITTELWERTADAPTION_ROW5_5_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow5_mp[5],FMA Adaptive map - elements of Row 5
+IFMA56,0x15BF,STAT_MENGENMITTELWERTADAPTION_ROW5_6_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow5_mp[6],FMA Adaptive map - elements of Row 5
+IFMA57,0x15C0,STAT_MENGENMITTELWERTADAPTION_ROW5_7_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow5_mp[7],FMA Adaptive map - elements of Row 5
+IFMA60,0x15C1,STAT_MENGENMITTELWERTADAPTION_ROW6_0_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow6_mp[0],FMA Adaptive map - elements of Row 6
+IFMA61,0x15C2,STAT_MENGENMITTELWERTADAPTION_ROW6_1_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow6_mp[1],FMA Adaptive map - elements of Row 6
+IFMA62,0x15C3,STAT_MENGENMITTELWERTADAPTION_ROW6_2_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow6_mp[2],FMA Adaptive map - elements of Row 6
+IFMA63,0x15C4,STAT_MENGENMITTELWERTADAPTION_ROW6_3_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow6_mp[3],FMA Adaptive map - elements of Row 6
+IFMA64,0x15C5,STAT_MENGENMITTELWERTADAPTION_ROW6_4_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow6_mp[4],FMA Adaptive map - elements of Row 6
+IFMA65,0x15C6,STAT_MENGENMITTELWERTADAPTION_ROW6_5_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow6_mp[5],FMA Adaptive map - elements of Row 6
+IFMA66,0x15C7,STAT_MENGENMITTELWERTADAPTION_ROW6_6_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow6_mp[6],FMA Adaptive map - elements of Row 6
+IFMA67,0x15C8,STAT_MENGENMITTELWERTADAPTION_ROW6_7_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow6_mp[7],FMA Adaptive map - elements of Row 6
+IFMA70,0x15C9,STAT_MENGENMITTELWERTADAPTION_ROW7_0_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow7_mp[0],FMA Adaptive map - elements of Row 7
+IFMA71,0x15CA,STAT_MENGENMITTELWERTADAPTION_ROW7_1_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow7_mp[1],FMA Adaptive map - elements of Row 7
+IFMA72,0x15CB,STAT_MENGENMITTELWERTADAPTION_ROW7_2_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow7_mp[2],FMA Adaptive map - elements of Row 7
+IFMA73,0x15CC,STAT_MENGENMITTELWERTADAPTION_ROW7_3_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow7_mp[3],FMA Adaptive map - elements of Row 7
+IFMA74,0x15CD,STAT_MENGENMITTELWERTADAPTION_ROW7_4_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow7_mp[4],FMA Adaptive map - elements of Row 7
+IFMA75,0x15CE,STAT_MENGENMITTELWERTADAPTION_ROW7_5_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow7_mp[5],FMA Adaptive map - elements of Row 7
+IFMA76,0x15CF,STAT_MENGENMITTELWERTADAPTION_ROW7_6_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow7_mp[6],FMA Adaptive map - elements of Row 7
+IFMA77,0x15D0,STAT_MENGENMITTELWERTADAPTION_ROW7_7_WERT,unsigned int,-,mg/hub,-,0.010000,-,-327.670000,FMA_qMapRow7_mp[7],FMA Adaptive map - elements of Row 7
+IFMAQ,0x1590,STAT_MMA_FEHLERMODELL_MENGENFEHLER_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,FMA_q_mp,Mit Abschaltfaktor multiplizierter Mengenfehler des Fehlermodells
+IFMATIFO,0x15D1,STAT_MMA_FEHLERMODELL_BETRIEBSZEIT_WERT,unsigned int,-,s,-,0.999001,-,0.000000,FMA_tiFuncOp_mp,FMA_tiFuncOp_mp
+IMOAI,0x009F,STAT_MOTORMOMENT_INNERES_AKTUELL_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,FMTC_trqInr,aktuelles rückgerechnetes inneres Motormoment
+ITKRS,0x00A0,STAT_KRAFTSTOFFTEMPERATURK_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,FTSCD_tFuel,Kraftstofftemperatur
+ISKRS,0x00A1,STAT_KRAFTSTOFFTEMPERATURK_SPANNUNG_ROH_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,FTSCD_uRaw,Spannungsrohwert der Kraftstoffstemperatur
+FanCD_dcycRaw_mp,0x00A2,STAT_FanCD_dcycRaw_mp_WERT,unsigned int,-,%,-,0.010000,-,0.000000,FanCD_dcycRaw_mp,dutycycle Ubatt-corrected
+FlFCD_stFlFltRawVal,0x00A3,STAT_FlFCD_stFlFltRawVal_WERT,unsigned int,-,-,-,1.000000,-,0.000000,FlFCD_stFlFltRawVal,fuel filter temp and pressure monitoring
+FlMng_qLimSmk,0x1568,STAT_FlMng_qLimSmk_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,FlMng_qLimSmk,FlMng_qLimSmk
+ISKME,0x15E0,STAT_KILOMETERSTAND_WERT,unsigned int,-,km,-,8.000000,-,0.000000,FrmMng_lSum,Kilometerstand des Fahrzeugs
+INELU,0x15E1,STAT_ELEKTROLUEFTERDREHZAHL_WERT,unsigned int,-,1/min,-,0.091556,-,0.000000,FrmMng_nFan,Lüfterdrehzahl
+FrmMng_nPSP,0x00A4,STAT_FrmMng_nPSP_WERT,unsigned int,-,rpm,-,1.000000,-,0.000000,FrmMng_nPSP,Ist-Drehzahl EKP
+FrmMng_rPSPSetPoint,0x00A5,STAT_FrmMng_rPSPSetPoint_WERT,unsigned int,-,%,-,0.003052,-,0.000000,FrmMng_rPSPSetPoint,EKP-SetPoint
+IAHEI,0x15E2,STAT_HEIZLEISTUNGSANFORDERUNG_UEBER_CAN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,FrmMng_stACHtgReq,Heizleistungsanforderung über CAN
+FrmMng_stPSP,0x15E3,STAT_FrmMng_stPSP_WERT,unsigned int,-,-,-,1.000000,-,0.000000,FrmMng_stPSP,EKP - diagnose status
+ISKLI,0x15E4,STAT_KLIMA_EIN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,FrmMng_swtAC_mp,Schalter Klimakompressor
+ITUMG,0x15E5,STAT_UMGEBUNGSTEMPERATUR_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,FrmMng_tEnv,Umgebungstemperatur
+FrmMng_trqAC,0x15E6,STAT_FrmMng_trqAC_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,FrmMng_trqAC,desired Torque AC
+IGABE,0x1644,STAT_BERECHNETER_GANG_WERT,unsigned int,-,-,-,1.000000,-,0.000000,Gearbx_stGear,Ganginformation
+IGETT,0x1645,STAT_GETRIEBETYP_WERT,unsigned int,-,-,-,1.000000,-,0.000000,Gearbx_swtType,Getriebetyp (0: manuell(MT); 1: automatisch(AT); 2: Schaltautomatisch(AST); 3: StufenlosesGetriebe (CVT); 4:automatic Z-Car)
+GlwCD_RawVal_mp,0x164E,STAT_GlwCD_RawVal_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,GlwCD_RawVal_mp,Rohwert für das Glühanforderungsregister des Glühcontrollers
+IAGLU,0x00A6,STAT_GLUEHSYSTEM_ANSTEUERUNG_WERT,unsigned int,-,-,-,1.000000,-,0.000000,GlwCtl_rPwrOut,Glühanforderung
+IAGLL,0x00A7,STAT_GLUEHANZEIGE_ANSTEUERUNG_WERT,unsigned int,-,-,-,1.000000,-,0.000000,GlwCtl_stLampOut,Zustand der Glühanzeige
+IBSCD_ibatt_w_mp,0x00B4,STAT_IBSCD_ibatt_w_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,IBSCD_ibatt_w_mp,Battery current value
+HWEMon_numRecovery,0x00A8,STAT_HWEMon_numRecovery_WERT,unsigned int,-,-,-,1.000000,-,0.000000,HWEMon_numRecovery,Herkunft des letzten Reset ( >0 = Recovery ) - low byte
+HWEMon_numRecovery1,0x00A9,STAT_HWEMon_numRecovery1_WERT,unsigned int,-,-,-,1.000000,-,0.000000,HWEMon_numRecovery1,Herkunft des letzten Reset ( >0 = Recovery ) - high byte
+HWEMon_recLocHigh_mp,0x00AC,STAT_HWEMon_recLocHigh_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,HWEMon_recLocHigh_mp,Recovery location address - high word - low byte
+HWEMon_recLocLow_mp,0x00AA,STAT_HWEMon_recLocLow_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,HWEMon_recLocLow_mp,Recovery location address - low word - low byte
+HWEMon_recLocLow_mp1,0x00AB,STAT_HWEMon_recLocLow_mp1_WERT,unsigned int,-,-,-,1.000000,-,0.000000,HWEMon_recLocLow_mp1,Recovery location address - low word - high byte
+ITANS,0x00AD,STAT_ANSAUGLUFTTEMPERATUR_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,IATSCD_tAir,Ansauglufttemperatur
+ITLAL,0x00AE,STAT_LADELUFTTEMPERATUR_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,IATSCD_tAirCats,Ladelufttemperatur nach Ladeluftkühler
+ITLALB2,0x00AF,STAT_LADELUFTTEMPERATUR_BANK2_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,IATSCD_tAirCatsSec,Ladelufttemperatur nach Ladeluftkühler - sec
+ITLLL,0x16A8,STAT_LADELUFTTEMPERATUR_LINEARISIERT_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,IATSCD_tAirLinCats,Ladelufttemperatur - Linearisierter Wert aus HWK vor Aufruf der Übergangsfunktion
+IATSCD_uRawCats,0x00B0,STAT_IATSCD_uRawCats_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,IATSCD_uRawCats,-
+IATSCD_uRawCatsSec,0x00B1,STAT_IATSCD_uRawCatsSec_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,IATSCD_uRawCatsSec,-
+IIBAT,0x00F2,STAT_BATTERIESTROM_IBS_WERT,unsigned int,-,A,-,0.015259,-,-200.000000,I_batt,Batteriestrom von IBS gemessen
+IIGEN,0x1F40,STAT_GENERATORSTROM_IBS_WERT,unsigned int,-,A,-,1.000000,-,0.000000,I_gen,Generatorstrom
+SPEKA,0x16B2,STAT_EINLASSKANALABSCHALTUNG_POSITION_SOLL_WERT,unsigned int,-,%,-,0.010000,-,0.000000,IndSys_rVSA,Sollposition für Einlaßkanalabschaltung
+IWHE1,0x16BC,STAT_BEZUGSWINKEL_BEGINN_HAUPTEINSPRITZUNG1_WERT,unsigned int,-,deg CrS,-,0.002930,-,-90.351389,InjCrv_phiMI1Des,gewünschter Bezugswinkel für Beginn der MI1
+IWVE1,0x16BD,STAT_WINKELKOMPONENTE_BEGINN_VOREINSPRITZUNG1_WERT,unsigned int,-,deg CrS,-,0.002930,-,-90.351389,InjCrv_phiPiI1Des,gewünschter Winkelkomponente Ansteuerbeginn PiI1
+IWVE2,0x16BE,STAT_WINKELKOMPONENTE_BEGINN_VOREINSPRITZUNG2_WERT,unsigned int,-,deg CrS,-,0.002930,-,-90.351389,InjCrv_phiPiI2Des,gewünschte Winkelkomponente Ansteuerbeginn PiI2
+IWVE3,0x16BF,STAT_WINKELKOMPONENTE_BEGINN_VOREINSPRITZUNG3_WERT,unsigned int,-,deg CrS,-,0.002930,-,-90.351389,InjCrv_phiPiI3Des,gewünschte Winkelkomponente Ansteuerbeginn PiI3
+IWNE1,0x16C0,STAT_BEZUGSWINKEL_BEGINN_NACHEINSPRITZUNG1_WERT,unsigned int,-,deg CrS,-,0.002930,-,-90.351389,InjCrv_phiPoI1Des,gewünschter Bezugswinkel für Beginn der PoI1
+IWNE2,0x16C1,STAT_BEZUGSWINKEL_BEGINN_NACHEINSPRITZUNG2_WERT,unsigned int,-,deg CrS,-,0.002930,-,-90.351389,InjCrv_phiPoI2Des,gewünschter Bezugswinkel für Beginn der PoI2
+IMHE1,0x16C2,STAT_MENGE_HAUPTEINSPRITZUNG1_WERT,unsigned int,-,mg/inj,-,0.001526,-,0.000000,InjCrv_qMI1Des,Sollmenge Haupteinspritzung
+IMGV1,0x16C3,STAT_MENGE_VOREINSPRITZUNG1_GRUNDWERT_WERT,unsigned int,-,mg/inj,-,0.001526,-,0.000000,InjCrv_qPiI1Bas_mp,Einspritzmenge PiI1 Grundwert
+IMVE1,0x16C4,STAT_MENGE_VOREINSPRITZUNG1_WERT,unsigned int,-,mg/inj,-,0.001526,-,0.000000,InjCrv_qPiI1Des,gewünschte Einspritzmenge PiI 1
+IMGV2,0x16C5,STAT_MENGE_VOREINSPRITZUNG2_GRUNDWERT_WERT,unsigned int,-,mg/inj,-,0.001526,-,0.000000,InjCrv_qPiI2Bas_mp,Einspritzmenge PiI2 Grundwert
+IMVE2,0x16C6,STAT_MENGE_VOREINSPRITZUNG2_WERT,unsigned int,-,mg/inj,-,0.001526,-,0.000000,InjCrv_qPiI2Des,gewünschte Einspritzmenge PiI 2
+IMVE3,0x16C7,STAT_MENGE_VOREINSPRITZUNG3_WERT,unsigned int,-,mg/inj,-,0.001526,-,0.000000,InjCrv_qPiI3Des,gewünschte Einspritzmenge PiI 3
+IMNE1,0x16C8,STAT_MENGE_NACHEINSPRITZUNG1_WERT,unsigned int,-,mg/inj,-,0.001526,-,0.000000,InjCrv_qPoI1Des,desired quantity of PoI1
+IMNE2,0x16C9,STAT_MENGE_NACHEINSPRITZUNG2_WERT,unsigned int,-,mg/inj,-,0.001526,-,0.000000,InjCrv_qPoI2Des,desired quantity for PoI2
+ISVE1,0x16CA,STAT_FREIGABESTATUS_VOREINSPRITZUNG1_WERT,unsigned int,-,-,-,1.000000,-,0.000000,InjCrv_stPiI1_mp,Freigabestatus PiI1
+ISVE2,0x16CB,STAT_FREIGABESTATUS_VOREINSPRITZUNG2_WERT,unsigned int,-,-,-,1.000000,-,0.000000,InjCrv_stPiI2_mp,Freigabestatus PiI2
+IDGH1,0x16CC,STAT_ANSTEUERDAUER_HAUPTEINSPRITZUNG1_GESCHAETZT_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjCrv_tiMI1ET,geschätzte Ansteuerdauer MI1
+InjCrv_tiPiI1Bas_mp,0x16CD,STAT_InjCrv_tiPiI1Bas_mp_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjCrv_tiPiI1Bas_mp,injection quantity PiI1 base value
+ITVE1,0x16CE,STAT_BEZUGSZEITKOMPONENTE_BEGINN_VOREINSPRITZUNG1_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjCrv_tiPiI1Des,desired time-component of SOE PiI1
+InjCrv_tiPiI2Des,0x16CF,STAT_InjCrv_tiPiI2Des_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjCrv_tiPiI2Des,gewuenschte Zeitkomponente Ansteuerbeginn PiI2
+ITNE1,0x16D0,STAT_BEZUGSZEITKOMPONENTE_BEGINN_NACHEINSPRITZUNG2_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjCrv_tiPoI2Des,gewünschte Bezugszeitkomponente für Beginn PoI2
+IMEIA,0x00B5,STAT_EINSPRITZMENGE_AKTUELL_WERT,unsigned int,-,mg/cyc,-,0.003052,-,-99.998993,InjCtl_qCurr,Einspritzmenge aktueller Wert
+InjCtl_qCurrCor,0x170C,STAT_InjCtl_qCurrCor_WERT,unsigned int,-,mg/cyc,-,0.003052,-,-99.998993,InjCtl_qCurrCor,Einspritzmenge aktueller Wert mit FMA Korrektur
+SMEIN,0x00EF,STAT_EINSPRITZMENGE_SOLL_WERT,unsigned int,-,mg/cyc,-,0.003052,-,-99.998993,InjCtl_qSet,Einspritzmenge Sollwert
+SMEIO,0x00B6,STAT_EINSPRITZMENGE_SOLL_OHNE_MENGENAUSGLEICH_WERT,unsigned int,-,mg/cyc,-,0.003052,-,-99.998993,InjCtl_qSetUnBal,Einspritzmenge Sollwert ohne Mengenausgleichsregelung
+IDHE1,0x1720,STAT_ANSTEUERDAUER_HAUPTEINSPRITZUNG1_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiMI1ET_mp,Ansteuerdauer der Haupteinspritzung 1
+IDVE1,0x1721,STAT_ANSTEUERDAUER_VOREINSPRITZUNG1_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI1ET_mp,Ansteuerdauer der Voreinspritzung 1
+IZFC10,0x172A,STAT_ANSTEUERDAUER_KORRNMK_PIL1_ZYL1_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI1ZFCETCor_mp[0],"ZFC energising time correction for PiI1, cylinder 1"
+IZFC11,0x172B,STAT_ANSTEUERDAUER_KORRNMK_PIL1_ZYL2_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI1ZFCETCor_mp[1],"ZFC energising time correction for PiI1, cylinder 2"
+IZFC12,0x172C,STAT_ANSTEUERDAUER_KORRNMK_PIL1_ZYL3_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI1ZFCETCor_mp[2],"ZFC energising time correction for PiI1, cylinder 3"
+IZFC13,0x172D,STAT_ANSTEUERDAUER_KORRNMK_PIL1_ZYL4_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI1ZFCETCor_mp[3],"ZFC energising time correction for PiI1, cylinder 4"
+IZFC14,0x172E,STAT_ANSTEUERDAUER_KORRNMK_PIL1_ZYL5_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI1ZFCETCor_mp[4],"ZFC energising time correction for PiI1, cylinder 5"
+IZFC15,0x172F,STAT_ANSTEUERDAUER_KORRNMK_PIL1_ZYL6_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI1ZFCETCor_mp[5],"ZFC energising time correction for PiI1, cylinder 6"
+IZFC16,0x1730,STAT_ANSTEUERDAUER_KORRNMK_PIL1_ZYL7_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI1ZFCETCor_mp[6],"ZFC energising time correction for PiI1, cylinder 7"
+IZFC17,0x1731,STAT_ANSTEUERDAUER_KORRNMK_PIL1_ZYL8_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI1ZFCETCor_mp[7],"ZFC energising time correction for PiI1, cylinder 8"
+IDVE2,0x1732,STAT_ANSTEUERDAUER_VOREINSPRITZUNG2_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI2ET_mp,Ansteuerdauer der Voreinspritzung 2
+IZFC20,0x1734,STAT_ANSTEUERDAUER_KORRNMK_PIL2_ZYL1_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI2ZFCETCor_mp[0],"ZFC energising time correction for PiI2, cylinder 1"
+IZFC21,0x1735,STAT_ANSTEUERDAUER_KORRNMK_PIL2_ZYL2_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI2ZFCETCor_mp[1],"ZFC energising time correction for PiI2, cylinder 2"
+IZFC22,0x1736,STAT_ANSTEUERDAUER_KORRNMK_PIL2_ZYL3_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI2ZFCETCor_mp[2],"ZFC energising time correction for PiI2, cylinder 3"
+IZFC23,0x1737,STAT_ANSTEUERDAUER_KORRNMK_PIL2_ZYL4_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI2ZFCETCor_mp[3],"ZFC energising time correction for PiI2, cylinder 4"
+IZFC24,0x1738,STAT_ANSTEUERDAUER_KORRNMK_PIL2_ZYL5_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI2ZFCETCor_mp[4],"ZFC energising time correction for PiI2, cylinder 5"
+IZFC25,0x1739,STAT_ANSTEUERDAUER_KORRNMK_PIL2_ZYL6_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI2ZFCETCor_mp[5],"ZFC energising time correction for PiI2, cylinder 6"
+IZFC26,0x173A,STAT_ANSTEUERDAUER_KORRNMK_PIL2_ZYL7_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI2ZFCETCor_mp[6],"ZFC energising time correction for PiI2, cylinder 7"
+IZFC27,0x173B,STAT_ANSTEUERDAUER_KORRNMK_PIL2_ZYL8_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI2ZFCETCor_mp[7],"ZFC energising time correction for PiI2, cylinder 8"
+IZFC30,0x173E,STAT_ANSTEUERDAUER_KORRNMK_PIL3_ZYL1_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI3ZFCETCor_mp[0],"ZFC energising time correction for PiI3, cylinder 1"
+IZFC31,0x173F,STAT_ANSTEUERDAUER_KORRNMK_PIL3_ZYL2_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI3ZFCETCor_mp[1],"ZFC energising time correction for PiI3, cylinder 2"
+IZFC32,0x1740,STAT_ANSTEUERDAUER_KORRNMK_PIL3_ZYL3_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI3ZFCETCor_mp[2],"ZFC energising time correction for PiI3, cylinder 3"
+IZFC33,0x1741,STAT_ANSTEUERDAUER_KORRNMK_PIL3_ZYL4_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI3ZFCETCor_mp[3],"ZFC energising time correction for PiI3, cylinder 4"
+IZFC34,0x1742,STAT_ANSTEUERDAUER_KORRNMK_PIL3_ZYL5_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI3ZFCETCor_mp[4],"ZFC energising time correction for PiI3, cylinder 5"
+IZFC35,0x1743,STAT_ANSTEUERDAUER_KORRNMK_PIL3_ZYL6_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI3ZFCETCor_mp[5],"ZFC energising time correction for PiI3, cylinder 6"
+IZFC36,0x1744,STAT_ANSTEUERDAUER_KORRNMK_PIL3_ZYL7_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI3ZFCETCor_mp[6],"ZFC energising time correction for PiI3, cylinder 7"
+IZFC37,0x1745,STAT_ANSTEUERDAUER_KORRNMK_PIL3_ZYL8_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPiI3ZFCETCor_mp[7],"ZFC energising time correction for PiI3, cylinder 8"
+IDNE1,0x1748,STAT_ANSTEUERDAUER_NACHEINSPRITZUNG1_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPoI1ET_mp,Ansteuerdauer Nacheinspritzung 1
+IDNE2,0x1749,STAT_ANSTEUERDAUER_NACHEINSPRITZUNG2_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,InjVCD_tiPoI2ET_mp,Ansteuerdauer der Nacheinspritzung 2
+INZZ1,0x1770,STAT_MOTORDREHZAHL_ZYLINDERSPEZIFISCH_ZYL1_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,InjVlv_nCyl[0],Zylinderspezifische Drehzahl für Zylinder 1
+INZZ2,0x1771,STAT_MOTORDREHZAHL_ZYLINDERSPEZIFISCH_ZYL2_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,InjVlv_nCyl[1],Zylinderspezifische Drehzahl für Zylinder 2
+INZZ3,0x1772,STAT_MOTORDREHZAHL_ZYLINDERSPEZIFISCH_ZYL3_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,InjVlv_nCyl[2],Zylinderspezifische Drehzahl für Zylinder 3
+INZZ4,0x1773,STAT_MOTORDREHZAHL_ZYLINDERSPEZIFISCH_ZYL4_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,InjVlv_nCyl[3],Zylinderspezifische Drehzahl für Zylinder 4
+INZZ5,0x1774,STAT_MOTORDREHZAHL_ZYLINDERSPEZIFISCH_ZYL5_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,InjVlv_nCyl[4],Zylinderspezifische Drehzahl für Zylinder 5
+INZZ6,0x1775,STAT_MOTORDREHZAHL_ZYLINDERSPEZIFISCH_ZYL6_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,InjVlv_nCyl[5],Zylinderspezifische Drehzahl für Zylinder 6
+INZZ7,0x1776,STAT_MOTORDREHZAHL_ZYLINDERSPEZIFISCH_ZYL7_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,InjVlv_nCyl[6],Zylinderspezifische Drehzahl für Zylinder 7
+INZZ8,0x1777,STAT_MOTORDREHZAHL_ZYLINDERSPEZIFISCH_ZYL8_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,InjVlv_nCyl[7],Zylinderspezifische Drehzahl für Zylinder 8
+IMKZ1,0x177A,STAT_MENGENKORREKTUR_ZYLINDERSPEZIFISCH_ZYL1_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,InjVlv_qFBCCyl[0],Zylinderselektive FBC-Mengenkorrektur für Zylinder 1
+IMKZ2,0x177B,STAT_MENGENKORREKTUR_ZYLINDERSPEZIFISCH_ZYL2_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,InjVlv_qFBCCyl[1],Zylinderselektive FBC-Mengenkorrektur für Zylinder 2
+IMKZ3,0x177C,STAT_MENGENKORREKTUR_ZYLINDERSPEZIFISCH_ZYL3_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,InjVlv_qFBCCyl[2],Zylinderselektive FBC-Mengenkorrektur für Zylinder 3
+IMKZ4,0x177D,STAT_MENGENKORREKTUR_ZYLINDERSPEZIFISCH_ZYL4_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,InjVlv_qFBCCyl[3],Zylinderselektive FBC-Mengenkorrektur für Zylinder 4
+IMKZ5,0x177E,STAT_MENGENKORREKTUR_ZYLINDERSPEZIFISCH_ZYL5_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,InjVlv_qFBCCyl[4],Zylinderselektive FBC-Mengenkorrektur für Zylinder 5
+IMKZ6,0x177F,STAT_MENGENKORREKTUR_ZYLINDERSPEZIFISCH_ZYL6_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,InjVlv_qFBCCyl[5],Zylinderselektive FBC-Mengenkorrektur für Zylinder 6
+IMKZ7,0x1780,STAT_MENGENKORREKTUR_ZYLINDERSPEZIFISCH_ZYL7_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,InjVlv_qFBCCyl[6],Zylinderselektive FBC-Mengenkorrektur für Zylinder 7
+IMKZ8,0x1781,STAT_MENGENKORREKTUR_ZYLINDERSPEZIFISCH_ZYL8_WERT,unsigned int,-,mg/hub,-,0.003052,-,-99.998993,InjVlv_qFBCCyl[7],Zylinderselektive FBC-Mengenkorrektur für Zylinder 8
+LIGov_nSetpoint,0x00B7,STAT_LIGov_nSetpoint_WERT,unsigned int,-,rpm,-,0.125002,-,0.000000,LIGov_nSetpoint,Untergrenze Drehzahlintervall des LIGov
+ISLLA,0x17D4,STAT_STATUS_LEERLAUFREGLER_WERT,unsigned int,-,-,-,1.000000,-,0.000000,LIGov_st,Zustand des Leerlaufreglers
+IMLLR,0x00B8,STAT_LEERLAUFREGLERMOMENT_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,LIGov_trq,Leerlaufreglermoment
+LPACD_rOut,0x00B9,STAT_LPACD_rOut_WERT,unsigned int,-,%,-,0.010000,-,0.000000,LPACD_rOut,output for the PWM power stage after battery voltage correction
+LSUCD_drO2Adpt,0x1806,STAT_LSUCD_drO2Adpt_WERT,unsigned int,-,-,-,0.000009,-,-0.299986,LSUCD_drO2Adpt[0],Eingelernter absoluter Messfehler der Sauerstoffkonzentration
+LSUCD_facO2Corr_mp[0],0x1807,STAT_LSUCD_facO2Corr_mp[0]_WERT,unsigned int,-,-,-,0.000122,-,0.000000,LSUCD_facO2Corr_mp[0],Correction factor of adaption
+ISAOK,0x180A,STAT_SAUERSTOFFGEHALT_OFFSETKOMPENSIERT_WERT,unsigned int,-,-,-,0.000009,-,-0.299986,LSUCD_rO2Raw[0],"Raw Oxygen value, only offset compensated"
+ISOSA,0x1808,STAT_LAMBDASONDENSIGNAL_ADAPTIERT,unsigned int,-,-,-,1.000000,-,0.000000,LSUCD_stAdpt[0],Zustandsgroesse der Adaption (adaptiert / nicht adaptiert)
+ISOSV,0x1809,STAT_LAMBDASONDENSIGNAL_VALID,unsigned int,-,-,-,1.000000,-,0.000000,LSUCD_stO2Valid[0],status of Oxigen signal valid/not valid
+RUSSA,0x180B,STAT_SAUERSTOFFGEHALT_SPANNUNG_ROH_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,LSUCD_uO2Raw[0],voltage raw value for lambda
+ILMBD,0x181A,STAT_LAMBDA_WERT,unsigned int,-,-,-,0.000610,-,0.000000,LSU_rLmbd[0],Lambda
+IKSAB,0x00BD,STAT_SAUERSTOFFGEHALT_BERECHNET_WERT,unsigned int,-,-,-,0.000009,-,-0.299986,LSU_rO2Adpt[0],adaptive oxygen concentration for external modules
+IAMRV,0x00BE,STAT_MENGENREGELVENTIL_ANSTEUERUNG_WERT,unsigned int,-,%,-,0.010000,-,0.000000,MeUnCD_dcycOut_mp,Ausgangstastverhältnis
+IIMRV,0x1838,STAT_STROM_MENGENREGELVENTIL_WERT,unsigned int,-,mA,-,0.228891,-,0.000000,MeUnCD_iActFlt_mp,Zumesseinheit-Stromregelung gefilterter Strom-Istwert
+SIMRV,0x1842,STAT_STROM_MENGENREGELVENTIL_SOLL_WERT,unsigned int,-,mA,-,0.228891,-,0.000000,MeUn_iSet_mp,Sollstrom für die Zumesseinheit
+ISOED,0x00BF,STAT_OELDRUCKSCHALTER_EIN_WERT,unsigned int,-,-,-,1.000000,-,0.000000,OPSCD_stSigOut,Ausgangssignal Öldruckschalter
+OPSCD_stpOEL,0x1AC2,STAT_OPSCD_stpOEL_WERT,unsigned int,-,-,-,1.000000,-,0.000000,OPSCD_stpOEL,oil pressure sensor signal
+ITOEL,0x00C1,STAT_MOTOROEL_TEMPERATUR_WERT,unsigned int,-,deg C,-,0.016787,-,-50.138440,OTSCD_tEngOil,Engine oil temperature
+OvRMon_tiOvRMonActive_mp,0x00ED,STAT_OvRMon_tiOvRMonActive_mp_WERT,unsigned int,-,ms,-,10.000000,-,0.000000,OvRMon_tiOvRMonActive_mp,Time after activation of monitoring
+OvRMon_tiTDCAvrg,0x00EC,STAT_OvRMon_tiTDCAvrg_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,OvRMon_tiTDCAvrg,Sum of torque generating energising (time of one cycle)
+ITAVO,0x00C2,STAT_ABGASTEMPERATUR_VOR_KATALYSATOR_WERT,unsigned int,-,deg C,-,1.000240,-,-51.086707,OxiCCD_tPre,Abgastemperatur vor Oxidationskatalysator
+ITAVOB2,0x00C3,STAT_ABGASTEMPERATUR_VOR_KATALYSATOR_BANK2_WERT,unsigned int,-,deg C,-,1.000240,-,-51.086707,OxiCCD_tPreB2,Abgastemperatur vor Oxidationskatalysator - Bank2
+RUAVO,0x00C4,STAT_ABGASTEMPERATUR_VOR_KATALYSATOR_SPANNUNG_ROH_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,OxiCCD_uRawTempPre,Abgastemperatur vor Oxidationskatalysator Rohwert
+RUAVOB2,0x00C5,STAT_ABGASTEMPERATUR_VOR_KATALYSATOR_SPANNUNG_ROH_BANK2_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,OxiCCD_uRawTempPreB2,Abgastemperatur vor Oxidationskatalysator Rohwert - Bank2
+Oz_kvbmw,0x1F3F,STAT_Oz_kvbmw_WERT,unsigned int,-,-,-,0.000122,-,0.000000,Oz_kvbmw,
+Oz_kvbog,0x1F41,STAT_Oz_kvbog_WERT,unsigned int,-,-,-,1.000000,-,0.000000,Oz_kvbog,zugeteilte Bonuskraftstoffmenge
+Oz_kvbsm,0x1F3E,STAT_Oz_kvbsm_WERT,unsigned int,-,-,-,0.000122,-,0.000000,Oz_kvbsm,
+Oz_kvbsm_ul,0x1F42,STAT_Oz_kvbsm_ul_WERT,unsigned int,-,-,-,0.000122,-,0.000000,Oz_kvbsm_ul,-
+Oz_lp,0x1F4A,STAT_Oz_lp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,Oz_lp,oz level picture
+Oz_lv,0x1F4B,STAT_Oz_lv_WERT,unsigned int,-,-,-,1.000000,-,0.000000,Oz_lv,oz level value
+Oz_oelkm,0x00F3,STAT_Oz_oelkm_WERT,unsigned int,-,km,-,10.000000,-,0.000000,Oz_oelkm,Oelkilometer
+IFSOE,0x00F4,STAT_FUELLSTAND_MOTOROEL_KURZZEIT_WERT,unsigned int,-,s,-,0.500000,-,0.000000,Oz_oelnivkurz,Ölniveau - kurz
+Oz_oelnivnorm,0x00F5,STAT_Oz_oelnivnorm_WERT,unsigned int,-,s,-,0.500000,-,0.000000,Oz_oelnivnorm,Ölniveau - Norm
+Oz_oelnivori,0x00F6,STAT_Oz_oelnivori_WERT,unsigned int,-,s,-,0.500000,-,0.000000,Oz_oelnivori,Ölniveau - original
+Oz_oelzeit,0x1F43,STAT_Oz_oelzeit_WERT,unsigned int,-,-,-,1.000000,-,0.000000,Oz_oelzeit,Oel-Alter in Monate
+Oz_permbog,0x1F44,STAT_Oz_permbog_WERT,unsigned int,-,-,-,0.000092,-,0.000000,Oz_permbog,zugeteilter Permittivitaetsbonus
+Oz_permex,0x1F45,STAT_Oz_permex_WERT,unsigned int,-,-,-,0.000092,-,0.000000,Oz_permex,Permittivitaet fuer Bewertung aufbereitet (extrapoliert)
+Oz_permlow,0x1F46,STAT_Oz_permlow_WERT,unsigned int,-,-,-,0.000092,-,0.000000,Oz_permlow,aufbereitete Permittivitaet bei letztem Oelwechsel
+Oz_permoff,0x1F47,STAT_Oz_permoff_WERT,unsigned int,-,-,-,0.000092,-,0.000000,Oz_permoff,Offset fuer Permittivitaetskorrektur
+Oz_rwkvb,0x1F48,STAT_Oz_rwkvb_WERT,unsigned int,-,km,-,10.000000,-,0.000000,Oz_rwkvb,-
+Oz_rwperm,0x1F49,STAT_Oz_rwperm_WERT,unsigned int,-,km,-,10.000000,-,0.000000,Oz_rwperm,Restweg aus Permittivitaet abgeleitet
+PCR_pBDesLP_mp,0x18A5,STAT_PCR_pBDesLP_mp_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PCR_pBDesLP_mp,boost pressure setpoint
+PCR_pBGDev,0x189E,STAT_PCR_pBGDev_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PCR_pBGDev,govenor deviation of PCR
+PCR_pBGDevMax_mp,0x18A0,STAT_PCR_pBGDevMax_mp_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PCR_pBGDevMax_mp,positiv Deviation threshold with offset govenor deviation of PCR
+PCR_pBGDevMin_mp,0x18A1,STAT_PCR_pBGDevMin_mp_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PCR_pBGDevMin_mp,negativ Deviation threshold with offset govenor deviation of PCR
+PCR_pBGDvtLP,0x18A4,STAT_PCR_pBGDvtLP_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PCR_pBGDvtLP,govenor deviation
+SPLAD,0x00C6,STAT_LADEDRUCK_SOLL_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PCR_pDesVal,Ladedrucksollwert
+PCR_pLPDvtMax_mp,0x18A6,STAT_PCR_pLPDvtMax_mp_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PCR_pLPDvtMax_mp,
+PCR_pLPDvtMin_mp,0x18A7,STAT_PCR_pLPDvtMin_mp_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PCR_pLPDvtMin_mp,
+PCR_rBPA,0x189C,STAT_PCR_rBPA_WERT,unsigned int,-,%,-,0.003052,-,0.000000,PCR_rBPA,Ratio O/P from PCR to BPACD
+PCR_stLPMonitor,0x18A2,STAT_PCR_stLPMonitor_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PCR_stLPMonitor,Status of PCR monitoring at low pressure
+PCR_stLPWorkSph,0x18A3,STAT_PCR_stLPWorkSph_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PCR_stLPWorkSph,info about working sphere
+ISLDR,0x189D,STAT_STATUS_ABSCHALTUNG_LADEDRUCKREGELUNG_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PCR_stMonitor,Statusangabe bei Abschaltung der Regelung
+PCR_stWorkSph,0x189F,STAT_PCR_stWorkSph_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PCR_stWorkSph,info about working sphere
+IARDS,0x00C7,STAT_RAILDRUCKREGELVENTIL_ANSTEUERUNG_WERT,unsigned int,-,%,-,0.010000,-,0.000000,PCVCD_dcycOut_mp,Ausgangstastverhältnis
+PCVCD_iActVal,0x18B0,STAT_PCVCD_iActVal_WERT,unsigned int,-,mA,-,0.228891,-,0.000000,PCVCD_iActVal,Analogeingang Strom-Istwert
+PCV_facAdapt,0x18BA,STAT_PCV_facAdapt_WERT,unsigned int,-,-,-,0.000122,-,0.000000,PCV_facAdapt,Korrekturfaktor der PCV-Kennlinie
+IPABG1,0x00C8,STAT_ABGASDRUCK_VOR_PARTIKELFILTER_1_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PFltCD_pPre,Abgasdruck vor Partikelfilter
+IPABG2,0x00C9,STAT_ABGASDRUCK_VOR_PARTIKELFILTER_2_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PFltCD_pPreB2,Abgasdruck vor Partikelfilter
+ITAVP1,0x00CA,STAT_ABGASTEMPERATUR_VOR_PARTIKELFILTER_1_WERT,unsigned int,-,deg C,-,1.000240,-,-51.086707,PFltCD_tPre,Abgastemp. vor Partikelfilter erster Sensor
+ITAVP2,0x00CB,STAT_ABGASTEMPERATUR_VOR_PARTIKELFILTER_2_WERT,unsigned int,-,deg C,-,1.000240,-,-51.086707,PFltCD_tPreB2,Abgastemp. vor Partikelfilter erster Sensor
+PFltCD_uRawPresPre_mp,0x00CC,STAT_PFltCD_uRawPresPre_mp_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,PFltCD_uRawPresPre_mp,Spannungsrohwert vom Absolutdrucksensor vor dem Partikelfilter
+PFltCD_uRawPresPreB2,0x00CD,STAT_PFltCD_uRawPresPreB2_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,PFltCD_uRawPresPreB2,Spannungsrohwert vom Absolutdrucksensor vor dem Partikelfilter - Bank2
+RUTVP,0x00CE,STAT_ABGASTEMPERATUR_VOR_PARTIKELFILTER_SPANNUNG_ROH_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,PFltCD_uRawTempPre,Spannungsrohwert der Abgastemperatur vor dem Partikelfilter
+PFltCD_uRawTempPreB2,0x00CF,STAT_PFltCD_uRawTempPreB2_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,PFltCD_uRawTempPreB2,Spannungsrohwert der Abgastemperatur vor dem Partikelfilter - Bank2
+PFlt_ctOvldHealObsNO2_mp,0x007E,STAT_PFlt_ctOvldHealObsNO2_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_ctOvldHealObsNO2_mp,counter for healing  Overload defect
+PFlt_ctOvldHealObsNO2B2_mp,0x007F,STAT_PFlt_ctOvldHealObsNO2B2_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_ctOvldHealObsNO2B2_mp,counter for healing  Overload defect Bank2
+PFlt_ctRgnStep1_mp,0x191E,STAT_PFlt_ctRgnStep1_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_ctRgnStep1_mp,-
+PFlt_ctRgnStep2_mp,0x191F,STAT_PFlt_ctRgnStep2_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_ctRgnStep2_mp,-
+PFlt_ctRgnStep3_mp,0x1920,STAT_PFlt_ctRgnStep3_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_ctRgnStep3_mp,-
+PFlt_ctRgnStep4_mp,0x1921,STAT_PFlt_ctRgnStep4_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_ctRgnStep4_mp,-
+PFlt_ctRgnStep5_mp,0x1922,STAT_PFlt_ctRgnStep5_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_ctRgnStep5_mp,-
+PFlt_ctRgnStep6_mp,0x1923,STAT_PFlt_ctRgnStep6_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_ctRgnStep6_mp,-
+PFlt_ctRgnStep7_mp,0x1924,STAT_PFlt_ctRgnStep7_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_ctRgnStep7_mp,-
+PFlt_ctRgnStep8_mp,0x1925,STAT_PFlt_ctRgnStep8_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_ctRgnStep8_mp,-
+PFlt_ctStartSnceHCCondB1_mp,0x195A,STAT_PFlt_ctStartSnceHCCondB1_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_ctStartSnceHCCondB1_mp,driven distance threshold for next HC rgn - Bank1
+PFlt_ctStartSnceHCCondB2_mp,0x195B,STAT_PFlt_ctStartSnceHCCondB2_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_ctStartSnceHCCondB2_mp,driven distance threshold for next HC rgn - Bank2
+PFlt_ctStartSnceRgnB1_mp,0x195D,STAT_PFlt_ctStartSnceRgnB1_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_ctStartSnceRgnB1_mp,driven distance threshold for next rgn - Bank1
+PFlt_ctStartSnceRgnB2_mp,0x195E,STAT_PFlt_ctStartSnceRgnB2_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_ctStartSnceRgnB2_mp,driven distance threshold for next rgn - Bank2
+PFlt_dmO2AprxB1,0x1963,STAT_PFlt_dmO2AprxB1_WERT,unsigned int,-,Kg/h,-,0.048829,-,-1599.971484,PFlt_dmO2AprxB1,Oxygen mass flow upstream of particle filter - Bank1
+PFlt_dmO2AprxB2,0x1996,STAT_PFlt_dmO2AprxB2_WERT,unsigned int,-,Kg/h,-,0.048829,-,-1599.971484,PFlt_dmO2AprxB2,Oxygen mass flow upstream of particle filter - Bank2
+PFlt_dmSotSimB1_mp,0x199E,STAT_PFlt_dmSotSimB1_mp_WERT,unsigned int,-,mg/s,-,0.010000,-,0.000000,PFlt_dmSotSimB1_mp,produced soot mass per time - Bank1
+PFlt_dmSotSimB2_mp,0x199F,STAT_PFlt_dmSotSimB2_mp_WERT,unsigned int,-,mg/s,-,0.010000,-,0.000000,PFlt_dmSotSimB2_mp,produced soot mass per time - Bank2
+PFlt_dmSotSimDynB1_mp,0x1998,STAT_PFlt_dmSotSimDynB1_mp_WERT,unsigned int,-,mg/s,-,0.010000,-,0.000000,PFlt_dmSotSimDynB1_mp,dynamic part of generated soot mass f(dq) - Bank1
+PFlt_dmSotSimDynB2_mp,0x1999,STAT_PFlt_dmSotSimDynB2_mp_WERT,unsigned int,-,mg/s,-,0.010000,-,0.000000,PFlt_dmSotSimDynB2_mp,dynamic part of generated soot mass f(dq) - Bank2
+IMPAG,0x1900,STAT_PARTIKELMASSE_GENERIERT_WERT,unsigned int,-,mg/s,-,0.010000,-,0.000000,PFlt_dmSotSimEmi_mp,generierte Partikelmasse
+IMPAG2,0x1932,STAT_PARTIKELMASSE_GENERIERT_BANK2_WERT,unsigned int,-,mg/s,-,0.010000,-,0.000000,PFlt_dmSotSimEmiB2_mp,generierte Partikelmasse Bank2
+IMPAR,0x1903,STAT_PARTIKELMASSE_REGENERIERT_WERT,unsigned int,-,mg/s,-,0.010000,-,0.000000,PFlt_dmSotSimRgn_mp,regenerierte Partikelmasse
+IMPAR2,0x1935,STAT_PARTIKELMASSE_REGENERIERT_BANK2_WERT,unsigned int,-,mg/s,-,0.010000,-,0.000000,PFlt_dmSotSimRgnB1_mp,regenerierte Partikelmasse Bank2
+IMPAC,0x1901,STAT_PARTIKELMASSE_ABGEBAUT_DURCH_CRT_WERT,unsigned int,-,mg/s,-,0.010000,-,0.000000,PFlt_dmSotSimRgnCRT_mp,abgebauter Partikelmassenstrom in Simulation durch CRT
+PFlt_dmSotSimRgnNO2B2_mp,0x191A,STAT_PFlt_dmSotSimRgnNO2B2_mp_WERT,unsigned int,-,mg/s,-,0.010000,-,0.000000,PFlt_dmSotSimRgnNO2B2_mp,durch NO2-Effekt regenerierter Rußmassenstrom Bank 2
+IMPAT,0x1902,STAT_PARTIKELMASSE_ABGEBAUT_DURCH_THERM_REGENERATION_WERT,unsigned int,-,mg/s,-,0.010000,-,0.000000,PFlt_dmSotSimRgnThr_mp,abgebauter Partikelmassenstrom in Simulation durch thermische Regeneration
+IMPAT2,0x1934,STAT_PARTIKELMASSE_ABGEBAUT_DURCH_THERM_REGENERATION_BA2_WERT,unsigned int,-,mg/s,-,0.010000,-,0.000000,PFlt_dmSotSimRgnThrB2_mp,abgebauter Partikelmassenstrom in Simulation durch thermische Regeneration - Bank2
+PFlt_dmSotSimSty_mp,0x199A,STAT_PFlt_dmSotSimSty_mp_WERT,unsigned int,-,mg/s,-,0.010000,-,0.000000,PFlt_dmSotSimSty_mp,Stationary particle mass flow in simulation
+IVABP,0x00D0,STAT_ABGASVOLUMENSTROM_IM_PARTIKELFILTER_BERECHNET_WERT,unsigned int,-,m^3/h,-,0.100000,-,0.000000,PFlt_dvol,berechneter Abgasvolumenstrom im Partikelfilter
+IVABPB1,0x00D6,STAT_ABGASVOLUMENSTROM_IM_PARTIKELFILTER_BERECHNET_BA1_WERT,unsigned int,-,m^3/h,-,0.100000,-,0.000000,PFlt_dvolB1,air volume per time unit across particle filter
+IVABPB2,0x00D7,STAT_ABGASVOLUMENSTROM_IM_PARTIKELFILTER_BERECHNET_BA2_WERT,unsigned int,-,m^3/h,-,0.100000,-,0.000000,PFlt_dvolB2,air volume per time unit across particle filter bank2
+IKOAD,0x1904,STAT_KORREKTURFAKTOR_ADDITIVASCHE_WERT,unsigned int,-,-,-,0.000122,-,0.000000,PFlt_facMltCor_mp,Korrekturfaktor Additivasche
+IKOADB2,0x1905,STAT_KORREKTURFAKTOR_ADDITIVASCHE_BANK2_WERT,unsigned int,-,-,-,0.000122,-,0.000000,PFlt_facMltCorB2_mp,Korrekturfaktor - Bank2
+IKMZWREG,0x1926,STAT_DURCHSCHNITT_KILOMETER_ZWISCHEN_REGENERATIONEN_WERT,unsigned int,-,km,-,8.000000,-,0.000000,PFlt_lAvrgRgn,-
+IDSLRE,0x00D1,STAT_STRECKE_SEIT_ERFOLGREICHER_REGENERATION_WERT,unsigned int,-,m,-,128.000000,-,0.000000,PFlt_lSnceRgnu16_mp,gefahrene Strecke seit letzter erforgreicher Regeneration (16bit)
+IDSLREB2,0x00D2,STAT_STRECKE_SEIT_ERFOLGREICHER_REGENERATION_BANK2_WERT,unsigned int,-,m,-,128.000000,-,0.000000,PFlt_lSnceRgnu16B2_mp,gefahrene Strecke seit letzter erforgreicher Regeneration (16bit) - Bank2
+ISLRE,0x1906,STAT_STRECKE_BEI_ERFOLGREICHER_REGENERATION_WERT,unsigned int,-,m,-,8196.721311,-,0.000000,PFlt_lSum_mp,ges. gefahrene Strecke bei der letzten erfolgr. Regeneration
+ISLREB2,0x1907,STAT_STRECKE_BEI_ERFOLGREICHER_REGENERATION_BANK2_WERT,unsigned int,-,m,-,8196.721311,-,0.000000,PFlt_lSumB2_mp,ges. gefahrene Strecke bei der letzten erfolgr. Regeneration - Bank2
+PFlt_mAshCorActB1,0x19A1,STAT_PFlt_mAshCorActB1_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mAshCorActB1,Actual ash quantity - Bank1
+PFlt_mAshCorActB2,0x19A2,STAT_PFlt_mAshCorActB2_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mAshCorActB2,Actual ash quantity - Bank2
+IMASOEL,0x00D3,STAT_OELASCHENMASSE_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mAshOil,Ash mass
+IMASOELB2,0x00E9,STAT_OELASCHENMASSE_BANK2_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mAshOilB2,Ash mass
+IMRUP,0x00D4,STAT_RUSSMASSE_IM_PARTIKELFILTER_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mSot,Rußmasse im Partikelfilter
+IMRUPB2,0x00F7,STAT_RUSSMASSE_IM_PARTIKELFILTER_BANK2_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mSotB2,Rußmasse im Partikelfilter Bank2
+IMPAK,0x1908,STAT_PARTIKELMASSE_ADDITIVKORRIGIERT_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mSotMeas,soot mass additive offset corrected
+IMPAKB2,0x1909,STAT_PARTIKELMASSE_ADDITIVKORRIGIERT_BANK2_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mSotMeasB2,soot mass additive offset corrected - Bank2
+IWSMP,0x190A,STAT_STROEMUNGSWIDERSTAND_UMGERECHNET_IN_PARTIKELMASSE_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mSotMeasRaw_mp,Strömungswdst. in Partikelmasse umgerechnet
+IWSMPB2,0x190B,STAT_STROEMUNGSWIDERSTD_UMGERECHNET_IN_PARTIKELMASSE_BA2_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mSotMeasRawB2_mp,Strömungswdst. in Partikelmasse umgerechnet - Bank2
+IMPAS,0x00D5,STAT_PARTIKELMASSE_SIMULIERT_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mSotSim,Simulated soot mass
+IMPASB2,0x00EB,STAT_PARTIKELMASSE_SIMULIERT_BANK2_WERT,unsigned int,-,g,-,0.010000,-,0.000000,PFlt_mSotSimB2,simulated soot mass bank2
+IREPM,0x1951,STAT_REGENERIERUNGSMASSNAHME_WEGEN_CSF_UND_MOTORZUSTD_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_numEngPOp,regeneration action due to both engine state and pflt state
+IREAN,0x1952,STAT_REGENERATIONSANFORDERUNG_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_numRgn_mp,gesamte Regenerationsanforderung
+IPDIP,0x00D8,STAT_DIFFERENZDRUCK_UEBER_PARTIKELFILTER_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PFlt_pDiff,Differenzdruck über Partikelfilter
+IPDIPB2,0x00C0,STAT_DIFFERENZDRUCK_UEBER_PARTIKELFILTER_BANK2_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PFlt_pDiffB2,Differenzdruck über Partikelfilter Bank2
+PFlt_pDiffRawB1,0x19A4,STAT_PFlt_pDiffRawB1_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PFlt_pDiffRawB1,Differenzdruck über Partikelfilter (Rohwert) - Bank1
+PFlt_pDiffRawB2,0x19A5,STAT_PFlt_pDiffRawB2_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PFlt_pDiffRawB2,Differenzdruck über Partikelfilter (Rohwert) - Bank2
+IPMOM,0x190C,STAT_ABGASDRUCK_MAXIMAL_MOTORSCHUTZ_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PFlt_pEngPrtMax_mp,Maximaldruck Motorschutz
+IPMOMB2,0x1942,STAT_ABGASDRUCK_MAXIMAL_MOTORSCHUTZ_BANK2_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PFlt_pEngPrtMaxB2_mp,Maximaldruck Motorschutz-Bank2
+IPAPA,0x190D,STAT_ABGASDRUCK_IM_PARTIKELFILTER_ABSOLUT_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PFlt_pMid,Absolutdruck im Partikelfilter
+IPAPA2,0x193F,STAT_ABGASDRUCK_IM_PARTIKELFILTER_2_ABSOLUT_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PFlt_pMidB2,Absolutdruck im Partikelfilter - Bank2
+PFlt_pPreCorr_mp,0x00E7,STAT_PFlt_pPreCorr_mp_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,PFlt_pPreCorr_mp,Druck vor Partikelfilter (korrigiert)
+IPPW1,0x0087,STAT_PWG1_WERT,unsigned int,-,hPa,-,0.125002,-,0.000000,APPCD_rLinAPP1,linearisierter APP1
+IVTLR,0x00D9,STAT_KRAFTSTOFFVERBRAUCH_SEIT_ERFOLGREICHER_REGENER_WERT,unsigned int,-,l,-,0.010000,-,0.000000,PFlt_qFl_mp,verbrauchter Treibstoff seit der letzten erfolgreichen Regeneration
+IVTLRB2,0x00DA,STAT_KRAFTSTOFFVERBRAUCH_SEIT_ERFOLGREICHER_REGENER_BA2_WERT,unsigned int,-,l,-,0.010000,-,0.000000,PFlt_qFlB2_mp,verbrauchter Treibstoff seit der letzten erfolgreichen Regeneration - Bank2
+PFlt_dmNO2TotB1_mp,0x1960,STAT_PFlt_dmNO2TotB1_mp_WERT,unsigned int,-,ppm,-,1.000000,-,0.000000,PFlt_dmNO2TotB1_mp,NO2 mass flow available in total in Bank1
+PFlt_dmNO2TotB2_mp,0x1961,STAT_PFlt_dmNO2TotB2_mp_WERT,unsigned int,-,ppm,-,1.000000,-,0.000000,PFlt_dmNO2TotB2_mp,NO2 mass flow available in total in Bank2
+IWSTR,0x190E,STAT_STROEMUNGSWIDERSTAND_WERT,unsigned int,-,hPa/(m^3/h),-,0.001000,-,0.000000,PFlt_resFlow,Strömungswiderstand
+IWSTR2,0x1940,STAT_STROEMUNGSWIDERSTAND_BANK2_WERT,unsigned int,-,hPa/(m^3/h),-,0.001000,-,0.000000,PFlt_resFlowB2,Strömungswiderstand - Bank2
+IWSTG,0x190F,STAT_STROEMUNGSWIDERSTAND_GEFILTERT_WERT,unsigned int,-,hPa/(m^3/h),-,0.001000,-,0.000000,PFlt_resFlowFlt,gefilterter Strömungswiderstand
+IWSTG1,0x1941,STAT_STROEMUNGSWIDERSTAND_GEFILTERT_BANK2_WERT,unsigned int,-,hPa/(m^3/h),-,0.001000,-,0.000000,PFlt_resFlowFltB2,gefilterter Strömungswiderstand - Bank2
+IWSTO,0x1910,STAT_STROEMUNGSWIDERSTAND_OFFSET_WERT,unsigned int,-,hPa/(m^3/h),-,0.001000,-,0.000000,PFlt_resFlowOfs,Strömungswiderstandoffset
+IWSTOB2,0x1911,STAT_STROEMUNGSWIDERSTAND_OFFSET_BANK2_WERT,unsigned int,-,hPa/(m^3/h),-,0.001000,-,0.000000,PFlt_resFlowOfsB2,Strömungswiderstandoffset - Bank2
+RWSTR,0x1912,STAT_STROEMUNGSWIDERSTAND_OFFSET_ROH_WERT,unsigned int,-,hPa/(m^3/h),-,0.001000,-,0.000000,PFlt_resFlowRaw_mp,Strömungswiderstand Rohwert
+RWSTRB2,0x1913,STAT_STROEMUNGSWIDERSTAND_OFFSET_ROH_BANK2_WERT,unsigned int,-,hPa/(m^3/h),-,0.001000,-,0.000000,PFlt_resFlowRawB2_mp,Strömungswiderstand Rohwert - Bank2
+IBEMO,0x1950,STAT_MOTORBETRIEBSPUNKT_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_stEngPOp,Motorbetriebspunkt
+ISREU1,0x192A,STAT_STATUS_REGENERATION_UNTERBROCHEN_BANK1_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_stIntrB1_mp,Statuswort Regeneration unterbrochen - Bank1
+ISREU2,0x192B,STAT_STATUS_REGENERATION_UNTERBROCHEN_BANK2_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_stIntrB2_mp,Statuswort Regeneration unterbrochen - Bank2
+ISRBF,0x00DD,STAT_REGENERATION_BLOCKIERUNG_UND_FREIGABE_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_stLck_mp,Regeneration Blockierung und Freigabe
+PFlt_stPresPlaus_mp,0x00E8,STAT_PFlt_stPresPlaus_mp_WERT,unsigned int,-,-,-,1.000000,-,0.000000,PFlt_stPresPlaus_mp,Zustand - Plausibilisierung
+PFlt_tOxiPre,0x1953,STAT_PFlt_tOxiPre_WERT,unsigned int,-,deg C,-,1.000240,-,-51.086707,PFlt_tOxiPre,Temperatur vor OXI-Kat
+PFlt_tOxiPreB1,0x1954,STAT_PFlt_tOxiPreB1_WERT,unsigned int,-,deg C,-,1.000240,-,-51.086707,PFlt_tOxiPreB1,Temperatur vor OXI-Kat - Bank1
+PFlt_tOxiPreB2,0x1955,STAT_PFlt_tOxiPreB2_WERT,unsigned int,-,deg C,-,1.000240,-,-51.086707,PFlt_tOxiPreB2,Temperatur vor OXI-Kat - Bank2
+PFlt_tPre,0x1956,STAT_PFlt_tPre_WERT,unsigned int,-,deg C,-,1.000240,-,-51.086707,PFlt_tPre,Temperatur vor Partikelfilter
+PFlt_tPreB1,0x1957,STAT_PFlt_tPreB1_WERT,unsigned int,-,deg C,-,1.000240,-,-51.086707,PFlt_tPreB1,Temperatur vor Partikelfilter - Bank1
+PFlt_tPreB2,0x1958,STAT_PFlt_tPreB2_WERT,unsigned int,-,deg C,-,1.000240,-,-51.086707,PFlt_tPreB2,Temperatur vor Partikelfilter - Bank2
+ITVPG,0x1914,STAT_ABGASTEMPERATUR_VOR_PARTIKELFILTER_GEFILTERT_WERT,unsigned int,-,deg C,-,1.000240,-,-51.086707,PFlt_tPreFlt_mp,PFlt_tPre PT1 gefiltert
+ITOPA,0x1915,STAT_OBERFLAECHENTEMPERATUR_PARTIKELFILTER_WERT,unsigned int,-,deg C,-,1.000240,-,-51.086707,PFlt_tSurf,Oberflächen Temperatur vom Partikel Filter
+ITOPA2,0x1947,STAT_OBERFLAECHENTEMPERATUR_PARTIKELFILTER_BANK2_WERT,unsigned int,-,deg C,-,1.000240,-,-51.086707,PFlt_tSurfB2,Oberflächen Temperatur vom Partikel Filter - Bank2
+IZSLRE,0x1916,STAT_MOTORBETRIEBSSTD_SEIT_ERFOLGR_REGENERATION_WERT,unsigned int,-,s,-,256.000000,-,0.000000,PFlt_tiSnceRgnu16_mp,Motorbetriebsstunden seit letzter erfolgr. Reg. 16bit
+IZSLREB2,0x1917,STAT_MOTORBETRIEBSSTD_SEIT_ERFOLGR_REGENERATION_BA2_WERT,unsigned int,-,s,-,256.000000,-,0.000000,PFlt_tiSnceRgnu16B2_mp,Motorbetriebsstunden seit letzter erfolgr. Reg. 16bit  - Bank2
+IVKMG,0x1918,STAT_GESCHWINDIGKEIT_GEFILTERT_WERT,unsigned int,-,km/h,-,0.003815,-,0.000000,PFlt_vVehFlt_mp,VSSCD_v PT1 gefiltert
+IVASOEL,0x1919,STAT_OELASCHENVOLUMEN_WERT,unsigned int,-,l,-,0.010000,-,0.000000,PFlt_volOilAsh,Aschevolumen
+IVASOELB2,0x194B,STAT_OELASCHENVOLUMEN_BANK2_WERT,unsigned int,-,l,-,0.010000,-,0.000000,PFlt_volOilAshB2,Aschevolumen - Bank2
+PSPCD_dvolOut,0x00DE,STAT_PSPCD_dvolOut_WERT,unsigned int,-,l/h,-,0.208446,-,-6830.158002,PSPCD_dvolOut,Pre Supply Pump output value
+Pm_klemmstat,0x1ACC,STAT_Pm_klemmstat_WERT,unsigned int,-,-,-,1.000000,-,0.000000,Pm_klemmstat,Umweltbed. Klemmenstatus
+IPRDR,0x00DF,STAT_RAILDRUCK_WERT,unsigned int,-,bar,-,0.030518,-,0.000000,RailCD_pPeak,maximaler Raildruck der letzten 10ms
+IURDR,0x00E0,STAT_RAILDRUCK_SPANNUNG_ROH_WERT,unsigned int,-,mV,-,0.610958,-,0.000000,RailCD_uPeakRaw,Rohwert des Raildrucks
+SVRDR,0x1964,STAT_VOLUMENSTROM_RAILDRUCKREGELUNG_SOLL_WERT,unsigned int,-,mm3/s,-,10.000000,-,0.000000,Rail_dvolMeUnSet,Sollwert (Volumenstrom) von der Raildruckregelung
+SPRDR,0x00E1,STAT_RAILDRUCK_SOLL_WERT,unsigned int,-,bar,-,0.030518,-,0.000000,Rail_pSetPoint,Raildruck-sollwert
+Rail_pSetPointZFC_mp,0x1965,STAT_Rail_pSetPointZFC_mp_WERT,unsigned int,-,bar,-,0.030518,-,0.000000,Rail_pSetPointZFC_mp,rail pressure setpoint value after ZFC intervention
+ISRDR,0x1966,STAT_STATUS_RAILDRUCKREGLER_WERT,unsigned int,-,-,-,1.000000,-,0.000000,Rail_stCtlLoop,Zustand der Steuerung Raildruckregler
+StSys_trqStrt,0x19C8,STAT_StSys_trqStrt_WERT,unsigned int,-,Nm,-,0.114445,-,-2500.060084,StSys_trqStrt,inneres Moment Startwert
+Stat_sv_reg1,0x00F8,STAT_sv_reg1_WERT,unsigned int,-,-,-,1.000000,-,0.000000,Stat_sv_reg1,LoByte Stat_sv_reg fuer Umweltbedingung
+Stat_sv_reg2,0x00F9,STAT_sv_reg2_WERT,unsigned int,-,-,-,1.000000,-,0.000000,Stat_sv_reg2,HiByte Stat_sv_reg fuer Umweltbedingung
+RWKUP,0x1A2C,STAT_WAKEUP_ROH_WERT,unsigned int,-,-,-,1.000000,-,0.000000,T15CD_stWakeUpRawVal_mp,Rohwert des Wake Up Signals aus der HWE
+T2histshort,0x00FA,STAT_T2histshort_WERT,unsigned int,-,min,-,14.933333,-,0.000000,T2histshort,T2 Histogramm als Umweltbed. bei Ruhestromverletzung
+T3histshort,0x00FB,STAT_T3histshort_WERT,unsigned int,-,min,-,14.933333,-,0.000000,T3histshort,T3 Histogramm als Umweltbed. bei Ruhestromverletzung
+T4histshort,0x00FC,STAT_T4histshort_WERT,unsigned int,-,min,-,14.933333,-,0.000000,T4histshort,T3 Histogramm als Umweltbed. bei Ruhestromverletzung
+IADRK,0x00E2,STAT_DROSSELKLAPPENSTELLER_ANSTEUERUNG_WERT,unsigned int,-,%,-,0.010000,-,0.000000,TVACD_rOut,Tastverhältnis zur Endstufenansteuerung
+IADRKB2,0x00E3,STAT_DROSSELKLAPPENSTELLER_ANSTEUERUNG_BANK2_WERT,unsigned int,-,%,-,0.010000,-,0.000000,TVACD_rOut2,Tastverhältnis zur Endstufenansteuerung - TVA2
+ITBAT,0x00FE,STAT_BATTERIETEMPERATUR_IBS_WERT,unsigned int,-,°C,-,0.100000,-,-60.000000,T_batt,Batterietemperatur
+Tn_abstell,0x00B2,STAT_Tn_abstell_WERT,unsigned int,-,-,-,240.963855,-,0.000000,Tn_abstell,Abstellzeit
+Toel,0x00FD,STAT_Toel_WERT,unsigned int,-,°C,-,0.100000,-,-60.000000,Toel,Ausgabewert Motoroeltemperatur für LoCAN
+ITW,0x1F4C,STAT_TW_WERT,unsigned int,-,%,-,0.001526,-,0.000000,Tw,Tw
+ITWHYDR,0x1F4D,STAT_TWHYDR_WERT,unsigned int,-,%,-,0.001526,-,0.000000,Twhydr,Twhydr
+ITWHYDRCNTG,0x1F4F,STAT_ITWHYDRCNTG_WERT,unsigned int,-,-,-,1.000000,-,0.000000,Twhydrcntg,Twhydrcntg
+ITWHYDRMAX,0x1F51,STAT_ITWHYDRMAX_WERT,unsigned int,-,%,-,0.001526,-,0.000000,Twhydrmax,Twhydrmax
+ITWLUFT,0x1F4E,STAT_TWLUFT_WERT,unsigned int,-,%,-,0.001526,-,0.000000,Twluft,Twluft
+ILUFTCNTG,0x1F50,STAT_ILUFTCNTG_WERT,unsigned int,-,-,-,1.000000,-,0.000000,Twluftcntg,Twluftcntg
+ILUFTMAX,0x1F52,STAT_ILUFTMAX_WERT,unsigned int,-,%,-,0.001526,-,0.000000,Twluftmax,Twluftmax
+U_batt,0x00FF,STAT_U_batt_WERT,unsigned int,-,V,-,0.000250,-,6.000000,U_batt,Batteriespannung von IBS gemessen
+SUGEN,0x00B3,STAT_SOLLWERT_GENERATORSPANNUNG_WERT,unsigned int,-,V,-,0.100000,-,0.000000,U_gen,Sollwert Generatorspannung
+IADRA,0x00E4,STAT_DRALLKLAPPENSTELLER_ANSTEUERUNG_WERT,unsigned int,-,%,-,0.010000,-,0.000000,VSACD_rOut,Tastverhältnis zur Endstufenansteuerung
+IAFZG,0x1A90,STAT_FAHRZEUGBESCHLEUNIGUNG_WERT,unsigned int,-,m/s^2,-,0.000305,-,-9.999899,VSSCD_a,Fahrbeschleunigung
+IVKMH,0x00E5,STAT_GESCHWINDIGKEIT_WERT,unsigned int,-,km/h,-,0.003815,-,0.000000,VSSCD_v,Fahrzeuggeschwindigkeit
+VSSCD_vSensVal,0x000D,STAT_VSSCD_vSensVal_WERT,unsigned int,-,km/h,-,0.999001,-,0.000000,VSSCD_vSensVal,Vehicle speed sensed value
+ISGEF,0x1AF4,STAT_GEFAHRENE STRECKE_WERT,unsigned int,-,m,-,8196.721311,-,0.000000,VehDa_lSum,Erfassung gefahrene Strecke
+IVVZN,0x1AF5,STAT_VERHAELTNIS_FAHRGESCHWINDIGKEIT_ZU_MOTORDREHZAHL_WERT,unsigned int,-,(km/h)/rpm,-,0.000002,-,0.000000,VehDa_rVn,Verhältnis von Fahrgeschwindigkeit zur Motordrehzahl
+IZBST,0x00E6,STAT_BETRIEBSSTUNDENZAEHLER_WERT,unsigned int,-,s,-,99.900100,-,0.000000,VehDa_tiEngOn,Erfassung der aktuellen Betriebszeit
+IZFCSIG0,0x1B58,STAT_ZFC_NULLMENGENKALIBIERPUNKT_ZYL1_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ZFC_Sig_mp[0],"ZFC measurement value of calibration, cylinder 1"
+IZFCSIG1,0x1B59,STAT_ZFC_NULLMENGENKALIBIERPUNKT_ZYL2_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ZFC_Sig_mp[1],"ZFC measurement value of calibration, cylinder 2"
+IZFCSIG2,0x1B5A,STAT_ZFC_NULLMENGENKALIBIERPUNKT_ZYL3_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ZFC_Sig_mp[2],"ZFC measurement value of calibration, cylinder 3"
+IZFCSIG3,0x1B5B,STAT_ZFC_NULLMENGENKALIBIERPUNKT_ZYL4_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ZFC_Sig_mp[3],"ZFC measurement value of calibration, cylinder 4"
+IZFCSIG4,0x1B5C,STAT_ZFC_NULLMENGENKALIBIERPUNKT_ZYL5_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ZFC_Sig_mp[4],"ZFC measurement value of calibration, cylinder 5"
+IZFCSIG5,0x1B5D,STAT_ZFC_NULLMENGENKALIBIERPUNKT_ZYL6_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ZFC_Sig_mp[5],"ZFC measurement value of calibration, cylinder 6"
+IZFCSIG6,0x1B5E,STAT_ZFC_NULLMENGENKALIBIERPUNKT_ZYL7_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ZFC_Sig_mp[6],"ZFC measurement value of calibration, cylinder 7"
+IZFCSIG7,0x1B5F,STAT_ZFC_NULLMENGENKALIBIERPUNKT_ZYL8_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ZFC_Sig_mp[7],"ZFC measurement value of calibration, cylinder 8"
+IZFCDPRAIL,0x1B62,STAT_ZFC_RAILDRUCKABWEICHUNG_WERT,unsigned int,-,bar,-,0.030518,-,0.000000,ZFC_dpRail_mp,rail pressure devitation to rail pressure calibration point
+IZFCNUMZYL,0x1B63,STAT_ZFC_EINSPRITZUNG_AKTUELLER_ZYLINDER_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ZFC_numCylInj_mp,number of cylinder for ZFC Injection
+IZFCSTEVAL,0x1B64,STAT_ZFC_DREHZAHLSIGNAL_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ZFC_stEvalSig_mp,Status of ZFC engine speed evaluation
+IZFCSTINJ,0x1B65,STAT_ZFC_EINSPRITZZUSTAND_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ZFC_stInj_mp,state of Injection for Zero Fuel quantity Calibration
+IZFCST,0x1B66,STAT_ZFC_ZUSTAND_WERT,unsigned int,-,-,-,1.000000,-,0.000000,ZFC_st_mp,state of Zero Fuel quantity Calibration Coordinator
+IZFCTIET,0x1B67,STAT_ZFC_ANSTEUERDAUER_WERT,unsigned int,-,us,-,0.152594,-,-5000.041963,ZFC_tiET_mp,energizing time for ZFC injection

@@ -1,0 +1,7 @@
+WERT,UWTEXT
+0x00,undefiniert
+0x01,Uebergang Zuendung AUS-EIN
+0x02,Zuendung EIN
+0x03,Uebergang Zuendung EIN-AUS
+0x04,Zuendung AUS
+0xXY,Fehler

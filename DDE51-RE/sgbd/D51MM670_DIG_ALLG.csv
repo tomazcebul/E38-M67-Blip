@@ -1,0 +1,11 @@
+TELNAME,TELEGRAMM,NAME,ERGEBNIS,BYTE,MASK,VALUE,LNAME,TEXT_1,TEXT_0
+BrkCD_stMnSwtRawVal,005C005D00C9005E00A000AF00D0,S_BRL,STAT_BLS_EIN,3,0x01,0x01,Eingang Bremslichtschalter,Pedal betaetigt (Ubatt),Pedal nicht betaetigt (Masse)
+BrkCD_stRedSwtRawVal,005C005D00C9005E00A000AF00D0,S_BRT,STAT_BLTS_EIN,5,0x01,0x01,Eingang Bremslichttestschalter,Pedal betaetigt (Ubatt),Pedal nicht betaetigt (Masse)
+ConvCD_stRawVal,005C005D00C9005E00A000AF00D0,S_KUP,STAT_KUP_EIN,9,0x01,0x01,Eingang Kupplungsschalter,Pedal betaetigt (Ubatt),Pedal nicht betaetigt (Masse)
+CrCCD_stKey,005C005D00C9005E00A000AF00D0,S_MFLEINP,STAT_MFLEINP_EIN,15,0x01,0x01,MFL Bedienteil Taste +,betaetigt,nicht betaetigt
+CrCCD_stKey,005C005D00C9005E00A000AF00D0,S_MFLEINM,STAT_MFLEINM_EIN,15,0x02,0x02,MFL Bedienteil Taste -,betaetigt,nicht betaetigt
+CrCCD_stKey,005C005D00C9005E00A000AF00D0,S_MFLWA,STAT_MFLWA_EIN,15,0x04,0x04,MFL Bedienteil Taste Wiederaufnahme,betaetigt,nicht betaetigt
+CrCCD_stKey,005C005D00C9005E00A000AF00D0,S_MFLAUS,STAT_MFLAUS_EIN,15,0x08,0x08,MFL Bedienteil Taste AUS,betaetigt,nicht betaetigt
+FrmMng_swtAC_mp,005C005D00C9005E00A000AF00D0,S_AC,STAT_AC_EIN,7,0x07,0x00,Schalter Klimabereitschaft AC (CAN),nicht betaetigt,betaetigt
+Gearbx_swtType,005C005D00C9005E00A000AF00D0,S_EGS,STAT_GETRIEBEART_HAND_EIN,11,0x01,0x01,Getriebe,Automatik,Handschalter
+OPSCD_stSigOut,005C005D00C9005E00A000AF00D0,S_ODS,STAT_ODS_EIN,13,0x01,0x01,Eingang Oeldruckschalter,Oeldruck zu niedrig (Masse),Oeldruck io (Ubatt)

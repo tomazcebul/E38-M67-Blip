@@ -1,0 +1,5 @@
+LABEL,TEXT,LID,VALUE
+ARSRE,Rücksetzen ARS-Status- Erkennung,0x0110,-
+MASLRE,Rücksetzen Master/Slave Erkennung,0x0100,-
+PWRHISTRES,Powermangement Start Steuern Histogramm Reset,0xF5,-
+--,-,-,-

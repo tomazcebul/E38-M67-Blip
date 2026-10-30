@@ -1,0 +1,176 @@
+id,ram_address,sgbd_name,unit,factor,offset,description
+0x0005,0xC0FA,,,,,
+0x000C,0xC016,,,,,
+0x000D,0xC0BC,,,,,
+0x000F,0xC11E,,,,,
+0x0E00,0xC004,edmRSTCD,-,1,0,Restart Code
+0x0E02,0xC050,mrmN_LLBAS,1/min,1,0,N Leerlaufsolldrehzahl
+0x0E08,0xC0C4,mrmN_LLDIA,1/min,1,0,N Leerlaufsolldrehzahl fuer Diagnose
+0x0E80,0xC1A6,ehmFARS1,%,0.01,0,Tastverhaeltnis Ansteuerung Abgasrueckfuehrsteller 1
+0x0E82,0xC1A8,ehmFARS2,%,0.01,0,Tastverhaeltnis Ansteuerung Abgasrueckfuehrsteller 2
+0x0EA4,0xC1AC,,,,,
+0x0EA5,0xC1AE,ehmFKDR,%,0.01,0,Tastverhaeltnis Ansteuerung Raildruckregelventil
+0x0F00,0xC0FA,anmWTF,Grad C,0.1,-273.14,WTF Wassertemperatur
+0x0F01,0xC11E,anmLTF2,Grad C,0.1,-273.14,LTF2 Lufttemperatur 2
+0x0F02,0xC116,,,,,
+0x0F07,0xC100,,,,,
+0x0F08,0xC0BC,fgmFGAKT,km/h,0.01,0,aktuelle Geschwindigkeit
+0x0F10,0xC016,dzmNakt,1/min,1,0,N aktuelle Drehzahl aus letzter Periode
+0x0F12,0xC014,,,,,
+0x0F13,0xC1D6,dzmzN1,1/min,1,0,Selektive Drehzahl Zylinder 1
+0x0F14,0xC1D8,dzmzN2,1/min,1,0,Selektive Drehzahl Zylinder 2
+0x0F15,0xC1DA,dzmzN3,1/min,1,0,Selektive Drehzahl Zylinder 3
+0x0F16,0xC1DC,dzmzN4,1/min,1,0,Selektive Drehzahl Zylinder 4
+0x0F17,0xC1DE,dzmzN5,1/min,1,0,Selektive Drehzahl Zylinder 5
+0x0F18,0xC1E0,dzmzN6,1/min,1,0,Selektive Drehzahl Zylinder 6
+0x0F19,0xC1E6,dzmzMk1,mm^3,0.01,0,Selektive Mengenkorrektur Zylinder 1
+0x0F1A,0xC1E8,dzmzMk2,mm^3,0.01,0,Selektive Mengenkorrektur Zylinder 2
+0x0F1B,0xC1EA,dzmzMk3,mm^3,0.01,0,Selektive Mengenkorrektur Zylinder 3
+0x0F1C,0xC1EC,dzmzMk4,mm^3,0.01,0,Selektive Mengenkorrektur Zylinder 4
+0x0F1D,0xC1EE,dzmzMk5,mm^3,0.01,0,Selektive Mengenkorrektur Zylinder 5
+0x0F1E,0xC1F0,dzmzMk6,mm^3,0.01,0,Selektive Mengenkorrektur Zylinder 6
+0x0F41,0xC0D6,ldmADF,mbar,1,0,aktueller Atmosphaerendruck
+0x0F65,0xC12A,anmUBT,V,0.0236197458,0,UBT Batteriespannung
+0x0F7F,0xC052,mrmSTATUS,-,1,0,Status Motorbetriebsphase
+0x0F80,0xC0CA,mrmM_EAKT,mm^3,0.01,0,M_E Aktuelle Einspritzmenge (ohne ARD)
+0x0F82,0xC156,mrmM_ESTAR,mm^3,0.01,0,M_E resultierender Startmengen-Sollwert
+0x0F8B,0xC0D2,mrmM_EWUN,mm^3,0.01,0,M_E Fahrerwunschmenge nach externem Mengeneingriff
+0x0F8C,0xC04E,mrmM_EMOT,mm^3,0.01,0,M_E Einspritzmenge nach ARD
+0x0F8D,0xC0D4,mrmM_ELLR,mm^3,0.01,0,M_E Menge aus Leerlaufregelung
+0x0F8E,0xC13A,mrmM_EKORR,mm^3,0.01,0,M_E Fahrmenge korrigiert mit Vollast- und Mengenabgleich
+0x0FD0,0xC0C8,mrmKM_akt,km,10,0,aktueller KM-Stand von Kombiinstrument
+0x0FF6,0xC122,anmUG1,V,0.01764418377,0,"UG1 Speisespannung 1 fuer Luftmassenmesser 1, Ladedruckfuehler 1"
+0x0FF7,0xC126,anmUG2,V,0.01764418377,0,UG2 Speisespannung 2 fuer Raildrucksensor
+0x0FF8,0xC0EE,anmUC1,V,0.0205718988,0,UC1 Kondensatorspannung 1 fuer Zylinder 1 und 6
+0x0FF9,0xC0F2,anmUC2,V,0.0205718988,0,UC2 Kondensatorspannung 2 fuer Zylinder 4 und 7
+0x0FFB,0xC102,,,,,
+0x0FFC,0xC0F6,anmKDF,bar,10.235414,0,KDF Raildruck
+0x0FFE,0xC10C,anmIDV,mA,4.995005,0,IDV Istwert Stromregelung Druckregelventil
+0x1000,0xC28D,fbmSDIAL,-,1,0,"Anforderung Diagnoselampe aus Fehlerbehandlung (0:Aus,1:Ein,2:Blinken)"
+0x1300,0xC0A8,fbmBSTZ_UB,h,0.1,0,UB Betriebsstunden
+0x1301,0xC0A8,,,,,
+0x1302,0xC0A8,,,,,
+0x1C00,0xC279,comGTR_opt,-,1,0,Identifikation Handschalter/Automatik
+0x1F06,0xC106,anmVDF,bar,0.001,0,VDF Vorfoerderdruck
+0x1F23,0xC104,,,,,
+0x1F26,0xC108,anmLDF1,mbar,1,0,LDF Ladedruck
+0x1F27,0xC110,anmLMM1,%,0.01,0,LMM1 Luftmasse 1
+0x1F28,0xC11A,anmLTF1,Grad C,0.1,-273.14,LTF1 Lufttemperatur 1
+0x1F50,0xDA7C,zhoSYNC_ST,-,1,0,Synchronisationsstatus des Zumesshandlers
+0x1F51,0xDAA4,zuoAB_VE1,Grad KW,0.0234375,0,Ansteuerbeginn Voreinspritzung 1
+0x1F52,0xDAAE,zuoAD_VE1,us,1,0,Ansteuerdauer Voreinspritzung 1
+0x1F53,0xDACC,zuoME_VE,mm^3,0.01,0,M_E Menge Voreinspritzung
+0x1F55,0xD822,zuoVE_STAT,-,1,0,Voreinspritzung - Schalter
+0x1F57,0xDACA,zuoMEVGW,mm^3,0.01,0,GW-Kennfeld Menge Voreinspritzung
+0x1F5A,0xC068,zumAB_HE,Grad KW,0.0234375,0,Ansteuerbeginn Haupteinspritzung
+0x1F5B,0xDAAC,zuoAD_HE,us,1,0,Ansteuerdauer Haupteinspritzung
+0x1F5C,0xDAC8,zuoMEHE,mm^3,0.01,0,M_E Menge Haupteinspritzung
+0x1F5D,0xC02C,zumP_RAIL,bar,10.235414,0,Raildruck fuer Mengenzumessung
+0x1F5E,0xC02A,zumPQsoll,bar,10.235414,0,Raildruck Sollwert
+0x1F60,0xC062,zumAB_NE,Grad KW,0.0234375,0,Ansteuerbeginn Nacheinspritzung
+0x1F61,0xC064,zumAD_NE,us,1,0,Ansteuerdauer Nacheinspritzung Abgastrakt 1
+0x1F8E,0xC138,mrmM_EDELB,mm^3,0.01,0,M_E begrenzte Abgleichmenge
+0x2002,0xC118,,,,,
+0x2065,0xC12C,admUBT,V,0.0236197458,0,UBT Rohwert Batteriespannung
+0x2F14,0xC272,zhmUM_ZA,-,1,0,Umdrehungszaehler (1 Tick = 2 Umdrehungen)
+0x2F26,0xC10A,admLDF1,mbar,1,0,LDF Rohwert Ladedruck
+0x2F27,0xC112,admLMM1,%,0.01,0,LMM1 Rohwert Luftmasse 1
+0x2F28,0xC11C,admLTF1,Grad C,0.1,-273.14,LTF1 Rohwert Lufttemperatur 1
+0x2F80,0xC1E2,dzmzN7,1/min,1,0,Selektive Drehzahl Zylinder 7
+0x2F81,0xC1E4,dzmzN8,1/min,1,0,Selektive Drehzahl Zylinder 8
+0x2F86,0xC1F2,dzmzMk7,mm^3,0.01,0,Selektive Mengenkorrektur Zylinder 7
+0x2F87,0xC1F4,dzmzMk8,mm^3,0.01,0,Selektive Mengenkorrektur Zylinder 8
+0x2FF6,0xC124,admUG1,V,0.01764418377,0,"UG1 Rohwert Speisespannung 1 fuer Luftmassenmesser 1, Ladedruckfuehler 1"
+0x2FF7,0xC128,admUG2,V,0.01764418377,0,UG2 Rohwert Speisespannung 2 fuer Raildrucksensor
+0x2FF8,0xC0EA,admUC1,V,0.0205718988,0,UC1 Rohwert Kondensatorspannung 1 fuer Zylinder 1 und 6
+0x2FF9,0xC0EC,admUC2,V,0.0205718988,0,UC2 Rohwert Kondensatorspannung 2 fuer Zylinder 4 und 7
+0x2FFC,0xC0F8,admKDF,bar,10.235414,0,KDF Rohwert Raildruck
+0x2FFE,0xC10E,admIDV,mA,4.995005,0,IDV Rohwert Istwert Stromregelung Druckregelventil
+0x3008,0xDC18,anoU_UC1,V,0.0048875855,0,UC1 Spannung Kondensatorspannung 1 fuer Zylinder 1 und 6
+0x3009,0xDC1A,anoU_UC2,V,0.0048875855,0,UC2 Spannung Kondensatorspannung 2 fuer Zylinder 4 und 7
+0x300A,0xDC08,anoU_KDF,V,0.0048875855,0,KDF Spannung Raildruckfuehler
+0x300B,0xDC0A,anoU_KTF,V,0.0048875855,0,KTF Spannung Kraftstofftemperaturfuehler
+0x300C,0xDC06,anoU_IDV,V,0.0048875855,0,IDV Spannung zur Strommessung Druckregelventil
+0x3013,0xDC16,anoU_UBT,V,0.0048875855,0,UBT Spannung Batteriespannung
+0x3016,0xDC1C,anoU_UG1,V,0.01764418377,0,"UG1 Spannung Speisespannung 1 fuer Luftmassenmesser 1, Ladedruckfuehler 1"
+0x3017,0xDC1E,anoU_UG2,V,0.01764418377,0,UG2 Spannung Speisespannung 2 fuer Raildrucksensor
+0x3026,0xDC0C,anoU_LDF1,V,0.0048875855,0,LDF1 Spannung Ladedruckfuehler
+0x3027,0xDC10,anoU_LMM1,V,0.0048875855,0,LMM1 Spannung Luftmassenmesser 1
+0x3028,0xDC14,anoU_LTF1,V,0.0048875855,0,LTF1 Spannung Lufttemperaturfuehler 1
+0xDC86,0xC084,mrmM_EFAHR,mm^3,0.01,0,M_E Fahrmenge nach Laufruheregler
+0xDC87,0xC146,mrmM_ELRR,mm^3,0.01,0,M_E Menge aus Laufruheregler
+0xDC88,0xC144,mrmM_EARD,mm^3,0.01,0,M_E Menge ARD - Gesamt vor Begrenzung
+0xDC89,0xDA26,mroM_ARDFF,mm^3,0.01,0,M_E Menge ARD - Fuehrungsformer
+0xDC8A,0xDA28,mroM_ARDSR,mm^3,0.01,0,M_E Menge ARD - Stoerregler
+0xDC90,0xDA0E,mroLRRReg,1/min,1,0,Nsegm Segmentdrehzahl-Regelabweichung fuer Laufruheregler
+0xDE00,0xDD02,,,,,
+0xDE02,0xDD04,,,,,
+0xDE04,0xDD24,,,,,
+0xDE05,0xDD23,,,,,
+0xDE08,0xDD0B,,,,,
+0xDE0F,0xDD01,,,,,
+0xDE10,0xDD25,,,,,
+0xDE11,0xDD10,,,,,
+0xDE20,0xDD15,,,,,
+0xDE21,0xDD26,,,,,
+0xDE24,0xDD00,,,,,
+0xDE2A,0xDD16,,,,,
+0xDE2D,0xDD17,,,,,
+0xDE30,0xDD19,,,,,
+0xDE35,0xDD1A,,,,,
+0xDE36,0xDD03,,,,,
+0xDE37,0xDD05,,,,,
+0xDE38,0xDD06,,,,,
+0xDE3B,0xDD07,,,,,
+0xDE3D,0xDD13,,,,,
+0xDE40,0xDD14,,,,,
+0xDE42,0xDD1B,,,,,
+0xDE43,0xDD1C,,,,,
+0xDE44,0xDD1D,,,,,
+0xDE45,0xDD1E,,,,,
+0xDE46,0xDD1F,,,,,
+0xDE47,0xDD20,,,,,
+0xDE48,0xDD21,,,,,
+0xDE49,0xDD22,,,,,
+0xDE5B,0xDD0D,,,,,
+0xDE5C,0xDD0E,,,,,
+0xDE61,0xDD0F,,,,,
+0xDE6E,0xDD11,,,,,
+0xDEE0,0xDDE0,,,,,
+0xDEE1,0xDDE0,,,,,
+0xDEE2,0xDDE2,,,,,
+0xDEE3,0xDDE2,,,,,
+0xDEE4,0xDDE4,,,,,
+0xDEE5,0xDDE4,,,,,
+0xDEE6,0xDDE6,,,,,
+0xDEE7,0xDDE6,,,,,
+0xDEE8,0xDDE8,,,,,
+0xDEE9,0xDDE8,,,,,
+0xDEEA,0xDDEA,,,,,
+0xDEEB,0xDDEA,,,,,
+0xDEEC,0xDDEC,,,,,
+0xDEED,0xDDED,,,,,
+0xDEEE,0xDDEE,,,,,
+0xDEEF,0xDDEF,,,,,
+0xDF13,0xC150,mrmLLRIAnt,mm^3,0.01,0,M_E Menge aus I-Anteil des PI-Leerlaufreglers
+0xDF14,0xC14E,mrmLLRPAnt,mm^3,0.01,0,M_E Menge aus P-Anteil des PI-Leerlaufreglers
+0xDF15,0xDCE8,mroLLRDAnt,mm^3,0.01,0,M_E Menge aus Leerlaufregler-DT1-Vorsteuerung
+0xDF20,0xC158,mrmCASE_L,-,1,0,LLR Zustand-Bits der Leerlaufregelung
+0xDF21,0xC15A,mrmCASE_A,-,1,0,ARD Zustand-Bits der aktiven Ruckeldaempfung
+0xDF70,0xDD60,fboS_00,-,1,0,Defekte Pfade 1 bis 16
+0xDF71,0xDD60,,,,,
+0xDF72,0xDD62,fboS_02,-,1,0,Defekte Pfade 17 bis 32
+0xDF73,0xDD62,,,,,
+0xDF74,0xDD64,fboS_04,-,1,0,Defekte Pfade 33 bis 48
+0xDF75,0xDD64,,,,,
+0xDF76,0xDD66,,,,,
+0xDF77,0xDD66,,,,,
+0xDF78,0xDD68,,,,,
+0xDF79,0xDD68,,,,,
+0xDF7A,0xDD6A,,,,,
+0xDF7B,0xDD6A,,,,,
+0xDF7E,0xDD6E,,,,,
+0xDF7F,0xDD6F,,,,,
+0xE026,0xDD09,,,,,
+0xE027,0xDD0A,,,,,
+0xE028,0xDD0C,,,,,

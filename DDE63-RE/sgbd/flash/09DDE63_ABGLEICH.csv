@@ -1,0 +1,50 @@
+LABEL,TEXT,LID,BYTES,FACT_A,FACT_B,SID,SG
+IMAFLAG,IMA Programmiert Flag,0xBC,1,"1,0","0,0",-,MS
+IMAALLE,IMA Alle Injektoren,0xBB,64,"0,0","0,0",-,MS
+AGR,Abgasrueckfuehrung,0xA4,2,"0,1","0,0",-,MS
+BEG,Begrenzungsmoment,0xA2,2,"0,01220703125","0,0",-,MS
+FGRKLI,FGR/Klimaanlage,0xCC,1,"1,0","0,0",-,MS
+FGRMAIN,FGR/Mainswitch,0xA8,1,"1,0","0,0",-,MS
+KLIMA,Klimakompressorabgleich,0xB1,2,"0,01220703125","0,0",-,MS
+LLA,Leerlaufdrehzahl,0xA3,2,"1,0","0,0",-,MS
+MENDRIFT,Mengendriftkompensation,0xA6,4,"0,01","0,0",-,MS
+MENPROG,Mengenabgleich programmiert,0xAC,1,"1,0","0,0",-,MS
+CSMENDRIFT,Checksum Mengendriftkompensation,0xA7,1,"1,0","0,0",-,MS
+SER,Serviceabgleich,0xA5,2,"0,01220703125","0,0",-,MS
+STA,Startmoment,0xA1,2,"0,01","0,0",-,MS
+VER,Verbrauchskennlinie,0xB0,2,"0,01220703125","0,0",-,MS
+CSMEN48,Checksum Mengenabgleich 48 Pkt.,0xAB,1,"1,0","0,0",-,MS
+MEN48,Mengenabgleich 48 Pkt.,0xAA,96,"0,01","0,0",-,MS
+RDR,Hochdruckregelungs-Modos,0xBD,1,"1,0","0,0",-,MS
+STSHIFT,Steuerung Shiftlock,0xE2,1,"1,0","0,0",-,MS
+CSFLSUM,gefahrene Strecke seit letzter erfolgr. Reg.,0x0103,4,"1,0","0,0",0x26,S
+CSFMSOT,mSot-Partikelmasse,0x0101,2,"0,01","0,0",0x22,S
+CSFQFL,verbr. Kraftstoffmasse s. letzt. erfolgr.Reg.,0x0104,2,"0,01","0,0",0x24,S
+CSFQFLTOT,verbrauchte Gesamt-Kraftstoffmasse,0x0108,4,"0,01","0,0",0x20,S
+CSFTILCK,Dauer Regeneration gesperrt,0x0105,4,"0,01","0,0",0x27,S
+CSFTIOP,Betriebsdauer seit letzter erfolgr. Regeneration,0x0102,4,"1,0","0,0",0x25,S
+CSFLSUMB2,gefahrene Strecke seit letzter erfolgr. Reg. B2,0x0203,4,"1,0","0,0",0x46,S
+CSFMSOTB2,mSot-Partikelmasse Bank2,0x0201,2,"0,01","0,0",0x42,S
+CSFQFLB2,verbr. Kraftstoffmasse s. letzt. erfolgr.Reg. B2,0x0204,2,"0,01","0,0",0x44,S
+CSFQFLTOTB2,verbrauchte Gesamt-Kraftstoffmasse Bank2,0x0208,4,"0,01","0,0",0x40,S
+CSFRGNNOCOMPL,Status abgebrochene Regeneration,0x010A,1,"1,0","0,0",0x28,S
+CSFTIOPB2,Betriebsdauer seit letzter erfolgr. Regeneration B2,0x0202,4,"1,0","0,0",0x45,S
+KMS,M/S - Kennung,0x0100,1,"1,0","0,0",-,MS
+ARS,ARS Status-Message,0x0110,1,"1,0","0,0",-,MS
+BEGMOM,Begrenzungsmoment bei Partikelfilterfehler,0x0130,2,"1,0","0,0",-,MS
+NMKEEP,NMK EEPROM Werte,0x0140,96,"1,0","0,0",-,MS
+ASME,Lesen Aschemenge fuer Ascheabgleich,0x0141,2,"1,0","0,0",-,MS
+ASKM,Lesen des km-Standes fuer naechsten Ascheabgleich,0x0142,4,"1,0","0,0",-,MS
+ASMEB2,Lesen Aschemenge fuer Ascheabgleich Bank2,0x0145,2,"1,0","0,0",-,MS
+NVC,NVC EEPROM Werte,0x0180,16,"0,000122","0,0",0x60,MS
+NMKLERN,NMK-Schnellernmodus,0x01A0,1,"1,0","0,0",-,MS
+NMKMOM,Werte der Momente auf NMK-Schnellernen,0x01E0,2,"1,0","0,0",-,MS
+OELREG,Lfd. Summenreg.dauer für zul. Ölverdünnung,0x01F0,4,"1,0","0,0",-,MS
+PST,Prüfstempel aus EEPROM,0x1000,3,"1,0","0,0",-,MS
+CBS,CBS4-Daten aus EEPROM,0x1001,12,"1,0","0,0",-,MS
+CSFFACSOTTRM,Lesen der PFlt_facSotTrm Werte aus EEPROM,0x1100,10,"1,0","0,0",-,MS
+CSFFACSUMTRM,Lesen der PFlt_facSumTrm Werte aus EEPROM,0x1150,2,"1,0","0,0",-,MS
+CSFFAFLTRM,Lesen der PFlt_facFlTrm Werte aus EEPROM,0x1160,2,"1,0","0,0",-,MS
+COD_AENDID,Aenderungsindex im EEPROM,0x3FFF,2,"1,0","0,0",-,MS
+COD_BOSLF,BOS Laenderfaktor im EEPROM,0x3200,2,"1,0","0,0",-,MS
+COD_MIL,MIL Applikation,0x3000,1,"1,0","0,0",-,MS

@@ -1,0 +1,546 @@
+NAME,TELEGRAM,POS_ADR,LEN_ADR,ADR,ADR_ALT,BYTE,DATA_TYPE,COMPU_TYPE,FACT_A,FACT_B,MASK,VALUE,ANZ,MEAS,RANGE,JOBNAME,LNAME
+ACCD_stACPresent,B812F1042C100000,07,2,0x1392,0x00E5,06,05,--,1.000000,0.000000,0,0,5.1f,-,,ACCD_stACPresent,Klimaanlage im Auto vorhanden
+ACCtl_trqLim,B812F1042C100000,07,2,0x139C,0x14A3,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,ACCtl_trqLim,Contains Limited Torque
+AFSCD_dmAirNorm,B812F1042C100000,07,2,0x13A6,0x0052,06,05,--,0.048829,-1599.971484,0,0,8.3f,Kg/h,,AFSCD_dmAirNorm,Normalisierte Luftmasse
+AFSCD_dmAirPerTime,B812F1042C100000,07,2,0x0080,0x002E,06,05,--,0.048829,-1599.971484,0,0,8.3f,Kg/h,,AFSCD_dmAirPerTime,HFM Luftmassenstrom
+AFSCD_dmAirRawPerTime,B812F1042C100000,07,2,0x0010,0x0010,06,05,--,0.036001,0.000000,0,0,8.3f,Kg/h,,AFSCD_dmAirRawPerTime,LMM Luftmassenmesser HFM
+AFSCD_mAirPerCyl,B812F1042C100000,07,2,0x0081,0x0050,06,05,--,0.048829,-1599.971484,0,0,8.3f,mg/Hub,,AFSCD_mAirPerCyl,angesaugte Luftmasse pro Zylinder
+AFSCD_mAirPerCyl1,B812F1042C100000,07,2,0x00DB,0x3024,06,05,--,0.048829,-1599.971484,0,0,8.3f,mg/Hub,,AFSCD_mAirPerCyl1,Luftmasse pro Zylinder B1
+AFSCD_mAirPerCyl2,B812F1042C100000,07,2,0x0082,0x3044,06,05,--,0.048829,-1599.971484,0,0,8.3f,mg/Hub,,AFSCD_mAirPerCyl2,Luftmasse pro Zylinder B2
+AFSCD_rAir,B812F1042C100000,07,2,0x0083,0x004B,06,05,--,0.010000,0.000000,0,0,8.4f,%,,AFSCD_rAir,duty cycle of the air temparature signal
+AFSCD_rAir2,B812F1042C100000,07,2,0x0084,0x3025,06,05,--,0.010000,0.000000,0,0,8.4f,%,,AFSCD_rAir2,Output 2 für HFM6
+AFSCD_tAir1,B812F1042C100000,07,2,0x00BA,0x000F,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,AFSCD_tAir1,Air temperature current value
+AFSCD_tAir2,B812F1042C100000,07,2,0x00BB,0x303C,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,AFSCD_tAir2,Air temperature current value 2
+AFSCD_tAir_mp,B812F1042C100000,07,2,0x000F,0x000F,06,05,--,1.000240,-41.084307,0,0,8.3f,deg C,,AFSCD_tAir_mp,linearisierter Wert aus HWK vorm Aufruf der Übergangsfunktion
+AFSCD_tiRaw,B812F1042C100000,07,2,0x13A7,0x0076,06,05,--,0.100000,0.000000,0,0,8.3f,us,,AFSCD_tiRaw,Periodendauerrohwert des Luftmassensensors
+AFSCD_tiRaw2,B812F1042C100000,07,2,0x13A8,0x13A8,06,05,--,0.100000,0.000000,0,0,8.3f,us,,AFSCD_tiRaw2,Output für HFM6
+AOHtCD_rOut_mp,B812F1042C100000,07,2,0x0085,0x00E9,06,05,--,0.010000,0.000000,0,0,8.4f,%,,AOHtCD_rOut_mp,Meßpunkt fuer korrigiertes Tastverhaeltnis der Zuheizeransteuerung
+AOHt_stShutOff_mp,B812F1042C100000,07,2,0x13B0,0x0099,06,05,--,1.000000,0.000000,0,0,8.2f,-,,AOHt_stShutOff_mp,Überblick auf alle Abschaltbedingungen
+APPCD_rFlt,B812F1042C100000,07,2,0x0086,0x0066,06,05,--,0.003052,0.000000,0,0,8.4f,%,,APPCD_rFlt,gefiltertes Pedalwertgebersignal
+APPCD_stKickDown,B812F1042C100000,07,2,0x13BA,0x00C8,06,05,--,1.000000,0.000000,0,0,5.1f,-,,APPCD_stKickDown,Schalter KIck Down
+APPCD_uRawAPP1,B812F1042C100000,07,2,0x0089,0x0064,06,05,--,0.000611,0.000000,0,0,8.1f,V,,APPCD_uRawAPP1,Fahrpedal 1 Position Rohwert
+APPCD_uRawAPP2,B812F1042C100000,07,2,0x008A,0x0065,06,05,--,0.000611,0.000000,0,0,8.1f,V,,APPCD_uRawAPP2,Fahrpedal 2 Position Rohwert
+APSCD_pVal,B812F1042C100000,07,2,0x008B,0x006E,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,APSCD_pVal,Atmosphärendruck
+APSCD_uRaw,B812F1042C100000,07,2,0x008C,0x006F,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,APSCD_uRaw,Rohspannung ADC-Signal Atmosphärendruck
+ASDdc_trq,B812F1042C100000,07,2,0x13C4,0x00DC,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,ASDdc_trq,Momentforderung Aktiver Ruckeldämpfer (Störungsregler)
+Absch_korr,B812F1042C100000,07,2,0x00F0,0x00F0,06,05,--,0.004579,-100.022880,0,0,%0.0,-,,Absch_korr,Correction value shut off
+AccPed_trqDes,B812F1042C100000,07,2,0x13CE,0x003C,06,05,--,0.114445,-2500.058653,0,0,8.3f,Nm,,AccPed_trqDes,Fahrerwunsch Rohwert
+AirCtl_mDesVal,B812F1042C100000,07,2,0x008D,0x0088,06,05,--,0.048829,-1599.971484,0,0,8.3f,mg/Hub,,AirCtl_mDesVal,Luftmassensollwert
+AirCtl_mGvnrDvt,B812F1042C100000,07,2,0x13E2,0x0056,06,05,--,0.048829,-1599.971484,0,0,8.3f,mg/Hub,,AirCtl_mGvnrDvt,Regelabweichung
+AirCtl_mGvnrDvt2,B812F1042C100000,07,2,0x13E5,0x13E5,06,05,--,0.048829,-1599.971484,0,0,8.3f,mg/Hub,,AirCtl_mGvnrDvt2,Regelabweichung
+AirCtl_mMaxDvt,B812F1042C100000,07,2,0x13E7,0x13E7,06,05,--,0.048829,-1599.971484,0,0,8.3f,mg/Hub,,AirCtl_mMaxDvt,Upper limits for detection of persistent control deviation
+AirCtl_mMinDvt,B812F1042C100000,07,2,0x13E8,0x13E8,06,05,--,0.048829,-1599.971484,0,0,8.3f,mg/Hub,,AirCtl_mMinDvt,Lower limits for detection of persistent control deviation
+AirCtl_stAirCtl,B812F1042C100000,07,2,0x13E9,0x13E9,06,05,--,1.000000,0.000000,0,0,5.1f,-,,AirCtl_stAirCtl,Status of monitoring number
+AirCtl_stAirCtlBits1_mp,B812F1042C100000,07,2,0x13E3,0x0042,06,05,--,1.000000,0.000000,0,0,8.2f,-,,AirCtl_stAirCtlBits1_mp,AirCtl_stAirCtlBits_mp LowByte (->Signals)
+AirCtl_stAirCtlBits2_mp,B812F1042C100000,07,2,0x13E4,0x0044,06,05,--,1.000000,0.000000,0,0,8.2f,-,,AirCtl_stAirCtlBits2_mp,AirCtl_stAirCtlBits_mp HighByte (->Signals)
+AirCtl_stMonitor,B812F1042C100000,07,2,0x13E6,0x13E6,06,05,--,1.000000,0.000000,0,0,5.1f,-,,AirCtl_stMonitor,Status of monitoring
+AltCD_rAltLoad,B812F1042C100000,07,2,0x008E,0x0082,06,05,--,0.003052,0.000000,0,0,8.4f,%,,AltCD_rAltLoad,linearisiertes und fehlerentprelltes Generatorlastsignals
+BPACD_rOut,B812F1042C100000,07,2,0x008F,0x007B,06,05,--,0.010000,0.000000,0,0,8.4f,%,,BPACD_rOut,Tastverhältnis zur Endstufenansteuerung - BPA
+BPACD_rOut2,B812F1042C100000,07,2,0x0090,0x3026,06,05,--,0.010000,0.000000,0,0,8.4f,%,,BPACD_rOut2,Tastverhältnis zur Endstufenansteuerung - BPA2
+BPSCD_pLin,B812F1042C100000,07,2,0x000B,0x000B,06,05,--,10.002401,0.000000,0,0,8.2f,hPa,,BPSCD_pLin,Mittelere Ladedruck-Wert (liniarisiert)
+BPSCD_pOutVal,B812F1042C100000,07,2,0x0091,0x003A,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,BPSCD_pOutVal,Ladedruckwert
+BPSCD_uRawVal,B812F1042C100000,07,2,0x0092,0x0039,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,BPSCD_uRawVal,Spannungsrohwert des Ladedrucksensors
+BattCD_u,B812F1042C100000,07,2,0x0093,0x002F,06,05,--,0.002456,0.000000,0,0,8.1f,V,,BattCD_u,Batteriespannung
+BrkCD_ctUnPlaus_mp,B812F1042C100000,07,2,0x13EE,0x00F8,06,05,--,1.000000,0.000000,0,0,8.2f,-,,BrkCD_ctUnPlaus_mp,Debounce counter of break-plausibility-check
+BrkCD_stMnSwtRawVal,B812F1042C100000,07,2,0x13EC,0x005C,06,05,--,1.000000,0.000000,0,0,5.1f,-,,BrkCD_stMnSwtRawVal,Rohwert Bremskontakt nicht entprellt
+BrkCD_stRedSwtRawVal,B812F1042C100000,07,2,0x13ED,0x005D,06,05,--,1.000000,0.000000,0,0,5.1f,-,,BrkCD_stRedSwtRawVal,Rohwert redundanter Bremskontakt nicht entprellt
+CBACD_stLogicOut_mp,B812F1042C100000,07,2,0x0094,0x3003,06,05,--,1.000000,0.000000,0,0,5.1f,-,,CBACD_stLogicOut_mp,Status of compressor bypass valve actuator output
+CTSCD_tClnt,B812F1042C100000,07,2,0x0095,0x002C,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,CTSCD_tClnt,Kühlmitteltemperatur
+CTSCD_tClntLin,B812F1042C100000,07,2,0x0005,0x0005,06,05,--,1.000240,-41.084307,0,0,8.3f,deg C,,CTSCD_tClntLin,linearisierter Wert aus HWK vorm Aufruf der Übergangsfunktion
+CTSCD_uRaw,B812F1042C100000,07,2,0x0096,0x002B,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,CTSCD_uRaw,Wassertemperatur Spannungsrohwert
+Clg_dtDynTst,B812F1042C100000,07,2,0x13FD,0x13FD,06,05,--,0.012500,-50.000763,0,0,8.3f,deg C,,Clg_dtDynTst,rise in temperature since start of test
+Clg_tEndDynTst,B812F1042C100000,07,2,0x13FF,0x13FF,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,Clg_tEndDynTst,CTSCD_tClnt at the end of test
+Clg_tiDynTst,B812F1042C100000,07,2,0x13FC,0x13FC,06,05,--,0.999001,0.000000,0,0,13.4f,s,,Clg_tiDynTst,actual time of test
+CoEng_ctUnpla,B812F1042C100000,07,2,0x1B6E,0x3039,06,05,--,1.000000,0.000000,0,0,5.1f,-,,CoEng_ctUnpla,unplausibility between layer 1 and 2
+CoEng_rTrq,B812F1042C100000,07,2,0x0004,0x0004,06,05,--,0.393699,0.000000,0,0,8.4f,%,,CoEng_rTrq,Verhältnis aktuelles Moment zu Maximalmoment
+CoEng_stAftRun,B812F1042C100000,07,2,0x1B6C,0x1B6C,06,05,--,1.000000,0.000000,0,0,5.1f,-,,CoEng_stAftRun,State variable of the afterrun state machine
+CoEng_stCurrLimActive,B812F1042C100000,07,2,0x1B6D,0x1B6D,06,05,--,1.000000,0.000000,0,0,13.2f,-,,CoEng_stCurrLimActive,status word for type of lowest active torque limitation
+CoEng_stEng,B812F1042C100000,07,2,0x00BC,0x303C,06,05,--,1.000000,0.000000,0,0,5.1f,-,,CoEng_stEng,Current engine status
+CoEng_stIRevShutOff,B812F1042C100000,07,2,0x1457,0x1457,06,05,--,1.000000,0.000000,0,0,13.2f,-,,CoEng_stIRevShutOff,"activated shut off reasons (irreversible shut off), low word"
+CoEng_stIRevShutOff1,B812F1042C100000,07,2,0x1458,0x1458,06,05,--,1.000000,0.000000,0,0,13.2f,-,,CoEng_stIRevShutOff1,"activated shut off reasons (irreversible shut off), high word"
+CoEng_stRevShutOff,B812F1042C100000,07,2,0x1455,0x1455,06,05,--,1.000000,0.000000,0,0,13.2f,-,,CoEng_stRevShutOff,"activated shut off reasons (reversible shut off), low word"
+CoEng_stRevShutOff1,B812F1042C100000,07,2,0x1456,0x1456,06,05,--,1.000000,0.000000,0,0,13.2f,-,,CoEng_stRevShutOff1,"activated shut off reasons (reversible shut off), high word"
+CoEng_stShutOff,B812F1042C100000,07,2,0x1450,0x008E,06,05,--,1.000000,0.000000,0,0,5.1f,-,,CoEng_stShutOff,global shut off reasons ( afterrun / reversible / irreversible)
+CoEng_trq,B812F1042C100000,07,2,0x0097,0x14B6,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,CoEng_trq,Sollwert - inneres Motormoment
+CoEng_trqInrLtd,B812F1042C100000,07,2,0x1451,0x008F,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,CoEng_trqInrLtd,"inneres Moment Sollwert nach Begrenzung, vor Eingriff ARD-Störungsregler"
+CoEng_trqInrSet,B812F1042C100000,07,2,0x00EE,0x0057,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,CoEng_trqInrSet,inneres Moment Sollwert (>Mengenberechnung)
+CoEng_trqLimMin_mp,B812F1042C100000,07,2,0x1453,0x0094,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,CoEng_trqLimMin_mp,"Begrenzungsmoment, falls kein momentenbegrenzender Systemfehler vorliegt (Minimum aus Rauchgrenze un Motormech.schutz)"
+CoEng_voltotFlConsum,B812F1042C100000,07,2,0x1454,0x00CB,06,05,--,20.844624,-683015.800225,0,0,13.2f,ul,,CoEng_voltotFlConsum,Absoluter Kraftstoffverbrauch
+CoVM_trqPrpDes,B812F1042C100000,07,2,0x1464,0x0095,06,05,--,0.114445,-2500.058653,0,0,8.3f,Nm,,CoVM_trqPrpDes,Wunsch Vortriebsmoment
+ConvCD_stRawVal,B812F1042C100000,07,2,0x146E,0x005E,06,05,--,1.000000,0.000000,0,0,5.1f,-,,ConvCD_stRawVal,Kupplungssignal Rohwert
+CpBVlv_stOpn,B812F1042C100000,07,2,0x1478,0x138D,06,05,--,1.000000,0.000000,0,0,5.1f,-,,CpBVlv_stOpn,Zustand Kompressorbypass-Ventil
+CrCCD_stKey,B812F1042C100000,07,2,0x1482,0x00D0,06,05,--,1.000000,0.000000,0,0,5.1f,-,,CrCCD_stKey,Rückgabewert
+CrCtl_numGear,B812F1042C100000,07,2,0x148C,0x008D,06,05,--,1.000000,0.000000,0,0,5.1f,-,,CrCtl_numGear,Gang FGR
+CrCtl_stLampOut,B812F1042C100000,07,2,0x148D,0x00D1,06,05,--,1.000000,0.000000,0,0,5.1f,-,,CrCtl_stLampOut,Status der CrCtl-Lampe (wird über CAN versendet)
+CrCtl_stShutOffCode1_mp,B812F1042C100000,07,2,0x148E,0x00F1,06,05,--,1.000000,0.000000,0,0,8.2f,-,,CrCtl_stShutOffCode1_mp,Low Byte von CrCtl_shutOffCode (Verwendung als Signal)
+CrCtl_stShutOffCode2_mp,B812F1042C100000,07,2,0x148F,0x00F3,06,05,--,1.000000,0.000000,0,0,8.2f,-,,CrCtl_stShutOffCode2_mp,Low Byte von CrCtl_shutOffCode (Verwendung als Signal)
+CrCtl_stShutOffFrz1_mp,B812F1042C100000,07,2,0x1490,0x00F5,06,05,--,1.000000,0.000000,0,0,8.2f,-,,CrCtl_stShutOffFrz1_mp,latched shutoff reason
+CrCtl_stShutOffFrz2_mp,B812F1042C100000,07,2,0x1491,0x00F7,06,05,--,1.000000,0.000000,0,0,8.2f,-,,CrCtl_stShutOffFrz2_mp,latched shutoff reason
+CrCtl_trqDes,B812F1042C100000,07,2,0x1492,0x0091,06,05,--,0.114445,-2500.058653,0,0,8.3f,Nm,,CrCtl_trqDes,Momentenanforderung FGR
+CrCtl_vDes,B812F1042C100000,07,2,0x1493,0x0083,06,05,--,0.003815,0.000000,0,0,8.4f,km/h,,CrCtl_vDes,Sollgeschwindigkeit FGR
+DSMDur_ctDfctDur1,B812F1042C100000,07,2,0x14B4,0x00D7,06,05,--,1.000000,0.000000,0,0,8.2f,-,,DSMDur_ctDfctDur1,Wert Fehlerdauerzähler
+DSMDur_ctDfctDur1_Carb,B812F1042C100000,07,2,0x0021,0x0021,06,05,--,1.000000,0.000000,0,0,8.2f,-,,DSMDur_ctDfctDur1_Carb,OBD: Travelled Distance with MIL on
+DSMDur_ctDfctDur2,B812F1042C100000,07,2,0x14B5,0x00D8,06,05,--,1.000000,0.000000,0,0,8.2f,-,,DSMDur_ctDfctDur2,Wert Fehlerdauerzähler 2
+DSMDur_stGlobalDefCnt_mp,B812F1042C100000,07,2,0x14B6,0x00D9,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSMDur_stGlobalDefCnt_mp,Aktivierungs und Resetzustand der beiden globalen Fehlerdauerzähler
+DSM_ctOBDPath,B812F1042C100000,07,2,0x14B7,0x0080,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_ctOBDPath,Anzahl der momentanen OBD-fehler im Fehlerspeicher
+DSM_ctRdyActCyc_mp,B812F1042C100000,07,2,0x14B8,0x0089,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_ctRdyActCyc_mp,Status für jedes Readinessbit aus dem aktuellen driving cycle
+DSM_ctRdyTstCompr_mp,B812F1042C100000,07,2,0x14B9,0x008B,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_ctRdyTstCompr_mp,Anzahl von in diesem Zyklus getesteten Fehlerpfaden die zum Readiness Bit Comprehensive Components  gehören.
+DSM_ctRdyTstEGR_mp,B812F1042C100000,07,2,0x14BA,0x0092,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_ctRdyTstEGR_mp,Anzahl von in diesem Zyklus getesteten Fehlerpfaden die zum Readiness Bit EGR gehören.
+DSM_ctRdyTstFuel_mp,B812F1042C100000,07,2,0x14BB,0x0093,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_ctRdyTstFuel_mp,Anzahl von in diesem Zyklus getesteten Fehlerpfaden die zum Readiness Bit Fuel System gehören.
+DSM_ctRdyTstMisf_mp,B812F1042C100000,07,2,0x14BC,0x0098,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_ctRdyTstMisf_mp,Anzahl von in diesem Zyklus getesteten Fehlerpfaden die zum Readiness Bit Misfire  gehören.
+DSM_ctTstPath,B812F1042C100000,07,2,0x14BD,0x140F,06,05,--,1.000000,0.000000,0,0,8.2f,-,,DSM_ctTstPath,Anzahl der getesteten Fehlerpfade
+DSM_stCycles,B812F1042C100000,07,2,0x14BE,0x0085,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_stCycles,"Status der DSM Trigger Zyklen (WUC, DC, ...)"
+DSM_stMIL,B812F1042C100000,07,2,0x14BF,0x002A,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_stMIL,"DSM Mil Anforderungsstatus (1 = kontinuierlich, 2 blinkend)"
+DSM_stRdyAB,B812F1042C100000,07,2,0x14C0,0x009C,06,05,--,1.000000,0.000000,0,0,8.2f,-,,DSM_stRdyAB,Readiness Status für Diagnoseschnittstelle gemäß SAE J1979 PID1 Byte A + B
+DSM_stRdyCD,B812F1042C100000,07,2,0x14C1,0x00CD,06,05,--,1.000000,0.000000,0,0,8.2f,-,,DSM_stRdyCD,Readiness Status für Diagnoseschnittstelle gemäß SAE J1979 PID1 Byte C * D
+DSM_stSysLamp,B812F1042C100000,07,2,0x14C2,0x0029,06,05,--,1.000000,0.000000,0,0,5.1f,-,,DSM_stSysLamp,DSM System Lampen Anforderungsstatus (1 = kontinuierlich)
+DSM_tiDCDelay_mp,B812F1042C100000,07,2,0x14C3,0x0086,06,05,--,1.000000,0.000000,0,0,8.2f,-,,DSM_tiDCDelay_mp,aktuelle Zeit für Driving cycle Verzögerungszeit
+D_soc,B812F1042C100000,07,2,0x00F1,0x00EF,06,05,--,0.004578,-100.004574,0,0,%0.0,-,,D_soc,Battery load state
+EBAFCD_stSigOut,B812F1042C100000,07,2,0x0098,0x0062,06,05,--,1.000000,0.000000,0,0,5.1f,-,,EBAFCD_stSigOut,source of activation for electrical power stage of EBAFCD output
+EBTSCD_tECU,B812F1042C100000,07,2,0x14E6,0x3042,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,EBTSCD_tECU,ECU temperature current value
+EGPpCD_stActrOut,B812F1042C100000,07,2,0x00EA,0x00EE,06,05,--,1.000000,0.000000,0,0,5.1f,-,,EGPpCD_stActrOut,state of EGPpCD
+EGRCD_rOut,B812F1042C100000,07,2,0x0099,0x007A,06,05,--,0.010000,0.000000,0,0,8.4f,%,,EGRCD_rOut,Tastverhältnis zur Endstufenansteuerung - EGR
+EGRCD_rOut2,B812F1042C100000,07,2,0x009A,0x3027,06,05,--,0.010000,0.000000,0,0,8.4f,%,,EGRCD_rOut2,Tastverhältnis zur Endstufenansteuerung - EGR2
+EGSys_ctCldStrtLSU_mp[0],B812F1042C100000,07,2,0x1518,0x14A6,06,05,--,1.000000,0.000000,0,0,5.1f,-,,EGSys_ctCldStrtLSU_mp[0],Status bit for valid gas pulse detected
+EGSys_stHtgLSU[0],B812F1042C100000,07,2,0x1519,0x14A5,06,05,--,1.000000,0.000000,0,0,5.1f,-,,EGSys_stHtgLSU[0],Status bit for Lambda probe 0 heating On/Off
+EGSys_tEGLSU[0],B812F1042C100000,07,2,0x151B,0x300B,06,05,--,1.000240,-51.086707,0,0,8.3f,deg C,,EGSys_tEGLSU[0],Abgas-Temperatur an Sensor-Position
+EGSys_tWallLSU[0],B812F1042C100000,07,2,0x151A,0x300A,06,05,--,1.000240,-51.086707,0,0,8.3f,deg C,,EGSys_tWallLSU[0],Wandtemperatur am Sondeneinbauort
+EGSys_wLSU_mp[0],B812F1042C100000,07,2,0x151C,0x300C,06,05,--,1.000000,0.000000,0,0,8.2f,kJ,,EGSys_wLSU_mp[0],integrierte Waermemenge an Sensor-Position
+EGT_st,B812F1042C100000,07,2,0x009B,0x3015,06,05,--,1.000000,0.000000,0,0,13.2f,-,,EGT_st,Regenerationsanforderung fuer Abgasnachbehandlung (drehzahlsynchron)
+EGT_tiRgnOilDil,B812F1042C100000,07,2,0x1522,0x13D4,06,05,--,0.999001,0.000000,0,0,13.4f,s,,EGT_tiRgnOilDil,Critical time for oil dilution
+ETClb_ctLrn_mp[0],B812F1042C100000,07,2,0x152C,0x148E,06,05,--,1.000000,0.000000,0,0,8.2f,-,,ETClb_ctLrn_mp[0],learn cycle counter et calibration
+ETClb_ctLrn_mp[1],B812F1042C100000,07,2,0x152D,0x1495,06,05,--,1.000000,0.000000,0,0,8.2f,-,,ETClb_ctLrn_mp[1],learn cycle counter et calibration
+ETClb_ctLrn_mp[2],B812F1042C100000,07,2,0x152E,0x149C,06,05,--,1.000000,0.000000,0,0,8.2f,-,,ETClb_ctLrn_mp[2],learn cycle counter et calibration
+ETClb_dtiETFlt0_mp[0],B812F1042C100000,07,2,0x152F,0x148F,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt0_mp[0],Ansteuerdauer der Voreinspritzung 0
+ETClb_dtiETFlt0_mp[1],B812F1042C100000,07,2,0x1530,0x1490,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt0_mp[1],Ansteuerdauer der Voreinspritzung 0
+ETClb_dtiETFlt0_mp[2],B812F1042C100000,07,2,0x1531,0x1491,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt0_mp[2],Ansteuerdauer der Voreinspritzung 0
+ETClb_dtiETFlt0_mp[3],B812F1042C100000,07,2,0x1532,0x1492,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt0_mp[3],Ansteuerdauer der Voreinspritzung 0
+ETClb_dtiETFlt0_mp[4],B812F1042C100000,07,2,0x1533,0x1493,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt0_mp[4],Ansteuerdauer der Voreinspritzung 0
+ETClb_dtiETFlt0_mp[5],B812F1042C100000,07,2,0x1534,0x1494,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt0_mp[5],Ansteuerdauer der Voreinspritzung 0
+ETClb_dtiETFlt0_mp[6],B812F1042C100000,07,2,0x1535,0x3031,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt0_mp[6],Ansteuerdauer der Voreinspritzung 0
+ETClb_dtiETFlt0_mp[7],B812F1042C100000,07,2,0x1536,0x3032,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt0_mp[7],Ansteuerdauer der Voreinspritzung 0
+ETClb_dtiETFlt1_mp[0],B812F1042C100000,07,2,0x1537,0x1496,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt1_mp[0],Ansteuerdauer der Voreinspritzung 1
+ETClb_dtiETFlt1_mp[1],B812F1042C100000,07,2,0x1538,0x1497,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt1_mp[1],Ansteuerdauer der Voreinspritzung 1
+ETClb_dtiETFlt1_mp[2],B812F1042C100000,07,2,0x1539,0x1498,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt1_mp[2],Ansteuerdauer der Voreinspritzung 1
+ETClb_dtiETFlt1_mp[3],B812F1042C100000,07,2,0x153A,0x1499,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt1_mp[3],Ansteuerdauer der Voreinspritzung 1
+ETClb_dtiETFlt1_mp[4],B812F1042C100000,07,2,0x153B,0x149A,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt1_mp[4],Ansteuerdauer der Voreinspritzung 1
+ETClb_dtiETFlt1_mp[5],B812F1042C100000,07,2,0x153C,0x149B,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt1_mp[5],Ansteuerdauer der Voreinspritzung 1
+ETClb_dtiETFlt1_mp[6],B812F1042C100000,07,2,0x153D,0x3033,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt1_mp[6],Ansteuerdauer der Voreinspritzung 1
+ETClb_dtiETFlt1_mp[7],B812F1042C100000,07,2,0x153E,0x3034,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt1_mp[7],Ansteuerdauer der Voreinspritzung 1
+ETClb_dtiETFlt2_mp[0],B812F1042C100000,07,2,0x153F,0x149D,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt2_mp[0],Ansteuerdauer der Voreinspritzung 2
+ETClb_dtiETFlt2_mp[1],B812F1042C100000,07,2,0x1540,0x149E,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt2_mp[1],Ansteuerdauer der Voreinspritzung 2
+ETClb_dtiETFlt2_mp[2],B812F1042C100000,07,2,0x1541,0x149F,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt2_mp[2],Ansteuerdauer der Voreinspritzung 2
+ETClb_dtiETFlt2_mp[3],B812F1042C100000,07,2,0x1542,0x14A0,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt2_mp[3],Ansteuerdauer der Voreinspritzung 2
+ETClb_dtiETFlt2_mp[4],B812F1042C100000,07,2,0x1543,0x14A1,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt2_mp[4],Ansteuerdauer der Voreinspritzung 2
+ETClb_dtiETFlt2_mp[5],B812F1042C100000,07,2,0x1544,0x14A2,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt2_mp[5],Ansteuerdauer der Voreinspritzung 2
+ETClb_dtiETFlt2_mp[6],B812F1042C100000,07,2,0x1545,0x3035,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt2_mp[6],Ansteuerdauer der Voreinspritzung 2
+ETClb_dtiETFlt2_mp[7],B812F1042C100000,07,2,0x1546,0x3036,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_dtiETFlt2_mp[7],Ansteuerdauer der Voreinspritzung 2
+ETClb_stCor,B812F1042C100000,07,2,0x1547,0x148C,06,05,--,1.000000,0.000000,0,0,5.1f,-,,ETClb_stCor,Statusanzeige der Freigaben für die Ansteuerdauerkorrektur der Nullmengenkalibrierung
+ETClb_stRlsCylCor_mp,B812F1042C100000,07,2,0x1548,0x148D,06,05,--,1.000000,0.000000,0,0,5.1f,-,,ETClb_stRlsCylCor_mp,Zylinderspezifische Freigabe der Ansteuerdauerkorrektur der Ansteuerdauerkalibrierung
+ETClb_st_mp,B812F1042C100000,07,2,0x1549,0x1518,06,05,--,1.000000,0.000000,0,0,13.11f,-,,ETClb_st_mp,state of ET calibration
+ETClb_swtQckClb_mp,B812F1042C100000,07,2,0x154A,0x1519,06,05,--,1.000000,0.000000,0,0,5.1f,-,,ETClb_swtQckClb_mp,switch for quick calibration
+ETClb_tiETMinEff_mp[0],B812F1042C100000,07,2,0x154B,0x151A,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_tiETMinEff_mp[0],Ansteuerdauer der Nullmenge des aktuellen Zylinders für Raildruckbereich 0
+ETClb_tiETMinEff_mp[1],B812F1042C100000,07,2,0x154C,0x151B,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_tiETMinEff_mp[1],Ansteuerdauer der Nullmenge des aktuellen Zylinders für Raildruckbereich 1
+ETClb_tiETMinEff_mp[2],B812F1042C100000,07,2,0x154D,0x151C,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ETClb_tiETMinEff_mp[2],Ansteuerdauer der Nullmenge des aktuellen Zylinders für Raildruckbereich 2
+EngM_stOut,B812F1042C100000,07,2,0x009C,0x00DB,06,05,--,1.000000,0.000000,0,0,5.1f,-,,EngM_stOut,"state of engine bearing depending on engine speed, engine temperature and gear state"
+EngM_stSync,B812F1042C100000,07,2,0x009D,0x00B0,06,05,--,1.000000,0.000000,0,0,5.1f,-,,EngM_stSync,Meta-Status der KW- und NW-Ereignisverwaltung (Motorpositions-Management)
+EngM_trqFrc,B812F1042C100000,07,2,0x1554,0x00CE,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,EngM_trqFrc,aktuelles Reibmoment
+Eng_nAvrg_Carb,B812F1042C100000,07,2,0x000C,0x000C,06,05,--,0.250000,0.000000,0,0,8.2f,rpm,,Eng_nAvrg_Carb,Avarage engine speed
+Eng_nAvrg,B812F1042C100000,07,2,0x009E,0x002D,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,Eng_nAvrg,mittlere Motordrehzahl
+ErLpCD_stMil,B812F1042C100000,07,2,0x155E,0x155E,06,05,--,1.000000,0.000000,0,0,5.1f,-,,ErLpCD_stMil,Status of the MIL and source of activation
+FBC_DXSl_mp[0],B812F1042C100000,07,2,0x157C,0x157C,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[0],relativer gefilterter Zahnteilungsfehler 00
+FBC_DXSl_mp[10],B812F1042C100000,07,2,0x1586,0x1586,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[10],relativer gefilterter Zahnteilungsfehler 10
+FBC_DXSl_mp[11],B812F1042C100000,07,2,0x1587,0x1587,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[11],relativer gefilterter Zahnteilungsfehler 11
+FBC_DXSl_mp[12],B812F1042C100000,07,2,0x1588,0x1588,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[12],relativer gefilterter Zahnteilungsfehler 12
+FBC_DXSl_mp[13],B812F1042C100000,07,2,0x1589,0x1589,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[13],relativer gefilterter Zahnteilungsfehler 13
+FBC_DXSl_mp[14],B812F1042C100000,07,2,0x158A,0x158A,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[14],relativer gefilterter Zahnteilungsfehler 14
+FBC_DXSl_mp[15],B812F1042C100000,07,2,0x158B,0x158B,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[15],relativer gefilterter Zahnteilungsfehler 15
+FBC_DXSl_mp[1],B812F1042C100000,07,2,0x157D,0x157D,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[1],relativer gefilterter Zahnteilungsfehler 01
+FBC_DXSl_mp[2],B812F1042C100000,07,2,0x157E,0x157E,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[2],relativer gefilterter Zahnteilungsfehler 02
+FBC_DXSl_mp[3],B812F1042C100000,07,2,0x157F,0x157F,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[3],relativer gefilterter Zahnteilungsfehler 03
+FBC_DXSl_mp[4],B812F1042C100000,07,2,0x1580,0x1580,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[4],relativer gefilterter Zahnteilungsfehler 04
+FBC_DXSl_mp[5],B812F1042C100000,07,2,0x1581,0x1581,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[5],relativer gefilterter Zahnteilungsfehler 05
+FBC_DXSl_mp[6],B812F1042C100000,07,2,0x1582,0x1582,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[6],relativer gefilterter Zahnteilungsfehler 06
+FBC_DXSl_mp[7],B812F1042C100000,07,2,0x1583,0x1583,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[7],relativer gefilterter Zahnteilungsfehler 07
+FBC_DXSl_mp[8],B812F1042C100000,07,2,0x1584,0x1584,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[8],relativer gefilterter Zahnteilungsfehler 08
+FBC_DXSl_mp[9],B812F1042C100000,07,2,0x1585,0x1585,06,05,--,0.000036,-1.170332,0,0,9.7f,%,,FBC_DXSl_mp[9],relativer gefilterter Zahnteilungsfehler 09
+FMA_qMapRow0_mp[0],B812F1042C100000,07,2,0x1591,0x14D3,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow0_mp[0],FMA Adaptive map - elements of Row 0
+FMA_qMapRow0_mp[1],B812F1042C100000,07,2,0x1592,0x14D4,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow0_mp[1],FMA Adaptive map - elements of Row 0
+FMA_qMapRow0_mp[2],B812F1042C100000,07,2,0x1593,0x14D5,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow0_mp[2],FMA Adaptive map - elements of Row 0
+FMA_qMapRow0_mp[3],B812F1042C100000,07,2,0x1594,0x14D6,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow0_mp[3],FMA Adaptive map - elements of Row 0
+FMA_qMapRow0_mp[4],B812F1042C100000,07,2,0x1595,0x14D7,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow0_mp[4],FMA Adaptive map - elements of Row 0
+FMA_qMapRow0_mp[5],B812F1042C100000,07,2,0x1596,0x14D8,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow0_mp[5],FMA Adaptive map - elements of Row 0
+FMA_qMapRow0_mp[6],B812F1042C100000,07,2,0x1597,0x14D9,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow0_mp[6],FMA Adaptive map - elements of Row 0
+FMA_qMapRow0_mp[7],B812F1042C100000,07,2,0x1598,0x14DA,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow0_mp[7],FMA Adaptive map - elements of Row 0
+FMA_qMapRow1_mp[0],B812F1042C100000,07,2,0x1599,0x14DB,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow1_mp[0],FMA Adaptive map - elements of Row 1
+FMA_qMapRow1_mp[1],B812F1042C100000,07,2,0x159A,0x14DC,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow1_mp[1],FMA Adaptive map - elements of Row 1
+FMA_qMapRow1_mp[2],B812F1042C100000,07,2,0x159B,0x14DD,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow1_mp[2],FMA Adaptive map - elements of Row 1
+FMA_qMapRow1_mp[3],B812F1042C100000,07,2,0x159C,0x14DE,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow1_mp[3],FMA Adaptive map - elements of Row 1
+FMA_qMapRow1_mp[4],B812F1042C100000,07,2,0x159D,0x14DF,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow1_mp[4],FMA Adaptive map - elements of Row 1
+FMA_qMapRow1_mp[5],B812F1042C100000,07,2,0x159E,0x14E0,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow1_mp[5],FMA Adaptive map - elements of Row 1
+FMA_qMapRow1_mp[6],B812F1042C100000,07,2,0x159F,0x14E1,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow1_mp[6],FMA Adaptive map - elements of Row 1
+FMA_qMapRow1_mp[7],B812F1042C100000,07,2,0x15A0,0x14E2,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow1_mp[7],FMA Adaptive map - elements of Row 1
+FMA_qMapRow2_mp[0],B812F1042C100000,07,2,0x15A1,0x14E3,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow2_mp[0],FMA Adaptive map - elements of Row 2
+FMA_qMapRow2_mp[1],B812F1042C100000,07,2,0x15A2,0x14E4,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow2_mp[1],FMA Adaptive map - elements of Row 2
+FMA_qMapRow2_mp[2],B812F1042C100000,07,2,0x15A3,0x14E5,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow2_mp[2],FMA Adaptive map - elements of Row 2
+FMA_qMapRow2_mp[3],B812F1042C100000,07,2,0x15A4,0x14E6,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow2_mp[3],FMA Adaptive map - elements of Row 2
+FMA_qMapRow2_mp[4],B812F1042C100000,07,2,0x15A5,0x14E7,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow2_mp[4],FMA Adaptive map - elements of Row 2
+FMA_qMapRow2_mp[5],B812F1042C100000,07,2,0x15A6,0x14E8,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow2_mp[5],FMA Adaptive map - elements of Row 2
+FMA_qMapRow2_mp[6],B812F1042C100000,07,2,0x15A7,0x14E9,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow2_mp[6],FMA Adaptive map - elements of Row 2
+FMA_qMapRow2_mp[7],B812F1042C100000,07,2,0x15A8,0x14EA,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow2_mp[7],FMA Adaptive map - elements of Row 2
+FMA_qMapRow3_mp[0],B812F1042C100000,07,2,0x15A9,0x14EB,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow3_mp[0],FMA Adaptive map - elements of Row 3
+FMA_qMapRow3_mp[1],B812F1042C100000,07,2,0x15AA,0x14EC,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow3_mp[1],FMA Adaptive map - elements of Row 3
+FMA_qMapRow3_mp[2],B812F1042C100000,07,2,0x15AB,0x14ED,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow3_mp[2],FMA Adaptive map - elements of Row 3
+FMA_qMapRow3_mp[3],B812F1042C100000,07,2,0x15AC,0x14EE,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow3_mp[3],FMA Adaptive map - elements of Row 3
+FMA_qMapRow3_mp[4],B812F1042C100000,07,2,0x15AD,0x14EF,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow3_mp[4],FMA Adaptive map - elements of Row 3
+FMA_qMapRow3_mp[5],B812F1042C100000,07,2,0x15AE,0x14F0,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow3_mp[5],FMA Adaptive map - elements of Row 3
+FMA_qMapRow3_mp[6],B812F1042C100000,07,2,0x15AF,0x14F1,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow3_mp[6],FMA Adaptive map - elements of Row 3
+FMA_qMapRow3_mp[7],B812F1042C100000,07,2,0x15B0,0x14F2,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow3_mp[7],FMA Adaptive map - elements of Row 3
+FMA_qMapRow4_mp[0],B812F1042C100000,07,2,0x15B1,0x14F3,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow4_mp[0],FMA Adaptive map - elements of Row 4
+FMA_qMapRow4_mp[1],B812F1042C100000,07,2,0x15B2,0x14F4,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow4_mp[1],FMA Adaptive map - elements of Row 4
+FMA_qMapRow4_mp[2],B812F1042C100000,07,2,0x15B3,0x14F5,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow4_mp[2],FMA Adaptive map - elements of Row 4
+FMA_qMapRow4_mp[3],B812F1042C100000,07,2,0x15B4,0x14F6,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow4_mp[3],FMA Adaptive map - elements of Row 4
+FMA_qMapRow4_mp[4],B812F1042C100000,07,2,0x15B5,0x14F7,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow4_mp[4],FMA Adaptive map - elements of Row 4
+FMA_qMapRow4_mp[5],B812F1042C100000,07,2,0x15B6,0x14F8,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow4_mp[5],FMA Adaptive map - elements of Row 4
+FMA_qMapRow4_mp[6],B812F1042C100000,07,2,0x15B7,0x14F9,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow4_mp[6],FMA Adaptive map - elements of Row 4
+FMA_qMapRow4_mp[7],B812F1042C100000,07,2,0x15B8,0x14FA,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow4_mp[7],FMA Adaptive map - elements of Row 4
+FMA_qMapRow5_mp[0],B812F1042C100000,07,2,0x15B9,0x14FB,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow5_mp[0],FMA Adaptive map - elements of Row 5
+FMA_qMapRow5_mp[1],B812F1042C100000,07,2,0x15BA,0x14FC,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow5_mp[1],FMA Adaptive map - elements of Row 5
+FMA_qMapRow5_mp[2],B812F1042C100000,07,2,0x15BB,0x14FD,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow5_mp[2],FMA Adaptive map - elements of Row 5
+FMA_qMapRow5_mp[3],B812F1042C100000,07,2,0x15BC,0x14FE,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow5_mp[3],FMA Adaptive map - elements of Row 5
+FMA_qMapRow5_mp[4],B812F1042C100000,07,2,0x15BD,0x14FF,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow5_mp[4],FMA Adaptive map - elements of Row 5
+FMA_qMapRow5_mp[5],B812F1042C100000,07,2,0x15BE,0x1500,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow5_mp[5],FMA Adaptive map - elements of Row 5
+FMA_qMapRow5_mp[6],B812F1042C100000,07,2,0x15BF,0x1501,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow5_mp[6],FMA Adaptive map - elements of Row 5
+FMA_qMapRow5_mp[7],B812F1042C100000,07,2,0x15C0,0x1502,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow5_mp[7],FMA Adaptive map - elements of Row 5
+FMA_qMapRow6_mp[0],B812F1042C100000,07,2,0x15C1,0x1503,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow6_mp[0],FMA Adaptive map - elements of Row 6
+FMA_qMapRow6_mp[1],B812F1042C100000,07,2,0x15C2,0x1504,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow6_mp[1],FMA Adaptive map - elements of Row 6
+FMA_qMapRow6_mp[2],B812F1042C100000,07,2,0x15C3,0x1505,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow6_mp[2],FMA Adaptive map - elements of Row 6
+FMA_qMapRow6_mp[3],B812F1042C100000,07,2,0x15C4,0x1506,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow6_mp[3],FMA Adaptive map - elements of Row 6
+FMA_qMapRow6_mp[4],B812F1042C100000,07,2,0x15C5,0x1507,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow6_mp[4],FMA Adaptive map - elements of Row 6
+FMA_qMapRow6_mp[5],B812F1042C100000,07,2,0x15C6,0x1508,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow6_mp[5],FMA Adaptive map - elements of Row 6
+FMA_qMapRow6_mp[6],B812F1042C100000,07,2,0x15C7,0x1509,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow6_mp[6],FMA Adaptive map - elements of Row 6
+FMA_qMapRow6_mp[7],B812F1042C100000,07,2,0x15C8,0x150A,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow6_mp[7],FMA Adaptive map - elements of Row 6
+FMA_qMapRow7_mp[0],B812F1042C100000,07,2,0x15C9,0x150B,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow7_mp[0],FMA Adaptive map - elements of Row 7
+FMA_qMapRow7_mp[1],B812F1042C100000,07,2,0x15CA,0x150C,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow7_mp[1],FMA Adaptive map - elements of Row 7
+FMA_qMapRow7_mp[2],B812F1042C100000,07,2,0x15CB,0x150D,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow7_mp[2],FMA Adaptive map - elements of Row 7
+FMA_qMapRow7_mp[3],B812F1042C100000,07,2,0x15CC,0x150E,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow7_mp[3],FMA Adaptive map - elements of Row 7
+FMA_qMapRow7_mp[4],B812F1042C100000,07,2,0x15CD,0x150F,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow7_mp[4],FMA Adaptive map - elements of Row 7
+FMA_qMapRow7_mp[5],B812F1042C100000,07,2,0x15CE,0x1510,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow7_mp[5],FMA Adaptive map - elements of Row 7
+FMA_qMapRow7_mp[6],B812F1042C100000,07,2,0x15CF,0x1511,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow7_mp[6],FMA Adaptive map - elements of Row 7
+FMA_qMapRow7_mp[7],B812F1042C100000,07,2,0x15D0,0x1512,06,05,--,0.010000,-327.670000,0,0,8.4f,mg/hub,,FMA_qMapRow7_mp[7],FMA Adaptive map - elements of Row 7
+FMA_q_mp,B812F1042C100000,07,2,0x1590,0x1590,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,FMA_q_mp,Mit Abschaltfaktor multiplizierter Mengenfehler des Fehlermodells
+FMA_tiFuncOp_mp,B812F1042C100000,07,2,0x15D1,0x1513,06,05,--,0.999001,0.000000,0,0,13.4f,s,,FMA_tiFuncOp_mp,FMA_tiFuncOp_mp
+FMTC_trqInr,B812F1042C100000,07,2,0x009F,0x0096,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,FMTC_trqInr,aktuelles rückgerechnetes inneres Motormoment
+FTSCD_tFuel,B812F1042C100000,07,2,0x00A0,0x005B,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,FTSCD_tFuel,Kraftstofftemperatur
+FTSCD_uRaw,B812F1042C100000,07,2,0x00A1,0x00D4,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,FTSCD_uRaw,Spannungsrohwert der Kraftstoffstemperatur
+FanCD_dcycRaw_mp,B812F1042C100000,07,2,0x00A2,0x0067,06,05,--,0.010000,0.000000,0,0,8.4f,%,,FanCD_dcycRaw_mp,dutycycle Ubatt-corrected
+FlFCD_stFlFltRawVal,B812F1042C100000,07,2,0x00A3,0x300F,06,05,--,1.000000,0.000000,0,0,5.1f,-,,FlFCD_stFlFltRawVal,fuel filter temp and pressure monitoring
+FlMng_qLimSmk,B812F1042C100000,07,2,0x1568,0x154A,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,FlMng_qLimSmk,FlMng_qLimSmk
+FrmMng_lSum,B812F1042C100000,07,2,0x15E0,0x009A,06,05,--,8.000000,0.000000,0,0,13.2f,km,,FrmMng_lSum,Kilometerstand des Fahrzeugs
+FrmMng_nFan,B812F1042C100000,07,2,0x15E1,0x00CF,06,05,--,0.091556,0.000000,0,0,8.3f,1/min,,FrmMng_nFan,Lüfterdrehzahl
+FrmMng_nPSP,B812F1042C100000,07,2,0x00A4,0x00E8,06,05,--,1.000000,0.000000,0,0,8.2f,rpm,,FrmMng_nPSP,Ist-Drehzahl EKP
+FrmMng_rPSPSetPoint,B812F1042C100000,07,2,0x00A5,0x00E7,06,05,--,0.003052,0.000000,0,0,8.4f,%,,FrmMng_rPSPSetPoint,EKP-SetPoint
+FrmMng_stACHtgReq,B812F1042C100000,07,2,0x15E2,0x15E2,06,05,--,1.000000,0.000000,0,0,5.1f,-,,FrmMng_stACHtgReq,Heizleistungsanforderung über CAN
+FrmMng_stPSP,B812F1042C100000,07,2,0x15E3,0x146E,06,05,--,1.000000,0.000000,0,0,5.1f,-,,FrmMng_stPSP,EKP - diagnose status
+FrmMng_swtAC_mp,B812F1042C100000,07,2,0x15E4,0x146F,06,05,--,1.000000,0.000000,0,0,5.1f,-,,FrmMng_swtAC_mp,Schalter Klimakompressor
+FrmMng_tEnv,B812F1042C100000,07,2,0x15E5,0x00E3,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,FrmMng_tEnv,Umgebungstemperatur
+FrmMng_trqAC,B812F1042C100000,07,2,0x15E6,0x14A4,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,FrmMng_trqAC,desired Torque AC
+Gearbx_stGear,B812F1042C100000,07,2,0x1644,0x00DA,06,05,--,1.000000,0.000000,0,0,5.1f,-,,Gearbx_stGear,Ganginformation
+Gearbx_swtType,B812F1042C100000,07,2,0x1645,0x00A0,06,05,--,1.000000,0.000000,0,0,5.3f,-,,Gearbx_swtType,Getriebetyp (0: manuell(MT); 1: automatisch(AT); 2: Schaltautomatisch(AST); 3: StufenlosesGetriebe (CVT); 4:automatic Z-Car)
+GlwCD_RawVal_mp,B812F1042C100000,07,2,0x164E,0x005A,06,05,--,1.000000,0.000000,0,0,5.1f,-,,GlwCD_RawVal_mp,Rohwert für das Glühanforderungsregister des Glühcontrollers
+GlwCtl_rPwrOut,B812F1042C100000,07,2,0x00A6,0x007C,06,05,--,1.000000,0.000000,0,0,5.1f,-,,GlwCtl_rPwrOut,Glühanforderung
+GlwCtl_stLampOut,B812F1042C100000,07,2,0x00A7,0x0061,06,05,--,1.000000,0.000000,0,0,5.1f,-,,GlwCtl_stLampOut,Zustand der Glühanzeige
+HWEMon_numEEPBlockfailed,B812F1042C100000,07,2,0x00B4,0x3013,06,05,--,1.000000,0.000000,0,0,5.1f,-,,HWEMon_numEEPBlockfailed,Battery current value
+HWEMon_numRecovery,B812F1042C100000,07,2,0x00A8,0x0073,06,05,--,1.000000,0.000000,0,0,8.2f,-,,HWEMon_numRecovery,Herkunft des letzten Reset ( >0 = Recovery ) - low byte
+HWEMon_numRecovery1,B812F1042C100000,07,2,0x00A9,0x0074,06,05,--,1.000000,0.000000,0,0,8.2f,-,,HWEMon_numRecovery1,Herkunft des letzten Reset ( >0 = Recovery ) - high byte
+HWEMon_recLocHigh_mp,B812F1042C100000,07,2,0x00AC,0x00FF,06,05,--,1.000000,0.000000,0,0,8.2f,-,,HWEMon_recLocHigh_mp,Recovery location address - high word - low byte
+HWEMon_recLocLow_mp,B812F1042C100000,07,2,0x00AA,0x00FD,06,05,--,1.000000,0.000000,0,0,8.2f,-,,HWEMon_recLocLow_mp,Recovery location address - low word - low byte
+HWEMon_recLocLow_mp1,B812F1042C100000,07,2,0x00AB,0x00FE,06,05,--,1.000000,0.000000,0,0,8.2f,-,,HWEMon_recLocLow_mp1,Recovery location address - low word - high byte
+IATSCD_tAir,B812F1042C100000,07,2,0x00AD,0x0038,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,IATSCD_tAir,Ansauglufttemperatur
+IATSCD_tAirCats,B812F1042C100000,07,2,0x00AE,0x0036,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,IATSCD_tAirCats,Ladelufttemperatur nach Ladeluftkühler
+IATSCD_tAirCatsSec,B812F1042C100000,07,2,0x00AF,0x3028,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,IATSCD_tAirCatsSec,Ladelufttemperatur nach Ladeluftkühler - sec
+IATSCD_tAirLinCats,B812F1042C100000,07,2,0x16A8,0x007D,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,IATSCD_tAirLinCats,Ladelufttemperatur - Linearisierter Wert aus HWK vor Aufruf der Übergangsfunktion
+IATSCD_uRawCats,B812F1042C100000,07,2,0x00B0,0x0037,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,IATSCD_uRawCats,-
+IATSCD_uRawCatsSec,B812F1042C100000,07,2,0x00B1,0x3029,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,IATSCD_uRawCatsSec,-
+I_batt,B812F1042C100000,07,2,0x00F2,0x3016,06,05,--,0.015259,-200.000000,0,0,%0.0,A,,I_batt,Batteriestrom von IBS gemessen
+I_gen,B812F1042C100000,07,2,0x1F40,0x1F40,06,05,--,1.000000,0.000000,0,0,%0.0,A,,I_gen,Generatorstrom
+IndSys_rVSA,B812F1042C100000,07,2,0x16B2,0x0058,06,05,--,0.010000,0.000000,0,0,8.4f,%,,IndSys_rVSA,Sollposition für Einlaßkanalabschaltung
+InjCrv_phiMI1Des,B812F1042C100000,07,2,0x16BC,0x00BF,06,05,--,0.002930,-90.351389,0,0,8.4f,deg CrS,,InjCrv_phiMI1Des,gewünschter Bezugswinkel für Beginn der MI1
+InjCrv_phiPiI1Des,B812F1042C100000,07,2,0x16BD,0x00B1,06,05,--,0.002930,-90.351389,0,0,8.4f,deg CrS,,InjCrv_phiPiI1Des,gewünschter Winkelkomponente Ansteuerbeginn PiI1
+InjCrv_phiPiI2Des,B812F1042C100000,07,2,0x16BE,0x00B2,06,05,--,0.002930,-90.351389,0,0,8.4f,deg CrS,,InjCrv_phiPiI2Des,gewünschte Winkelkomponente Ansteuerbeginn PiI2
+InjCrv_phiPiI3Des,B812F1042C100000,07,2,0x16BF,0x00B3,06,05,--,0.002930,-90.351389,0,0,8.4f,deg CrS,,InjCrv_phiPiI3Des,gewünschte Winkelkomponente Ansteuerbeginn PiI3
+InjCrv_phiPoI1Des,B812F1042C100000,07,2,0x16C0,0x00C4,06,05,--,0.002930,-90.351389,0,0,8.4f,deg CrS,,InjCrv_phiPoI1Des,gewünschter Bezugswinkel für Beginn der PoI1
+InjCrv_phiPoI2Des,B812F1042C100000,07,2,0x16C1,0x16C1,06,05,--,0.002930,-90.351389,0,0,8.4f,deg CrS,,InjCrv_phiPoI2Des,gewünschter Bezugswinkel für Beginn der PoI2
+InjCrv_qMI1Des,B812F1042C100000,07,2,0x16C2,0x00C1,06,05,--,0.001526,0.000000,0,0,8.4f,mg/inj,,InjCrv_qMI1Des,Sollmenge Haupteinspritzung
+InjCrv_qPiI1Bas_mp,B812F1042C100000,07,2,0x16C3,0x00BD,06,05,--,0.001526,0.000000,0,0,8.4f,mg/inj,,InjCrv_qPiI1Bas_mp,Einspritzmenge PiI1 Grundwert
+InjCrv_qPiI1Des,B812F1042C100000,07,2,0x16C4,0x00B7,06,05,--,0.001526,0.000000,0,0,8.4f,mg/inj,,InjCrv_qPiI1Des,gewünschte Einspritzmenge PiI 1
+InjCrv_qPiI2Bas_mp,B812F1042C100000,07,2,0x16C5,0x00BE,06,05,--,0.001526,0.000000,0,0,8.4f,mg/inj,,InjCrv_qPiI2Bas_mp,Einspritzmenge PiI2 Grundwert
+InjCrv_qPiI2Des,B812F1042C100000,07,2,0x16C6,0x00B8,06,05,--,0.001526,0.000000,0,0,8.4f,mg/inj,,InjCrv_qPiI2Des,gewünschte Einspritzmenge PiI 2
+InjCrv_qPiI3Des,B812F1042C100000,07,2,0x16C7,0x00B9,06,05,--,0.001526,0.000000,0,0,8.4f,mg/inj,,InjCrv_qPiI3Des,gewünschte Einspritzmenge PiI 3
+InjCrv_qPoI1Des[0],B812F1042C100000,07,2,0x16C8,0x14BE,06,05,--,0.001526,0.000000,0,0,8.4f,mg/inj,,InjCrv_qPoI1Des[0],gewünschte Einspritzmenge PoI 1
+InjCrv_qPoI2Des[0],B812F1042C100000,07,2,0x16C9,0x14BF,06,05,--,0.001526,0.000000,0,0,8.4f,mg/inj,,InjCrv_qPoI2Des[0],gewünschte Einspritzmenge PoI 2
+InjCrv_stPiI1_mp,B812F1042C100000,07,2,0x16CA,0x00BA,06,05,--,1.000000,0.000000,0,0,5.1f,-,,InjCrv_stPiI1_mp,Freigabestatus PiI1
+InjCrv_stPiI2,B812F1042C100000,07,2,0x16CB,0x00BB,06,05,--,1.000000,0.000000,0,0,5.1f,-,,InjCrv_stPiI2,Freigabestatus PiI2
+InjCrv_tiMI1ET,B812F1042C100000,07,2,0x16CC,0x00C0,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjCrv_tiMI1ET,geschätzte Ansteuerdauer MI1
+InjCrv_tiPiI1Bas_mp,B812F1042C100000,07,2,0x16CD,0x16CD,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjCrv_tiPiI1Bas_mp,injection quantity PiI1 base value
+InjCrv_tiPiI1Des,B812F1042C100000,07,2,0x16CE,0x14C1,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjCrv_tiPiI1Des,gewuenschte Zeitkomponente Ansteuerbeginn PiI1
+InjCrv_tiPiI2Des,B812F1042C100000,07,2,0x16CF,0x16CF,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjCrv_tiPiI2Des,gewuenschte Zeitkomponente Ansteuerbeginn PiI2
+InjCrv_tiPoI2Des,B812F1042C100000,07,2,0x16D0,0x144D,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjCrv_tiPoI2Des,gewünschte Bezugszeitkomponente für Beginn PoI2
+InjCtl_qCurr,B812F1042C100000,07,2,0x00B5,0x0055,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/cyc,,InjCtl_qCurr,Einspritzmenge aktueller Wert
+InjCtl_qCurrCor,B812F1042C100000,07,2,0x170C,0x170C,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/cyc,,InjCtl_qCurrCor,Einspritzmenge aktueller Wert mit FMA Korrektur
+InjCtl_qSet,B812F1042C100000,07,2,0x00EF,0x0034,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/cyc,,InjCtl_qSet,Einspritzmenge Sollwert
+InjCtl_qSetUnBal,B812F1042C100000,07,2,0x00B6,0x0059,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/cyc,,InjCtl_qSetUnBal,Einspritzmenge Sollwert ohne Mengenausgleichsregelung
+InjVCD_tiMI1ET_mp,B812F1042C100000,07,2,0x1720,0x00BC,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiMI1ET_mp,Ansteuerdauer der Haupteinspritzung 1
+InjVCD_tiPiI1ET_mp,B812F1042C100000,07,2,0x1721,0x00B4,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI1ET_mp,Ansteuerdauer der Voreinspritzung 1
+InjVCD_tiPiI1ZFCETCor_mp[0],B812F1042C100000,07,2,0x172A,0x151D,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI1ZFCETCor_mp[0],"ZFC energising time correction for PiI1, cylinder 1"
+InjVCD_tiPiI1ZFCETCor_mp[1],B812F1042C100000,07,2,0x172B,0x151E,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI1ZFCETCor_mp[1],"ZFC energising time correction for PiI1, cylinder 2"
+InjVCD_tiPiI1ZFCETCor_mp[2],B812F1042C100000,07,2,0x172C,0x151F,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI1ZFCETCor_mp[2],"ZFC energising time correction for PiI1, cylinder 3"
+InjVCD_tiPiI1ZFCETCor_mp[3],B812F1042C100000,07,2,0x172D,0x1520,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI1ZFCETCor_mp[3],"ZFC energising time correction for PiI1, cylinder 4"
+InjVCD_tiPiI1ZFCETCor_mp[4],B812F1042C100000,07,2,0x172E,0x1521,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI1ZFCETCor_mp[4],"ZFC energising time correction for PiI1, cylinder 5"
+InjVCD_tiPiI1ZFCETCor_mp[5],B812F1042C100000,07,2,0x172F,0x1522,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI1ZFCETCor_mp[5],"ZFC energising time correction for PiI1, cylinder 6"
+InjVCD_tiPiI1ZFCETCor_mp[6],B812F1042C100000,07,2,0x1730,0x1730,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI1ZFCETCor_mp[6],"ZFC energising time correction for PiI1, cylinder 7"
+InjVCD_tiPiI1ZFCETCor_mp[7],B812F1042C100000,07,2,0x1731,0x1731,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI1ZFCETCor_mp[7],"ZFC energising time correction for PiI1, cylinder 8"
+InjVCD_tiPiI2ET_mp,B812F1042C100000,07,2,0x1732,0x00B5,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI2ET_mp,Ansteuerdauer der Voreinspritzung 2
+InjVCD_tiPiI2ZFCETCor_mp[0],B812F1042C100000,07,2,0x1734,0x1523,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI2ZFCETCor_mp[0],"ZFC energising time correction for PiI2, cylinder 1"
+InjVCD_tiPiI2ZFCETCor_mp[1],B812F1042C100000,07,2,0x1735,0x1524,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI2ZFCETCor_mp[1],"ZFC energising time correction for PiI2, cylinder 2"
+InjVCD_tiPiI2ZFCETCor_mp[2],B812F1042C100000,07,2,0x1736,0x1525,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI2ZFCETCor_mp[2],"ZFC energising time correction for PiI2, cylinder 3"
+InjVCD_tiPiI2ZFCETCor_mp[3],B812F1042C100000,07,2,0x1737,0x1526,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI2ZFCETCor_mp[3],"ZFC energising time correction for PiI2, cylinder 4"
+InjVCD_tiPiI2ZFCETCor_mp[4],B812F1042C100000,07,2,0x1738,0x1527,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI2ZFCETCor_mp[4],"ZFC energising time correction for PiI2, cylinder 5"
+InjVCD_tiPiI2ZFCETCor_mp[5],B812F1042C100000,07,2,0x1739,0x1528,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI2ZFCETCor_mp[5],"ZFC energising time correction for PiI2, cylinder 6"
+InjVCD_tiPiI2ZFCETCor_mp[6],B812F1042C100000,07,2,0x173A,0x173A,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI2ZFCETCor_mp[6],"ZFC energising time correction for PiI2, cylinder 7"
+InjVCD_tiPiI2ZFCETCor_mp[7],B812F1042C100000,07,2,0x173B,0x173B,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI2ZFCETCor_mp[7],"ZFC energising time correction for PiI2, cylinder 8"
+InjVCD_tiPiI3ZFCETCor_mp[0],B812F1042C100000,07,2,0x173E,0x1529,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI3ZFCETCor_mp[0],"ZFC energising time correction for PiI3, cylinder 1"
+InjVCD_tiPiI3ZFCETCor_mp[1],B812F1042C100000,07,2,0x173F,0x152A,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI3ZFCETCor_mp[1],"ZFC energising time correction for PiI3, cylinder 2"
+InjVCD_tiPiI3ZFCETCor_mp[2],B812F1042C100000,07,2,0x1740,0x152B,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI3ZFCETCor_mp[2],"ZFC energising time correction for PiI3, cylinder 3"
+InjVCD_tiPiI3ZFCETCor_mp[3],B812F1042C100000,07,2,0x1741,0x152C,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI3ZFCETCor_mp[3],"ZFC energising time correction for PiI3, cylinder 4"
+InjVCD_tiPiI3ZFCETCor_mp[4],B812F1042C100000,07,2,0x1742,0x152D,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI3ZFCETCor_mp[4],"ZFC energising time correction for PiI3, cylinder 5"
+InjVCD_tiPiI3ZFCETCor_mp[5],B812F1042C100000,07,2,0x1743,0x152E,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI3ZFCETCor_mp[5],"ZFC energising time correction for PiI3, cylinder 6"
+InjVCD_tiPiI3ZFCETCor_mp[6],B812F1042C100000,07,2,0x1744,0x1744,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI3ZFCETCor_mp[6],"ZFC energising time correction for PiI3, cylinder 7"
+InjVCD_tiPiI3ZFCETCor_mp[7],B812F1042C100000,07,2,0x1745,0x1745,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPiI3ZFCETCor_mp[7],"ZFC energising time correction for PiI3, cylinder 8"
+InjVCD_tiPoI1ET_mp,B812F1042C100000,07,2,0x1748,0x00C6,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPoI1ET_mp,Ansteuerdauer Nacheinspritzung 1
+InjVCD_tiPoI2ET_mp,B812F1042C100000,07,2,0x1749,0x00C7,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,InjVCD_tiPoI2ET_mp,Ansteuerdauer der Nacheinspritzung 2
+InjVlv_nCyl[0],B812F1042C100000,07,2,0x1770,0x00A1,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl[0],Zylinderspezifische Drehzahl für Zylinder 1
+InjVlv_nCyl[1],B812F1042C100000,07,2,0x1771,0x00A2,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl[1],Zylinderspezifische Drehzahl für Zylinder 2
+InjVlv_nCyl[2],B812F1042C100000,07,2,0x1772,0x00A3,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl[2],Zylinderspezifische Drehzahl für Zylinder 3
+InjVlv_nCyl[3],B812F1042C100000,07,2,0x1773,0x00A4,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl[3],Zylinderspezifische Drehzahl für Zylinder 4
+InjVlv_nCyl[4],B812F1042C100000,07,2,0x1774,0x00A5,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl[4],Zylinderspezifische Drehzahl für Zylinder 5
+InjVlv_nCyl[5],B812F1042C100000,07,2,0x1775,0x00A6,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl[5],Zylinderspezifische Drehzahl für Zylinder 6
+InjVlv_nCyl[6],B812F1042C100000,07,2,0x1776,0x1776,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl[6],Zylinderspezifische Drehzahl für Zylinder 7
+InjVlv_nCyl[7],B812F1042C100000,07,2,0x1777,0x1777,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,InjVlv_nCyl[7],Zylinderspezifische Drehzahl für Zylinder 8
+InjVlv_qFBCCyl[0],B812F1042C100000,07,2,0x177A,0x00A7,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl[0],Zylinderselektive FBC-Mengenkorrektur für Zylinder 1
+InjVlv_qFBCCyl[1],B812F1042C100000,07,2,0x177B,0x00A8,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl[1],Zylinderselektive FBC-Mengenkorrektur für Zylinder 2
+InjVlv_qFBCCyl[2],B812F1042C100000,07,2,0x177C,0x00A9,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl[2],Zylinderselektive FBC-Mengenkorrektur für Zylinder 3
+InjVlv_qFBCCyl[3],B812F1042C100000,07,2,0x177D,0x00AA,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl[3],Zylinderselektive FBC-Mengenkorrektur für Zylinder 4
+InjVlv_qFBCCyl[4],B812F1042C100000,07,2,0x177E,0x00AB,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl[4],Zylinderselektive FBC-Mengenkorrektur für Zylinder 5
+InjVlv_qFBCCyl[5],B812F1042C100000,07,2,0x177F,0x00AC,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl[5],Zylinderselektive FBC-Mengenkorrektur für Zylinder 6
+InjVlv_qFBCCyl[6],B812F1042C100000,07,2,0x1780,0x1780,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl[6],Zylinderselektive FBC-Mengenkorrektur für Zylinder 7
+InjVlv_qFBCCyl[7],B812F1042C100000,07,2,0x1781,0x1781,06,05,--,0.003052,-99.998993,0,0,8.4f,mg/hub,,InjVlv_qFBCCyl[7],Zylinderselektive FBC-Mengenkorrektur für Zylinder 8
+LIGov_nSetpoint,B812F1042C100000,07,2,0x00B7,0x0031,06,05,--,0.125002,0.000000,0,0,8.2f,rpm,,LIGov_nSetpoint,Untergrenze Drehzahlintervall des LIGov
+LIGov_st,B812F1042C100000,07,2,0x17D4,0x00E2,06,05,--,1.000000,0.000000,0,0,8.2f,-,,LIGov_st,Zustand des Leerlaufreglers
+LIGov_trq,B812F1042C100000,07,2,0x00B8,0x0097,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,LIGov_trq,Leerlaufreglermoment
+LPACD_rOut,B812F1042C100000,07,2,0x00B9,0x300E,06,05,--,0.010000,0.000000,0,0,8.4f,%,,LPACD_rOut,output for the PWM power stage after battery voltage correction
+LSUCD_drO2Adpt[0],B812F1042C100000,07,2,0x1806,0x1806,06,05,--,0.000009,-0.299986,0,0,9.7f,-,,LSUCD_drO2Adpt[0],Eingelernter absoluter Messfehler der Sauerstoffkonzentration
+LSUCD_facO2Corr_mp[0],B812F1042C100000,07,2,0x1807,0x14A8,06,05,--,0.000122,0.000000,0,0,8.6f,-,,LSUCD_facO2Corr_mp[0],Correction factor of adaption
+LSUCD_rO2Raw[0],B812F1042C100000,07,2,0x180A,0x14C8,06,05,--,0.000009,-0.299986,0,0,9.7f,-,,LSUCD_rO2Raw[0],"Raw Oxygen value, only offset compensated"
+LSUCD_stAdpt[0],B812F1042C100000,07,2,0x1808,0x1695,06,05,--,1.000000,0.000000,0,0,5.1f,-,,LSUCD_stAdpt[0],Zustandsgroesse der Adaption (adaptiert / nicht adaptiert)
+LSUCD_stO2Valid[0],B812F1042C100000,07,2,0x1809,0x14A7,06,05,--,1.000000,0.000000,0,0,5.1f,-,,LSUCD_stO2Valid[0],status of Oxigen signal valid/not valid
+LSUCD_uO2Raw[0],B812F1042C100000,07,2,0x180B,0x3007,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,LSUCD_uO2Raw[0],voltage raw value for lambda
+LSU_rLmbd[0],B812F1042C100000,07,2,0x181A,0x14C2,06,05,--,0.000610,0.000000,0,0,8.5f,-,,LSU_rLmbd[0],Lambda
+LSU_rO2Adpt[0],B812F1042C100000,07,2,0x00BD,0x14C3,06,05,--,0.000009,-0.299986,0,0,9.7f,-,,LSU_rO2Adpt[0],adaptive oxygen concentration for external modules
+MeUnCD_dcycOut_mp,B812F1042C100000,07,2,0x00BE,0x00EC,06,05,--,0.010000,0.000000,0,0,8.4f,%,,MeUnCD_dcycOut_mp,Ausgangstastverhältnis
+MeUnCD_iActFlt_mp,B812F1042C100000,07,2,0x1838,0x007F,06,05,--,0.228891,0.000000,0,0,8.2f,mA,,MeUnCD_iActFlt_mp,Zumesseinheit-Stromregelung gefilterter Strom-Istwert
+MeUn_iSet_mp,B812F1042C100000,07,2,0x1842,0x0045,06,05,--,0.228891,0.000000,0,0,8.2f,mA,,MeUn_iSet_mp,Sollstrom für die Zumesseinheit
+OPSCD_stSigOut,B812F1042C100000,07,2,0x00BF,0x00AF,06,05,--,1.000000,0.000000,0,0,5.1f,-,,OPSCD_stSigOut,Ausgangssignal Öldruckschalter
+OPSCD_stpOEL,B812F1042C100000,07,2,0x1AC2,0x00CA,06,05,--,1.000000,0.000000,0,0,5.1f,-,,OPSCD_stpOEL,oil pressure sensor signal
+OTSCD_tEngOil,B812F1042C100000,07,2,0x00C1,0x300D,06,05,--,0.016787,-50.138440,0,0,8.3f,deg C,,OTSCD_tEngOil,Engine oil temperature
+OvRMon_tiOvRMonActive_mp,B812F1042C100000,07,2,0x00ED,0x3038,06,05,--,10.000000,0.000000,0,0,8.1f,ms,,OvRMon_tiOvRMonActive_mp,Time after activation of monitoring
+OvRMon_tiTDCAvrg,B812F1042C100000,07,2,0x00EC,0x3037,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,OvRMon_tiTDCAvrg,Sum of torque generating energising (time of one cycle)
+OxiCCD_tPreB1,B812F1042C100000,07,2,0x00C2,0x009B,06,05,--,1.000240,-51.086707,0,0,8.3f,deg C,,OxiCCD_tPreB1,Abgastemperatur vor Oxidationskatalysator
+OxiCCD_tPreB2,B812F1042C100000,07,2,0x00C3,0x302A,06,05,--,1.000240,-51.086707,0,0,8.3f,deg C,,OxiCCD_tPreB2,Abgastemperatur vor Oxidationskatalysator - Bank2
+OxiCCD_uRawTempPreB1,B812F1042C100000,07,2,0x00C4,0x00D5,06,05,--,0.610958,0.000000,0,0,8.3f,mV,,OxiCCD_uRawTempPreB1,Abgastemperatur vor Oxidationskatalysator Rohwert
+OxiCCD_uRawTempPreB2,B812F1042C100000,07,2,0x00C5,0x302B,06,05,--,0.610958,0.000000,0,0,8.3f,mV,,OxiCCD_uRawTempPreB2,Abgastemperatur vor Oxidationskatalysator Rohwert - Bank2
+Oz_kvbmw,B812F1042C100000,07,2,0x1F3F,0x3047,06,05,--,0.000122,0.000000,0,0,%0.0,-,,Oz_kvbmw,
+Oz_kvbog,B812F1042C100000,07,2,0x1F41,0x1F41,06,05,--,1.000000,0.000000,0,0,%0.0,-,,Oz_kvbog,zugeteilte Bonuskraftstoffmenge
+Oz_kvbsm,B812F1042C100000,07,2,0x1F3E,0x3048,06,05,--,0.000122,0.000000,0,0,%0.0,-,,Oz_kvbsm,
+Oz_kvbsm_ul,B812F1042C100000,07,2,0x1F42,0x1F42,06,05,--,0.000122,0.000000,0,0,%0.0,-,,Oz_kvbsm_ul,-
+Oz_lp,B812F1042C100000,07,2,0x1F4A,0x3045,06,05,--,1.000000,0.000000,0,0,%0.0,-,,Oz_lp,oz level picture
+Oz_lv,B812F1042C100000,07,2,0x1F4B,0x3046,06,05,--,1.000000,0.000000,0,0,%0.0,-,,Oz_lv,oz level value
+Oz_oelkm,B812F1042C100000,07,2,0x00F3,0x3017,06,05,--,10.000000,0.000000,0,0,%0.0,km,,Oz_oelkm,Oelkilometer
+Oz_oelnivkurz,B812F1042C100000,07,2,0x00F4,0x3018,06,05,--,0.500000,0.000000,0,0,%0.0,s,,Oz_oelnivkurz,Ölniveau - kurz
+Oz_oelnivnorm,B812F1042C100000,07,2,0x00F5,0x3019,06,05,--,0.500000,0.000000,0,0,%0.0,s,,Oz_oelnivnorm,Ölniveau - Norm
+Oz_oelnivori,B812F1042C100000,07,2,0x00F6,0x301A,06,05,--,0.500000,0.000000,0,0,%0.0,s,,Oz_oelnivori,Ölniveau - original
+Oz_oelzeit,B812F1042C100000,07,2,0x1F43,0x1F43,06,05,--,1.000000,0.000000,0,0,%0.0,-,,Oz_oelzeit,Oel-Alter in Monate
+Oz_permbog,B812F1042C100000,07,2,0x1F44,0x1F44,06,05,--,0.000092,0.000000,0,0,%0.0,-,,Oz_permbog,zugeteilter Permittivitaetsbonus
+Oz_permex,B812F1042C100000,07,2,0x1F45,0x1F45,06,05,--,0.000092,0.000000,0,0,%0.0,-,,Oz_permex,Permittivitaet fuer Bewertung aufbereitet (extrapoliert)
+Oz_permlow,B812F1042C100000,07,2,0x1F46,0x1F46,06,05,--,0.000092,0.000000,0,0,%0.0,-,,Oz_permlow,aufbereitete Permittivitaet bei letztem Oelwechsel
+Oz_permoff,B812F1042C100000,07,2,0x1F47,0x1F47,06,05,--,0.000092,0.000000,0,0,%0.0,-,,Oz_permoff,Offset fuer Permittivitaetskorrektur
+Oz_rwkvb,B812F1042C100000,07,2,0x1F48,0x1F48,06,05,--,10.000000,0.000000,0,0,%0.0,km,,Oz_rwkvb,-
+Oz_rwperm,B812F1042C100000,07,2,0x1F49,0x1F49,06,05,--,10.000000,0.000000,0,0,%0.0,km,,Oz_rwperm,Restweg aus Permittivitaet abgeleitet
+PCR_pBDesLP_mp,B812F1042C100000,07,2,0x18A5,0x18A5,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PCR_pBDesLP_mp,boost pressure setpoint
+PCR_pBGDev,B812F1042C100000,07,2,0x189E,0x189E,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PCR_pBGDev,govenor deviation of PCR
+PCR_pBGDevMax_mp,B812F1042C100000,07,2,0x18A0,0x18A0,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PCR_pBGDevMax_mp,positiv Deviation threshold with offset govenor deviation of PCR
+PCR_pBGDevMin_mp,B812F1042C100000,07,2,0x18A1,0x18A1,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PCR_pBGDevMin_mp,negativ Deviation threshold with offset govenor deviation of PCR
+PCR_pBGDvtLP,B812F1042C100000,07,2,0x18A4,0x18A4,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PCR_pBGDvtLP,govenor deviation
+PCR_pDesVal,B812F1042C100000,07,2,0x00C6,0x008A,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PCR_pDesVal,Ladedrucksollwert
+PCR_pLPDvtMax_mp,B812F1042C100000,07,2,0x18A6,0x18A6,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PCR_pLPDvtMax_mp,
+PCR_pLPDvtMin_mp,B812F1042C100000,07,2,0x18A7,0x18A7,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PCR_pLPDvtMin_mp,
+PCR_rBPA,B812F1042C100000,07,2,0x189C,0x189C,06,05,--,0.003052,0.000000,0,0,8.4f,%,,PCR_rBPA,Ratio O/P from PCR to BPACD
+PCR_stLPMonitor,B812F1042C100000,07,2,0x18A2,0x18A2,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PCR_stLPMonitor,Status of PCR monitoring at low pressure
+PCR_stLPWorkSph,B812F1042C100000,07,2,0x18A3,0x18A3,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PCR_stLPWorkSph,info about working sphere
+PCR_stMonitor,B812F1042C100000,07,2,0x189D,0x004D,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PCR_stMonitor,Statusangabe bei Abschaltung der Regelung
+PCR_stWorkSph,B812F1042C100000,07,2,0x189F,0x189F,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PCR_stWorkSph,info about working sphere
+PCVCD_dcycOut_mp,B812F1042C100000,07,2,0x00C7,0x00ED,06,05,--,0.010000,0.000000,0,0,8.4f,%,,PCVCD_dcycOut_mp,Ausgangstastverhältnis
+PCVCD_iActVal,B812F1042C100000,07,2,0x18B0,0x009E,06,05,--,0.228891,0.000000,0,0,8.2f,mA,,PCVCD_iActVal,Analogeingang Strom-Istwert
+PCV_facAdapt,B812F1042C100000,07,2,0x18BA,0x18BA,06,05,--,0.000122,0.000000,0,0,8.6f,-,,PCV_facAdapt,Korrekturfaktor der PCV-Kennlinie
+PFltCD_pPreB1,B812F1042C100000,07,2,0x00C8,0x004A,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PFltCD_pPreB1,Abgasdruck vor Partikelfilter
+PFltCD_pPreB2,B812F1042C100000,07,2,0x00C9,0x00DF,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PFltCD_pPreB2,Abgasdruck vor Partikelfilter
+PFltCD_tPreB1,B812F1042C100000,07,2,0x00CA,0x009D,06,05,--,1.000240,-51.086707,0,0,8.3f,deg C,,PFltCD_tPreB1,Abgastemp. vor Partikelfilter erster Sensor
+PFltCD_tPreB2,B812F1042C100000,07,2,0x00CB,0x00E1,06,05,--,1.000240,-51.086707,0,0,8.3f,deg C,,PFltCD_tPreB2,Abgastemp. vor Partikelfilter zweiter Sensor
+PFltCD_uRawPresPreB1,B812F1042C100000,07,2,0x00CC,0x3010,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,PFltCD_uRawPresPreB1,Spannungsrohwert vom Absolutdrucksensor vor dem Partikelfilter
+PFltCD_uRawPresPreB2,B812F1042C100000,07,2,0x00CD,0x302E,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,PFltCD_uRawPresPreB2,Spannungsrohwert vom Absolutdrucksensor vor dem Partikelfilter - Bank2
+PFltCD_uRawTempPreB1,B812F1042C100000,07,2,0x00CE,0x00D6,06,05,--,0.610958,0.000000,0,0,8.3f,mV,,PFltCD_uRawTempPreB1,Spannungsrohwert der Abgastemperatur vor dem Partikelfilter
+PFltCD_uRawTempPreB2,B812F1042C100000,07,2,0x00CF,0x302F,06,05,--,0.610958,0.000000,0,0,8.3f,mV,,PFltCD_uRawTempPreB2,Spannungsrohwert der Abgastemperatur vor dem Partikelfilter - Bank2
+PFlt_ctOvldHealObsNO2B1_mp,B812F1042C100000,07,2,0x007E,0x3049,06,05,--,1.000000,0.000000,0,0,8.2f,-,,PFlt_ctOvldHealObsNO2B1_mp,counter for healing  Overload defect
+PFlt_ctOvldHealObsNO2B2_mp,B812F1042C100000,07,2,0x007F,0x304A,06,05,--,1.000000,0.000000,0,0,8.2f,-,,PFlt_ctOvldHealObsNO2B2_mp,counter for healing  Overload defect Bank2
+PFlt_ctRgnStep1_mp,B812F1042C100000,07,2,0x191E,0x191E,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_ctRgnStep1_mp,-
+PFlt_ctRgnStep2_mp,B812F1042C100000,07,2,0x191F,0x191F,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_ctRgnStep2_mp,-
+PFlt_ctRgnStep3_mp,B812F1042C100000,07,2,0x1920,0x1920,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_ctRgnStep3_mp,-
+PFlt_ctRgnStep4_mp,B812F1042C100000,07,2,0x1921,0x1921,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_ctRgnStep4_mp,-
+PFlt_ctRgnStep5_mp,B812F1042C100000,07,2,0x1922,0x1922,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_ctRgnStep5_mp,-
+PFlt_ctRgnStep6_mp,B812F1042C100000,07,2,0x1923,0x1923,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_ctRgnStep6_mp,-
+PFlt_ctRgnStep7_mp,B812F1042C100000,07,2,0x1924,0x1924,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_ctRgnStep7_mp,-
+PFlt_ctRgnStep8_mp,B812F1042C100000,07,2,0x1925,0x1925,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_ctRgnStep8_mp,-
+PFlt_ctStartSnceHCCondB1_mp,B812F1042C100000,07,2,0x195A,0x195A,06,05,--,1.000000,0.000000,0,0,8.2f,-,,PFlt_ctStartSnceHCCondB1_mp,driven distance threshold for next HC rgn - Bank1
+PFlt_ctStartSnceHCCondB2_mp,B812F1042C100000,07,2,0x195B,0x195B,06,05,--,1.000000,0.000000,0,0,8.2f,-,,PFlt_ctStartSnceHCCondB2_mp,driven distance threshold for next HC rgn - Bank2
+PFlt_ctStartSnceRgnB1_mp,B812F1042C100000,07,2,0x195D,0x195D,06,05,--,1.000000,0.000000,0,0,8.2f,-,,PFlt_ctStartSnceRgnB1_mp,driven distance threshold for next rgn - Bank1
+PFlt_ctStartSnceRgnB2_mp,B812F1042C100000,07,2,0x195E,0x195E,06,05,--,1.000000,0.000000,0,0,8.2f,-,,PFlt_ctStartSnceRgnB2_mp,driven distance threshold for next rgn - Bank2
+PFlt_dmO2AprxB1,B812F1042C100000,07,2,0x1963,0x1963,06,05,--,0.048829,-1599.971484,0,0,8.3f,Kg/h,,PFlt_dmO2AprxB1,Oxygen mass flow upstream of particle filter - Bank1
+PFlt_dmO2AprxB2,B812F1042C100000,07,2,0x1996,0x1996,06,05,--,0.048829,-1599.971484,0,0,8.3f,Kg/h,,PFlt_dmO2AprxB2,Oxygen mass flow upstream of particle filter - Bank2
+PFlt_dmSotSimB1_mp,B812F1042C100000,07,2,0x199E,0x199E,06,05,--,0.010000,0.000000,0,0,8.4f,mg/s,,PFlt_dmSotSimB1_mp,produced soot mass per time - Bank1
+PFlt_dmSotSimB2_mp,B812F1042C100000,07,2,0x199F,0x199F,06,05,--,0.010000,0.000000,0,0,8.4f,mg/s,,PFlt_dmSotSimB2_mp,produced soot mass per time - Bank2
+PFlt_dmSotSimDynB1_mp,B812F1042C100000,07,2,0x1998,0x1998,06,05,--,0.010000,0.000000,0,0,8.4f,mg/s,,PFlt_dmSotSimDynB1_mp,dynamic part of generated soot mass f(dq) - Bank1
+PFlt_dmSotSimDynB2_mp,B812F1042C100000,07,2,0x1999,0x1999,06,05,--,0.010000,0.000000,0,0,8.4f,mg/s,,PFlt_dmSotSimDynB2_mp,dynamic part of generated soot mass f(dq) - Bank2
+PFlt_dmSotSimEmiB1_mp,B812F1042C100000,07,2,0x1900,0x003D,06,05,--,0.010000,0.000000,0,0,8.4f,mg/s,,PFlt_dmSotSimEmiB1_mp,generierte Partikelmasse
+PFlt_dmSotSimEmiB2_mp,B812F1042C100000,07,2,0x1932,0x1932,06,05,--,0.010000,0.000000,0,0,8.4f,mg/s,,PFlt_dmSotSimEmiB2_mp,generierte Partikelmasse - Bank2
+PFlt_dmSotSimRgnB1_mp,B812F1042C100000,07,2,0x1903,0x003E,06,05,--,0.010000,0.000000,0,0,8.4f,mg/s,,PFlt_dmSotSimRgnB1_mp,regenerierte Partikelmasse
+PFlt_dmSotSimRgnB2_mp,B812F1042C100000,07,2,0x1935,0x1935,06,05,--,0.010000,0.000000,0,0,8.4f,mg/s,,PFlt_dmSotSimRgnB2_mp,regenerierte Partikelmasse - Bank2
+PFlt_dmSotSimRgnNO2B1,B812F1042C100000,07,2,0x1901,0x003F,06,05,--,0.010000,0.000000,0,0,8.4f,mg/s,,PFlt_dmSotSimRgnNO2B1,abgebauter Partikelmassenstrom in Simulation durch CRT
+PFlt_dmSotSimRgnNO2B2,B812F1042C100000,07,2,0x191A,0x191A,06,05,--,0.010000,0.000000,0,0,8.4f,mg/s,,PFlt_dmSotSimRgnNO2B2,durch NO2-Effekt regenerierter Rußmassenstrom Bank 2
+PFlt_dmSotSimRgnThrB1_mp,B812F1042C100000,07,2,0x1902,0x0040,06,05,--,0.010000,0.000000,0,0,8.4f,mg/s,,PFlt_dmSotSimRgnThrB1_mp,abgebauter Partikelmassenstrom in Simulation durch thermische Regeneration
+PFlt_dmSotSimRgnThrB2_mp,B812F1042C100000,07,2,0x1934,0x1934,06,05,--,0.010000,0.000000,0,0,8.4f,mg/s,,PFlt_dmSotSimRgnThrB2_mp,abgebauter Partikelmassenstrom in Simulation durch thermische Regeneration - Bank2
+PFlt_dmSotSimSty_mp,B812F1042C100000,07,2,0x199A,0x199A,06,05,--,0.010000,0.000000,0,0,8.4f,mg/s,,PFlt_dmSotSimSty_mp,Stationary particle mass flow in simulation
+PFlt_dvol,B812F1042C100000,07,2,0x00D0,0x004E,06,05,--,0.100000,0.000000,0,0,8.3f,m^3/h,,PFlt_dvol,berechneter Abgasvolumenstrom im Partikelfilter
+PFlt_dvolB1,B812F1042C100000,07,2,0x00D6,0x303E,06,05,--,0.100000,0.000000,0,0,8.3f,m^3/h,,PFlt_dvolB1,air volume per time unit across particle filter
+PFlt_dvolB2,B812F1042C100000,07,2,0x00D7,0x303F,06,05,--,0.100000,0.000000,0,0,8.3f,m^3/h,,PFlt_dvolB2,air volume per time unit across particle filter bank2
+PFlt_facMltCorB1_mp,B812F1042C100000,07,2,0x1904,0x004F,06,05,--,0.000122,0.000000,0,0,8.6f,-,,PFlt_facMltCorB1_mp,Korrekturfaktor Additivasche
+PFlt_facMltCorB2_mp,B812F1042C100000,07,2,0x1905,0x1905,06,05,--,0.000122,0.000000,0,0,8.6f,-,,PFlt_facMltCorB2_mp,Korrekturfaktor - Bank2
+PFlt_lAvrgRgn,B812F1042C100000,07,2,0x1926,0x1926,06,05,--,8.000000,0.000000,0,0,8.2f,km,,PFlt_lAvrgRgn,-
+PFlt_lSnceRgnu16B1_mp,B812F1042C100000,07,2,0x00D1,0x3008,06,05,--,128.000000,0.000000,0,0,8.0f,m,,PFlt_lSnceRgnu16B1_mp,gefahrene Strecke seit letzter erforgreicher Regeneration (16bit)
+PFlt_lSnceRgnu16B2_mp,B812F1042C100000,07,2,0x00D2,0x302C,06,05,--,128.000000,0.000000,0,0,8.0f,m,,PFlt_lSnceRgnu16B2_mp,gefahrene Strecke seit letzter erforgreicher Regeneration (16bit) - Bank2
+PFlt_lSumB1_mp,B812F1042C100000,07,2,0x1906,0x0053,06,05,--,8196.721311,0.000000,0,0,13.2f,m,,PFlt_lSumB1_mp,ges. gefahrene Strecke bei der letzten erfolgr. Regeneration
+PFlt_lSumB2_mp,B812F1042C100000,07,2,0x1907,0x1907,06,05,--,8196.721311,0.000000,0,0,13.2f,m,,PFlt_lSumB2_mp,ges. gefahrene Strecke bei der letzten erfolgr. Regeneration - Bank2
+PFlt_mAshCorActB1,B812F1042C100000,07,2,0x19A1,0x19A1,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mAshCorActB1,Actual ash quantity - Bank1
+PFlt_mAshCorActB2,B812F1042C100000,07,2,0x19A2,0x19A2,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mAshCorActB2,Actual ash quantity - Bank2
+PFlt_mAshOilB1,B812F1042C100000,07,2,0x00D3,0x006C,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mAshOilB1,Ash mass
+PFlt_mAshOilB2,B812F1042C100000,07,2,0x00E9,0x303A,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mAshOilB2,Ash mass
+PFlt_mSotB1,B812F1042C100000,07,2,0x00D4,0x0068,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mSotB1,Rußmasse im Partikelfilter
+PFlt_mSotB2,B812F1042C100000,07,2,0x00F7,0x3041,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mSotB2,Rußmasse im Partikelfilter Bank2
+PFlt_mSotMeasB1,B812F1042C100000,07,2,0x1908,0x0069,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mSotMeasB1,soot mass additive offset corrected
+PFlt_mSotMeasB2,B812F1042C100000,07,2,0x1909,0x1909,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mSotMeasB2,soot mass additive offset corrected - Bank2
+PFlt_mSotMeasRawB1_mp,B812F1042C100000,07,2,0x190A,0x006A,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mSotMeasRawB1_mp,Strömungswdst. in Partikelmasse umgerechnet
+PFlt_mSotMeasRawB2_mp,B812F1042C100000,07,2,0x190B,0x190B,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mSotMeasRawB2_mp,Strömungswdst. in Partikelmasse umgerechnet - Bank2
+PFlt_mSotSimB1,B812F1042C100000,07,2,0x00D5,0x006B,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mSotSimB1,Simulated soot mass
+PFlt_mSotSimB2,B812F1042C100000,07,2,0x00EB,0x1929,06,05,--,0.010000,0.000000,0,0,8.4f,g,,PFlt_mSotSimB2,Simulated soot mass - bank2
+PFlt_numEngPOp,B812F1042C100000,07,2,0x1951,0x006D,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_numEngPOp,regeneration action due to both engine state and pflt state
+PFlt_numRgn_mp,B812F1042C100000,07,2,0x1952,0x0070,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_numRgn_mp,gesamte Regenerationsanforderung
+PFlt_pDiffB1,B812F1042C100000,07,2,0x00D8,0x0054,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PFlt_pDiffB1,Differenzdruck über Partikelfilter
+PFlt_pDiffB2,B812F1042C100000,07,2,0x00C0,0x3040,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PFlt_pDiffB2,Differenzdruck über Partikelfilter Bank2
+PFlt_pDiffRawB1,B812F1042C100000,07,2,0x19A4,0x19A4,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PFlt_pDiffRawB1,Differenzdruck über Partikelfilter (Rohwert) - Bank1
+PFlt_pDiffRawB2,B812F1042C100000,07,2,0x19A5,0x19A5,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PFlt_pDiffRawB2,Differenzdruck über Partikelfilter (Rohwert) - Bank2
+PFlt_pEngPrtMaxB1_mp,B812F1042C100000,07,2,0x190C,0x0047,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PFlt_pEngPrtMaxB1_mp,Maximaldruck Motorschutz
+PFlt_pEngPrtMaxB2_mp,B812F1042C100000,07,2,0x1942,0x1942,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PFlt_pEngPrtMaxB2_mp,Maximaldruck Motorschutz-Bank2
+PFlt_pMidB1,B812F1042C100000,07,2,0x190D,0x13CE,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PFlt_pMidB1,Absolutdruck im Partikelfilter
+PFlt_pMidB2,B812F1042C100000,07,2,0x193F,0x193F,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PFlt_pMidB2,Absolutdruck im Partikelfilter - Bank2
+PFlt_pPreCorrB1_mp,B812F1042C100000,07,2,0x00E7,0x00C9,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PFlt_pPreCorrB1_mp,Druck vor Partikelfilter (korrigiert)
+PFlt_pPreCorrB2_mp,B812F1042C100000,07,2,0x0087,0x0048,06,05,--,0.125002,0.000000,0,0,8.2f,hPa,,PFlt_pPreCorrB2_mp,linearisierter APP1
+PFlt_qFlB1_mp,B812F1042C100000,07,2,0x00D9,0x007E,06,05,--,0.010000,0.000000,0,0,8.4f,l,,PFlt_qFlB1_mp,verbrauchter Treibstoff seit der letzten erfolgreichen Regeneration
+PFlt_qFlB2_mp,B812F1042C100000,07,2,0x00DA,0x302D,06,05,--,0.010000,0.000000,0,0,8.4f,l,,PFlt_qFlB2_mp,verbrauchter Treibstoff seit der letzten erfolgreichen Regeneration - Bank2
+PFlt_rNO2TotB1_mp,B812F1042C100000,07,2,0x1960,0x1960,06,05,--,1.000000,0.000000,0,0,8.2f,ppm,,PFlt_rNO2TotB1_mp,NO2 mass flow available in total in Bank1
+PFlt_rNO2TotB2_mp,B812F1042C100000,07,2,0x1961,0x1961,06,05,--,1.000000,0.000000,0,0,8.2f,ppm,,PFlt_rNO2TotB2_mp,NO2 mass flow available in total in Bank2
+PFlt_resFlowB1,B812F1042C100000,07,2,0x190E,0x008C,06,05,--,0.001000,0.000000,0,0,8.5f,hPa/(m^3/h),,PFlt_resFlowB1,Strömungswiderstand
+PFlt_resFlowB2,B812F1042C100000,07,2,0x1940,0x1940,06,05,--,0.001000,0.000000,0,0,8.5f,hPa/(m^3/h),,PFlt_resFlowB2,Strömungswiderstand - Bank2
+PFlt_resFlowFltB1,B812F1042C100000,07,2,0x190F,0x1436,06,05,--,0.001000,0.000000,0,0,8.5f,hPa/(m^3/h),,PFlt_resFlowFltB1,gefilterter Strömungswiderstand
+PFlt_resFlowFltB2,B812F1042C100000,07,2,0x1941,0x1941,06,05,--,0.001000,0.000000,0,0,8.5f,hPa/(m^3/h),,PFlt_resFlowFltB2,gefilterter Strömungswiderstand - Bank2
+PFlt_resFlowOfsB1,B812F1042C100000,07,2,0x1910,0x00AD,06,05,--,0.001000,0.000000,0,0,8.5f,hPa/(m^3/h),,PFlt_resFlowOfsB1,Strömungswiderstandoffset
+PFlt_resFlowOfsB2,B812F1042C100000,07,2,0x1911,0x1911,06,05,--,0.001000,0.000000,0,0,8.5f,hPa/(m^3/h),,PFlt_resFlowOfsB2,Strömungswiderstandoffset - Bank2
+PFlt_resFlowRawB1_mp,B812F1042C100000,07,2,0x1912,0x00CC,06,05,--,0.001000,0.000000,0,0,8.5f,hPa/(m^3/h),,PFlt_resFlowRawB1_mp,Strömungswiderstand Rohwert
+PFlt_resFlowRawB2_mp,B812F1042C100000,07,2,0x1913,0x1913,06,05,--,0.001000,0.000000,0,0,8.5f,hPa/(m^3/h),,PFlt_resFlowRawB2_mp,Strömungswiderstand Rohwert - Bank2
+PFlt_stEngPOp,B812F1042C100000,07,2,0x1950,0x00D2,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_stEngPOp,Motorbetriebspunkt
+PFlt_stIntrB1_mp,B812F1042C100000,07,2,0x192A,0x00DD,06,05,--,1.000000,0.000000,0,0,8.2f,-,,PFlt_stIntrB1_mp,Statuswort Regeneration unterbrochen - Bank1
+PFlt_stIntrB2_mp,B812F1042C100000,07,2,0x192B,0x192B,06,05,--,1.000000,0.000000,0,0,8.2f,-,,PFlt_stIntrB2_mp,Statuswort Regeneration unterbrochen - Bank2
+PFlt_stLck_mp,B812F1042C100000,07,2,0x00DD,0x00DE,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_stLck_mp,Regeneration Blockierung und Freigabe
+PFlt_stPresPlaus_mp,B812F1042C100000,07,2,0x00E8,0x3014,06,05,--,1.000000,0.000000,0,0,5.1f,-,,PFlt_stPresPlaus_mp,Zustand - Plausibilisierung
+PFlt_tOxiPre,B812F1042C100000,07,2,0x1953,0x1953,06,05,--,1.000240,-51.086707,0,0,8.3f,deg C,,PFlt_tOxiPre,Temperatur vor OXI-Kat
+PFlt_tOxiPreB1,B812F1042C100000,07,2,0x1954,0x1954,06,05,--,1.000240,-51.086707,0,0,8.3f,deg C,,PFlt_tOxiPreB1,Temperatur vor OXI-Kat - Bank1
+PFlt_tOxiPreB2,B812F1042C100000,07,2,0x1955,0x1955,06,05,--,1.000240,-51.086707,0,0,8.3f,deg C,,PFlt_tOxiPreB2,Temperatur vor OXI-Kat - Bank2
+PFlt_tPre,B812F1042C100000,07,2,0x1956,0x1956,06,05,--,1.000240,-51.086707,0,0,8.3f,deg C,,PFlt_tPre,Temperatur vor Partikelfilter
+PFlt_tPreB1,B812F1042C100000,07,2,0x1957,0x1957,06,05,--,1.000240,-51.086707,0,0,8.3f,deg C,,PFlt_tPreB1,Temperatur vor Partikelfilter - Bank1
+PFlt_tPreB2,B812F1042C100000,07,2,0x1958,0x1958,06,05,--,1.000240,-51.086707,0,0,8.3f,deg C,,PFlt_tPreB2,Temperatur vor Partikelfilter - Bank2
+PFlt_tPreFlt_mp,B812F1042C100000,07,2,0x1914,0x0071,06,05,--,1.000240,-51.086707,0,0,8.3f,deg C,,PFlt_tPreFlt_mp,PFlt_tPre PT1 gefiltert
+PFlt_tSurfB1,B812F1042C100000,07,2,0x1915,0x13FE,06,05,--,1.000240,-51.086707,0,0,8.3f,deg C,,PFlt_tSurfB1,Oberflächen Temperatur vom Partikel Filter
+PFlt_tSurfB2,B812F1042C100000,07,2,0x1947,0x1947,06,05,--,1.000240,-51.086707,0,0,8.3f,deg C,,PFlt_tSurfB2,Oberflächen Temperatur vom Partikel Filter - Bank2
+PFlt_tiSnceRgnu16B1_mp,B812F1042C100000,07,2,0x1916,0x3009,06,05,--,256.000000,0.000000,0,0,8.0f,s,,PFlt_tiSnceRgnu16B1_mp,Motorbetriebsstunden seit letzter erfolgr. Reg. 16bit
+PFlt_tiSnceRgnu16B2_mp,B812F1042C100000,07,2,0x1917,0x1917,06,05,--,256.000000,0.000000,0,0,8.0f,s,,PFlt_tiSnceRgnu16B2_mp,Motorbetriebsstunden seit letzter erfolgr. Reg. 16bit  - Bank2
+PFlt_vVehFlt_mp,B812F1042C100000,07,2,0x1918,0x0072,06,05,--,0.003815,0.000000,0,0,8.4f,km/h,,PFlt_vVehFlt_mp,VSSCD_v PT1 gefiltert
+PFlt_volOilAshB1,B812F1042C100000,07,2,0x1919,0x1919,06,05,--,0.010000,0.000000,0,0,8.4f,l,,PFlt_volOilAshB1,Aschevolumen
+PFlt_volOilAshB2,B812F1042C100000,07,2,0x194B,0x194B,06,05,--,0.010000,0.000000,0,0,8.4f,l,,PFlt_volOilAshB2,Aschevolumen - Bank2
+PSPCD_dvolOut,B812F1042C100000,07,2,0x00DE,0x3002,06,05,--,0.208446,-6830.158002,0,0,8.4f,l/h,,PSPCD_dvolOut,Pre Supply Pump output value
+Pm_klemmstat,B812F1042C100000,07,2,0x1ACC,0x301B,06,05,--,1.000000,0.000000,0,0,%0.0,-,,Pm_klemmstat,Umweltbed. Klemmenstatus
+RailCD_pPeak,B812F1042C100000,07,2,0x00DF,0x00C2,06,05,--,0.030518,0.000000,0,0,5.3f,bar,,RailCD_pPeak,maximaler Raildruck der letzten 10ms
+RailCD_uPeakRaw,B812F1042C100000,07,2,0x00E0,0x00D3,06,05,--,0.610958,0.000000,0,0,8.1f,mV,,RailCD_uPeakRaw,Rohwert des Raildrucks
+Rail_dvolMeUnSet,B812F1042C100000,07,2,0x1964,0x0035,06,05,--,10.000000,0.000000,0,0,8.1f,mm3/s,,Rail_dvolMeUnSet,Sollwert (Volumenstrom) von der Raildruckregelung
+Rail_pSetPoint,B812F1042C100000,07,2,0x00E1,0x00C3,06,05,--,0.030518,0.000000,0,0,5.3f,bar,,Rail_pSetPoint,Raildruck-sollwert
+Rail_pSetPointZFC_mp,B812F1042C100000,07,2,0x1965,0x152F,06,05,--,0.030518,0.000000,0,0,5.3f,bar,,Rail_pSetPointZFC_mp,rail pressure setpoint value after ZFC intervention
+Rail_stCtlLoop,B812F1042C100000,07,2,0x1966,0x0079,06,05,--,1.000000,0.000000,0,0,5.1f,-,,Rail_stCtlLoop,Zustand der Steuerung Raildruckregler
+StSys_trqStrt,B812F1042C100000,07,2,0x19C8,0x0090,06,05,--,0.114445,-2500.060084,0,0,8.3f,Nm,,StSys_trqStrt,inneres Moment Startwert
+Stat_sv_reg1,B812F1042C100000,07,2,0x00F8,0x301C,06,05,--,1.000000,0.000000,0,0,%0.0,-,,Stat_sv_reg1,LoByte Stat_sv_reg fuer Umweltbedingung
+Stat_sv_reg2,B812F1042C100000,07,2,0x00F9,0x301D,06,05,--,1.000000,0.000000,0,0,%0.0,-,,Stat_sv_reg2,HiByte Stat_sv_reg fuer Umweltbedingung
+T15CD_stWakeUpRawVal_mp,B812F1042C100000,07,2,0x1A2C,0x003B,06,05,--,1.000000,0.000000,0,0,5.1f,-,,T15CD_stWakeUpRawVal_mp,Rohwert des Wake Up Signals aus der HWE
+T2histshort,B812F1042C100000,07,2,0x00FA,0x301E,06,05,--,14.933333,0.000000,0,0,%0.0,min,,T2histshort,T2 Histogramm als Umweltbed. bei Ruhestromverletzung
+T3histshort,B812F1042C100000,07,2,0x00FB,0x301F,06,05,--,14.933333,0.000000,0,0,%0.0,min,,T3histshort,T3 Histogramm als Umweltbed. bei Ruhestromverletzung
+T4histshort,B812F1042C100000,07,2,0x00FC,0x3020,06,05,--,14.933333,0.000000,0,0,%0.0,min,,T4histshort,T3 Histogramm als Umweltbed. bei Ruhestromverletzung
+TVACD_rOut,B812F1042C100000,07,2,0x00E2,0x00EA,06,05,--,0.010000,0.000000,0,0,8.4f,%,,TVACD_rOut,Tastverhältnis zur Endstufenansteuerung
+TVACD_rOut2,B812F1042C100000,07,2,0x00E3,0x3030,06,05,--,0.010000,0.000000,0,0,8.4f,%,,TVACD_rOut2,Tastverhältnis zur Endstufenansteuerung - TVA2
+T_batt,B812F1042C100000,07,2,0x00FE,0x3022,06,05,--,0.100000,-60.000000,0,0,%0.0,°C,,T_batt,Batterietemperatur
+Tn_abstell,B812F1042C100000,07,2,0x00B2,0x1F4A,06,05,--,240.963855,0.000000,0,0,%0.0,-,,Tn_abstell,Abstellzeit
+Toel,B812F1042C100000,07,2,0x00FD,0x3021,06,05,--,0.100000,-60.000000,0,0,%0.0,°C,,Toel,Ausgabewert Motoroeltemperatur für LoCAN
+Tw,B812F1042C100000,07,2,0x1F4C,0x1F4C,06,05,--,0.001526,0.000000,0,0,%0.0,%,,Tw,Tw
+Twhydr,B812F1042C100000,07,2,0x1F4D,0x1F4D,06,05,--,0.001526,0.000000,0,0,%0.0,%,,Twhydr,Twhydr
+Twhydrcntg,B812F1042C100000,07,2,0x1F4F,0x1F4F,06,05,--,1.000000,0.000000,0,0,%0.0,-,,Twhydrcntg,Twhydrcntg
+Twhydrmax,B812F1042C100000,07,2,0x1F51,0x1F51,06,05,--,0.001526,0.000000,0,0,%0.0,%,,Twhydrmax,Twhydrmax
+Twluft,B812F1042C100000,07,2,0x1F4E,0x1F4E,06,05,--,0.001526,0.000000,0,0,%0.0,%,,Twluft,Twluft
+Twluftcntg,B812F1042C100000,07,2,0x1F50,0x1F50,06,05,--,1.000000,0.000000,0,0,%0.0,-,,Twluftcntg,Twluftcntg
+Twluftmax,B812F1042C100000,07,2,0x1F52,0x1F52,06,05,--,0.001526,0.000000,0,0,%0.0,%,,Twluftmax,Twluftmax
+U_batt,B812F1042C100000,07,2,0x00FF,0x3023,06,05,--,0.000250,6.000000,0,0,%0.0,V,,U_batt,Batteriespannung von IBS gemessen
+U_gen,B812F1042C100000,07,2,0x00B3,0x1F4B,06,05,--,0.100000,0.000000,0,0,%0.0,V,,U_gen,Sollwert Generatorspannung
+VSACD_rOut,B812F1042C100000,07,2,0x00E4,0x00EB,06,05,--,0.010000,0.000000,0,0,8.4f,%,,VSACD_rOut,Tastverhältnis zur Endstufenansteuerung
+VSSCD_a,B812F1042C100000,07,2,0x1A90,0x0033,06,05,--,0.000305,-9.999899,0,0,8.5f,m/s^2,,VSSCD_a,Fahrbeschleunigung
+VSSCD_v,B812F1042C100000,07,2,0x00E5,0x0032,06,05,--,0.003815,0.000000,0,0,8.4f,km/h,,VSSCD_v,Fahrzeuggeschwindigkeit
+VSSCD_vSensVal,B812F1042C100000,07,2,0x000D,0x000D,06,05,--,0.999001,0.000000,0,0,8.4f,km/h,,VSSCD_vSensVal,Vehicle speed sensed value
+VehDa_lSum,B812F1042C100000,07,2,0x1AF4,0x0030,06,05,--,8196.721311,0.000000,0,0,13.2f,m,,VehDa_lSum,Erfassung gefahrene Strecke
+VehDa_rVn,B812F1042C100000,07,2,0x1AF5,0x0084,06,05,--,0.000002,0.000000,0,0,9.7f,(km/h)/rpm,,VehDa_rVn,Verhältnis von Fahrgeschwindigkeit zur Motordrehzahl
+VehDa_tiEngOn,B812F1042C100000,07,2,0x00E6,0x009F,06,05,--,99.900100,0.000000,0,0,13.2f,s,,VehDa_tiEngOn,Erfassung der aktuellen Betriebszeit
+ZFC_Sig_mp[0],B812F1042C100000,07,2,0x1B58,0x1532,06,05,--,1.000000,0.000000,0,0,13.2f,-,,ZFC_Sig_mp[0],"ZFC measurement value of calibration, cylinder 1"
+ZFC_Sig_mp[1],B812F1042C100000,07,2,0x1B59,0x1533,06,05,--,1.000000,0.000000,0,0,13.2f,-,,ZFC_Sig_mp[1],"ZFC measurement value of calibration, cylinder 2"
+ZFC_Sig_mp[2],B812F1042C100000,07,2,0x1B5A,0x1534,06,05,--,1.000000,0.000000,0,0,13.2f,-,,ZFC_Sig_mp[2],"ZFC measurement value of calibration, cylinder 3"
+ZFC_Sig_mp[3],B812F1042C100000,07,2,0x1B5B,0x1535,06,05,--,1.000000,0.000000,0,0,13.2f,-,,ZFC_Sig_mp[3],"ZFC measurement value of calibration, cylinder 4"
+ZFC_Sig_mp[4],B812F1042C100000,07,2,0x1B5C,0x1536,06,05,--,1.000000,0.000000,0,0,13.2f,-,,ZFC_Sig_mp[4],"ZFC measurement value of calibration, cylinder 5"
+ZFC_Sig_mp[5],B812F1042C100000,07,2,0x1B5D,0x1537,06,05,--,1.000000,0.000000,0,0,13.2f,-,,ZFC_Sig_mp[5],"ZFC measurement value of calibration, cylinder 6"
+ZFC_Sig_mp[6],B812F1042C100000,07,2,0x1B5E,0x1B5E,06,05,--,1.000000,0.000000,0,0,13.2f,-,,ZFC_Sig_mp[6],"ZFC measurement value of calibration, cylinder 7"
+ZFC_Sig_mp[7],B812F1042C100000,07,2,0x1B5F,0x1B5F,06,05,--,1.000000,0.000000,0,0,13.2f,-,,ZFC_Sig_mp[7],"ZFC measurement value of calibration, cylinder 8"
+ZFC_dpRail_mp,B812F1042C100000,07,2,0x1B62,0x1530,06,05,--,0.030518,0.000000,0,0,5.3f,bar,,ZFC_dpRail_mp,rail pressure devitation to rail pressure calibration point
+ZFC_numCylInj_mp,B812F1042C100000,07,2,0x1B63,0x1531,06,05,--,1.000000,0.000000,0,0,5.1f,-,,ZFC_numCylInj_mp,number of cylinder for ZFC Injection
+ZFC_stEvalSig_mp,B812F1042C100000,07,2,0x1B64,0x1539,06,05,--,1.000000,0.000000,0,0,13.11f,-,,ZFC_stEvalSig_mp,Status of ZFC engine speed evaluation
+ZFC_stInj_mp,B812F1042C100000,07,2,0x1B65,0x153A,06,05,--,1.000000,0.000000,0,0,13.10f,-,,ZFC_stInj_mp,state of Injection for Zero Fuel quantity Calibration
+ZFC_st_mp,B812F1042C100000,07,2,0x1B66,0x1538,06,05,--,1.000000,0.000000,0,0,13.10f,-,,ZFC_st_mp,state of Zero Fuel quantity Calibration Coordinator
+ZFC_tiET_mp,B812F1042C100000,07,2,0x1B67,0x153B,06,05,--,0.152594,-5000.041963,0,0,8.2f,us,,ZFC_tiET_mp,energizing time for ZFC injection

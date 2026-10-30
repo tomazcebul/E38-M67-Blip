@@ -1,0 +1,30 @@
+NAME,TELEGRAMM,TELNAME,ERGEBNIS,BYTE,MASK,VALUE,LNAME,TEXT_1,TEXT_0
+S_RFGRABS,148E148F,CrCtl_stShutOffCode1_mp,STAT_RFGRABS_WERT,3,0x01,0x01,Ausschalter aktiv  (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRGNRA,148E148F,CrCtl_stShutOffCode1_mp,STAT_RFGRGNRA_WERT,3,0x02,0x02,zu grosse neg. Regelabweichung (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRLNLA,148E148F,CrCtl_stShutOffCode1_mp,STAT_RFGRLNLA_WERT,3,0x04,0x04,zu lange neg. Regelabweichung (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRPRA,148E148F,CrCtl_stShutOffCode1_mp,STAT_RFGRPRA_WERT,3,0x08,0x08,zu grosse pos. Regelabweichung (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRVMN,148E148F,CrCtl_stShutOffCode1_mp,STAT_RFGRVMN_WERT,3,0x10,0x10,Geschwindigkeit zu klein (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRACC,148E148F,CrCtl_stShutOffCode1_mp,STAT_RFGRACC_WERT,3,0x80,0x80,ACC erkannt (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRBRK,148E148F,CrCtl_stShutOffCode1_mp,STAT_RFGRBRK_WERT,2,0x01,0x01,Bremse betaetigt (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRKUP,148E148F,CrCtl_stShutOffCode1_mp,STAT_RFGRKUP_WERT,2,0x02,0x02,Kupplung betaetigt (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRNMAX,148E148F,CrCtl_stShutOffCode1_mp,STAT_RFGRNMAX_WERT,2,0x04,0x04,Drehzahlgrenze überschritten (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRNMIN,148E148F,CrCtl_stShutOffCode1_mp,STAT_RFGRNMIN_WERT,2,0x08,0x08,Drehzahlgrenze unterschritten (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRUEB,148E148F,CrCtl_stShutOffCode1_mp,STAT_RFGRUEB_WERT,2,0x10,0x10,Geschwindigkeit zu gross (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRGNG,148E148F,CrCtl_stShutOffCode1_mp,STAT_RFGRGNG_WERT,2,0x20,0x20,kein gueltiger Gang (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRMOT,148E148F,CrCtl_stShutOffCode1_mp,STAT_RFGRMOT_WERT,2,0x40,0x40,Motorzustand nicht normal (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRSCH,148E148F,CrCtl_stShutOffCode1_mp,STAT_RFGRSCH_WERT,2,0x80,0x80,v/n Änderung gegenüber Start(Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRBRE,148E148F,CrCtl_stShutOffCode2_mp,STAT_RFGRBRE_WERT,5,0x02,0x02,Bremsüberprüfung (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRAQUA,148E148F,CrCtl_stShutOffCode2_mp,STAT_RFGRAQUA_WERT,5,0x04,0x04,Aquaplaning(Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRDSC,148E148F,CrCtl_stShutOffCode2_mp,STAT_RFGRDSC_WERT,5,0x08,0x08,Bremseingriff DSC (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRKOAL,148E148F,CrCtl_stShutOffCode2_mp,STAT_RFGRKOAL_WERT,5,0x10,0x10,Kombi Alive Fehler (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRZWLR,148E148F,CrCtl_stShutOffCode2_mp,STAT_RFGRZWLR_WERT,5,0x20,0x20,Zwischengelege für LowRange (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRHIIL,148E148F,CrCtl_stShutOffCode2_mp,STAT_RFGRHIIL_WERT,5,0x40,0x40,Hill Descent Control (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_RFGRDSCV,148E148F,CrCtl_stShutOffCode2_mp,STAT_RFGRDSCV_WERT,5,0x80,0x80,Verzögerungsanforderung DSC (Reversible Abschaltbdg),aktiv,nicht aktiv
+S_IOPT,148E148F,CrCtl_stShutOffCode2_mp,STAT_IOPT_WERT,4,0x01,0x01,FGR n. variantencodiert/verbaut (Irreversible Abschaltbdg),aktiv,nicht aktiv
+S_IKOMPO,148E148F,CrCtl_stShutOffCode2_mp,STAT_IKOMPO_WERT,4,0x02,0x02,Komponentendefekt (Irreversible Abschaltbdg),aktiv,nicht aktiv
+S_IBUMM,148E148F,CrCtl_stShutOffCode2_mp,STAT_IBUMM_WERT,4,0x04,0x04,Aufprall erkannt (Irreversible Abschaltbdg),aktiv,nicht aktiv
+S_IBREMAX,148E148F,CrCtl_stShutOffCode2_mp,STAT_IBREMAX_WERT,4,0x08,0x08,starkes Bremsen (Irreversible Abschaltbdg),aktiv,nicht aktiv
+S_IAMAX,148E148F,CrCtl_stShutOffCode2_mp,STAT_IAMAX_WERT,4,0x10,0x10,starke Beschleunigung (Irreversible Abschaltbdg),aktiv,nicht aktiv
+S_IFGRCANA,148E148F,CrCtl_stShutOffCode2_mp,STAT_IFGRCANA_WERT,4,0x20,0x20,Fehler CAN; Timeout ASC (Irreversible Abschaltbdg),aktiv,nicht aktiv
+S_IFGRSTKO,148E148F,CrCtl_stShutOffCode2_mp,STAT_IFGRSTKO_WERT,4,0x40,0x40,Fehler Status Kombi (Irreversible Abschaltbdg),aktiv,nicht aktiv
+S_IFGRAUS,148E148F,CrCtl_stShutOffCode2_mp,STAT_IFGRAUS_WERT,4,0x80,0x80,Irreversible Abschaltbdg,aktiv,nicht aktiv

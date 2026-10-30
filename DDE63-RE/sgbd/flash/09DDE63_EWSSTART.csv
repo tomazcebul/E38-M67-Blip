@@ -1,0 +1,6 @@
+STATI,TEXT
+0x00,"DDE bereit, Startwert zu empfangen"
+0x01,kein freier Startwert mit Freigabe vorhanden
+0x02,noch kein Startwert gespeichert
+0x03,Startwert nicht plausibel (wie im DS2-LH definiert)
+0xXY,Fehlerhafter Status

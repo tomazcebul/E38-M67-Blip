@@ -1,0 +1,15 @@
+ARTNR,ARTTEXT
+0x00,kein passendes Fehlersymptom
+0x01,Signal oder Wert oberhalb Schwelle
+0x02,Signal oder Wert unterhalb Schwelle
+0x04,kein Signal oder Wert
+0x08,unplausibles Signal oder Wert
+0x10,Testbedingungen erfüllt
+0x11,Testbedingungen noch nicht erfüllt
+0x20,Fehler bisher nicht aufgetreten
+0x21,"Fehler momentan nicht vorhanden, aber bereits gespeichert"
+0x22,"Fehler momentan vorhanden, aber noch nicht gespeichert (Entprellphase)"
+0x23,Fehler momentan vorhanden und bereits gespeichert
+0x30,Fehler würde kein Aufleuchten einer Warnlampe verursachen
+0x31,Fehler würde das Aufleuchten einer Warnlampe verursachen
+0xFF,unbekannte Fehlerart

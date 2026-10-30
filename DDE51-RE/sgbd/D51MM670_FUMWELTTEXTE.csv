@@ -1,0 +1,40 @@
+UWNR,UWTEXT,UW_EINH,L/H,UWTYP,NAME,MUL,DIV,ADD
+0x2B,Wassertemperatur Spannungsrohwert,mV,-,unsigned char,-,21.654463,1,0.000000
+0x2C,Kühlmitteltemperatur,deg C,-,unsigned char,-,1.003925,1,-50.268573
+0x2D,mittlere Motordrehzahl,rpm,-,unsigned char,-,27.582402,1,0.000000
+0x2F,Batteriespannung,mV,-,unsigned char,-,162.926306,1,0.000000
+0x32,Fahrzeuggeschwindigkeit,km/h,-,unsigned char,-,0.986972,1,0.000000
+0x36,Ladelufttemperatur nach Ladeluftkühler,deg C,-,unsigned char,-,1.003925,1,-50.268573
+0x37,Lufttemperatur Spannungsrohwert,mV,-,unsigned char,-,21.654463,1,0.000000
+0x38,Ansauglufttemperatur,deg C,-,unsigned char,-,1.003925,1,-50.268573
+0x39,Spannungsrohwert des Ladedrucksensors,mV,-,unsigned char,-,21.654463,1,0.000000
+0x3A,Ladedruckwert,hPa,-,unsigned char,-,9.846105,1,0.000000
+0x48,linearisierter APP1,%,-,unsigned char,-,0.787398,1,0.000000
+0x49,Linearisierter APP2,%,-,unsigned char,-,0.787398,1,0.000000
+0x50,angesaugte Luftmasse pro Zylinder,mg/Hub,-,unsigned char,-,6.301594,1,0.000000
+0x55,Einspritzmenge aktueller Wert,mg/cyc,-,unsigned char,-,0.393840,1,0.000000
+0x5B,Kraftstofftemperatur,deg C,-,unsigned char,-,1.003925,1,-50.268573
+0x6E,Atmosphärendruck,hPa,-,unsigned char,-,9.846105,1,0.000000
+0x6F,Rohspannung ADC-Signal Atmosphärendruck,mV,-,unsigned char,-,21.654463,1,0.000000
+0x73,Herkunft des letzten Reset ( >0 = Recovery ),-,-,unsigned char,-,1.000000,1,0.000000
+0x7A,Tastverhältnis zür Endstufenansteuerung,%,-,unsigned char,-,0.787712,1,0.000000
+0x7B,Tastverhältnis zür Endstufenansteuerung,%,-,unsigned char,-,0.787712,1,0.000000
+0x7C,Glühanforderung,-,-,unsigned char,-,1.000000,1,0.000000
+0x81,Output fuel consumption quantity from PSPCD,l/h,-,unsigned char,-,0.999001,1,0.000000
+0x96,aktuelles rückgerechnetes inneres Motormoment,Nm,-,unsigned char,-,29.256875,1,-2486.834406
+0x97,Leerlaufreglermoment,Nm,-,unsigned char,-,29.256875,1,-2486.834406
+0xAF,Ausgangssignal Öldruckschalter,-,-,unsigned char,-,1.000000,1,0.000000
+0xB0,Meta-Status der KW- und NW-Ereignisverwaltung,-,-,unsigned char,-,1.000000,1,0.000000
+0xC2,maximaler Raildruck der letzten 10ms,bar,-,unsigned char,-,7.877117,1,0.000000
+0xC3,Raildruck-sollwert,bar,-,unsigned char,-,7.877117,1,0.000000
+0xD3,Rohwert des Raildrucks,mV,-,unsigned char,-,21.654463,1,0.000000
+0xD4,Spannungsrohwert der Kraftstoffstemperatur,mV,-,unsigned char,-,21.654463,1,0.000000
+0xE9,Meßpunkt fuer korrigiertes Tastverhaeltnis de,%,-,unsigned char,-,0.787712,1,0.000000
+0xEA,Tastverhältnis zür Endstufenansteuerung,%,-,unsigned char,-,0.787712,1,0.000000
+0xEB,Tastverhältnis zür Endstufenansteuerung,%,-,unsigned char,-,0.787712,1,0.000000
+0xEC,Ausgangstastverhältnis,%,-,unsigned char,-,0.787712,1,0.000000
+0xED,Ausgangstastverhältnis,%,-,unsigned char,-,0.787712,1,0.000000
+0xFE,LowAdresse recovery location,-,-,unsigned char,-,1.000000,1,0.000000
+0xFE,LowAdresse recovery location,-,-,unsigned char,-,1.000000,1,0.000000
+0xFF,HighAdresse recovery location,-,-,unsigned char,-,1.000000,1,0.000000
+0xXY,Unbekannte Umweltbedingung,-,-,unsigned char,-,1,1,0

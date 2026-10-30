@@ -1,0 +1,5 @@
+WERT,UWTEXT
+0x00,Oeltemperatursensor iO
+0x01,Oeltemperatursensor niO
+0x02,beide Temperatursensoren niO
+0xXY,nicht definiert

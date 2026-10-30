@@ -1,0 +1,5 @@
+WERT,UWTEXT
+0x00,Substrattemperatursensor iO
+0x01,Substrattemperatursensor niO
+0x02,beide Temperatursensoren niO
+0xXY,nicht definiert

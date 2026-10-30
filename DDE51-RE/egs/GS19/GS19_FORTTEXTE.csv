@@ -1,0 +1,76 @@
+ORT,ORTTEXT
+0x4E20,Druckregler EDS 1
+0x4E21,Druckregler EDS 2
+0x4E22,Druckregler EDS 3
+0x4E23,Druckregler EDS 4
+0x4E24,Druckregler EDS 5
+0x4E25,Druckregler EDS 6
+0x4E26,Stromfehler DR in P/R/N
+0x4E84,Magnetventil MV 1
+0x4E85,Magnetventil MV 2
+0x4E86,Magnetventil MV 3
+0x4E87,Magnetventil MV 4
+0x4E89,MV 1 oder MV 2 klemmt mechanisch
+0x4EE8,Sensor Eingangsdrehzahl N_Turbine
+0x4EE9,Sensor Abtriebsdrehzahl N_Abtrieb
+0x4EEB,Abtriebsdrehzahlsensor - Gradient zu hoch
+0x4EF2,Sensor Getriebeoeltemperatur T_Oel
+0x4EF3,Sensor Substrattemperatur T_Substrat
+0x4F4C,Symptom Gangueberwachung
+0x4F4D,Gangueberwachung 1
+0x4F4E,Gangueberwachung 2
+0x4F4F,Gangueberwachung 3
+0x4F50,Gangueberwachung 4
+0x4F51,Gangueberwachung 5
+0x4F52,Gangueberwachung 6
+0x4F53,WK fehlerhaft geoeffnet
+0x4F4B,Gangueberwachung R
+0x4F56,Symptom Schaltungsueberwachung
+0x4F57,Schaltungsueberwachung 1-2
+0x4F58,Schaltungsueberwachung 2-3
+0x4F59,Schaltungsueberwachung 3-4
+0x4F5A,Schaltungsueberwachung 4-5
+0x4F5B,Schaltungsueberwachung 5-6
+0x4F5C,Schaltungsueberwachung 2-1
+0x4F5D,Schaltungsueberwachung 3-2
+0x4F5E,Schaltungsueberwachung 4-3
+0x4F5F,Schaltungsueberwachung 5-4
+0x4F60,Schaltungsueberwachung 6-5
+0x4F6A,Temperaturabschaltung EGS
+0x4F6B,Oelalterungsschwelle
+0x4F6F,Hohe Drehungleichförmigkeit
+0x4F70,Motorueberdrehzahl
+0x4F71,Kombi Timeout bei Notentriegelung betaetigt
+0x4FB0,Interner Fehler 1 (EPROM/FLASH)
+0x4FB1,Interner Fehler 2 (EEPROM)
+0x4FB2,Interner Fehler 3 (Watchdog)
+0x4FB3,Interner Fehler 4 (VRAM)
+0x5014,Batteriespannung
+0x5015,Versorgungsspannung Druckregler/Magnetventile
+0x5016,Versorgungsspannung Sensorik
+0x5079,Serielle Leitung Timeout
+0x507A,Serielle Leitung Positionsinfo
+0x507B,Parksperrensensoren unplausibel
+0x507C,Parksperre fehlerhaft eingelegt
+0x507D,Parksperre fehlerhaft ausgelegt
+0x50DC,Doppelfehler Positionsinfo CAN / serielle Leitung
+0x50DD,Kombination Ersatzfunktionen
+0x5140,CAN Timeout DME
+0x5141,CAN Timeout DSC
+0x5142,CAN Timeout Kombi
+0x5143,CAN Timeout ACC
+0x5144,CAN Timeout CAS
+0x5145,CAN Timeout EMF
+0x5146,CAN Timeout SSFA
+0x5147,CAN Timeout SZL
+0x5149,CAN Timeout PM
+0x5150,CAN Timeout AHM
+0x51A5,CAN Momentenschnittstelle
+0x51A7,CAN Motordrehzahl
+0x51A8,CAN Drosselklappe/Fahrpedal
+0x51AA,CAN Positionsinfo
+0x51AB,CAN P-Taster
+0x51AC,CAN Schluessel steckt
+0x51AE,CAN Bremssignal
+0xCF07,CAN Bus off
+0x????,unbekannter Fehlerort

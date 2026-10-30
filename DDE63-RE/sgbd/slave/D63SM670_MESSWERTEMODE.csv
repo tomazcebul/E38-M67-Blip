@@ -1,0 +1,15 @@
+TEXT,WERT,KOMMENTAR
+ein,1,"Argument ARG.   Messwertblock im SG löschen, neu schreiben und lesen"
+aus,0,Argument ARG.   Messwertblock nur lesen
+ja,1,"Argument ARG.   Messwertblock im SG löschen, neu schreiben und lesen"
+nein,0,Argument ARG.   Messwertblock nur lesen
+yes,1,"Argument ARG.   Messwertblock im SG löschen, neu schreiben und lesen"
+no,0,Argument ARG.   Messwertblock nur lesen
+on,1,"Argument ARG.   Messwertblock im SG löschen, neu schreiben und lesen"
+off,0,Argument ARG.   Messwertblock nur lesen
+1,1,"Argument ARG.   Messwertblock im SG löschen, neu schreiben und lesen"
+0,0,Argument ARG.   Messwertblock nur lesen
+3,3,"Argument ID.    Messwertblock im SG löschen, neu schreiben und lesen"
+2,2,Argument ID.    Messwertblock nur lesen
+5,5,"Argument LABEL. Messwertblock im SG löschen, neu schreiben und lesen"
+4,4,Argument LABEL. Messwertblock nur lesen

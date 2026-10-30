@@ -1,0 +1,353 @@
+ARTNR,ARTTEXT
+0x1003,nicht verwendet
+0x1004,Spannung zu niedrig
+0x1005,Spannung zu hoch
+0x1008,Analog-/Digital-Wandler Spannung zu niedrig
+0x1009,Analog-/Digital-Wandler Spannung zu hoch
+0x100A,Analog-/Digital-Wandler Testimpuls-Fehler
+0x100D,Luftmasse zu hoch/negative Regelabweichung
+0x1010,Luftmasse zu niedrig/positive Regelabweichung
+0x1017,Unterbrechung oder Kurzschluss nach Masse
+0x1019,Plausibilitaet zwischen Poti 1 und 2 verletzt
+0x101A,Versorgungsspannung DDE unterschritten
+0x101B,Versorgungsspannung DDE ueberschritten
+0x101D,Bremssignale im Fahrbetrieb nicht plausibel
+0x1020,kein Temperaturanstieg
+0x1029,nicht plausibel mit Gangwechsel
+0x102A,kein Signal oder MFL nicht verbaut
+0x102B,Unterbrechung oder Kurzschluss nach Plus
+0x102D,falsches Signal
+0x1042,Ladeluftschlauch abgefallen
+0x1056,Raildruck zu niedrig/positive Regelabweichung
+0x1076,Analog-/Digital-Wandler Interner Fehler
+0x1077,Signalabweichung zu hoch im Leerlauf
+0x1078,Signalabweichung zu hoch in Vollast
+0x1079,Temperatur zu hoch (Tastverhaeltnis zu hoch)
+0x107A,Temperatur zu niedrig (Tastverhaeltnis zu niedrig)
+0x107F,Unterbrechung oder Kurzschluss nach Plus/Masse oder Temperatur zu hoch
+0x1080,Temperatur zu niedrig
+0x1081,Luftmasse zu niedrig (korrigierte Signalfrequenz zu niedrig)
+0x1082,Luftmasse zu hoch (korrigierte Signalfrequenz zu hoch)
+0x1083,Luftmasse zu niedrig (Signalfrequenz zu niedrig)
+0x1084,Luftmasse zu hoch (Signalfrequenz zu hoch)
+0x1085,Signal Unterbrechung oder Kurzschluss nach Plus/Masse
+0x1086,Frequenz zu niedrig
+0x1087,Frequenz zu hoch
+0x1088,Endstufe Uebertemperatur
+0x1089,Uebertemperaturerkennung im Zuheizer
+0x108A,Fehler Zuheizer 2
+0x108B,Fehler Zuheizer 3
+0x108C,Plausibilitaet mit Ladedruckfuehler im Leerlauf
+0x108D,Drehmomentanforderung zu hoch
+0x108E,CAN Wert nicht plausibel
+0x108F,Plausibilitaet mit Umgebungsdrucksensor im Leerlauf
+0x1090,plausibility defect between OTS and CTS
+0x1091,Anzahl erkannter Aussetzer zu hoch
+0x1092,Unplausibler Eingriff
+0x1093,falsches Signal von MFL
+0x1094,kein Signal von MFL
+0x1095,Differenz angezeigte zu realer Fahrgeschwindigkeit zu hoch
+0x1096,Temperatur zu hoch
+0x1097,kein Signal
+0x1098,Differenz zwischen Kurbelwellen- und Nockenwellen-Drehzahl zu hoch
+0x1099,Korrekturmenge zu hoch
+0x109A,Korrekturmenge zu niedrig
+0x109B,Kennfeldwerte nicht plausibel
+0x109C,mechanisch blockiert
+0x109D,Elektroluefter 2
+0x109E,Elektroluefter 3
+0x109F,Getriebeanforderung
+0x10A0,Eingriff unplausibel
+0x10A1,keine Kommunikation ueber BSD-Schnittstelle
+0x10A2,Unterbrechung
+0x10A3,interner Fehler (Kommunikation CJ940)
+0x10A4,EEP Fehler beim Lesen
+0x10A5,EEP Fehler beim Schreiben
+0x10A6,EEP Neutral - Werte benutzt
+0x10A7,Recovery aufgetreten
+0x10A8,interne Spannung zu hoch
+0x10A9,interne Spannung zu niedrig
+0x10AA,CAN Signal fehlerhaft
+0x10AB,Signal gestoert (Frame oder Stopbiterror)
+0x10AC,Signal gestoert (parity error)
+0x10AD,Wechselcodeablage fehlerhaft
+0x10AE,Startwert nicht erkennbar beim Ruecksetzen
+0x10AF,kein Startwert programmiert (DDE jungfraeulich)
+0x10B0,falscher Startwert (falsche EWS oder gleiche Zufallszahl beim Ruecksetzen)
+0x10B1,falscher Wechselcode
+0x10B2,durch Ladungsbilanz des Booster-Kondensators
+0x10B3,durch Mengenbilanz der Hochdruckpumpe
+0x10B4,durch Steuergeraete Software
+0x10B5,Checksumme falsch
+0x10B6,Plusseite Kurzschluss nach Plus
+0x10B7,Plusseite Kurzschluss nach Masse
+0x10B8,unbekannter Fehler
+0x10C2,Minusseite Kurzschluss nach Plus
+0x10C3,Minusseite Kurzschluss nach Masse
+0x10C4,Minusseite Kurzschluss zur Plusseite
+0x10C5,Minusseite Unterbrechung
+0x10D5,Signal fehlerhaft
+0x10D8,Unterbrechung oder Kurzschluss nach Plus/Masse (Signalfrequenz zu niedrig)
+0x10D9,Oelniveau zu niedrig
+0x10DA,Relais schaltet zu spaet ab
+0x10DB,Relais schaltet zu frueh ab
+0x10DC,Im Fahrbetrieb keine erfolgreiche CAN Kommunikation zwischen Master und Slave
+0x10DD,Pincodierung im Fahrbetrieb unplausibel
+0x10DE,keine erfolgreiche CAN Kommunikation zwischen Master und Slave waehrend der Intialisierung
+0x10DF,Unterschied zwischen aktueller und im EEPROM abgelegter Pincodierung waehrend der Initialisierung
+0x10E0,Unterschiedliche Pincodierung in Initialisierung und Fahrbetrieb
+0x10E1,Anzahl erkannter Steuergeraete nicht plausibel
+0x10E2,ADC signal range check high error of metering unit AD-channel
+0x10E3,ADC signal range check low error of metering unit AD-channel
+0x10E4,Strommessung defekt (SG intern)
+0x10E5,MeUnCD Mengenregelventil wurde durch Diagnose angesteuert. Fehler ignorieren!
+0x10E6,interner Fehler (watch dog)
+0x10E7,Steuergeraet hat sich vom Bus abgeschaltet (Bus off)
+0x10E8,Hardwaredefekt im Betrieb
+0x10E9,Hardwarefehler in Initialisierung
+0x10EA,Schubueberwachung
+0x10EB,Drehzahlberechnung im Steuergeraet fehlerhaft
+0x10EC,Ladedruck zu hoch/negative Regelabweichung
+0x10ED,Ladedruck zu niedrig/positive Regelabweichung
+0x10EE,interner Steuergeraete-Fehler (Strommessung defekt )
+0x10EF,Raildruckregelventil wurde durch Diagnose angesteuert. Fehler ignorieren!
+0x1101,Offset Maximum ueberschritten
+0x1102,Offset Minimum unterschritten
+0x1103,Raildruck bei Motorstart zu niedrig
+0x1104,Raildruckregelung wurde durch Diagnose auf Mengenregelung umgeschaltet MeUn
+0x1105,Raildruckregelung wurde durch Diagnose auf Druckregelung umgeschaltet PCV
+0x1106,Raildruck zu niedrig/positive Regelabweichung und Stellgroesse zu hoch
+0x1107,Raildruck zu hoch bei Maximalansteuerung Mengenregelventil (RA negativ)
+0x1108,Minimaldruck unterschritten
+0x1109,Maximaldruck ueberschritten
+0x110C,Raildruck zu niedrig/positive Regelabweichung und Ansteuerung Druckregelventil zu hoch
+0x110D,Raildruck zu hoch/negative Regelabweichung bei Minimalansteuerung Druckregelventil
+0x110E,Verhaeltnis von Raildruck zu Ansteuerstrom Druckregelventil unplausibel
+0x110F,Signal Klemme 50 fehlerhaft
+0x1110,interner Steuergeraete-Fehler (Klemme 15 Auswerteschaltung defekt)
+0x1111,Klemme 15 Kurzschluss nach Masse
+0x1112,interner Fehler (Deviation between System timer and TPU time)
+0x1113,Geschwindigkeit zu gross
+0x1114,Plausibilitaet mit Einspritzmenge und Motordrehzahl
+0x1115,unerlaubte Drehmomentanforderung bei betaetigter Bremse
+0x1116,Drehmomenteingriff von ACC konnte nicht durchgefuehrt werden
+0x1117,Anforderung unplausibel
+0x1118,Differenz zwischen Luftmasse 1 und Luftmasse 2 zu hoch
+0x111A,Ladekontrolleuchte an
+0x111B,Ladedrucksteller elektrisch oder mechanisch defekt oder Uebertemperatur
+0x111C,Ansteuersignal Ladedrucksteller unplausibel
+0x111D,Versorgungsspannung Ladedrucksteller zu niedrig
+0x111E,Differenz Momentenanforderung zwischen Master und Slave zu hoch
+0x111F,Differenz Vorhaltewert Momentenanforderung zwischen Master und Slave zu hoch
+0x1121,Filter verstopft
+0x1124,Botschaft von Sende-Steuergeraet nicht aktuell (Alivecounter)
+0x1125,Signal(e) in Botschaft nicht gueltig
+0x1126,Botschaft von Kombi ausgefallen
+0x1127,Botschaft von EGS ausgefallen
+0x1128,Botschaft von IHK ausgefallen
+0x1129,Botschaft von DSC ausgefallen
+0x112A,Fehler in der Botschaft (Checksummenfehler)
+0x112B,Botschaft von SZL ausgefallen
+0x112C,Botschaft von Power-Modul ausgefallen
+0x112D,Botschaft von ARS ausgefallen
+0x112E,Botschaft von CAS ausgefallen
+0x112F,Botschaft von ACC ausgefallen
+0x113F,interner Fehler (Kommunikation 2. CJ940)
+0x1140,EEP Fehler beim Lesen oder Schreiben
+0x1141,Uebertragungsfehler der EWS-Information zwischen Master und Slave
+0x1142,Botschaft nicht gesendet
+0x1143,Botschaft nicht empfangen
+0x1144,Botschaft Checksumme nicht gueltig
+0x1145,OvRMon_stOvR does not match complement
+0x1146,error in slave task counter detected by master
+0x1147,error in task counter
+0x1148,torque switch off
+0x1149,max fault
+0x114A,Master und Slave sind vertauscht eingebaut
+0x114B,Differenz der SW-Checksummen zwischen Master und Slave
+0x114C,Lesen aus EEPROM in Master oder Slave nicht moeglich
+0x114D,Differenz im EEPROM zwischen Master und Slave
+0x114F,Gleichstellungs-Regelabweichung zu hoch
+0x115A,Ueberhitzung
+0x115B,elektrischer Fehler
+0x115C,mechanischer Fehler
+0x115D,Kommunikation ueber BSD-Schnittstelle nicht plausibel
+0x1168,Botschaft fehlt
+0x1170,interner Fehler (Timeout of TPU generated Interrupt)
+0x1171,interne Temperaturmessung defekt
+0x1172,interne Strommessung defekt
+0x1173,Kl15 WakeUp Kurzschluss nach Masse
+0x1174,min fault (nv)
+0x1175,Systemfehler
+0x1179,Tiefentladung
+0x117A,Powermanagement defekt
+0x117B,Ueberspannung
+0x117C,Unterspannung
+0x117D,Batterieloser Betrieb
+0x117E,Ruhestrom
+0x117F,Botschaft von AFS ausgefallen
+0x1180,Botschaft von SSG ausgefallen
+0x1181,Botschaft von MMI ausgefallen
+0x1182,Signal(e) ST_PCOS_PWMG in Botschaft nicht gueltig
+0x1183,"Botschaft von ParkConsumer (AHM , CCC_GW , DWA , IHKA , LM , M_ASK) ausgefallen"
+0x1184,Botschaft von SGM_SIM ausgefallen
+0x1185,Kommunikation ueber BSD-Schnittstelle gestoert
+0x1186,falsche Versionsnummer
+0x1187,interne Spannungsmessung defekt
+0x1189,dynamisch unplausibel
+0x11D7,Regenerationsdauer ueber kritischer Zeit fuer Oelverduennung
+0x11DC,Signalspannung zu niedrig
+0x11E5,Sauerstoffkonzentration unplausibel hoch
+0x11E6,Dynamik des Sondensignals zu gering
+0x11E7,Sauerstoffkonzentration unplausibel niedrig
+0x11E9,Stroemungswiderstand zu hoch (Filter verstopft)
+0x11EA,Stroemungswiderstand zu niedrig (Filter defekt oder nicht verbaut)
+0x11EB,Motorschutzregeneration wurde aktiviert (Partikelfilter stark beladen)
+0x11ED,Signal zu hoch
+0x11EE,Signal zu niedrig
+0x11EF,Sensordrift außerhalb Toleranz
+0x11F0,Schlauchleitung oder Abgasgegendrucksensor vor Partikelfilter eingefroren
+0x11F1,Schlauchleitung zum Abgasgegendrucksensor vor Partikelfilter abgefallen
+0x11F2,Schlauchleitung oder Abgasgegendrucksensor vor Partikelfilter verstopft
+0x11F3,maximale Regenerationsdauer ueberschritten
+0x11F6,Signal nicht plausibel zu Ansauglufttemperatur
+0x11F7,Signal Abgastemperatursensor vor Partikelfilter zu  Abgastemperatursensor vor Kat nicht plausibel
+0x11FB,Filter ist noch regenerierbar
+0x11FC,Filter ist nicht mehr regenerierbar
+0x1256,Verhaeltnis berechnete zu gemessener Luftmasse zu groß
+0x1257,Verhaeltnis berechnete zu gemessener Luftmasse zu klein
+0x1264,unplausible Sauerstoffkonzentration (Signal durch Heizung beeinflusst)
+0x1265,Offset der Lambda-Signalauswertung zu hoch (Nullpunktkorrektur)
+0x1266,Offset der Lambda-Signalauswertung zu niedrig (Nullpunktkorrektur)
+0x1269,Pumpstrom bei kalter Sonde zu niedrig
+0x126A,zulaessige Ansteuerdauerkorrektur zu hoch
+0x126B,zulaessige Ansteuerdauerkorrektur zu niedrig
+0x1271,offset drift (airmass ADC raw value &gt; threshold high)
+0x1272,offset drift (airmass ADC raw value &lt; threshold low)
+0x1273,Kurzschluss nach Plus
+0x1274,Kurzschluss nach Masse
+0x1275,Fehler bei Lesen des Wechselcodes aus EEPROM
+0x1281,Botschaft von SI-Bus ausgefallen
+0x1282,Signalspannung zu hoch oder Signal Abgleichstrom Unterbrechung
+0x1283,Referenzwiderstand zu hoch (Lambda-Temperaturauswertung)
+0x1284,Referenzwiderstand zu niedrig (Lambda-Temperaturauswertung)
+0x1285,unplausible Werte im SPI Chip (Lambda-Signalauswertung)
+0x1286,Spannungsversorgung am SPI Chip zu niedrig (Lambda-Signalauswertung)
+0x1287,ot posible
+0x1293,Botschaft von EKP ausgefallen
+0x1294,Botschaft von SZM Schaltzentrum Mittelkonsole ausgefallen
+0x1295,Maximum
+0x1296,Minimum
+0x1297,Signal
+0x1298,Not plausible
+0x129D,cyl1
+0x129E,cyl2
+0x129F,cyl3
+0x1302,Fahrpedalwinkel nicht plausibel zu Bremspedalstellung
+0x1303,zulaessige gefilterte Ansteuerdauerkorrektur zu hoch
+0x1304,zulaessige gefilterte Ansteuerdauerkorrektur zu niedrig
+0x1305,Botschaft von Anhaengermodul AHM ausgefallen
+0x1306,max fault (nv)
+0x1307,Kl15 WakeUp Plausibilitaet
+0x1308,sig fault (nv)
+0x1316,Codierindex nicht beschrieben oder Werte ungueltig
+0x1318,mechanisch defekt (Regelabweichung nahe geschlossener Position)
+0x1319,"elektrisch oder mechanisch defekt (Lagesensorfehler, Regelabweichung, Motorueberstrom)"
+0x131A,"Ansteuersignal unplausibel, Versorgungsspannung ungueltig, Uebertemperatur"
+0x131B,Temperaturmessung gestoert
+0x131C,Niveaumessung gestoert oder Sensor nicht im Oel
+0x131E,Permittivitaetsmessung gestoert oder Sensor nicht im Oel
+0x131F,elektrisch defekt (EEPROM)
+0x1320,Statusleitung Kurzschluss nach Masse
+0x1328,Umgebungsdruck nicht plausibel zu Druck vor Partikelfilter
+0x132A,Ventiltellerbruch
+0x132B,Statusleitung Unterbrechung oder Kurzschluss nach Plus
+0x132C,Umgebungsdruck zu hoch (nicht plausibel zu Druck vor Partikelfilter und Ladedruck)
+0x132D,Umgebungsdruck zu niedrig (nicht plausibel zu Druck vor Partikelfilter und Ladedruck)
+0x132E,Ladedruck zu hoch (nicht plausibel zu Druck vor Partikelfilter und Umgebungsdruck)
+0x132F,Ladedruck zu niedrig (nicht plausibel zu Druck vor Partikelfilter und Umgebungsdruck)
+0x1330,Druck vor Partikelfilter zu hoch (nicht plausibel zu Ladedruck und Umgebungsdruck)
+0x1331,Druck vor Partikelfilter zu niedrig (nicht plausibel zu Ladedruck und Umgebungsdruck)
+0x1332,"Druck vor Partikelfilter, Ladedruck und Umgebungsdruck nicht plausibel zueinander"
+0x1333,Datensatzpruefung nicht in Ordnung
+0x1334,Programmstandspruefung nicht in Ordnung
+0x1335,zu haeufige Regenerationen
+0x1336,too long time spent in transtion mode RgnNrm
+0x133A,Ruhestromverletzung
+0x133D,CY370-Verstaerker-Abgleichbereich reicht nicht aus
+0x133E,Spannungsrohwert der Kapazitaetsmessung zu hoch
+0x133F,Spannungsrohwert der Kapazitaetsmessung zu niedrig
+0x1340,ADC-Modul defekt
+0x1341,Energieverbrauch zu hoch
+0x1342,Spannungsrohwert der Aktorspannungsmessung zu hoch
+0x1343,Spannungsrohwert der Aktorspannungsmessung zu niedrig
+0x1345,Kurzschluss Minusseite zwischen zwei Zylindern
+0x1346,Kurzschluss
+0x1347,gemessene Bufferspannung zu hoch
+0x1348,gemessene Bufferspannung zu niedrig
+0x1349,Kurzschluss Bank-Auswahlschalter (Steuergeraet intern)
+0x134A,hochohmiger Kurzschluss
+0x134B,Fehler bei Stop-Schalter-Ueberwachung
+0x134C,Uebertragungsfehler SPI
+0x134D,Fehler an TPU-Schnittstelle
+0x134E,Fehler in ALU
+0x134F,Fehler bei DC-DC Ansteuerung
+0x1350,Fehler wegen Befehlskollision
+0x1351,keine Stromsensierung am Buffershunt
+0x1352,Minusseite hochohmiger Kurzschluss zur Plusseite
+0x1353,Kurzschluss Zylinder-Auswahlschalter
+0x1354,Kurzschluss nach Plus (Plusseite einer Bank oder Minusseite eines Zylinders)
+0x1355,Kurzschluss nach Masse (Plusseite einer Bank oder Minusseite eines Zylinders)
+0x1356,zulaessige Ansteuerspannungskorrektur zu hoch
+0x1357,zulaessige Ansteuerspannungskorrektur zu niedrig
+0x1359,Botschaft von LDM ausgefallen
+0x135A,Fenster 4
+0x1367,Dynamik des Sondensignals unplausibel
+0x1368,Sauerstoffkonzentration unplausibel hoch (bei Volllast)
+0x1369,Sauerstoffkonzentration unplausibel niedrig (bei Volllast)
+0x136A,Sauerstoffkonzentration unplausibel hoch (im Schubbetrieb)
+0x136B,Sauerstoffkonzentration unplausibel niedrig (im Schubbetrieb)
+0x136C,Sauerstoffkonzentration unplausibel hoch (bei Teillast)
+0x136D,Sauerstoffkonzentration unplausibel niedrig (bei Teillast)
+0x136F,Abgastemperatur bei Regeneration zu niedrig/positive Regelabweichung
+0x1370,Abgastemperatur bei Regeneration zu hoch/negative Regelabweichung
+0x1373,Steuergeraet erhaelt keine Antworten von den restlichen Busteilnehmern
+0x1374,Maximale Laufstrecke des Partikelfilter ueberschritten
+0x1375,Max Error
+0x1376,Min Error
+0x1377,"failure of a glow plug, Relay failure, Short circuit in glow plug, over-current"
+0x1378,"Short circuit in glow plug, over-current, Relay got stuck"
+0x1383,Partikelfilter stark beladen (Abgasgegendruck ueber CRT-Schwelle)
+0x1384,Partikelfilter stark beladen (Abgasgegendruck ueber Maximum)
+0x1387,Fahrzeug ist auf Transportmodus eingestellt
+0x1388,elektrisch oder mechanisch defekt
+0x138E,Potentiometer 1 und 2 gleichzeitig defekt
+0x1390,Versorgungsspannung Abgasrueckfuehrsteller zu niedrig
+0x1391,Versorgungsspannung Abgasrueckfuehrsteller zu hoch
+0x1392,Abgasrueckfuehrsteller mechanisch oder elektrisch defekt
+0x1393,Abgasrueckfuehrsteller elektrisch defekt
+0x1394,zulaessige Temperatur ueberschritten
+0x1395,Temperatur unplausibel hoch
+0x1396,Stellgroesse von Druckregelventil nicht plausibel
+0x1399,Mengenfehlerkorrektur ueber zulaessigem Bereich
+0x139A,Mengenfehlerkorrektur unter zulaessigem Bereich
+0x139B,Mengenfehlerkorrektur ausserhalb zulaessigem Bereich
+0x139C,Software-Update nicht moeglich
+0x139D,Fahrzeug ist auf Fertigungsmodus eingestellt
+0x139E,Fahrzeug ist auf Werkstattmodus eingestellt
+0x139F,CY370 - maximale Ansteuerdauer ueberschritten
+0x13A0,CY370 - maximale Ansteuerdauer zu lang ueberschritten
+0x13A1,Energieverbrauch zu niedrig
+0x13A2,Lade- oder Entladeenergie nicht plausibel
+0x13A3,DDE-Anforderung Schaltkennlinienaenderung an Getriebe
+0x13A4,Fehler in TPU (busy error)
+0x13A5,Plausibilitaet Luftmassen wegen mechanischem Defekt
+0x13A6,Plausibilitaet Luftmassen wegen elektrischem oder mechanischem Defekt
+0x13AB,Kurzschluss Minusseite (zur Plusseite oder zwischen zwei Zylindern oder nach Plus)
+0x13E4,Stroemungswiderstand zu niedrig
+0x13E5,Partikelfilter stark beladen (Abgasgegendruck hoch)
+0x13E6,Unterschied Abgastemperatur vor Katalysator zu hoch (Bank 1 zu Bank 2)
+0x13E7,Unterschied Abgastemperatur vor Partikelfilter zu hoch (Bank 1 zu Bank 2)
+0x13E8,Koppelstange gebrochen
+0x13E9,Fahrpedal und Bremse gleichzeitig aktiv
+0xXYXY,unbekannte Fehlerart

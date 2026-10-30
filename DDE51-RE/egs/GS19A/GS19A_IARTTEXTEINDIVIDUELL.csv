@@ -1,0 +1,26 @@
+ARTNR,ARTTEXT
+0x0040,nicht belegt
+0x0099,EGS-Reset
+0x007A,Symptom Schaltungsüberwachung
+0x0092,Symptom Gangüberwachung
+0x009C,Zwangshochschaltung 5-6 durch DME
+0x009D,Auto-P wegen PowerModul Abschaltung
+0x009E,Auto-P wegen Absicherung EMF
+0x009F,Auto-P wegen Hilferuf EMF
+0x00A0,Auto-N wegen Zwischenposition SZL
+0x00A1,Auto-P wegen Wegfall CAN-Information SZL
+0x00BA,WD Fehlerzähler
+0x00BB,Vermutlich Unterspannung in Init
+0x00BC,Vermutlich Unterspannung in Cruise oder Limp-Home
+0x00BD,Vermutlich Unterspannung in Standby
+0x00BE,Inkonsistenzen von Istgang und Zielgang
+0x00BF,Inkonsistenzen von Kraftflussvariablen
+0x00C0,Inkonsistenzen von Kraftfluss zu Gang
+0x00C1,Inkonsistenzen von Ventilen/Kupplung
+0x00C5,Funktion Hotmode Stufe 1
+0x00C6,Funktion Hotmode Stufe 2
+0x00C7,Funktion Hotmode Stufe 3
+0x00D0,Kupplungsschlupf
+0x00D1,Getriebe ohne Kraftschluss
+0x00D2,Verspanntes Getriebe
+0xFFFF,unbekannte Fehlerart
