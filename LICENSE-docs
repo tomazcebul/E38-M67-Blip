@@ -1,0 +1,19 @@
+Documentation licence
+
+Copyright (c) 2026 Tomaz Cebul
+
+The original documentation in this repository (the findings documents M67-DDE*-Findings.md,
+Blip-Function.md, CANTCU-Installation.md, the README files, and the Function-Description document
+under DDE63-RE) is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+International licence (CC BY-NC-SA 4.0).
+
+You may share and adapt this documentation for non-commercial purposes, provided that you give
+appropriate credit, indicate if changes were made, and distribute your contributions under the
+same licence.
+
+Licence summary: https://creativecommons.org/licenses/by-nc-sa/4.0/
+Legal code:      https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+This licence does NOT cover third-party material contained in this repository (for example the
+Bosch EDC15C function description, BMW SGBD data, or content derived from BMW/Bosch firmware).
+See NOTICE.md. Source code is covered by the MIT licence in LICENSE.

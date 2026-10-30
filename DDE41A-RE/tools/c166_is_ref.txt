@@ -1,3 +1,7 @@
+# Third-party file: opcode table from https://github.com/hn/c166-dis (c166_is.txt)
+# Licensed under the GNU General Public License v3.0 (GPL-3.0), https://www.gnu.org/licenses/gpl-3.0.html
+# Not covered by this repository's MIT licence. Used only as a reference to cross-check c166.py.
+
 Here is the raw content:
 Contents of https://raw.githubusercontent.com/hn/c166-dis/master/c166_is.txt:
 #
