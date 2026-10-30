@@ -14,13 +14,12 @@ The following content is included for research, documentation and interoperabili
 
 | Content | Location | Owner |
 |---|---|---|
-| Bosch EDC15C software function description (Y 445 S00 003-CC0), Markdown conversion and English translation, figures | [`EDC15C-Function-Description/`](EDC15C-Function-Description) | Robert Bosch GmbH |
 | Tables decoded from BMW diagnostic description files (SGBD `.prg`) | `*/sgbd/` | BMW AG |
 | Disassembly listings, cross references, calibration tables, map/curve extracts and other outputs derived from BMW/Bosch control-unit firmware | `*/out/`, `DDE41A-RE/patch/blip_patch.lst` | BMW AG / Robert Bosch GmbH (underlying firmware) |
 | Transmission data extracts derived from ZF/BMW firmware | `DDE51-RE/egs/`, `DDE63-RE/egs/` | ZF Friedrichshafen AG / BMW AG |
 | C166 opcode reference table | [`DDE41A-RE/tools/c166_is_ref.txt`](DDE41A-RE/tools/c166_is_ref.txt) | [hn/c166-dis](https://github.com/hn/c166-dis), **GPL-3.0** |
 
-The BMW SP-Daten files and all firmware images (`*.bin`, `*.ori`) are **not** part of this repository (see [.gitignore](.gitignore)). The tools regenerate the images from a local SP-Daten copy.
+The BMW SP-Daten files, the Bosch EDC15C function description (Y 445 S00 003-CC0, © Robert Bosch GmbH; referenced as `EDC15C-Function-Description/`) and all firmware images (`*.bin`, `*.ori`) are **not** part of this repository (see [.gitignore](.gitignore)). Links to `EDC15C-Function-Description/` only resolve with a local copy. The tools regenerate the images from a local SP-Daten copy.
 
 Product and company names (BMW, Bosch, ZF, CANformance, CANTCU, ...) are trademarks of their respective owners. This project isn't affiliated with or endorsed by any of them.
 

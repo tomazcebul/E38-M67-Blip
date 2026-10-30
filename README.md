@@ -20,14 +20,13 @@ Analysis of the BMW M67 V8 diesel engine control units (Bosch DDE4.1 / EDC15C in
 | [DDE41B-RE/](DDE41B-RE/README.md) | DDE4.1 slave |
 | [DDE51-RE/](DDE51-RE/README.md) | DDE5.1 PowerPC analysis, GS19 transmission data |
 | [DDE63-RE/](DDE63-RE/README.md) | DDE6.3 PowerPC analysis, [EGS torque intervention function description](DDE63-RE/Function-Description-EGS-Torque-Intervention.md), GS19.11 data |
-| [EDC15C-Function-Description/](EDC15C-Function-Description/README.md) | Bosch EDC15C function description (German original and English translation, third-party) |
 
-The BMW SP-Daten (`BMW-SPdaten-v.60.1/`) and all firmware images (`*.bin`, `*.ori`) aren't included. Put a local SP-Daten v60.1 copy in `BMW-SPdaten-v.60.1/` and run the tools in `*/tools` to regenerate them.
+The BMW SP-Daten (`BMW-SPdaten-v.60.1/`), the Bosch EDC15C function description (`EDC15C-Function-Description/`, a Markdown conversion and English translation of Bosch Y 445 S00 003-CC0) and all firmware images (`*.bin`, `*.ori`) aren't included. Links to `EDC15C-Function-Description/` in the documents only work with a local copy. Put a local SP-Daten v60.1 copy in `BMW-SPdaten-v.60.1/` and run the tools in `*/tools` to regenerate the images.
 
 ## Licensing
 
 - **Code** (`*/tools/*.py`): [MIT](LICENSE)
 - **Original documentation**: [CC BY-NC-SA 4.0](LICENSE-docs)
-- **Third-party material** (Bosch function description, BMW SGBD data, firmware-derived listings, the GPL-3.0 opcode table): not licensed by this repository, see [NOTICE.md](NOTICE.md)
+- **Third-party material** (BMW SGBD data, firmware-derived listings, the GPL-3.0 opcode table): not licensed by this repository, see [NOTICE.md](NOTICE.md)
 
 **Disclaimer:** this repository describes modifications to engine control firmware. Everything is provided as is, without warranty. Using it can damage the vehicle, affect emissions and road legality, and is at your own risk. See [NOTICE.md](NOTICE.md#disclaimer).
