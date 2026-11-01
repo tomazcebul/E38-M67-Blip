@@ -89,7 +89,14 @@ CANTCU can transmit up to **4 user messages** on CAN3 ([User CAN Outputs](https:
 
 **Units.** The variable names and units come from the CANTCU Configurator's variable list. `Engine Torque` is % of `MD_NORM`. Factor and offset of each signal are free, so the signals are scaled so that the DDE receives **Nm** (Factor = `MD_NORM` / 100 Nm per % for the echo). The DDE code compares in Nm (4.2, 4.3.1); if the log shows a different unit, only the factor changes.
 
-The ID 0x0B5 isn't used on the E38 vehicle CAN: the DDE4.1 receives 0x43F, 0x615, 0x153, 0x613 and 0x52C, and transmits 0x316, 0x329 and 0x545. The other nodes (DSC, IKE, LWS) use IDs from 0x153 upwards. One 8-byte frame every 10 ms adds about 2.6 % bus load at 500 kbit/s. The ID is free to choose, so a different one works too (the descriptor in 5.3 changes accordingly).
+**Is 0x0B5 free on the E38 vehicle CAN?** Nothing found in the available documents uses it:
+
+- The DDE4.1 master receives 0x43F, 0x615, 0x153, 0x613 and 0x52C and transmits 0x316, 0x329 and 0x545 (CAN objects in the calibration, see [DDE41A-RE/README.md](DDE41A-RE/README.md)).
+- The Bosch EDC15C function description (9.2.4, BMW CAN specification 11H Rev. 1.5) lists the messages the DDE exchanges: ASC1 0x153, ASC3 0x1F3, EGS1 0x43F, DDE1 0x316, DDE2 0x329, DDE4 0x545, DDE8 0x338, INSTR2 0x613, TXU1 0x445 and INSTR3 0x615. The DSC's torque requests and its data from the DDE are all in that set. A/C compressor data (`S_KO`, `S_AC`, `LM_KK` in 0x615, `S_KOREL` in 0x316) and the ACC acknowledgements (`Q_ACC_DME` in 0x329, `Q_ACC_BAS` in 0x1F3) are signals inside these frames, not extra IDs.
+- The frame catalogue of the E38 750i's M73 powertrain CAN (a separate project) has no 0x0B5 either.
+- A scan of the E38 SP-Daten engine control unit data for CAN object records with ID 0x0B5 found none. The SGBDs contain no ID tables.
+
+This isn't proof for traffic that the DDE doesn't see (for example the messages of Active Cruise Control to the DSC, if the car has it), and there are no E38 CAN logs. The baseline log (test plan step 1) has to confirm that 0x0B5 is absent from the stock bus. The ID is free to choose, so a different one works too (the descriptor in 5.3 changes accordingly). One 8-byte frame every 10 ms adds about 2.6 % bus load at 500 kbit/s.
 
 | | E65 `TORQUE_GEARBX` (real) | User output on 0x0B5 |
 |---|---|---|
@@ -108,7 +115,7 @@ CANformance offered to discuss a separate **add-on integration** (a real, protec
 - That EGS1 `S_SCHALT` and `GANG_INF` precede the request, and that `MD_IND_GS` stays 0xFF during a downshift blip (CANformance hasn't answered this yet).
 - Which variables exist for the user output, and what the frame contains while CANTCU or the transmission is in a fault or limp state.
 - `MD_NORM` from DDE2 0x329 (`MUL_COD` = 3) and the exact definition of `Engine Torque` (with or without friction torque).
-- No DSC/IKE faults with the extra frame on the bus.
+- 0x0B5 absent from the stock bus before the output is enabled, and no DSC/IKE faults with the extra frame on the bus.
 
 ### CANTCU configuration for the M67
 
@@ -690,7 +697,7 @@ Checks the build performs:
 | Step | Setup | Pass criterion |
 |---|---|---|
 | 0. CANTCU set-up | Race+ RPM Limits, auto-upshift speed and Drive/Sport shift maps for the M67 (Generate, then tune; no red cells) | Shifts behave on the road without the blip; the speed after each downshift is known (input for *wrwBLP_NMX*) |
-| 1. Baseline log | Stock DDE, CANTCU E38 integration + user output 0x0B5 (10 ms), manual downshifts | 0x0B5 and 0x43F recorded; Target Torque / TCU Intervention / Shift In Progress / Blip % behaviour understood; EGS1 `S_SCHALT`/`GANG_INF`/`MD_IND_GS` timing relative to the request; `MD_NORM` from DDE2 0x329 (`MUL_COD` = 3); `Engine Torque` definition; no DSC/IKE faults with the extra frame present |
+| 1. Baseline log | Stock bus first (0x0B5 absent?), then stock DDE, CANTCU E38 integration + user output 0x0B5 (10 ms), manual downshifts | 0x0B5 and 0x43F recorded; Target Torque / TCU Intervention / Shift In Progress / Blip % behaviour understood; EGS1 `S_SCHALT`/`GANG_INF`/`MD_IND_GS` timing relative to the request; `MD_NORM` from DDE2 0x329 (`MUL_COD` = 3); `Engine Torque` definition; no DSC/IKE faults with the extra frame present |
 | 2. Patch, function off | *wcwFUN_BLP* = 0 | Identical behaviour to stock, no faults, CANP and slave normal |
 | 3. Function on, low cap | Small *wrwBLP_MMX*, rolling | Engine speed rises during downshifts only; `wroBLPSTAT` = 1 during the request |
 | 4. Fault injection | Disconnect CAN3 / hold TCU Intervention at 1 with a CAN tool | Timeout → ramp to 0 (status 32/2); stuck request → status 4 after *wrwBLP_TMX*, lock after *wrwBLP_LOCK*; no restart; EGS1 fallback unchanged |
@@ -710,7 +717,7 @@ Checks the build performs:
   Still to confirm by log: the exact definition of `Engine Torque` (% of `MD_NORM`, friction or not), the echo delay (for *wrwBLP_DME*, *wrwBLP_EPT1*), and that EGS1 `S_SCHALT`/`GANG_INF` lead the request and `MD_IND_GS` stays 0xFF during a downshift blip (CANformance hasn't answered this). CANformance offered a separate **add-on integration**; a real, protected 0x0B5 would replace E1. An optional second user output could echo the engine speed if a variable exists.
 - **Fault and limp behaviour:** what the 0x0B5 frame contains when CANTCU or the transmission is in a fault state (CANformance: not covered by the datastream; ask about the user output). The DDE's timeout and ramp-to-0 handling covers a stopped frame; a frame stuck at "blip" is covered by *wrwBLP_TMX* and E2.
 - **Shift maps and *wrwBLP_NMX*:** the ceiling and the blip size depend on the final M67 shift maps and RPM limits (3, "CANTCU configuration for the M67").
-- **Extra IDs on CAN3:** CANformance asked what "extra IDs" means. Check by log that the DSC and IKE accept the added 0x0B5 frame without faults.
+- **Extra IDs on CAN3:** the documents show no use of 0x0B5 on the E38 bus (3, "Is 0x0B5 free on the E38 vehicle CAN?"), but nodes the DDE doesn't talk to (Active Cruise Control, if fitted) can't be checked. CANformance asked what "extra IDs" means: it is the one added 8-byte frame. Confirm by log that 0x0B5 is absent from the stock bus and that the DSC and IKE accept the frame without faults.
 - **EPROM checksum algorithm** (5.6).
 - **Free RAM** proof on the bench (5.7).
 - **Third-party EDC15 solution:** CANformance names A.K.T. for EDC15 blips. Comparing with it (message used, limits) would reduce risk.
