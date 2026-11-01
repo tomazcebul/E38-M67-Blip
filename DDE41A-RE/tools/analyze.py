@@ -66,13 +66,13 @@ PREFIX_CHAPTER = {
 
 def chapter_guess(written):
     votes = defaultdict(int)
-    for v in written:
+    for v in sorted(written):
         c = PREFIX_CHAPTER.get(v[:3])
         if c:
             votes[c] += 1
     if not votes or len(written) > 6:
         return ""
-    return max(votes, key=votes.get)
+    return max(sorted(votes), key=votes.get)  # sorted: deterministic choice on a tie
 
 
 def load(path):

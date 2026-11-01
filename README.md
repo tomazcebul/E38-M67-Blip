@@ -6,8 +6,8 @@ Analysis of the BMW M67 V8 diesel engine control units (Bosch DDE4.1 / EDC15C in
 
 | Document | Content |
 |---|---|
-| [Blip-Function.md](Blip-Function.md) | Downshift blip for the DDE4.1: DDE6.3 reference, CANTCU interface (TORQUE_GEARBX 0x0B5 via the Default CAN Datastream), function description, firmware patch design and build |
-| [CANTCU-Installation.md](CANTCU-Installation.md) | CANTCU / 8HP installation in the E38, including the DDE4.1 CAN topology |
+| [Blip-Function.md](Blip-Function.md) | Downshift blip for the DDE4.1: DDE6.3 reference, CANTCU interface (TORQUE_GEARBX 0x0B5 via a CANTCU User CAN Output), M67 CANTCU configuration, function description, firmware patch design and build |
+| [CANTCU-Installation.md](../E38-8HP-Conversion/CANTCU-Installation.md) | CANTCU / 8HP installation in the E38, including the DDE4.1 CAN topology |
 | [M67-DDE41-Findings.md](M67-DDE41-Findings.md) | E38 740d DDE4.1 (EDC15C): releases, SGBDs, master/slave CAN, reverse engineering summary |
 | [M67-DDE51-Findings.md](M67-DDE51-Findings.md) | E65 740d DDE5.1 (EDC16C1) and the GS19 transmission |
 | [M67-DDE63-Findings.md](M67-DDE63-Findings.md) | E65 745d DDE6.3 (EDC16CP35): gearbox torque interface and downshift blip |
@@ -21,7 +21,18 @@ Analysis of the BMW M67 V8 diesel engine control units (Bosch DDE4.1 / EDC15C in
 | [DDE51-RE/](DDE51-RE/README.md) | DDE5.1 PowerPC analysis, GS19 transmission data |
 | [DDE63-RE/](DDE63-RE/README.md) | DDE6.3 PowerPC analysis, [EGS torque intervention function description](DDE63-RE/Function-Description-EGS-Torque-Intervention.md), GS19.11 data |
 
-The BMW SP-Daten (`BMW-SPdaten-v.60.1/`), the Bosch EDC15C function description (`EDC15C-Function-Description/`, a Markdown conversion and English translation of Bosch Y 445 S00 003-CC0) and all firmware images (`*.bin`, `*.ori`) aren't included. Links to `EDC15C-Function-Description/` in the documents only work with a local copy. Put a local SP-Daten v60.1 copy in `BMW-SPdaten-v.60.1/` and run the tools in `*/tools` to regenerate the images.
+The BMW SP-Daten, BMW Standard Tools, the Bosch EDC15C function description (a Markdown conversion and English translation of Bosch Y 445 S00 003-CC0) and all firmware images (`*.bin`, `*.ori`) aren't included. The tools expect them in a `Shared` folder **next to** this repository, which can be used by other projects too:
+
+```text
+<parent>\
+  E38-M67\                                       this repository
+  Shared\SP-Daten\E38, E65                       BMW SP-Daten v60.1 (ecu, data, daten, ...)
+  Shared\BMW-StandardTools\                      EDIABAS ECU / EnglishEcu, EC-APPS\INPA\SGDAT (optional: English SGBD texts, INPA screens)
+  Shared\Documentation\EDC15C-Function-Description\   (optional: map name hints; the document links only work with it)
+  Shared\EdiabasLib\                             (optional: EdiabasTest.exe for the simulator probe, see DDE41A-RE)
+```
+
+Run the tools in `*/tools` to regenerate the images and outputs.
 
 ## Licensing
 

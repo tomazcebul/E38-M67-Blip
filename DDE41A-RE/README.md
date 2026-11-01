@@ -4,10 +4,10 @@ Static analysis of the BMW E38 740d (M67D39) **master** DDE4.1 control unit, Bos
 
 | | |
 |---|---|
-| Program | [`7787316O.0PA`](../BMW-SPdaten-v.60.1/E38/data/DDE41A/7787316O.0PA), 0x80000-0xEFFFF (content only in 0x90000-0xBFFFF) |
-| Data | [`Y7787646.0DA`](../BMW-SPdaten-v.60.1/E38/data/DDE41A/Y7787646.0DA), 0xF0000-0xFBFFF |
+| Program | [`7787316O.0PA`](../../Shared/SP-Daten/E38/data/DDE41A/7787316O.0PA), 0x80000-0xEFFFF (content only in 0x90000-0xBFFFF) |
+| Data | [`Y7787646.0DA`](../../Shared/SP-Daten/E38/data/DDE41A/Y7787646.0DA), 0xF0000-0xFBFFF |
 | Assembly / Bosch IDs | 7787645, `CC1100114455`, Bosch HW 1037351475 |
-| Diagnostic SGBD | [`DDE41KR0.prg`](../BMW-SPdaten-v.60.1/E38/ecu/DDE41KR0.prg) ("DDE 4.1 fuer M67 Master") |
+| Diagnostic SGBD | [`DDE41KR0.prg`](../../Shared/SP-Daten/E38/ecu/DDE41KR0.prg) ("DDE 4.1 fuer M67 Master") |
 | CPU | Infineon C167 (16-bit, segmented, DPP data paging) |
 
 See [`../M67-DDE41-Findings.md`](../M67-DDE41-Findings.md) for how this release was selected for the reference vehicle (VIN WBAGE81080xxxxxxx, built 2001-07-26).
@@ -23,6 +23,9 @@ See [`../M67-DDE41-Findings.md`](../M67-DDE41-Findings.md) for how this release 
 | Calibration labels | 783 labels via the pointer table at 0xF1000 |
 | Curves / maps | 87 curves (KL) + 55 maps (KF); 141 of 142 linked to code |
 | Fault reports | 492 call sites on 31 fault paths |
+| Fault codes | 460 of the 492 reports (those with a debounce label) assigned to the SGBD fault code they set, via 54 fault-code descriptor labels; 217 fault indices, none ambiguous (see [Fault paths](#fault-paths)) |
+| Diagnostics (EDIABAS) | All 142 `STATUS_*` jobs of `DDE41KR0.prg` run with the original job code in the EdiabasLib simulator: telegrams, byte layout and scaling measured, 139 jobs joined to RAM variables (see [Diagnostic protocol (EDIABAS / INPA)](#diagnostic-protocol-ediabas--inpa)) |
+| INPA | Screens of `DDE41R.IPO` / `10DDE41A.ipo` recovered; two menu items call a job that doesn't exist in the SGBD |
 
 ## Memory map
 
@@ -113,7 +116,26 @@ These identifications come from which named variable a function writes and what 
 
 ### Fault paths
 
-`fault_report` (0x092006 → boot 0:2000) is called with `R0.0` = error condition, `R3 = (path << 4) | (error << 1)`, `R1` = pointer word to the debounce configuration (3 words) and `R2` = mask. [`out/fault_paths.csv`](out/fault_paths.csv) lists all 492 reports. The path numbering doesn't follow the order in appendix A of the function description: aligning the two scored no better than shifted alignments. So paths are reported by index only, and the SGBD fault codes (`ORT`) aren't stored as plain words in the image.
+`fault_report` (0x092006 → boot 0:2000) is called with `R0.0` = error condition, `R3 = (path << 4) | (error << 1)`, `R1` = pointer word to the debounce configuration (3 words) and `R2` = mask. [`out/fault_paths.csv`](out/fault_paths.csv) lists all 492 reports. The path numbering doesn't follow the order in appendix A of the function description.
+
+**Fault codes.** The SGBD fault codes (`ORT`) are stored as the first word of **fault-code descriptor labels**: `<code, 16 bit LE> <0|1> 0x41 <n> 0x28 …`. There is one for every code in `FORTTEXTE`, 54 in total. The chain that ties a stored fault to its code:
+
+1. **Fault memory read.** The read (KWP2000 service 0x18, handler 0x0AB5C4, confirmed in the EdiabasLib simulation, see below) answers each entry of the fault memory (0xC529, 28-byte entries) with the word its descriptor pointer points to. The pointer comes from the RAM table at 0xCAA2.
+2. **Descriptor → debounce labels.** In the label pointer table, each descriptor label is followed by the debounce labels (`R1`) of the faults it covers.
+3. **Assignment.** `tools/faultcodes.py` assigns every fault report to the nearest preceding descriptor label by label index. For the fault index `R3 >> 1` this is unambiguous: 217 indices, each with exactly one code.
+
+The result agrees with the CAN supervision identified independently in this analysis:
+
+| Code | Text | Fault indices | Reporting functions |
+|---|---|---|---|
+| 0x0600 | CAN-Bus privat | 0xAE-0xB3 | CANP checks `fn_0B1E5C` (R3 0x160-0x166), `vec_0F00C0`, `fn_09A67C`/`fn_09A7DA` |
+| 0x1E00 | CAN-Bus | 0xB4-0xBA | CAN driver `fn_09970E`/`fn_09985E`, EGS1 failure 0x0BC4AA and ASC1 monitoring 0x0BC692 in `fn_0BB868` |
+| 0x0120 | Pedalwertgeber | 0x17-0x1A | `fn_09AA4C`, `fn_09AC90`, `fn_0A7FC2` |
+| 0x0200 | Injektor Zylinder 5 | 0xC6-0xC9 | `fn_0A34CA` |
+
+All codes are in [`out/fault_codes.md`](out/fault_codes.md), and one row per report in [`out/fault_codes.csv`](out/fault_codes.csv).
+* Some codes have descriptors but no report in the decoded application, e.g. 0x0335 crank speed and 0x0190 rail-pressure sensor; these are probably reported by the segment-0 ROM services.
+* 32 reports have no debounce label and stay unassigned.
 
 ### Transmission (EGS) torque intervention
 
@@ -161,7 +183,7 @@ The rest of `fn_0BB868`: A/C compressor feed-forward (0x0BBA00-0x0BBCB4; input `
 
 ### CAN controllers and master/slave link
 
-The master drives **two** CAN controllers, although its connectors have three CAN pairs (CANP to the slave, the transmission pair X2412 pins 3/4, and the vehicle CAN pair X2414 pins 36/37; see [`../CANTCU-Installation.md`](../CANTCU-Installation.md#engine-control-can-topology)).
+The master drives **two** CAN controllers, although its connectors have three CAN pairs (CANP to the slave, the transmission pair X2412 pins 3/4, and the vehicle CAN pair X2414 pins 36/37; see [`E38-8HP-Conversion/CANTCU-Installation.md`](../../E38-8HP-Conversion/CANTCU-Installation.md#engine-control-can-topology)).
 
 Each message object is set up from a 16-byte descriptor in the calibration: `+0x0B` object offset in the controller (object number × 0x10), `+0x0C` data length, `+0x0D/+0x0E` arbitration (ID << 5), `+0x0F` message configuration (DLC << 4, bit 3 = transmit). The 82527 and the C167 on-chip CAN module share this register layout.
 
@@ -255,6 +277,55 @@ The slave sends 0x008 from its segment-0 ROM. The application (`fn_09695E`) only
 
 None of the vehicle CAN messages are forwarded to CANP. The transmission's torque request reaches the slave only as its result: EGS1 → `MD_IND_GS` → minimum with the driver demand (0xC0C2, written at 0x0BD0E6) → `fn_0B1148` → **`mrmM_EWUN`** (0xC0C0, SGBD: "Fahrerwunschmenge nach externem Mengeneingriff") → CANP frame 0x038, bytes 4-5. No raw EGS1 byte and no transmission-derived flag (gear 0xC178, shift active 0xC332, converter clutch 0xC32C) is packed. 0xC31A in 0x018 variant B comes from the fault-reaction limiter in `fn_0BB868` (0x0BC2C4), not from the EGS block. The 3 bytes at 0xC294 have no writer in the visible code; they lie outside the EGS1 buffer (0xC298-0xC2A0).
 
+## Diagnostic protocol (EDIABAS / INPA)
+
+The diagnostic tooling in this repository was used to tie the BMW diagnostics to the firmware:
+* the EdiabasLib interpreter ([`../../Shared/EdiabasLib`](../../Shared/EdiabasLib/README.md), MIT);
+* the SGBDs of `../../Shared/SP-Daten/E38/ecu` and `../../Shared/BMW-StandardTools`;
+* the INPA scripts of `../../Shared/BMW-StandardTools/EC-APPS/INPA/SGDAT`.
+
+**Protocol** (`INITIALISIERUNG` and the simulator trace). K-line at 9600 Bd. Telegram `B8 <ecu> F1 <len> <SID> <data> <XOR>`: master **0x12**, slave **0x13**, tester 0xF1, XOR checksum (verified: the simulator only accepts XOR-checked answers).
+
+| Service | Request | Use |
+|---|---|---|
+| Read measurement values | `2C 10 <ID hi> <ID lo> …` (dynamically defined local identifier, several IDs per request) → `6C 10 <2 bytes per ID>` | all live values; the ID is the key of the firmware measurement table at 0x91000 |
+| Read fault memory | `18 00 00 00` (list of stored codes), then `17 <code hi> <code lo>` per fault (status and environment) | `FS_LESEN`; the codes are the descriptor words above |
+| Read local identifier | `21 06` | `STATUS_SYNC_MODE` |
+
+**Status jobs, measured** ([`out/ediabas_status.md`](out/ediabas_status.md) / [`.csv`](out/ediabas_status.csv), tool `tools/ediabas_probe.py`). Every `STATUS_*` job of `DDE41KR0.prg` was run with its original job code in the EdiabasLib simulator. The tool learns each request from the trace, answers it, and then varies every data byte and bit.
+
+| Result | Count |
+|---|---|
+| Jobs that run to `OKAY` | 142 of 142 |
+| Numeric values with bytes, byte order, factor, offset and sign | 154 |
+| Digital status bits with byte/bit position | 13 |
+| Jobs whose measurement IDs resolve to a RAM address | 141 |
+| Factors that differ from `BETRIEBSWTAB` (apart from raw-value debug results such as `STAT_ROHWERT1/2`) | none |
+
+Findings beyond the static decode:
+
+- **Smooth-running values live in the slave.** The master SGBD's `STATUS_LAUFUNRUHE_DREHZAHL` and `STATUS_LAUFUNRUHE_LLR_MENGE` send their 16 IDs (0x0F13-0x0F1E, 0x2F80/81, 0x2F86/87) to address **0x13**. These IDs aren't in the master's measurement table; they are the slave's per-cylinder values `dzmzN1-8` (0xC1D6-0xC1E4) and `dzmzMk1-8` (0xC1E6-0xC1F4). The probe joins requests to the table of the addressed ECU.
+- **`STATUS_DIGITAL`** reads 9 IDs in one `2C` request (2 bytes per ID; response bytes 6-7 = first ID, and so on). The measured bit positions give, for example:
+  * brake light switch = bit 0 and brake test switch = bit 1 of the first byte of ID 0x0F70 (RAM 0xC17E), glow controller = bits 4/5;
+  * clutch switch = bit 5 of the second byte of ID 0x0F70;
+  * cruise control "off" and "decelerate" = active-low bits 5/6 of the second byte of ID 0x2F74 (RAM 0xC17C);
+  * A/C request and A/C compressor = bit 0 of the second byte of the last two IDs (0x1FB0/0x1FB1 → 0xC32A/0xC32B).
+
+  Two cruise-control results never changed in the bit sweep, so they are probably fixed by the job itself.
+- **Signed values.** The job code treats 61 results in 45 jobs as signed 16-bit:
+  * all injection quantities (`mrmM_E*`);
+  * the post-injection start/duration values (`zumAB_HE`, `zumAB_NE`);
+  * the idle-controller P/I parts;
+  * the voltages (`anmUBT`, `admUC1/2`, …);
+  * the raw A/D values (`anoU_*`).
+
+  The sign matters when you read these over CAN or with your own tools.
+
+**INPA** ([`out/inpa_screens.md`](out/inpa_screens.md), tool `tools/inpa.py`). These are the screens of `DDE41R.IPO` (diagnosis) and `10DDE41A.ipo` (programming), with the labels and SGBD results each screen shows.
+* Status pages: Digital, Analog 1-5. Analog 4/5 show the per-cylinder quantity correction and smooth-running values from the slave, see above.
+* Other pages: actuator tests 1/2, adjustment and EWS 3.
+* The INPA scripts of both ECUs call `STEUERN_AGB_STELLER1/2`, which doesn't exist in either SGBD (the jobs are named `STEUERN_AGR_STELLER1/2`). So the EGR actuator test from those INPA screens fails; run the SGBD job directly instead.
+
 ## Output files
 
 | File | Content |
@@ -266,6 +337,9 @@ None of the vehicle CAN messages are forwarded to CANP. The transmission's torqu
 | [`out/labels.csv`](out/labels.csv) | The 783 calibration labels: type, size, value, users |
 | [`out/measurement_table.csv`](out/measurement_table.csv) | Measurement ID → RAM address → SGBD name, unit, scaling |
 | [`out/fault_paths.csv`](out/fault_paths.csv) | Fault report call sites |
+| [`out/fault_codes.md`](out/fault_codes.md) / [`fault_codes.csv`](out/fault_codes.csv) | SGBD fault code (German/English text, environment) per descriptor, and per fault report |
+| [`out/ediabas_status.md`](out/ediabas_status.md) / [`ediabas_status.csv`](out/ediabas_status.csv) | All `STATUS_*` jobs measured in the EdiabasLib simulator: requests, byte layout, scaling, RAM variable |
+| [`out/inpa_screens.md`](out/inpa_screens.md) | INPA screens (`DDE41R.IPO`, `10DDE41A.ipo`) with labels and SGBD results |
 | [`out/calrefs.csv`](out/calrefs.csv), [`out/scalars.csv`](out/scalars.csv) | Every calibration access; calibration words read directly (not via labels) |
 | [`out/topsector.asm`](out/topsector.asm), [`topsector.md`](out/topsector.md) | Top flash sector disassembly (only with a full flash read in `bin/*.ori`) |
 | [`sgbd/`](sgbd) | `DDE41KR0.prg` decoded: info, 232 jobs, all tables as CSV |
@@ -278,7 +352,10 @@ All tools are plain Python 3 with no dependencies, and are shared with the slave
 cd DDE41A-RE\tools
 python run_all.py --variant A   # master -> DDE41A-RE
 python run_all.py --variant B   # slave  -> DDE41B-RE
+python run_all.py --variant A --ediabas   # also re-measure the SGBD status jobs in the EdiabasLib simulator (about 15 min)
 ```
+
+Inputs: the E38 SP-Daten in [`../../Shared/SP-Daten/E38`](../../Shared/SP-Daten/E38) (programming data, SGBDs), the EDC15C function description in [`../../Shared/Documentation/EDC15C-Function-Description`](../../Shared/Documentation/EDC15C-Function-Description) (map name hints), and BMW Standard Tools in [`../../Shared/BMW-StandardTools`](../../Shared/BMW-StandardTools) (English SGBDs, INPA scripts). `--ediabas` needs the shared `EdiabasTest.exe` (see [`../../Shared/EdiabasLib/README.md`](../../Shared/EdiabasLib/README.md)).
 
 | Tool | Purpose |
 |---|---|
@@ -291,6 +368,9 @@ python run_all.py --variant B   # slave  -> DDE41B-RE
 | [`maps.py`](tools/maps.py) | Curve/map detection, value order, axis naming, code links, doc candidates |
 | [`topsector.py`](tools/topsector.py) | Top flash sector (0xFC000-0xFFFFF) from a full flash read: RAM blocks at their run addresses, in-place loader |
 | [`params.py`](tools/params.py) | Label table, direct scalars, fault-path report table |
+| [`faultcodes.py`](tools/faultcodes.py) | Fault-code descriptor labels → SGBD fault codes for every fault report (checks that each fault index maps to exactly one code) |
+| [`ediabas_probe.py`](tools/ediabas_probe.py) | Runs the SGBD's `STATUS_*` jobs in the EdiabasLib simulator: learns the requests, measures byte layout/scaling/bits, joins measurement IDs to RAM (per diagnostic address, so slave IDs requested by the master SGBD resolve) |
+| [`inpa.py`](tools/inpa.py) | INPA screens from the compiled `.IPO` scripts; flags job/result names missing from the SGBD |
 | [`c166_is_ref.txt`](tools/c166_is_ref.txt) | Opcode reference table from [hn/c166-dis](https://github.com/hn/c166-dis) (GPL-3.0), used only to cross-check the decoder |
 
 ## Limitations
@@ -299,7 +379,8 @@ python run_all.py --variant B   # slave  -> DDE41B-RE
 - **Function boundaries are heuristic.** About 10% of the program content isn't decoded; it's mostly constant tables. Functions named `fn_xxxxxx` start after a return or boot-task stub, while `sub_xxxxxx` are confirmed call targets.
 - **Scaling.** Map values are raw. Axis scaling from the SGBD is shown only as a hint, because the SGBD scales the diagnostic telegram value, which for some signals is a byte (e.g. `zumP_RAIL`).
 - **Names.** Only 127 of the 260 measured RAM variables have SGBD names. Calibration label names (`mrw...`, `ldw...`) aren't stored in the image, so map names are evidence-based candidates.
-- **Fault path names** are unresolved (see above).
+- **Fault path names.** The path numbers themselves have no names. The SGBD fault code of each report is resolved through the descriptor labels (see [Fault paths](#fault-paths)); 32 reports without a debounce label remain unassigned.
+- **Simulator coverage.** The EdiabasLib probe covers the `STATUS_*` jobs. Actuator (`STEUERN_*`), adjustment (`ABGLEICH_*`) and coding jobs weren't run.
 - **Slave ECU.** The slave (DDE41B, `7787317O`) is covered separately in [`../DDE41B-RE`](../DDE41B-RE/README.md).
 
 ## Top flash sector (from the full flash read)
@@ -329,7 +410,7 @@ The scheduler, interpolators and fault manager that the application calls as `CA
 
 What was checked:
 
-- **SP-Daten:** none of the 505 flash files in `BMW-SPdaten-v.60.1\E38\data` contain this code. Some M57 (DDE4.0) releases (`7789376V`, `7790220V`, …) have content in 0x88000-0x8FFFF, but that is application overflow.
+- **SP-Daten:** none of the 505 flash files in `E38\data` contain this code. Some M57 (DDE4.0) releases (`7789376V`, `7790220V`, …) have content in 0x88000-0x8FFFF, but that is application overflow.
 - **Full read of the external flash** (`bin/BMW_E38_3.9D_180KW_0281010843_1037351475_Bosch__.ori`, 512 KB, 0x80000-0xFFFFF):
   - **Stock O release.** Program and calibration are byte-identical to `7787316O` / `Y7787646`. The only difference is 4 bytes at 0x93FFA-0x93FFF, in the 32-byte trailer at the end of the 64 KB block 0x90000 (Intel-HEX type 0x10 record, which carries checksum/flag words): the update file has `91 C3 .. .. 95 14`, the dump `97 C1 .. .. 9F 16`. Bits are both set and cleared, so it's a different trailer value rather than bits programmed into erased flash; code and calibration aren't affected. The calibration isn't modified.
   - **0x80000-0x87FFF** is `C3` filler, and **0x88000-0x8FFFF** is zeros: no code. None of the segment-0 entry points (0:02D6, 0:0830, 0:0CB2, 0:0CDC, 0:2000) exist in external flash.

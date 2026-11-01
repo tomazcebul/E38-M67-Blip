@@ -4,10 +4,10 @@ Static analysis of the BMW E38 740d (M67D39) **slave** DDE4.1 control unit, Bosc
 
 | | |
 |---|---|
-| Program | [`7787317O.0PA`](../BMW-SPdaten-v.60.1/E38/data/DDE41B/7787317O.0PA), 0x80000-0xEFFFF (content only in 0x90000-0xAFFFF) |
-| Data | [`Y7787648.0DA`](../BMW-SPdaten-v.60.1/E38/data/DDE41B/Y7787648.0DA), 0xF0000-0xFBFFF |
+| Program | [`7787317O.0PA`](../../Shared/SP-Daten/E38/data/DDE41B/7787317O.0PA), 0x80000-0xEFFFF (content only in 0x90000-0xAFFFF) |
+| Data | [`Y7787648.0DA`](../../Shared/SP-Daten/E38/data/DDE41B/Y7787648.0DA), 0xF0000-0xFBFFF |
 | Assembly / Bosch IDs | 7787647, `CC0099884455`, Bosch HW 1037351476, slave marker `B098EWS…` |
-| Diagnostic SGBD | [`DDE41KL0.prg`](../BMW-SPdaten-v.60.1/E38/ecu/DDE41KL0.prg) ("DDE 4.1 fuer M67 Slave", 157 jobs) |
+| Diagnostic SGBD | [`DDE41KL0.prg`](../../Shared/SP-Daten/E38/ecu/DDE41KL0.prg) ("DDE 4.1 fuer M67 Slave", 157 jobs) |
 | CPU | Infineon C167 |
 
 ## Results at a glance
@@ -22,6 +22,8 @@ Static analysis of the BMW E38 740d (M67D39) **slave** DDE4.1 control unit, Bosc
 | Label pointer table | 0xF1000-0xF1435, **539 labels** | 783 labels |
 | Curves / maps | 50 KL + 14 KF (10 KF are constant) | 87 KL + 55 KF |
 | Fault reports | 206 call sites on 16 paths | 492 on 31 paths |
+| Fault codes | all 206 reports assigned to the 32 SGBD codes via 32 descriptor labels; 122 fault indices, none ambiguous | 460 of 492 reports, 54 descriptors |
+| Diagnostics (EDIABAS) | 110 of 110 `STATUS_*` jobs of `DDE41KL0.prg` measured in the EdiabasLib simulator; 109 joined to RAM | 142 of 142; 141 |
 
 ## Differences from the master
 
@@ -62,7 +64,7 @@ This matches the split in the diagnostic SGBDs. Only the slave SGBD `DDE41KL0` h
 
 ## Master-slave CAN link
 
-The slave is connected to the master only through the private CAN (CANP; wiring in [`../CANTCU-Installation.md`](../CANTCU-Installation.md#engine-control-can-topology)). On the slave this is the C167 on-chip CAN module at 0xEF00. Its message objects mirror the master's external 82527 (see [`../DDE41A-RE`](../DDE41A-RE/README.md#can-controllers-and-masterslave-link)):
+The slave is connected to the master only through the private CAN (CANP; wiring in [`E38-8HP-Conversion/CANTCU-Installation.md`](../../E38-8HP-Conversion/CANTCU-Installation.md#engine-control-can-topology)). On the slave this is the C167 on-chip CAN module at 0xEF00. Its message objects mirror the master's external 82527 (see [`../DDE41A-RE`](../DDE41A-RE/README.md#can-controllers-and-masterslave-link)):
 
 | Object | ID | Slave | Master (82527) | Slave descriptor | Slave RAM buffer |
 |---|---|---|---|---|---|
@@ -85,6 +87,23 @@ The full frame layouts in both directions, the multiplexing, the handshake and t
 
 **No vehicle CAN messages.** The slave calibration contains none of the vehicle CAN identifiers (EGS1 0x43F, ASC1 0x153, DDE1 0x316, INSTR2 0x613), and the master doesn't forward any of them. The transmission's torque reduction reaches the slave only as its result: the master applies `MD_IND_GS` to its quantity demand and sends the resulting `mrmM_EWUN` ("Fahrerwunschmenge nach externem Mengeneingriff") in frame 0x038.
 
+## Fault codes and diagnostics
+
+The master's tools ([`../DDE41A-RE`](../DDE41A-RE/README.md#fault-paths)) were applied to the slave:
+
+- **Fault codes** ([`out/fault_codes.md`](out/fault_codes.md), [`fault_codes.csv`](out/fault_codes.csv)).
+  * The slave has one fault-code descriptor label (`<code> <0|1> 41 <n> 28 …`) for each of its 32 SGBD codes, and every one of the 206 fault reports maps to exactly one code.
+  * The CANP supervision reports **0x0601** "CAN-Bus privat" (fault indices 0x43–0x51, including the CANP task `fn_0A2466`), the counterpart of the master's 0x0600.
+  * Example: the injectors of the slave's bank report 0x0208–0x020B (`fn_09D5C0`).
+- **Status jobs** ([`out/ediabas_status.md`](out/ediabas_status.md)).
+  * All 110 `STATUS_*` jobs of `DDE41KL0.prg` run to `OKAY` with the original job code in the EdiabasLib simulator. They all go to diagnostic address **0x13** (`B8 13 F1 …`).
+  * 109 resolve to RAM through the measurement table; only `STATUS_SYNC_MODE` uses `21 06`.
+  * 67 results in 53 jobs are signed 16-bit values.
+  * The per-cylinder smooth-running values `dzmzN1-8`/`dzmzMk1-8` (0xC1D6–0xC1F4) are also requested by the master SGBD, which sends those requests to this address.
+- **INPA** ([`out/inpa_screens.md`](out/inpa_screens.md)).
+  * Screens of `DDE41L.IPO` (status Analog 1–3, actuator test, EWS 3) and the programming script `10DDE41B.ipo`.
+  * As in the master, the EGR actuator menu calls `STEUERN_AGB_STELLER1/2`, which doesn't exist in the SGBD (`STEUERN_AGR_STELLER1/2`).
+
 ## Checks
 
 - **Interpolator recall:** every curve descriptor passed to `boot_KL_interp` (31 of 31) and every non-null map descriptor passed to `boot_KF_interp` (7 of 7) is in the extracted list. One call passes `R12 = 0`.
@@ -104,6 +123,9 @@ The layout is the same as in the master analysis:
 | [`out/labels.csv`](out/labels.csv) | 539 calibration labels |
 | [`out/measurement_table.csv`](out/measurement_table.csv) | 175 measurement IDs → RAM → SGBD names |
 | [`out/fault_paths.csv`](out/fault_paths.csv) | 206 fault report call sites |
+| [`out/fault_codes.md`](out/fault_codes.md) / [`fault_codes.csv`](out/fault_codes.csv) | SGBD fault code per descriptor and per fault report |
+| [`out/ediabas_status.md`](out/ediabas_status.md) / [`ediabas_status.csv`](out/ediabas_status.csv) | Status jobs measured in the EdiabasLib simulator |
+| [`out/inpa_screens.md`](out/inpa_screens.md) | INPA screens (`DDE41L.IPO`, `10DDE41B.ipo`) |
 | [`sgbd/`](sgbd) | `DDE41KL0.prg` decoded: info, 157 jobs, tables |
 
 ## Regenerating
@@ -113,11 +135,12 @@ The tools live in [`../DDE41A-RE/tools`](../DDE41A-RE/tools) and are shared by b
 ```powershell
 cd DDE41A-RE\tools
 python run_all.py --variant B
+python run_all.py --variant B --ediabas   # also re-measure the status jobs in the EdiabasLib simulator
 ```
 
 ## Limitations
 
-These are the same as for the master: the segment-0 code (most likely the C167 internal ROM, see the [master README](../DDE41A-RE/README.md#segment-0-services-internal-rom)) isn't available, heuristic function boundaries, raw values, label names not in the image, fault paths by index only. In addition:
+These are the same as for the master: the segment-0 code (most likely the C167 internal ROM, see the [master README](../DDE41A-RE/README.md#segment-0-services-internal-rom)) isn't available, heuristic function boundaries, raw values, label names not in the image, path numbers without names (the fault codes are resolved, see above). In addition:
 
 - 76 of the 175 slave RAM variables have no SGBD name.
 - No calibration labels from the function description could be matched with confidence: only 4 weak candidates, all on curves.

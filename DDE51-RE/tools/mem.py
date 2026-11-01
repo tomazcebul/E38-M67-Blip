@@ -14,7 +14,8 @@ REPO = os.path.normpath(os.path.join(ROOT, ".."))
 BIN = os.path.join(ROOT, "bin")
 OUT = os.path.join(ROOT, "out")
 SGBD_DIR = os.path.join(ROOT, "sgbd")
-SP = os.path.join(REPO, "BMW-SPdaten-v.60.1", "E65")
+SHARED = os.path.normpath(os.path.join(REPO, "..", "Shared"))   # C:\GIT-Private\BMW\Shared
+SP = os.path.join(SHARED, "SP-Daten", "E65")
 HEX_DIR = os.path.join(SP, "data", "DDE51")
 PRG, DAT, SGBD = "7809330A.0pa", "V7810913.0da", "D51MM670"
 

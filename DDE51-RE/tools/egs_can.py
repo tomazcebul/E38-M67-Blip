@@ -1,6 +1,6 @@
 """Cross-check the DDE5.1 CAN configuration against the E65 6HP26 transmission (EGS) software.
 
-Transmission software for the M67D40 (= M67D39 3.9 l in BMW SP-Daten naming) in BMW-SPdaten-v.60.1/E65/data:
+Transmission software for the M67D40 (= M67D39 3.9 l in BMW SP-Daten naming) in Shared/SP-Daten/E65/data:
   GKE192  GS19.02  programs 7534928A (assembly 7537217, data A7537218) and 7534929A (7537233, A7537234)
   GKE194  GS19.04  program 7557063A (assembly 7559200, data A7559201)
 

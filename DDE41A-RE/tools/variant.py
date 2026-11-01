@@ -8,7 +8,8 @@ import struct
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.normpath(os.path.join(HERE, "..", ".."))
-SP = os.path.join(REPO, "BMW-SPdaten-v.60.1", "E38")
+SHARED = os.path.normpath(os.path.join(REPO, "..", "Shared"))   # C:\GIT-Private\BMW\Shared: SP-Daten, BMW tools, docs
+SP = os.path.join(SHARED, "SP-Daten", "E38")
 BASE = 0x80000
 
 VARIANTS = {

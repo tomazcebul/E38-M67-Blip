@@ -1,4 +1,4 @@
-# BMW SP-Daten (proprietary BMW programming data, ~1.6 GB)
+# BMW SP-Daten (proprietary BMW programming data) belong in ..\Shared\SP-Daten; keep ignoring an in-repo copy
 /BMW-SPdaten-v.60.1/
 
 # Firmware images (converted from BMW/Bosch files, flash dumps, patched images).
@@ -12,5 +12,7 @@
 __pycache__/
 *.pyc
 
-# Bosch EDC15C function description (third-party, kept locally only)
+# Bosch EDC15C function description (third-party): ..\Shared\Documentation; keep ignoring an in-repo copy
 /EDC15C-Function-Description/
+
+/E38-M67/Follow-up to CANformance.md

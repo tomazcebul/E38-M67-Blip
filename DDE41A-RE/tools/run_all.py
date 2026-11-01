@@ -1,6 +1,7 @@
 """Regenerate every artifact for one ECU variant from the SP-Daten source files.
 
-Usage: python run_all.py [--variant A|B]     (A = master DDE41A, B = slave DDE41B; default A)
+Usage: python run_all.py [--variant A|B] [--ediabas]  (A = master DDE41A, B = slave DDE41B; default A;
+       --ediabas also measures the SGBD status jobs in the EdiabasLib simulator, which takes several minutes)
 Outputs: <repo>/DDE41A-RE or <repo>/DDE41B-RE  (bin/, sgbd/, out/)
 """
 import argparse
@@ -14,6 +15,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--variant", default=os.environ.get("DDE_VARIANT", "A"), choices=["A", "B", "a", "b"])
+    p.add_argument("--ediabas", action="store_true", help="also run the EdiabasLib simulation probe (slow)")
     a = p.parse_args()
     env = dict(os.environ, DDE_VARIANT=a.variant.upper())
     os.environ.update(env)
@@ -34,6 +36,10 @@ def main():
     run("maps.py")
     run("params.py")
     run("analyze.py")  # second pass: annotate the listing with map/curve labels from maps.json
+    run("faultcodes.py")  # fault reports -> SGBD fault codes (needs labels.csv and fault_paths.csv)
+    run("inpa.py")  # INPA screens from BMW-StandardTools
+    if a.ediabas:
+        run("ediabas_probe.py")  # status jobs measured in the EdiabasLib simulator (needs EdiabasTest.exe)
     import glob
     if glob.glob(os.path.join(V.BIN, "*.ori")):
         run("topsector.py")  # only with a full 512 KB flash read (not part of the SP-Daten files)

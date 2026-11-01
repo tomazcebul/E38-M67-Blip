@@ -4,9 +4,9 @@ Static analysis of the E65 745d M67TUE DDE6.3 software from SP-Daten v60.1 (`E65
 
 | | |
 |---|---|
-| Program | [`7808738A.0pa`](../BMW-SPdaten-v.60.1/E65/data/DDE63/7808738A.0pa): EDC16CP35, project "M67TUE/E65", reference `0089R10A9G3B`, Bosch hardware 0 281 012 479 |
-| Data | [`T7808736.0da`](../BMW-SPdaten-v.60.1/E65/data/DDE63/T7808736.0da) (220 kW, `...G3BEZ220`); `T7808737.0da` is the 242 kW variant (240 bytes differ) |
-| Diagnostic SGBD | [`D63MM670.prg`](../BMW-SPdaten-v.60.1/E65/ecu/D63MM670.prg) (master), `D63SM670.prg` (slave) |
+| Program | [`7808738A.0pa`](../../Shared/SP-Daten/E65/data/DDE63/7808738A.0pa): EDC16CP35, project "M67TUE/E65", reference `0089R10A9G3B`, Bosch hardware 0 281 012 479 |
+| Data | [`T7808736.0da`](../../Shared/SP-Daten/E65/data/DDE63/T7808736.0da) (220 kW, `...G3BEZ220`); `T7808737.0da` is the 242 kW variant (240 bytes differ) |
+| Diagnostic SGBD | [`D63MM670.prg`](../../Shared/SP-Daten/E65/ecu/D63MM670.prg) (master), `D63SM670.prg` (slave) |
 | CPU | Freescale MPC5xx (PowerPC, big-endian) |
 
 ## Memory map

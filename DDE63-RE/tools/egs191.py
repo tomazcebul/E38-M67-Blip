@@ -1,6 +1,6 @@
 """Decode the GS19.11 transmission calibration (6HP26/32, program 7556246A) and compare engine variants.
 
-Data files: BMW-SPdaten-v.60.1/E65/data/GKE191 (built into egs/bin by this script). The M67D44 (745d)
+Data files: Shared/SP-Daten/E65/data/GKE191 (built into egs/bin by this script). The M67D44 (745d)
 data is A7524745 ("E65 M67D44 ECE", assembly 7524744, type code HM61).
 
 Layout of a data file (0x060000-0x07FFFF, addresses as in the ECU):

@@ -2,7 +2,7 @@
 
 Writes patched COPIES to DDE41A-RE/patch/ (the SP-Daten files and DDE41A-RE/bin stay untouched):
   7787316O_program_blip.bin   program 0x080000-0x0EFFFF (patch code at 0x0C0000, hooks H1-H3)
-  Y7787646_data_blip.bin      data    0x0F0000-0x0FFFFF (calibration 0x0F7880, CAN descriptors 0x0F7900-0x0F792F)
+  Y7787646_data_blip.bin      data    0x0F0000-0x0FFFFF (calibration 0x0F7880, CAN descriptor 0x0F7900-0x0F790F)
   DDE41A_O_full_80000_blip.bin combined 512 KB image 0x080000-0x0FFFFF (stock top sector from the flash read)
   blip_patch.lst              verification listing (every byte decoded back with c166.py)
 
@@ -121,11 +121,9 @@ class Asm:
 # --------------------------------------------------------------------------
 # RAM (XRAM 0xE780-0xE7DF, see Blip-Function.md 5.1) and calibration (DPP1)
 # --------------------------------------------------------------------------
-RXB5, RXC5, RXT5 = 0xE780, 0xE78A, 0xE78C          # 0x0B5 (Base+1) buffer, poll counter, time
+RXB5, RXC5, RXT5 = 0xE780, 0xE78A, 0xE78C          # 0x0B5 (CANTCU user output) buffer, poll counter, time
 STAT, NLOCK = 0xE78E, 0xE78F
 QREQ, Q, T, TOLOCK, INIT, MREQ = 0xE790, 0xE792, 0xE794, 0xE796, 0xE798, 0xE79A
-RXB4, RXC4, RXT4 = 0xE7A0, 0xE7AA, 0xE7AC          # 0x0B4 (Base)
-RXBA, RXCA, RXTA = 0xE7B0, 0xE7BA, 0xE7BC          # 0x0BA (Base+6)
 GLATCH, SPREV, ARM, STPREV, ARMED, MOWN, EDEB, EERR = (
     0xE7C0, 0xE7C1, 0xE7C2, 0xE7C4, 0xE7C5, 0xE7C6, 0xE7C8, 0xE7C9)
 INIT_MAGIC = 0x5AA5
@@ -133,15 +131,15 @@ INIT_MAGIC = 0x5AA5
 CAL = 0x7880                                         # 16-bit via DPP1 -> 0x0F7880
 C = {k: CAL + o for k, o in dict(
     FUN=0x00, NMN=0x02, NMX=0x04, TMN=0x06, VMN=0x08, MMX=0x0A, TMX=0x0C, RAMP=0x0E,
-    SHFT=0x10, MDN=0x12, SRC=0x14, MPCT=0x16, LOCK=0x18, DNE=0x1A, DME=0x1C, EPT1=0x1E,
-    TARM=0x20, DNST=0x22, DNOV=0x24, EDEBC=0x26, EMX=0x28).items()}
-DESC5, DESC4, DESCA = 0x7900, 0x7910, 0x7920
+    SHFT=0x10, MDN=0x12, SRC=0x14, MPCT=0x16, LOCK=0x18, DME=0x1A, EPT1=0x1C,
+    TARM=0x1E, EDEBC=0x20, EMX=0x22).items()}
+DESC5 = 0x7900
 
 # Calibration values. Function OFF and MD_NORM unknown -> the patch is inert until calibrated.
 CAL_VALUES = dict(
     FUN=0,       # wcwFUN_BLP          0 = off
     NMN=900,     # wrwBLP_NMN          rpm
-    NMX=3800,    # wrwBLP_NMX          rpm
+    NMX=3800,    # wrwBLP_NMX          rpm, ceiling E3 (placeholder: set from Max RPM and the shift maps)
     TMN=3331,    # wrwBLP_TMN          anmWTF raw (0.1 K, -273.14) = 60 degC
     VMN=500,     # wrwBLP_VMN          0.01 km/h = 5 km/h
     MMX=3000,    # wrwBLP_MMX          0.01 mm3 = 30 mm3/stroke
@@ -152,16 +150,13 @@ CAL_VALUES = dict(
     SRC=0,       # wcwBLP_SRC          0 Target Torque, 1 Blip %
     MPCT=300,    # wrwBLP_MPCT         Nm at Blip % = 100
     LOCK=3,      # wrwBLP_LOCK         duration events until lock
-    DNE=150,     # wrwBLP_DNE          E1 rpm
-    DME=80,      # wrwBLP_DME          E2 Nm
-    EPT1=2,      # wrwBLP_EPT1         E2 PT1 as right shift (2 = 1/4 per call)
-    TARM=15,     # wrwBLP_TARM         E3 task cycles
-    DNST=150,    # wrwBLP_DNST         E4 rpm
-    DNOV=100,    # wrwBLP_DNOV         E4 rpm
+    DME=80,      # wrwBLP_DME          E1 Nm
+    EPT1=2,      # wrwBLP_EPT1         E1 PT1 as right shift (2 = 1/4 per call)
+    TARM=15,     # wrwBLP_TARM         E2 task cycles
     EDEBC=3,     # wrwBLP_EDEB         debounce cycles
     EMX=3,       # wrwBLP_EMX          integrity errors until lock
 )
-TOUT = 0x0A      # receive timeout in time-base ticks (EGS1 uses 0x32); to set after measuring
+TOUT = 0x0A      # receive timeout in time-base ticks (EGS1 uses 0x32); about 3 x 10 ms, to set after measuring
 
 
 def descriptor(obj, can_id, timeout=TOUT):
@@ -181,8 +176,6 @@ QTY, BI_SOLL, C480 = 0xC43A, 0xC40A, 0xC480
 
 OBJECTS = [  # (descriptor, buffer, counter, time)
     (DESC5, RXB5, RXC5, RXT5),
-    (DESC4, RXB4, RXC4, RXT4),
-    (DESCA, RXBA, RXCA, RXTA),
 ]
 
 
@@ -244,7 +237,7 @@ def build():
     a.movbz_rm(4, NLOCK);  a.cmp_rm(4, C["LOCK"]); a.jmpa("UGE", "blp_locked")
     a.movbz_rm(4, EERR);   a.cmp_rm(4, C["EMX"]);  a.jmpa("UGE", "blp_locked")
 
-    # E3 (part 1): EGS1 shift state and gear latch, always updated
+    # E2 (part 1): EGS1 shift state and gear latch, always updated
     a.mov_rm(5, EGS1_PTR)
     a.movb_rind(2, 5, 0)              # RL2 = EGS1 byte 0
     a.movbz_rr(3, 2)
@@ -294,7 +287,7 @@ def build():
     a.label("rq_lim_ok")
     a.mov_mr(MREQ, 6)
 
-    # E3 (part 2): request must start inside the arming window after S_SCHALT, downshift only
+    # E2 (part 2): request must start inside the arming window after S_SCHALT, downshift only
     a.cmp_ri(2, 1); a.jmpa("Z", "e3_armed_chk")       # already running
     a.mov_rm(4, ARM); a.cmp_rm(4, C["TARM"]); a.jmpa("UGT", "blp_e2efail")
     a.movb_ri(4, 1); a.movb_mr(ARMED, 4)
@@ -309,18 +302,10 @@ def build():
     # 5. operating window
     a.mov_rm(4, DZMNMIT)
     a.cmp_rm(4, C["NMN"]); a.jmpa("ULT", "blp_window")
-    a.cmp_rm(4, C["NMX"]); a.jmpa("UGT", "blp_window")
     a.mov_rm(4, ANMWTF);   a.cmp_rm(4, C["TMN"]); a.jmpa("ULT", "blp_window")
     a.mov_rm(4, FGMFGAKT); a.cmp_rm(4, C["VMN"]); a.jmpa("ULT", "blp_window")
 
-    # E1: speed echo in frame Base (0x0B4)
-    a.movbz_rm(4, RXB4 + 8); a.and_ri(4, 0x0004); a.jmpa("NZ", "blp_e2efail")
-    a.mov_rm(4, RXB4); a.sub_rm(4, DZMNMIT); a.jmpa("NN", "e1_abs")
-    a.neg(4)
-    a.label("e1_abs")
-    a.cmp_rm(4, C["DNE"]); a.jmpa("UGT", "blp_e2efail")
-
-    # E2: torque echo in the request frame 0x0B5 (own torque = MD_IND_NE x MD_NORM / 255, PT1)
+    # E1: torque echo in the request frame 0x0B5 (own torque = MD_IND_NE x MD_NORM / 255, PT1)
     a.movbz_rm(4, MD_IND_NE)
     a.mov_rm(1, C["MDN"])
     a.mulu(4, 1)
@@ -337,25 +322,15 @@ def build():
     a.neg(4)
     a.label("e2_abs")
     a.cmp_rm(4, C["DME"]); a.jmpa("UGT", "blp_e2efail")
+    a.movb_m0(EDEB)
 
-    # E4: TCU RPM Target in frame Base+6 (0x0BA)
-    a.movbz_rm(4, RXBA + 8); a.and_ri(4, 0x0004); a.jmpa("NZ", "blp_e2efail")
-    a.mov_rm(1, RXBA)                 # R1 = TCU RPM Target
-    a.mov_rm(4, Q); a.cmp_ri(4, 0); a.jmpa("NZ", "e4_ceiling")
-    a.mov_rm(4, DZMNMIT); a.add_rm(4, C["DNST"])
-    a.cmp_rr(1, 4); a.jmpa("ULE", "blp_e2efail")
-    a.label("e4_ceiling")
-    a.add_rm(1, C["DNOV"])
-    a.cmp_rm(1, C["NMX"]); a.jmpa("ULE", "e4_lim")
-    a.mov_rm(1, C["NMX"])
-    a.label("e4_lim")
+    # E3: engine speed ceiling, cut immediately at or above wrwBLP_NMX
     a.mov_rm(4, DZMNMIT)
-    a.cmp_rr(4, 1); a.jmpa("ULT", "e2e_ok")
-    a.movb_ri(7, 0x80)                # ceiling reached: cut immediately
+    a.cmp_rm(4, C["NMX"]); a.jmpa("ULT", "e3_ok")
+    a.movb_ri(7, 0x80)
     a.mov_m0(Q)
     a.jmpa("UC", "blp_apply")
-    a.label("e2e_ok")
-    a.movb_m0(EDEB)
+    a.label("e3_ok")
 
     # 6. maximum duration
     a.movbz_rm(4, TOLOCK); a.cmp_ri(4, 0); a.jmpa("NZ", "blp_tmowait")
@@ -511,7 +486,7 @@ def main():
     for k, o in sorted(((k, v - CAL) for k, v in C.items()), key=lambda x: x[1]):
         assert len(cal) == o
         cal += (CAL_VALUES[k] & 0xFFFF).to_bytes(2, "little")
-    descs = descriptor(9, 0x0B5) + descriptor(10, 0x0B4) + descriptor(11, 0x0BA)
+    descs = descriptor(9, 0x0B5)
     for start, blob in ((0x7880, bytes(cal)), (0x7900, descs)):
         assert all(b == 0xC3 for b in data[start:start + len(blob)]), "calibration area not free"
         data[start:start + len(blob)] = blob
@@ -532,9 +507,8 @@ def main():
         f.write(f"; Calibration 0x0F7880 ({len(cal)} bytes)\n")
         for k, v in sorted(C.items(), key=lambda x: x[1]):
             f.write(f";   0x0F{v:04X}  {k:<6} = {CAL_VALUES[k]}\n")
-        f.write("; CAN descriptors 0x0F7900 (obj 9, 0x0B5), 0x0F7910 (obj 10, 0x0B4), 0x0F7920 (obj 11, 0x0BA)\n")
-        for i in range(3):
-            f.write(f";   0x0F{0x7900 + 16 * i:04X}: {descs[16 * i:16 * i + 16].hex(' ')}\n")
+        f.write("; CAN descriptor 0x0F7900 (obj 9, 0x0B5)\n")
+        f.write(f";   0x0F7900: {descs.hex(' ')}\n")
         f.write(f"\n; Code 0x{CODE_BASE:06X}-0x{a.pc - 1:06X} ({len(a.code)} bytes), decoded back with c166.py\n")
         f.write("\n".join(lines) + "\n")
 

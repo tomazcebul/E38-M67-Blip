@@ -1,6 +1,6 @@
 # DDE6.3: Torque intervention by the EGS via CAN (downshift blip)
 
-Function description of the gearbox torque interface of the DDE6.3 (Bosch EDC16CP35, program `7808738A`, data `T7808736`), written in the style of the Bosch EDC15C description, sections 3.1.8.3 "ASR intervention via CAN" and 3.1.8.4 "MSR intervention via CAN" ([EDC15C function description](../EDC15C-Function-Description/en/03-Fuel-Quantity-Control.md)). Like ASR/MSR, the EGS sends a torque request via CAN and the DDE checks it for validity, prepares it and passes it to the torque coordinator. The difference is that the DDE6.3 works in torque (Nm), not in fuel quantity, and accepts both a reducing and an **increasing** request. The increasing request is the downshift blip.
+Function description of the gearbox torque interface of the DDE6.3 (Bosch EDC16CP35, program `7808738A`, data `T7808736`), written in the style of the Bosch EDC15C description, sections 3.1.8.3 "ASR intervention via CAN" and 3.1.8.4 "MSR intervention via CAN" ([EDC15C function description](../../Shared/Documentation/EDC15C-Function-Description/en/03-Fuel-Quantity-Control.md)). Like ASR/MSR, the EGS sends a torque request via CAN and the DDE checks it for validity, prepares it and passes it to the torque coordinator. The difference is that the DDE6.3 works in torque (Nm), not in fuel quantity, and accepts both a reducing and an **increasing** request. The increasing request is the downshift blip.
 
 Everything below comes from the static analysis in [README.md](README.md#gearbox-torque-interface-torque_gearbx-0x0b5).
 

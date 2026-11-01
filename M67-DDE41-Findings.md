@@ -1,6 +1,6 @@
 # BMW M67 DDE4.1 (EDC15C): Findings from BMW SP-Daten v60.1
 
-Analysis of the E38 740d (M67D39) diesel engine control unit data in [`BMW-SPdaten-v.60.1/E38`](BMW-SPdaten-v.60.1/E38), cross-referenced with the Bosch EDC15C function description in [`EDC15C-Function-Description`](EDC15C-Function-Description/README.md).
+Analysis of the E38 740d (M67D39) diesel engine control unit data in [`Shared/SP-Daten/E38`](../Shared/SP-Daten/E38), cross-referenced with the Bosch EDC15C function description in [`EDC15C-Function-Description`](../Shared/Documentation/EDC15C-Function-Description/README.md).
 
 ## Reference vehicle
 
@@ -20,8 +20,8 @@ The M67 uses two Bosch EDC15C control units in a master/slave arrangement. This 
 
 | Role | Folder | Diagnostic SGBD | Flash SGBD (WinKFP) | Flash parameter file |
 |---|---|---|---|---|
-| Master | [`data/DDE41A`](BMW-SPdaten-v.60.1/E38/data/DDE41A) | `ecu/DDE41KR0.prg` "DDE 4.1 fuer M67 Master" (232 jobs) | `ecu/12DDE41A.prg` (35 jobs) | `sgdat/10DDE41A.ipo` |
-| Slave | [`data/DDE41B`](BMW-SPdaten-v.60.1/E38/data/DDE41B) | `ecu/DDE41KL0.prg` "DDE 4.1 fuer M67 Slave" (157 jobs) | `ecu/12DDE41B.prg` | `sgdat/10DDE41B.ipo` |
+| Master | [`data/DDE41A`](../Shared/SP-Daten/E38/data/DDE41A) | `ecu/DDE41KR0.prg` "DDE 4.1 fuer M67 Master" (232 jobs) | `ecu/12DDE41A.prg` (35 jobs) | `sgdat/10DDE41A.ipo` |
+| Slave | [`data/DDE41B`](../Shared/SP-Daten/E38/data/DDE41B) | `ecu/DDE41KL0.prg` "DDE 4.1 fuer M67 Slave" (157 jobs) | `ecu/12DDE41B.prg` | `sgdat/10DDE41B.ipo` |
 
 `kmmData/kmm_SIT.txt` also names `dde41kr0` at address 12.
 
@@ -109,7 +109,7 @@ Expected: **7787645 / 7787316O** (master) and **7787647 / 7787317O** (slave).
 
 The function description is Bosch Y 445 S00 003-CC0 (B079.CC0, January 2001). The flash images use Bosch software IDs from the same `CC…` series. The exact variant can't be confirmed without the original PDF.
 
-Most diagnostic `STATUS_*` jobs are named after EDC15C software variables, for example `STATUS_ANMWTF` → `anmWTF` and `STATUS_MRMM_EAKT` → `mrmM_EAKT`. **148 of the 196** unique variable names in the master and slave SGBDs appear word-for-word in [`en/`](EDC15C-Function-Description/en/00-Table-of-Contents.md).
+Most diagnostic `STATUS_*` jobs are named after EDC15C software variables, for example `STATUS_ANMWTF` → `anmWTF` and `STATUS_MRMM_EAKT` → `mrmM_EAKT`. **148 of the 196** unique variable names in the master and slave SGBDs appear word-for-word in [`en/`](../Shared/Documentation/EDC15C-Function-Description/en/00-Table-of-Contents.md).
 
 The other 48 are mostly:
 - **Bank-numbered (1/2) versions** of documented variables, needed for the M67's two air-mass meters, boost actuators and EGR actuators: `anmLMM1/2`, `anmLTF1/2`, `anmLDF1`, `admLMM1/2`, `ehmFARS1/2`, `ehmFLDS1/2`, `ehmFGRS2`, `ehmFMML1`, `aroIST_51/52`, `armM_LIST1/2`.
@@ -120,17 +120,17 @@ The other 48 are mostly:
 
 | SGBD job group | Purpose | Chapter |
 |---|---|---|
-| `STATUS_ANM*`, `STATUS_ADM*`, `STATUS_ANOU_*`, `STATUS_DZM*` | Sensor values, raw ADC values, speed | [02 Signal Preprocessing](EDC15C-Function-Description/en/02-Signal-Preprocessing.md) |
-| `STATUS_MRM*`, `STATUS_MRO*`, `ABGLEICH_*_MENGE`, `*_LL_REGELUNG`, `*_MENGENDRIFT` | Fuel quantity, torque, idle control, adjustment values | [03 Fuel Quantity Control](EDC15C-Function-Description/en/03-Fuel-Quantity-Control.md) |
-| `STATUS_ZUMP_RAIL`, `STATUS_ZUMPQSOLL`, `STEUERN_KS_HDPUMPE_ABSCHALTUNG` | Rail pressure, high-pressure pump | [04 High Pressure Control](EDC15C-Function-Description/en/04-High-Pressure-Control.md) |
-| `STATUS_ARO*`, `STATUS_ARMM_*`, `STEUERN_AGR_STELLER1/2`, `ABGLEICH_*_AGR_RUECK` | EGR | [05 Exhaust Gas Recirculation](EDC15C-Function-Description/en/05-Exhaust-Gas-Recirculation.md) |
-| `STATUS_LDM*`, `STATUS_LDO*`, `STEUERN_LADEDRUCKSTELLER1/2` | Boost pressure | [06 Boost Pressure Control](EDC15C-Function-Description/en/06-Boost-Pressure-Control.md) |
-| `STEUERN_EKP`, `STEUERN_GLUEHRELAIS1/2`, `STEUERN_E_LUEFTER`, `STEUERN_KLIMAKOMPRESSOR`, `STEUERN_ZUHEIZER`, `STEUERN_MOTORLAGER`, `STATUS_EHM*` | Auxiliary functions and actuators | [07 Auxiliary Functions](EDC15C-Function-Description/en/07-Auxiliary-Functions.md) |
-| `START_SYSTEMCHECK_ZYL_SEL_*`, `STATUS_LAUFUNRUHE_*`, `STATUS_DZMZN1-8` | Cylinder smoothness and speed test | [03 Fuel Quantity Control](EDC15C-Function-Description/en/03-Fuel-Quantity-Control.md) |
-| `STATUS_CA*`, `STATUS_COMGTR_OPT`, `STATUS_GSO*` | CAN messages, gearbox | [09 CAN Functions](EDC15C-Function-Description/en/09-CAN-Functions.md) |
-| `STATUS_SYNC_MODE`, `STEUERN_SYNC_MODE`, `WECHSELCODE_SYNC_DME`, `SEED_KEY`, `TEL_ROH` | K-Line communication, immobiliser sync | [10 External Communication K-Line](EDC15C-Function-Description/en/10-External-Communication-K-Line.md) |
-| `FS_*` (with `_SL` versions for the slave), `STATUS_FBM*`, `STATUS_FBO*` | Fault memory | [A Fault Handling](EDC15C-Function-Description/en/A-Fault-Handling.md) |
-| `12DDE41A.prg`: `FLASH_*`, `UPROG_*`, `AIF_*`, `BAUDRATEN_*` | Reprogramming | [B Reprogramming Guide](EDC15C-Function-Description/en/B-Reprogramming-Guide.md) |
+| `STATUS_ANM*`, `STATUS_ADM*`, `STATUS_ANOU_*`, `STATUS_DZM*` | Sensor values, raw ADC values, speed | [02 Signal Preprocessing](../Shared/Documentation/EDC15C-Function-Description/en/02-Signal-Preprocessing.md) |
+| `STATUS_MRM*`, `STATUS_MRO*`, `ABGLEICH_*_MENGE`, `*_LL_REGELUNG`, `*_MENGENDRIFT` | Fuel quantity, torque, idle control, adjustment values | [03 Fuel Quantity Control](../Shared/Documentation/EDC15C-Function-Description/en/03-Fuel-Quantity-Control.md) |
+| `STATUS_ZUMP_RAIL`, `STATUS_ZUMPQSOLL`, `STEUERN_KS_HDPUMPE_ABSCHALTUNG` | Rail pressure, high-pressure pump | [04 High Pressure Control](../Shared/Documentation/EDC15C-Function-Description/en/04-High-Pressure-Control.md) |
+| `STATUS_ARO*`, `STATUS_ARMM_*`, `STEUERN_AGR_STELLER1/2`, `ABGLEICH_*_AGR_RUECK` | EGR | [05 Exhaust Gas Recirculation](../Shared/Documentation/EDC15C-Function-Description/en/05-Exhaust-Gas-Recirculation.md) |
+| `STATUS_LDM*`, `STATUS_LDO*`, `STEUERN_LADEDRUCKSTELLER1/2` | Boost pressure | [06 Boost Pressure Control](../Shared/Documentation/EDC15C-Function-Description/en/06-Boost-Pressure-Control.md) |
+| `STEUERN_EKP`, `STEUERN_GLUEHRELAIS1/2`, `STEUERN_E_LUEFTER`, `STEUERN_KLIMAKOMPRESSOR`, `STEUERN_ZUHEIZER`, `STEUERN_MOTORLAGER`, `STATUS_EHM*` | Auxiliary functions and actuators | [07 Auxiliary Functions](../Shared/Documentation/EDC15C-Function-Description/en/07-Auxiliary-Functions.md) |
+| `START_SYSTEMCHECK_ZYL_SEL_*`, `STATUS_LAUFUNRUHE_*`, `STATUS_DZMZN1-8` | Cylinder smoothness and speed test | [03 Fuel Quantity Control](../Shared/Documentation/EDC15C-Function-Description/en/03-Fuel-Quantity-Control.md) |
+| `STATUS_CA*`, `STATUS_COMGTR_OPT`, `STATUS_GSO*` | CAN messages, gearbox | [09 CAN Functions](../Shared/Documentation/EDC15C-Function-Description/en/09-CAN-Functions.md) |
+| `STATUS_SYNC_MODE`, `STEUERN_SYNC_MODE`, `WECHSELCODE_SYNC_DME`, `SEED_KEY`, `TEL_ROH` | K-Line communication, immobiliser sync | [10 External Communication K-Line](../Shared/Documentation/EDC15C-Function-Description/en/10-External-Communication-K-Line.md) |
+| `FS_*` (with `_SL` versions for the slave), `STATUS_FBM*`, `STATUS_FBO*` | Fault memory | [A Fault Handling](../Shared/Documentation/EDC15C-Function-Description/en/A-Fault-Handling.md) |
+| `12DDE41A.prg`: `FLASH_*`, `UPROG_*`, `AIF_*`, `BAUDRATEN_*` | Reprogramming | [B Reprogramming Guide](../Shared/Documentation/EDC15C-Function-Description/en/B-Reprogramming-Guide.md) |
 
 ### Master vs. slave SGBD
 

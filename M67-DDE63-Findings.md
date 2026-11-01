@@ -1,6 +1,6 @@
 # BMW M67 DDE6.3 (EDC16CP35): Findings from BMW SP-Daten v60.1
 
-Analysis of the E65 745d (M67TUE / M67D44, 220 and 242 kW) diesel engine control unit data in [`BMW-SPdaten-v.60.1/E65`](BMW-SPdaten-v.60.1/E65), with the focus on the gearbox torque interface. The reverse engineering is in [`DDE63-RE/`](DDE63-RE/README.md). For the earlier M67D39 unit see [M67-DDE51-Findings.md](M67-DDE51-Findings.md).
+Analysis of the E65 745d (M67TUE / M67D44, 220 and 242 kW) diesel engine control unit data in [`Shared/SP-Daten/E65`](../Shared/SP-Daten/E65), with the focus on the gearbox torque interface. The reverse engineering is in [`DDE63-RE/`](DDE63-RE/README.md). For the earlier M67D39 unit see [M67-DDE51-Findings.md](M67-DDE51-Findings.md).
 
 ## DDE6.3 system overview
 
@@ -8,7 +8,7 @@ Like the DDE5.1, the M67TUE uses two Bosch control units in a master/slave arran
 
 | Role | Folder | Diagnostic SGBD | Flash SGBD (WinKFP) | Flash parameter file |
 |---|---|---|---|---|
-| Master | [`data/DDE63`](BMW-SPdaten-v.60.1/E65/data/DDE63) | `ecu/D63MM670.prg` "DDE 6.3 fuer M67TUE" (revision 12.04, 143 jobs) | `ecu/09DDE63.PRG` "Spezial SGBD nur fuer Flashen DDE63" (revision 2.50, 50 jobs) | `sgdat/13DDE63.IPO` |
+| Master | [`data/DDE63`](../Shared/SP-Daten/E65/data/DDE63) | `ecu/D63MM670.prg` "DDE 6.3 fuer M67TUE" (revision 12.04, 143 jobs) | `ecu/09DDE63.PRG` "Spezial SGBD nur fuer Flashen DDE63" (revision 2.50, 50 jobs) | `sgdat/13DDE63.IPO` |
 | Slave | same | `ecu/D63SM670.prg` (143 jobs) | same | same |
 
 The master and slave SGBDs have the same job list; of their tables only `LERNWERTE_RUECK` and `TINDIVIDUALDATALISTE` differ.

@@ -4,9 +4,9 @@ Static analysis of the E65 740d M67D39 DDE5.1 software from SP-Daten v60.1 (`E65
 
 | | |
 |---|---|
-| Program | [`7809330A.0pa`](../BMW-SPdaten-v.60.1/E65/data/DDE51/7809330A.0pa): EDC16C1, project "M67D/E65", 190 kW, AT; Bosch SW 1037390909 |
-| Data | [`V7810913.0da`](../BMW-SPdaten-v.60.1/E65/data/DDE51/V7810913.0da) (reference `0089EI0AQK1BEY220`, assembly 7810911) |
-| Diagnostic SGBD | [`D51MM670.prg`](../BMW-SPdaten-v.60.1/E65/ecu/D51MM670.prg) (master); slave `D51SM670.prg` |
+| Program | [`7809330A.0pa`](../../Shared/SP-Daten/E65/data/DDE51/7809330A.0pa): EDC16C1, project "M67D/E65", 190 kW, AT; Bosch SW 1037390909 |
+| Data | [`V7810913.0da`](../../Shared/SP-Daten/E65/data/DDE51/V7810913.0da) (reference `0089EI0AQK1BEY220`, assembly 7810911) |
+| Diagnostic SGBD | [`D51MM670.prg`](../../Shared/SP-Daten/E65/ecu/D51MM670.prg) (master); slave `D51SM670.prg` |
 | CPU | Freescale MPC5xx (PowerPC, big-endian, 448 KB internal flash) |
 
 The second data file `V7810912.0da` (`...EY200`, assembly 7810910) is not the slave calibration: it differs from `V7810913` only in two calibration bytes (0x8F682A: 0x32 vs 0x30, 0x8F6F12: 0x32 vs 0x64), the reference string, signature and checksums. Master and slave run the same program and data.

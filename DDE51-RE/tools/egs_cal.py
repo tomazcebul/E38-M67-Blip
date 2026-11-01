@@ -1,6 +1,6 @@
 """Decode the GS19.04 transmission calibration (6HP26, program 7557063A) and compare engine variants.
 
-Data files (BMW-SPdaten-v.60.1/E65/data/GKE194, all for program 7557063A):
+Data files (Shared/SP-Daten/E65/data/GKE194, all for program 7557063A):
   A7559201 M67D40 (M67D39 3.9 l), A7559199 / A7577366 M57D30 TU, A7559189 N62B36, A7559191 N62B44, A7559203 N73B60
 
 Layout of the data (file 0xE0000-0xFFFFF, mapped at 0x6E0000 in the ECU):

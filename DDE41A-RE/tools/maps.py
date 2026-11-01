@@ -27,7 +27,7 @@ import variant as V
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = V.OUT
-DOC = os.path.join(HERE, "..", "..", "EDC15C-Function-Description", "de")
+DOC = os.path.join(V.SHARED, "Documentation", "EDC15C-Function-Description", "de")
 BASE = 0x80000
 CAL_LO, CAL_HI = 0xF0000, 0xFC000
 MAXN = 40

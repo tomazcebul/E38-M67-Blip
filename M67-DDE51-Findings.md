@@ -1,6 +1,6 @@
 # BMW M67 DDE5.1 (EDC16C1): Findings from BMW SP-Daten v60.1
 
-Analysis of the E65 740d (M67D39, 190 kW) diesel engine control unit data in [`BMW-SPdaten-v.60.1/E65`](BMW-SPdaten-v.60.1/E65). Unlike the DDE4.1, there is no Bosch function description for EDC16C, so names come from the diagnostic SGBD and from the code itself.
+Analysis of the E65 740d (M67D39, 190 kW) diesel engine control unit data in [`Shared/SP-Daten/E65`](../Shared/SP-Daten/E65). Unlike the DDE4.1, there is no Bosch function description for EDC16C, so names come from the diagnostic SGBD and from the code itself.
 
 No vehicle (VIN) is available for this generation, so the software was selected from the SP-Daten files alone (see [Software release](#software-release)).
 
@@ -10,7 +10,7 @@ The early E65 M67D39 uses two Bosch EDC16C1 control units in a master/slave arra
 
 | Role | Folder | Diagnostic SGBD | Flash SGBD (WinKFP) | Flash parameter file |
 |---|---|---|---|---|
-| Master | [`data/DDE51`](BMW-SPdaten-v.60.1/E65/data/DDE51) | `ecu/D51MM670.prg` "DDE 5.1 fuer M67" (113 jobs) | `ecu/31DDE51.PRG` "Spezial SGBD nur fuer Flashen DDE51" (45 jobs) | `sgdat/33DDE51.IPO` |
+| Master | [`data/DDE51`](../Shared/SP-Daten/E65/data/DDE51) | `ecu/D51MM670.prg` "DDE 5.1 fuer M67" (113 jobs) | `ecu/31DDE51.PRG` "Spezial SGBD nur fuer Flashen DDE51" (45 jobs) | `sgdat/33DDE51.IPO` |
 | Slave | same | `ecu/D51SM670.prg` (113 jobs) | same | same |
 
 The master and slave SGBDs contain identical tables and job lists (10,197 bytes differ inside the job code, most likely the diagnostic address).
