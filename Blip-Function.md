@@ -746,12 +746,13 @@ The generated listing `blip_patch.lst` is the reference for the exact instructio
 
 ### 5.5 Patched images (build)
 
-[`DDE41A-RE/tools/blip_patch.py`](DDE41A-RE/tools/blip_patch.py) builds the patch from the stock binaries in `DDE41A-RE/bin` and writes copies to [`DDE41A-RE/patch/`](DDE41A-RE/patch). The SP-Daten files and `DDE41A-RE/bin` aren't modified.
+[`DDE41A-RE/tools/blip_patch.py`](DDE41A-RE/tools/blip_patch.py) builds the patch from the stock SP-Daten binaries in `DDE41A-RE/bin` and applies it to a flash read of the ECU (the single `*.ori` in `DDE41A-RE/bin`, or `--source`). It writes copies to [`DDE41A-RE/patch/`](DDE41A-RE/patch). The SP-Daten files and `DDE41A-RE/bin` aren't modified.
 
 ```powershell
 cd DDE41A-RE\tools
 python blip_patch.py            # both options
 python blip_patch.py strict     # only Option 2 (or: full)
+python blip_patch.py --source C:\path\to\your_dump.bin   # patch your own 512 KB dump
 python blip_selftest.py         # logic self-test of both options
 ```
 
@@ -759,7 +760,7 @@ python blip_selftest.py         # logic self-test of both options
 |---|---|
 | `7787316O_program_blip.bin` / `…_blip_strict.bin` | Program 0x080000-0x0EFFFF with hooks H1-H3 and the code at 0x0C0000-0x0C05B5 / 0x0C0000-0x0C03EF |
 | `Y7787646_data_blip.bin` / `…_blip_strict.bin` | Data 0x0F0000-0x0FFFFF with the calibration block 0x0F7880-0x0F78A1 / 0x0F7880-0x0F788B and the descriptor 0x0F7900-0x0F790F |
-| `DDE41A_O_full_80000_blip.bin` / `…_blip_strict.bin` | Combined 512 KB image 0x080000-0x0FFFFF; top sector 0x0FC000-0x0FFFFF unchanged from the stock flash read |
+| `<dump>_blip.bin` / `…_blip_strict.bin` | The flash read (512 KB, 0x080000-0x0FFFFF) with the patch applied. Every other byte, including the top sector 0x0FC000-0x0FFFFF, stays as read. Written only when a dump is used: the SP-Daten files have no top sector, so an image built from them alone would have it erased (0xFF) and must never be written |
 | `blip_patch.lst` / `blip_patch_strict.lst` | Hooks, calibration values, descriptors and the decoded code |
 
 How the build works:

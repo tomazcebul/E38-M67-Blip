@@ -3,7 +3,8 @@
 Writes patched COPIES to DDE41A-RE/patch/ (the SP-Daten files and DDE41A-RE/bin stay untouched):
   7787316O_program_blip.bin   program 0x080000-0x0EFFFF (patch code at 0x0C0000, hooks H1-H3)
   Y7787646_data_blip.bin      data    0x0F0000-0x0FFFFF (calibration 0x0F7880, CAN descriptor 0x0F7900-0x0F790F)
-  DDE41A_O_full_80000_blip.bin combined 512 KB image 0x080000-0x0FFFFF (stock top sector from the flash read)
+  <dump>_blip.bin             the flash read (512 KB, 0x080000-0x0FFFFF) with the patch applied; all other bytes,
+                              including the top sector 0x0FC000-0x0FFFFF, stay as read (only written when a dump is used)
   blip_patch.lst              verification listing (every byte decoded back with c166.py)
 
 The function ships DISABLED (wcwFUN_BLP = 0, wrwBLP_MDN = 0). The EPROM checksum is NOT corrected
@@ -601,16 +602,9 @@ def verify(a, prog):
     return lines, errors
 
 
-def build_images(profile):
-    """Build one option (profile 'full' = Option 1, 'strict' = Option 2) and write the patched copies."""
-    set_profile(profile)
-    suffix = "_strict" if profile == "strict" else ""
-    prog = bytearray(open(os.path.join(BIN, "7787316O_program.bin"), "rb").read())
-    data = bytearray(open(os.path.join(BIN, "Y7787646_data.bin"), "rb").read())
-    full = bytearray(open(os.path.join(BIN, "DDE41A_O_full_80000.bin"), "rb").read())
-    assert len(prog) == 0x70000 and len(data) == 0x10000 and len(full) == 0x80000
-
-    a = build()
+def apply_patch(prog, data, a):
+    """Write the assembled code, the three hooks and the calibration into the program and data buffers.
+    Returns the hook listing lines, the calibration bytes and the descriptor."""
     code_off = CODE_BASE - PROG_BASE
     assert all(b == 0xFF for b in prog[code_off:code_off + len(a.code)]), "patch area not erased"
     prog[code_off:code_off + len(a.code)] = a.code
@@ -633,15 +627,42 @@ def build_images(profile):
     for start, blob in ((0x7880, bytes(cal)), (0x7900, descs)):
         assert all(b == 0xC3 for b in data[start:start + len(blob)]), "calibration area not free"
         data[start:start + len(blob)] = blob
+    return hook_lines, bytes(cal), descs
 
-    full[0:0x70000] = prog
-    full[0x70000:0x7C000] = data[0x0000:0xC000]      # data area 0x0F0000-0x0FBFFF; top sector stays stock
+
+def build_images(profile, dump=None):
+    """Build one option (profile 'full' = Option 1, 'strict' = Option 2) and write the patched copies.
+    With a dump (512 KB flash read, 0x080000-0x0FFFFF) the patch is also applied to it, so the combined
+    image keeps the dump's top sector and every other byte."""
+    set_profile(profile)
+    suffix = "_strict" if profile == "strict" else ""
+    prog0 = open(os.path.join(BIN, "7787316O_program.bin"), "rb").read()
+    data0 = open(os.path.join(BIN, "Y7787646_data.bin"), "rb").read()
+    prog, data = bytearray(prog0), bytearray(data0)
+    assert len(prog) == 0x70000 and len(data) == 0x10000
+
+    a = build()
+    hook_lines, cal, descs = apply_patch(prog, data, a)
+
+    full = None
+    if dump:
+        raw = open(dump, "rb").read()
+        assert len(raw) == 0x80000, "the dump must be 512 KB (0x080000-0x0FFFFF)"
+        full = bytearray(raw)
+        fprog, fdata = bytearray(raw[:0x70000]), bytearray(raw[0x70000:])
+        apply_patch(fprog, fdata, a)
+        full[:0x70000], full[0x70000:] = fprog, fdata
+        assert full[0x7C000:] == raw[0x7C000:], "top sector changed"
+        changed = [i for i in range(len(raw)) if raw[i] != full[i]]
+        assert all(0x80000 + i < 0xFC000 for i in changed)
 
     lines, errors = verify(a, prog)
     os.makedirs(OUT, exist_ok=True)
     open(os.path.join(OUT, f"7787316O_program_blip{suffix}.bin"), "wb").write(prog)
     open(os.path.join(OUT, f"Y7787646_data_blip{suffix}.bin"), "wb").write(data)
-    open(os.path.join(OUT, f"DDE41A_O_full_80000_blip{suffix}.bin"), "wb").write(full)
+    if full is not None:
+        stem = os.path.splitext(os.path.basename(dump))[0]
+        open(os.path.join(OUT, f"{stem}_blip{suffix}.bin"), "wb").write(full)
 
     with open(os.path.join(OUT, f"blip_patch{suffix}.lst"), "w", encoding="utf-8") as f:
         what = "Option 2, strict E65 (chapter 9)" if profile == "strict" else "Option 1, switchable extras (chapters 4-5)"
@@ -656,20 +677,38 @@ def build_images(profile):
         f.write(f"\n; Code 0x{CODE_BASE:06X}-0x{a.pc - 1:06X} ({len(a.code)} bytes), decoded back with c166.py\n")
         f.write("\n".join(lines) + "\n")
 
-    diff_p = sum(1 for x, y in zip(prog, open(os.path.join(BIN, "7787316O_program.bin"), "rb").read()) if x != y)
-    diff_d = sum(1 for x, y in zip(data, open(os.path.join(BIN, "Y7787646_data.bin"), "rb").read()) if x != y)
+    diff_p = sum(1 for x, y in zip(prog, prog0) if x != y)
+    diff_d = sum(1 for x, y in zip(data, data0) if x != y)
     print(f"[{profile}] code {len(a.code)} bytes at 0x{CODE_BASE:06X}, {len(a.expect)} instructions, "
           f"verification errors: {errors}")
     print(f"[{profile}] program bytes changed: {diff_p}, data bytes changed: {diff_d}, output: {OUT}")
+    if full is not None:
+        print(f"[{profile}] dump {os.path.basename(dump)}: {len(changed)} bytes changed, top sector untouched")
     return errors
 
 
 def main():
-    """python blip_patch.py [full|strict]   (no argument: both options)"""
-    wanted = sys.argv[1:] or ["full", "strict"]
-    errors = sum(build_images(p) for p in wanted)
+    """python blip_patch.py [full|strict] [--source DUMP.bin]   (no profile: both options)
+
+    Without --source the single *.ori flash read in DDE41A-RE/bin is used if there is one.
+    The combined image is only written from a real dump, because the SP-Daten files have no top sector."""
+    args = sys.argv[1:]
+    dump = None
+    if "--source" in args:
+        i = args.index("--source")
+        dump = args[i + 1]
+        del args[i:i + 2]
+    else:
+        found = [f for f in os.listdir(BIN) if f.lower().endswith(".ori")]
+        if len(found) == 1:
+            dump = os.path.join(BIN, found[0])
+    wanted = args or ["full", "strict"]
+    errors = sum(build_images(p, dump) for p in wanted)
     print("hooks: " + ", ".join(f"0x{a:06X} -> CALLS 0x{t:06X}" for a, _, t in HOOKS))
+    if dump is None:
+        print("no dump given: the combined image was not written")
     return 1 if errors else 0
+
 
 
 if __name__ == "__main__":
