@@ -6,7 +6,7 @@ Analysis of the BMW M67 V8 diesel engine control units (Bosch DDE4.1 / EDC15C in
 
 | Document | Content |
 |---|---|
-| [Blip-Function.md](Blip-Function.md) | Downshift blip for the DDE4.1: DDE6.3 reference, CANTCU interface (TORQUE_GEARBX 0x0B5 via a CANTCU User CAN Output), M67 CANTCU configuration, function description, firmware patch design and build |
+| [Blip-Function.md](Blip-Function.md) | Downshift blip for the DDE4.1: DDE6.3 reference, the E65 TORQUE_GEARBX frame on 0x0B5 (CANTCU add-on integration, interim User CAN Output), M67 CANTCU configuration, function description, firmware patch design, build and self-test |
 | [CANTCU-Installation.md](../E38-8HP-Conversion/CANTCU-Installation.md) | CANTCU / 8HP installation in the E38, including the DDE4.1 CAN topology |
 | [M67-DDE41-Findings.md](M67-DDE41-Findings.md) | E38 740d DDE4.1 (EDC15C): releases, SGBDs, master/slave CAN, reverse engineering summary |
 | [M67-DDE51-Findings.md](M67-DDE51-Findings.md) | E65 740d DDE5.1 (EDC16C1) and the GS19 transmission |

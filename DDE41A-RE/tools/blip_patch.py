@@ -121,18 +121,18 @@ class Asm:
 # --------------------------------------------------------------------------
 # RAM (XRAM 0xE780-0xE7DF, see Blip-Function.md 5.1) and calibration (DPP1)
 # --------------------------------------------------------------------------
-RXB5, RXC5, RXT5 = 0xE780, 0xE78A, 0xE78C          # 0x0B5 (CANTCU user output) buffer, poll counter, time
+RXB5, RXC5, RXT5 = 0xE780, 0xE78A, 0xE78C          # TORQUE_GEARBX 0x0B5 buffer (E65 layout), poll counter, time
 STAT, NLOCK = 0xE78E, 0xE78F
 QREQ, Q, T, TOLOCK, INIT, MREQ = 0xE790, 0xE792, 0xE794, 0xE796, 0xE798, 0xE79A
-GLATCH, SPREV, ARM, STPREV, ARMED, MOWN, EDEB, EERR = (
-    0xE7C0, 0xE7C1, 0xE7C2, 0xE7C4, 0xE7C5, 0xE7C6, 0xE7C8, 0xE7C9)
+GLATCH, SPREV, ARM, STPREV, ARMED, EDEB, EERR, ALVPREV, ALVCNT, STOLD, EDEB2 = (
+    0xE7C0, 0xE7C1, 0xE7C2, 0xE7C4, 0xE7C5, 0xE7C8, 0xE7C9, 0xE7CA, 0xE7CB, 0xE7CC, 0xE7CD)
 INIT_MAGIC = 0x5AA5
 
 CAL = 0x7880                                         # 16-bit via DPP1 -> 0x0F7880
 C = {k: CAL + o for k, o in dict(
     FUN=0x00, NMN=0x02, NMX=0x04, TMN=0x06, VMN=0x08, MMX=0x0A, TMX=0x0C, RAMP=0x0E,
-    SHFT=0x10, MDN=0x12, SRC=0x14, MPCT=0x16, LOCK=0x18, DME=0x1A, EPT1=0x1C,
-    TARM=0x1E, EDEBC=0x20, EMX=0x22).items()}
+    MDN=0x10, LOCK=0x12, ADJD=0x14, CHK=0x16, ALVN=0x18, XEGS=0x1A, TARM=0x1C,
+    EDEBC=0x1E, EMX=0x20).items()}
 DESC5 = 0x7900
 
 # Calibration values. Function OFF and MD_NORM unknown -> the patch is inert until calibrated.
@@ -145,13 +145,12 @@ CAL_VALUES = dict(
     MMX=3000,    # wrwBLP_MMX          0.01 mm3 = 30 mm3/stroke
     TMX=30,      # wrwBLP_TMX          task cycles (600 ms at an assumed 20 ms period, to measure)
     RAMP=200,    # wrwBLP_RAMP         0.01 mm3 per call
-    SHFT=1,      # wcwBLP_SHFT         require Shift In Progress
     MDN=0,       # wrwBLP_MDN          MD_NORM in Nm (DDE2 MUL_COD 3 x 16), 0 = not set -> off
-    SRC=0,       # wcwBLP_SRC          0 Target Torque, 1 Blip %
-    MPCT=300,    # wrwBLP_MPCT         Nm at Blip % = 100
     LOCK=3,      # wrwBLP_LOCK         duration events until lock
-    DME=80,      # wrwBLP_DME          E1 Nm
-    EPT1=2,      # wrwBLP_EPT1         E1 PT1 as right shift (2 = 1/4 per call)
+    ADJD=2000,   # wrwBLP_ADJD         TORQ_TAR_ADJR_POS_EGS default value (raw, 0.5 Nm) = 1000 Nm: not a request
+    CHK=1,       # wcwBLP_CHK          1 = check checksum and alive counter (BMW), 0 = sender has none
+    ALVN=5,      # wrwBLP_ALVN         polls with an unchanged alive counter until fault
+    XEGS=0,      # wcwBLP_XEGS         1 = extra check E2: EGS1 confirms a downshift (off until logged)
     TARM=15,     # wrwBLP_TARM         E2 task cycles
     EDEBC=3,     # wrwBLP_EDEB         debounce cycles
     EMX=3,       # wrwBLP_EMX          integrity errors until lock
@@ -192,9 +191,9 @@ def build():
         a.movb_mr(cnt, 1)
         a.mov_rm(1, T_NOW)
         a.mov_mr(tim, 1)
-    for m in (Q, T, QREQ, MREQ, MOWN, ARM):
+    for m in (Q, T, QREQ, MREQ, ARM):
         a.mov_m0(m)
-    for m in (TOLOCK, NLOCK, EERR, EDEB, ARMED, SPREV, STPREV, STAT):
+    for m in (TOLOCK, NLOCK, EERR, EDEB, EDEB2, ARMED, SPREV, STPREV, STOLD, ALVPREV, ALVCNT, STAT):
         a.movb_m0(m)
     a.mov_ri(1, INIT_MAGIC)
     a.mov_mr(INIT, 1)
@@ -249,7 +248,8 @@ def build():
     a.movb_m0(SPREV)
     a.movb_m0(ARMED)
     a.movb_m0(STPREV)
-    a.jmpa("UC", "blp_norq")
+    a.mov_rm(4, C["XEGS"]); a.cmp_ri(4, 0); a.jmpa("NZ", "blp_norq")    # E2 on: no shift -> no blip
+    a.jmpa("UC", "e2p1_done")
     a.label("e3_shift")
     a.movbz_rm(4, SPREV); a.cmp_ri(4, 0); a.jmpa("NZ", "e3_running")
     a.mov_m0(ARM)
@@ -258,42 +258,71 @@ def build():
     a.mov_rm(4, ARM); a.cmp_ri(4, 0xFFFF); a.jmpa("Z", "e3_armsat")
     a.add_ri(4, 1); a.mov_mr(ARM, 4)
     a.label("e3_armsat")
+    a.label("e2p1_done")
 
     # 2. message 0x0B5 present (status bit 2 = default data)
     a.movbz_rm(4, RXB5 + 8); a.and_ri(4, 0x0004); a.jmpa("NZ", "blp_missing")
 
-    # 3. request: ST_TORQ_TAR_EGS (TCU Intervention) = 1
-    a.movbz_rm(2, STPREV)             # R2 = previous TCU Intervention
-    a.movb_rm(4, RXB5 + 5)
+    # BMW checksum and alive counter (switchable): E65 TORQUE_GEARBX 0x0B5
+    #   chk = fold8(sum(bytes 1..7) + 0xB5 + 0x00), alive = byte 1 low nibble, 0..14, counts up
+    a.mov_rm(4, C["CHK"]); a.cmp_ri(4, 0); a.jmpa("Z", "chk_done")
+    a.mov_ri(4, 0xB5)
+    for i in range(1, 8):
+        a.movbz_rm(1, RXB5 + i); a.add_rr(4, 1)
+    a.mov_rr(2, 4)
+    a.mov_ri(1, 8); a.ashr_rr(2, 1)
+    a.and_ri(4, 0x00FF); a.add_rr(4, 2); a.and_ri(4, 0x00FF)
+    a.movbz_rm(1, RXB5); a.cmp_rr(4, 1); a.jmpa("NZ", "blp_chkfail")
+    a.movbz_rm(4, RXB5 + 1); a.and_ri(4, 0x000F)                     # ALIV_TORQ_EGS
+    a.cmp_ri(4, 0x000F); a.jmpa("Z", "blp_chkfail")                  # 0xF is never sent
+    a.movbz_rm(1, ALVPREV); a.cmp_rr(4, 1); a.jmpa("Z", "alv_same")
+    a.movb_mr(ALVPREV, 4)
+    a.movb_m0(ALVCNT)
+    a.jmpa("UC", "chk_done")
+    a.label("alv_same")
+    a.movbz_rm(4, ALVCNT); a.add_ri(4, 1); a.movb_mr(ALVCNT, 4)
+    a.cmp_rm(4, C["ALVN"]); a.jmpa("UGT", "blp_chkfail")
+    a.label("chk_done")
+    a.movb_m0(EDEB2)
+
+    # 3. request: ST_TORQ_TAR_EGS = 1 (increase); 0, 2 (decrease, EGS1 carries the reduction) and 3: none
+    a.movbz_rm(4, RXB5 + 4)
+    a.and_ri(4, 0x0030)
+    a.mov_ri(1, 4); a.ashr_rr(4, 1)                                  # R4 = ST_TORQ_TAR_EGS
+    a.movbz_rm(2, STPREV); a.movb_mr(STOLD, 2)                       # previous status for E2
     a.movb_mr(STPREV, 4)
-    a.cmpb_ri(4, 1); a.jmpa("NZ", "blp_norq")
-    a.mov_rm(4, C["SHFT"]); a.cmp_ri(4, 0); a.jmpa("Z", "rq_shft_ok")
-    a.movbz_rm(4, RXB5 + 4); a.cmp_ri(4, 1); a.jmpa("NZ", "blp_norq")
-    a.label("rq_shft_ok")
-    a.mov_rm(4, C["SRC"]); a.cmp_ri(4, 0); a.jmpa("NZ", "rq_pct")
-    a.mov_rm(6, RXB5 + 2)             # Target Torque [Nm]
-    a.jmpa("UC", "rq_have")
-    a.label("rq_pct")
-    a.movbz_rm(4, RXB5 + 7)           # Blip %
-    a.mov_rm(1, C["MPCT"])
-    a.mulu(4, 1)
-    a.mov_ri(1, 100)
-    a.divlu(1)
-    a.mov_rm(6, MDL)
-    a.label("rq_have")
+    a.cmp_ri(4, 1); a.jmpa("NZ", "blp_norq")
+    # TORQ_TAR_EGS: bits 12-23 (byte 1 high nibble, byte 2), 0.5 Nm; 0x800 = invalid, >= 0x800 negative
+    a.movbz_rm(6, RXB5 + 2)
+    a.mov_ri(1, 16); a.mulu(6, 1); a.mov_rm(6, MDL)
+    a.movbz_rm(1, RXB5 + 1); a.mov_ri(2, 4); a.ashr_rr(1, 2); a.add_rr(6, 1)
+    a.cmp_ri(6, 0x0800); a.jmpa("UGE", "blp_norq")
+    # TORQ_TAR_ADJR_POS_EGS: bits 24-35 (byte 3, byte 4 low nibble); invalid, negative or default: no request
+    a.movbz_rm(1, RXB5 + 4); a.and_ri(1, 0x000F)
+    a.mov_ri(2, 256); a.mulu(1, 2); a.mov_rm(1, MDL)
+    a.movbz_rm(2, RXB5 + 3); a.add_rr(1, 2)
+    a.cmp_ri(1, 0x0800); a.jmpa("UGE", "blp_norq")
+    a.cmp_rm(1, C["ADJD"]); a.jmpa("Z", "blp_norq")
+    a.cmp_rr(6, 1); a.jmpa("ULE", "rq_min")                          # MIN(target, limit)
+    a.mov_rr(6, 1)
+    a.label("rq_min")
+    a.mov_ri(1, 1); a.ashr_rr(6, 1)                                  # 0.5 Nm -> Nm
     a.cmp_ri(6, 0); a.jmpa("SLE", "blp_norq")
     a.cmp_ri(6, 2000); a.jmpa("SLE", "rq_lim_ok")
     a.mov_ri(6, 2000)                 # keeps the MULU/DIVLU below in range
     a.label("rq_lim_ok")
     a.mov_mr(MREQ, 6)
 
-    # E2 (part 2): request must start inside the arming window after S_SCHALT, downshift only
+    # E2 (part 2, switchable): request must start inside the arming window after S_SCHALT, downshift only
+    a.mov_rm(4, C["XEGS"]); a.cmp_ri(4, 0); a.jmpa("Z", "e2_off")
+    a.movbz_rm(2, STOLD)
     a.cmp_ri(2, 1); a.jmpa("Z", "e3_armed_chk")       # already running
     a.mov_rm(4, ARM); a.cmp_rm(4, C["TARM"]); a.jmpa("UGT", "blp_e2efail")
     a.movb_ri(4, 1); a.movb_mr(ARMED, 4)
     a.label("e3_armed_chk")
     a.movbz_rm(4, ARMED); a.cmp_ri(4, 0); a.jmpa("Z", "blp_e2efail")
     a.movbz_rm(4, GLATCH); a.cmp_rr(3, 4); a.jmpa("UGE", "blp_e2efail")
+    a.label("e2_off")
 
     # 4. EGS1 reduction has priority
     a.movb_rind(2, 5, 3)              # RL2 = MD_IND_GS
@@ -304,25 +333,7 @@ def build():
     a.cmp_rm(4, C["NMN"]); a.jmpa("ULT", "blp_window")
     a.mov_rm(4, ANMWTF);   a.cmp_rm(4, C["TMN"]); a.jmpa("ULT", "blp_window")
     a.mov_rm(4, FGMFGAKT); a.cmp_rm(4, C["VMN"]); a.jmpa("ULT", "blp_window")
-
-    # E1: torque echo in the request frame 0x0B5 (own torque = MD_IND_NE x MD_NORM / 255, PT1)
-    a.movbz_rm(4, MD_IND_NE)
-    a.mov_rm(1, C["MDN"])
-    a.mulu(4, 1)
-    a.mov_ri(1, 255)
-    a.divlu(1)
-    a.mov_rm(4, MDL)                  # own torque [Nm]
-    a.sub_rm(4, MOWN)                 # diff = own - filtered
-    a.mov_rm(1, C["EPT1"])
-    a.ashr_rr(4, 1)
-    a.add_rm(4, MOWN)
-    a.mov_mr(MOWN, 4)
-    a.sub_rm(4, RXB5)                 # - Engine Torque echo (0x0B5 bytes 0-1)
-    a.jmpa("NN", "e2_abs")
-    a.neg(4)
-    a.label("e2_abs")
-    a.cmp_rm(4, C["DME"]); a.jmpa("UGT", "blp_e2efail")
-    a.movb_m0(EDEB)
+    a.movb_m0(EDEB)                   # E2 passed: restart its debounce
 
     # E3: engine speed ceiling, cut immediately at or above wrwBLP_NMX
     a.mov_rm(4, DZMNMIT)
@@ -378,6 +389,14 @@ def build():
 
     a.label("blp_missing")
     a.movb_ri(7, 0x20)
+    a.jmpa("UC", "blp_withdraw")
+
+    a.label("blp_chkfail")            # checksum / alive counter failed (own debounce)
+    a.movb_ri(7, 0x40)
+    a.movb_rm(4, EDEB2); a.emit([0x07, 0xF8, 0x01, 0x00], "ADDB RL4, #0x01"); a.movb_mr(EDEB2, 4)
+    a.movbz_rm(4, EDEB2); a.cmp_rm(4, C["EDEBC"]); a.jmpa("ULT", "blp_withdraw")
+    a.movb_m0(EDEB2)
+    a.movb_rm(4, EERR); a.emit([0x07, 0xF8, 0x01, 0x00], "ADDB RL4, #0x01"); a.movb_mr(EERR, 4)
     a.jmpa("UC", "blp_withdraw")
 
     a.label("blp_e2efail")
