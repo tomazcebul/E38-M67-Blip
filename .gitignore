@@ -15,4 +15,7 @@ __pycache__/
 # Bosch EDC15C function description (third-party): ..\Shared\Documentation; keep ignoring an in-repo copy
 /EDC15C-Function-Description/
 
-/E38-M67/Follow-up to CANformance.md
+/Follow-up to CANformance.md
+
+# Local research notes (the checksum analysis contains a routine derived from GPL-3 code)
+/Checksum-Findings.md
