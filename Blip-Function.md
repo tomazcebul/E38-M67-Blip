@@ -8,8 +8,18 @@ This document specifies a **downshift blip** for the E38 740d (M67D39, DDE4.1 / 
 4. [Function description: blip function for the DDE4.1](#4-function-description-blip-function-for-the-dde41)
 5. [Implementation in the DDE41A master firmware](#5-implementation-in-the-dde41a-master-firmware)
 6. [Test plan](#6-test-plan), [7. Open points](#7-open-points) and [8. Measurements](#8-measurements-parked-until-the-car-is-back)
+9. [Option 2: strict E65 implementation](#9-option-2-strict-e65-implementation)
 
-Status: **design draft**. The DDE4.1 accepts the **real E65 `TORQUE_GEARBX` frame (0x0B5)** and validates it like the DDE6.3 does (checksum, alive counter, signal validity). The interim transport is a CANTCU User CAN Output with the same layout, which can't produce checksum and alive counter, so the DDE has a calibration switch for them. Sections 1-2 come from the static analysis in this repository. Sections 4-5 are a proposal and haven't been flashed or tested on a car. The patch builder (5.5) assembles and decodes cleanly, and its logic was run instruction by instruction against test frames (5.5).
+Status: **design draft** with **two options** for the DDE4.1 function. Both accept the **real E65 `TORQUE_GEARBX` frame (0x0B5)** and validate it like the DDE6.3 does (checksum, alive counter, signal validity, `MIN(target, limit)`):
+
+| | Option 1 (chapters 3-8) | Option 2 (chapter 9) |
+|---|---|---|
+| Idea | E65 frame plus DDE-side protections that can be switched in the calibration | The DDE6.3 chain and nothing else |
+| Checksum and alive counter | Switchable (*wcwBLP_CHK*), so the CANTCU User CAN Output works as an interim transport | Always checked, so it needs a sender with the real, protected frame (CANformance add-on) |
+| Extra protections (EGS1 confirmation, speed ceiling, maximum duration with lock, operating window) | Yes, each switchable or set out of range | None |
+| Calibration | 17 parameters | 6 parameters |
+
+Both options share the hooks, the receive object and the descriptor. They occupy the same addresses, so one image carries one option. Sections 1-2 come from the static analysis in this repository. Sections 4-5 and chapter 9 are a proposal and haven't been flashed or tested on a car. The patch builder assembles and decodes both options cleanly, and the logic of both was run instruction by instruction against test frames, including real E65 frames (5.5, 9.6).
 
 Sources: [DDE63-RE/Function-Description-EGS-Torque-Intervention.md](DDE63-RE/Function-Description-EGS-Torque-Intervention.md), [DDE41A-RE/README.md](DDE41A-RE/README.md), [CANTCU-Installation.md](../E38-8HP-Conversion/CANTCU-Installation.md), [EDC15C function description](../Shared/Documentation/EDC15C-Function-Description/en/03-Fuel-Quantity-Control.md), CANformance wiki ([ECU list](https://wiki.canformance.net/CANTCU/integrations/supportedECUs), [E38/39/46/53/83](https://wiki.canformance.net/CANTCU/integrations/supportedECUs/bmwe394653), [E6/7/8/9x](https://wiki.canformance.net/CANTCU/integrations/supportedECUs/BMWE6789x), [User CAN Outputs](https://wiki.canformance.net/en/CANTCU/software/config/canoutputs), [Race+ configuration](https://wiki.canformance.net/CANTCU/software/race-plus/configuration)).
 
@@ -100,7 +110,7 @@ The DDE4.1 receives the **E65 frame as it is**. The same frame is what CANTCU's 
 
 **CANTCU.** The E6x integration can't be used on the E38 as it is (it would replace the E38 messages, see above). Two ways to get the real frame onto the bus next to the E38 integration:
 
-1. **Add-on integration** (target solution). CANformance offered to discuss a separate integration that sends the protected 0x0B5, especially if it is useful for other EDC15 users. The DDE then runs with *wcwBLP_CHK* = 1 and nothing but the standard BMW checks.
+1. **Add-on integration** (target solution; what is expected is listed under "Requested CANTCU feature" below). CANformance offered to discuss a separate integration that sends the protected 0x0B5, especially if it is useful for other EDC15 users. The DDE then runs with *wcwBLP_CHK* = 1 (Option 1) or in Option 2, and nothing but the standard BMW checks.
 2. **User CAN Output** (interim, [User CAN Outputs](https://wiki.canformance.net/en/CANTCU/software/config/canoutputs)). Up to 4 user messages on CAN3; per message the CAN ID, DLC 1-8, cycle (10, 20, 100 or 1000 ms) and up to 16 signals with variable, start bit, length, byte order, signed, factor and offset, or a static hex value. One message with **ID 0x0B5, DLC 8, 10 ms** carries:
 
 | Signal | Output setting |
@@ -111,7 +121,7 @@ The DDE4.1 receives the **E65 frame as it is**. The same frame is what CANTCU's 
 | `CHKSM_TORQ_EGS`, `ALIV_TORQ_EGS` | **can't be generated** (static `00`) |
 | the rest | static `00` |
 
-With the user output the DDE needs *wcwBLP_CHK* = 0, and the extra checks in 4.3.1 are the only protection against a stuck or wrong frame. A static limit also gives the DDE the same upper limit as the E65's `TORQ_TAR_ADJR_POS_EGS`.
+With the user output the DDE needs *wcwBLP_CHK* = 0 (Option 1 only; Option 2 always checks and can't use the user output), and the extra checks in 4.3.1 are the only protection against a stuck or wrong frame. A static limit also gives the DDE the same upper limit as the E65's `TORQ_TAR_ADJR_POS_EGS`.
 
 **Is 0x0B5 free on the E38 vehicle CAN?** Nothing found in the available documents uses it:
 
@@ -138,6 +148,28 @@ This isn't proof for traffic that the DDE doesn't see (for example the messages 
 - `MD_NORM` from DDE2 0x329 (`MUL_COD` = 3), for *wrwBLP_MDN*.
 - 0x0B5 absent from the stock bus before the output is enabled, and no DSC/IKE faults with the extra frame on the bus.
 
+### Requested CANTCU feature: E65 `TORQUE_GEARBX` next to the E38 integration
+
+This is what the DDE side expects from CANTCU, and what will be asked of CANformance. It is a **request, not an existing feature**.
+
+**Idea.** CANTCU's E6x integration already sends the E65 `TORQUE_GEARBX` frame to the EDC16 DDEs of E6x and E9x cars. The DDE6.3 checks checksum and alive counter on that frame (fault path 0xC3), and CANformance describes the integration as "100% OEM torque-based control", so it can be assumed that the E6x integration generates valid checksum and alive counter, as the E65 EGS does. The same routine, restricted to this one ID, would give the E38 DDE4.1 the frame it needs, next to the unchanged E38 integration. CANformance said that a user can't add a checksum or alive counter to a User CAN Output, which also suggests the capability exists only inside the integrations. It is an inference: no CANTCU log is available yet.
+
+| # | Expectation | Reason |
+|---|---|---|
+| R1 | The E38/39/46/53/83 integration stays as it is on CAN3 (500 kbit/s), including EGS1 0x43F with the upshift reduction in `MD_IND_GS`. | The DDE4.1, the DSC and the cluster rely on it; the reduction path stays unchanged. |
+| R2 | An option (for example "E65 torque frame") adds **one** frame: `TORQUE_GEARBX`, ID 0x0B5, DLC 8, every 10 ms, in the exact E65 layout (the table above) and **with correct checksum and alive counter**, as the E6x integration sends it. | The DDE4.1 validates the frame like the DDE6.3 (Option 2, chapter 9). |
+| R3 | No other E65 frame is sent (no 0x0A8/0x0A9/0x0AA, 0x1D0, 0x0BA, 0x1A2 and so on). | The E38 nodes and the DDE4.1 use their own message set; the E6x frames would collide with it. |
+| R4 | **No intervention:** `ST_TORQ_TAR_EGS` = 0, as the E6x integration sends it. | The DDE4.1 ignores status 0, 2 and 3. |
+| R5 | **Blip (increase):** `ST_TORQ_TAR_EGS` = 1, `TORQ_TAR_EGS` = the requested engine torque (absolute, 0.5 Nm per bit), `TORQ_TAR_ADJR_POS_EGS` = a **valid limit** that isn't the default (raw 2000 = 1000 Nm) and isn't 800H, for as long as the blip lasts. When it ends, `ST_TORQ_TAR_EGS` goes back to 0 at once, without a ramp. | This is what the DDE6.3 evaluates; the DDE4.1 uses `MIN(target, limit)`. |
+| R6 | **Shift torque reduction:** whatever the E6x integration does (status 2, or 0). The DDE4.1 ignores it, because the reduction comes via EGS1. | Avoids a second, conflicting reduction path. |
+| R7 | **Fault or limp state** of CANTCU or the transmission: status 0 with valid checksum and alive counter, or no frame. Either gives no request in the DDE. | A blip must never be requested in a fault state. |
+| R8 | The blip amount and duration come from the Race+ configuration and the transmission, the maximum torque from the configurable limit in `TORQ_TAR_ADJR_POS_EGS`. The CAN ID stays 0x0B5, ideally configurable. | The DDE has no calibration for the shape of the blip (chapter 1); the limit bounds a wrong request. |
+| R9 | The blip request starts after EGS1 0x43F has signalled the shift (`S_SCHALT`, `GANG_INF`), and `MD_IND_GS` stays 0xFF while the blip is requested. | Not required by Option 2; Option 1 can use it as the extra check E2, and it makes the logs easy to read. |
+
+**Acceptance.** A CAN log of a stock-DDE test drive shows: 0x0B5 every 10 ms; checksum equal to `fold8(Σ bytes 1..7 + 0xB5)` and an alive counter counting 0..14 in every frame; `ST_TORQ_TAR_EGS` = 1 with a valid target and limit during downshifts and 0 otherwise; no other E65 ID; no new faults in the DSC, the cluster or the DDE. The Slovenian baseline log (chapter 8) records this, and `blip_selftest.py` can be fed the real frames (9.6).
+
+**Fallback.** Until the feature exists, the same bit layout from a User CAN Output works with Option 1 only (checksum and alive check switched off).
+
 ### CANTCU configuration for the M67
 
 The blip only fires on downshifts that CANTCU decides to make, so the CANTCU settings define the blip range. All of them are engine-specific, and the stock values are for petrol engines:
@@ -154,6 +186,8 @@ The engine speed after a downshift (the Spacebar view) is what the blip has to r
 ## 4. Function description: blip function for the DDE4.1
 
 Written like §3.1.8 of the EDC15C function description. New messages and labels are **working names** (prefix `w`). The CAN signal names are those of the E65 0x0B5.
+
+This chapter and chapter 5 describe **Option 1** (E65 frame plus switchable protections). **Option 2**, the strict E65 version without those protections, is chapter 9; it uses 4.1, 4.2 and the request rules of 4.3 unchanged.
 
 ### 4.1 Overview
 
@@ -694,7 +728,7 @@ e3_ok:
         ; continue with condition 6 (maximum duration) and the quantity calculation
 ```
 
-The generated listing `blip_patch.lst` is the reference for the exact instruction sequence. The checksum, request decode and E2/E3 logic was also run instruction by instruction against test frames (5.5).
+The generated listing `blip_patch.lst` is the reference for the exact instruction sequence of Option 1. The checksum, request decode and E2/E3 logic was also run instruction by instruction against test frames (5.5).
 
 ### 5.5 Patched images (build)
 
@@ -702,15 +736,17 @@ The generated listing `blip_patch.lst` is the reference for the exact instructio
 
 ```powershell
 cd DDE41A-RE\tools
-python blip_patch.py
+python blip_patch.py            # both options
+python blip_patch.py strict     # only Option 2 (or: full)
+python blip_selftest.py         # logic self-test of both options
 ```
 
-| Output | Content |
+| Output (Option 1 / Option 2 with the suffix `_strict`) | Content |
 |---|---|
-| `7787316O_program_blip.bin` | Program 0x080000-0x0EFFFF with hooks H1-H3 and the code at 0x0C0000-0x0C05B5 |
-| `Y7787646_data_blip.bin` | Data 0x0F0000-0x0FFFFF with the calibration block 0x0F7880-0x0F78A1 and the descriptor 0x0F7900-0x0F790F |
-| `DDE41A_O_full_80000_blip.bin` | Combined 512 KB image 0x080000-0x0FFFFF; top sector 0x0FC000-0x0FFFFF unchanged from the stock flash read |
-| `blip_patch.lst` | Hooks, calibration values, descriptors and the decoded code |
+| `7787316O_program_blip.bin` / `…_blip_strict.bin` | Program 0x080000-0x0EFFFF with hooks H1-H3 and the code at 0x0C0000-0x0C05B5 / 0x0C0000-0x0C03EF |
+| `Y7787646_data_blip.bin` / `…_blip_strict.bin` | Data 0x0F0000-0x0FFFFF with the calibration block 0x0F7880-0x0F78A1 / 0x0F7880-0x0F788B and the descriptor 0x0F7900-0x0F790F |
+| `DDE41A_O_full_80000_blip.bin` / `…_blip_strict.bin` | Combined 512 KB image 0x080000-0x0FFFFF; top sector 0x0FC000-0x0FFFFF unchanged from the stock flash read |
+| `blip_patch.lst` / `blip_patch_strict.lst` | Hooks, calibration values, descriptors and the decoded code |
 
 How the build works:
 
@@ -718,20 +754,22 @@ How the build works:
 - **Branches.** Conditional branches use `JMPA` (absolute within segment 0x0C), so there are no relative-range limits.
 - **Arithmetic.** The code computes with the native `MULU`/`DIVLU`/`ASHR` instructions instead of `CALLS 0:10F2`, whose signedness is unknown.
 - **Entry points.** H1 at 0x0C0000, H2 at 0x0C0100, H3 at 0x0C0200.
-- **Content.** The code implements 4.2, 4.3 and 4.3.1 completely: E65 frame decode, BMW checksum and alive counter, signal validity, `MIN(target, limit)`, status, E2, E3, maximum duration and lock. The draft in 5.4 shows the structure; the generated `blip_patch.lst` is the reference.
+- **Shared parts.** Both options use the same hooks H1/H2, the same receive object and descriptor, and the same code for the checksum and alive counter, the request decode, the quantity conversion and the ramp and apply step. Only the H3 flow around them differs.
+- **Content, Option 1.** The code implements 4.2, 4.3 and 4.3.1 completely: E65 frame decode, BMW checksum and alive counter, signal validity, `MIN(target, limit)`, status, E2, E3, maximum duration and lock. The draft in 5.4 shows the structure; the generated `blip_patch.lst` is the reference. Chapter 9 describes the content of Option 2.
 
-Checks the build performs:
+Checks the build performs (per option):
 
 - the original bytes at the three hook addresses are as expected, and every hook decodes as `CALLS` to its entry point;
 - the code area is erased (0xFF) and the calibration area is filler (0xC3) before writing;
-- every emitted instruction is decoded back with [`c166.py`](DDE41A-RE/tools/c166.py) and compared with the intended instruction and length (297 instructions, 0 errors);
-- all changed bytes lie in the hook sites, 0x0C0000-0x0C05B5 and 0x0F7880-0x0F790F (1114 program bytes, 50 data bytes).
+- every emitted instruction is decoded back with [`c166.py`](DDE41A-RE/tools/c166.py) and compared with the intended instruction and length (Option 1: 297 instructions, Option 2: 169, 0 errors each);
+- all changed bytes lie in the hook sites, the code range and 0x0F7880-0x0F790F (Option 1: 1114 program bytes, 50 data bytes; Option 2: 610 and 28).
 
-**Self-test.** [`DDE41A-RE/tools/blip_selftest.py`](DDE41A-RE/tools/blip_selftest.py) runs the generated code in a small C167 interpreter against test frames (`python blip_selftest.py`, 26 checks):
+**Self-test.** [`DDE41A-RE/tools/blip_selftest.py`](DDE41A-RE/tools/blip_selftest.py) runs the generated code of both options in a small C167 interpreter against test frames (`python blip_selftest.py`, 52 checks: 26 per option):
 
 - valid request, `MIN(target, limit)`, status 0/2/3, invalid, negative and default values;
-- bad checksum, repeated errors with lock, `wcwBLP_CHK` = 0, stuck and invalid alive counter;
-- E2 with and without a shift, E3 ceiling, EGS1 reduction, maximum duration, timeout, abrupt end, function off;
+- bad checksum, stuck and invalid alive counter, timeout, EGS1 reduction, abrupt end, function off;
+- Option 1 only: repeated errors with lock, `wcwBLP_CHK` = 0, E2 with and without a shift, E3 ceiling, maximum duration;
+- Option 2 only: recovery without a lock after bad frames, ramp when the permission is withdrawn, cap, and that none of the Option 1 protections exist (9.6);
 - 20,000 real 0x0B5 frames from the E65 logs (no checksum or alive fault, no request) and 3,000 of them with the status forced to 1 (the request equals `MIN(target, limit)`).
 
 This proves the logic, not the hardware: the interpreter follows the C167 manual for flags, `MULU`, `DIVLU` and `ASHR`, and the task period and the CAN controller aren't modelled. The bench checks in 5.7 and the car test remain.
@@ -740,7 +778,7 @@ This proves the logic, not the hardware: the interpreter follows the C167 manual
 
 - **Inert.** `wcwFUN_BLP` = 0 and `wrwBLP_MDN` = 0, so the blip stage always outputs 0. Receive object 9 is still configured and polled.
 - **Not flashable.** The EPROM checksum isn't corrected (5.6).
-- **Placeholders.** `TOUT` (0x0A ticks), `wrwBLP_TMX`, `wrwBLP_ALVN`, `wrwBLP_TARM` and `wrwBLP_NMX` are placeholders until the task period, the CAN log and the final shift maps are known (5.7, 6). *wcwBLP_CHK* ships as 1 (BMW), *wcwBLP_XEGS* as 0.
+- **Placeholders.** `TOUT` (0x0A ticks), `wrwBLP_TMX`, `wrwBLP_ALVN`, `wrwBLP_TARM` and `wrwBLP_NMX` are placeholders until the task period, the CAN log and the final shift maps are known (5.7, 6). In Option 1, *wcwBLP_CHK* ships as 1 (BMW) and *wcwBLP_XEGS* as 0. Option 2 has only *wrwBLP_ALVN* of these.
 - **Start-up.** RAM isn't cleared at reset, so H2 can poll object 9 once before H1 has configured it if `INIT` still holds 0x5AA5 from before the reset. This is harmless: no new data, at most default data, and H3 is still disabled. The bench test should confirm it.
 
 ### 5.6 Checksums and flashing
@@ -790,6 +828,7 @@ This proves the logic, not the hardware: the interpreter follows the C167 manual
 - **Free RAM** proof on the bench (5.7).
 - **Third-party EDC15 solution:** CANformance names A.K.T. for EDC15 blips. Comparing with it (message used, limits) would reduce risk.
 - **Measurements on the car:** most open points above need the real car and a CAN sniffer. See chapter 8.
+- **Option 1 or Option 2:** Option 2 (chapter 9) needs the real protected frame, so it depends on the CANformance add-on integration or another sender with checksum and alive counter. Option 1 works with the user output as an interim. Decide after the CANformance answer and the first logs.
 
 ---
 
@@ -805,4 +844,128 @@ This proves the logic, not the hardware: the interpreter follows the C167 manual
 - The Race+ RPM Limits and the Drive and Sport shift maps used during the log, so the engine speed after each downshift can be related to *wrwBLP_NMX*.
 
 This answers the open points in chapter 7: the meaning and scaling of `Target Torque` and `TCU Intervention`, the timing against EGS1, the `MD_NORM` value (for *wrwBLP_MDN*), the task period (for *wrwBLP_TMX*, *wrwBLP_ALVN*), and the speed ceiling.
+
+---
+
+## 9. Option 2: strict E65 implementation
+
+Option 2 does what the DDE6.3 does and nothing more. CANTCU's E6x integration sends the E65 `TORQUE_GEARBX` frame to the EDC16 DDEs of thousands of E6x and E9x cars without any change on the DDE side, so a sender that follows the E65 protocol needs no further protection in the DDE. Every check in Option 2 is one the DDE6.3 also makes, and every parameter has a DDE6.3 counterpart, except those needed because the DDE4.1 works in fuel quantity and not in torque. The extra protections of Option 1 (4.3.1: EGS1 confirmation E2, speed ceiling E3, maximum duration with lock, operating window, debounce and error lock) are **not** part of Option 2, and none of them is a switch.
+
+**Requirement.** Option 2 always checks checksum and alive counter. It therefore needs a sender of the real, protected frame: the E65 transmission, the CANformance add-on integration (3), or a CAN tool that generates both. The CANTCU User CAN Output can't, so with it every frame would be rejected. That interim route is Option 1 only.
+
+### 9.1 Function
+
+| Step | DDE6.3 | Option 2 |
+|---|---|---|
+| Enable | `wCAN_GbxPar+0x389` = 1 | *wcwFUN_BLP* = 1 and *wrwBLP_MDN* ≠ 0 (MD_NORM is set) |
+| Frame | `TORQUE_GEARBX` 0x0B5, 10 ms (3) | the same, receive object 9 |
+| Message missing | fault path 0xC3, signals at their defaults, request invalid, abrupt end | default data after *wcwBLP_TOUT*, no request, abrupt end (status 32) |
+| Checksum, alive counter | checked, fault path 0xC3, signals at their defaults | checked on every frame; a wrong frame means no request, abrupt end (status 64); the next good frame is accepted again, no debounce, no counter, no lock |
+| Signals valid | `TORQ_TAR_EGS` and `TORQ_TAR_ADJR_POS_EGS` not 800H, limit ≠ 1000 Nm default | the same (*wrwBLP_ADJD* = raw 2000); a negative target or limit is rejected too |
+| Status | `ST_TORQ_TAR_EGS` = 1 increase (2 decrease, 3 invalid) | = 1 only; 0, 2 and 3 give no request (the reduction comes via EGS1) |
+| Request | `MIN(TORQ_TAR_EGS, TORQ_TAR_ADJR_POS_EGS)` | the same, 0.5 Nm → Nm |
+| Domain | torque (Nm) | Nm → MD scale (× 255 / *wrwBLP_MDN*, max 254) → × `mroBI_SOLL` / 500 → quantity (0.01 mm³) |
+| Cap | `wGbxIf_Par+0x50` (open in the data) | *wrwBLP_MMX* (a quantity; set high to open it) |
+| Pass-through | unchanged while permitted; abrupt end when the request ends | the same: no ramp, no filter, the transmission shapes the blip |
+| Ramp | only when the permission FId 0xC7 changes, 10 Nm per 20 ms | only when the permission is withdrawn during a request, *wrwBLP_RAMP* per call |
+| Coordinator | gear limit → **increase** → further limit → **reduction** (last) | `MAX` with the quantity after the EGS1 minimum; the EGS1 reduction keeps priority through the permission below |
+
+**Permission.** The DDE6.3 applies the reduction after the increase. In the DDE4.1 the hook sits after the EGS1 minimum, so without a rule the blip would override a reduction by EGS1. Option 2 therefore withdraws the permission while EGS1 reduces (`MD_IND_GS` ≠ 0xFF): a running request ramps down with *wrwBLP_RAMP* (status 18, then 16), and no request starts. This restores the DDE6.3 priority and is the DDE4.1 counterpart of the permission FId 0xC7. The conditions that withdraw FId 0xC7 in the DDE6.3 aren't identified ([function description](DDE63-RE/Function-Description-EGS-Torque-Intervention.md#remarks)), so no further condition is copied.
+
+```text
+x = MIN(driver demand, EGS1 quantity)            (existing, 0xC43A)
+x = MAX(x, blip)                                 blip = quantity of MIN(TORQ_TAR_EGS, TORQ_TAR_ADJR_POS_EGS)
+x = MIN(x, ASR) ... MAX(x, MSR) -> mrmM_EWUN     (existing)
+```
+
+Not copied from the DDE6.3: the subtraction of the unidentified value 0x7F989C from the increase request, the further limit 0x7F8C2E, the fault memory entry 4DF0 (the DDE4.1 gets no new fault code; the status word is the only indication), and the driveability handling of an active external intervention (not traced in the DDE4.1).
+
+### 9.2 Messages, status and RAM
+
+Same frame and signals as 4.2 (`CHKSM_TORQ_EGS`, `ALIV_TORQ_EGS`, `TORQ_TAR_EGS`, `TORQ_TAR_ADJR_POS_EGS`, `ST_TORQ_TAR_EGS`) on the same descriptor (5.3).
+
+| wroBLPSTAT | Meaning |
+|---|---|
+| 1 | Increase intervention active (*wroM_EBLIP* > 0) |
+| 2 | Ramp *wrwBLP_RAMP* active (permission withdrawn, added to 16) |
+| 16 | Permission withdrawn: EGS1 reduces |
+| 32 | `TORQUE_GEARBX` missing (default data) |
+| 64 | Checksum or alive counter wrong |
+
+The Option 1 bits 4 (maximum duration), 8 (lock) and 128 (speed ceiling) don't exist.
+
+RAM (0xE780-0xE7DF, 5.1): receive buffer 0xE780-0xE788 with counter and time stamp (0xE78A, 0xE78C), *wroBLPSTAT* 0xE78E, *wroM_EBLIP* 0xE792, init marker 0xE798, last alive counter 0xE7CA and the poll count with an unchanged counter 0xE7CB.
+
+### 9.3 Calibration
+
+Block at 0xF7880 (12 bytes), all start values placeholders until the logs are known:
+
+| Offset | Label | Meaning | DDE6.3 counterpart | Start value |
+|---|---|---|---|---|
+| +0x00 | *wcwFUN_BLP* | Function switch | `wCAN_GbxPar+0x389` | 0 (off until tested) |
+| +0x02 | *wrwBLP_MMX* | Cap of the blip quantity, 0.01 mm³ | `wGbxIf_Par+0x50` | 3000 (start low, raise to open) |
+| +0x04 | *wrwBLP_RAMP* | Ramp step when the permission is withdrawn, 0.01 mm³ per call | `wGbxIf_Par+0x54` (10 Nm per 20 ms) | 200 (as *mrwEGSRAMP*) |
+| +0x06 | *wrwBLP_MDN* | 16 × `MD_NORM` in Nm, torque to quantity scale | none (the DDE6.3 works in Nm) | 0 = not set → off; from the DDE2 log |
+| +0x08 | *wrwBLP_ADJD* | Default value of `TORQ_TAR_ADJR_POS_EGS`, raw 0.5 Nm | `wCAN_GbxPar+0x3FA` (1000 Nm) | 2000 |
+| +0x0A | *wrwBLP_ALVN* | Polls with an unchanged alive counter until fault | the DDE6.3 alive check | 5 |
+
+*wrwBLP_ALVN* is the one value without a DDE6.3 counterpart in the data: the DDE4.1 polls the frame at the period of `fn_0BB868`, which isn't the 10 ms frame period (5.7). It only tolerates a poll that is faster than the sender.
+
+### 9.4 What Option 2 doesn't do
+
+These follow from the E65 design and are accepted by choosing Option 2:
+
+- **No engine speed ceiling.** The blip height is limited by the target and the limit in the frame, by *wrwBLP_MMX* and by the downstream quantity limits (`mrmM_EBEGR`: smoke, full load, protection). CANTCU's `Max RPM` and the shift maps restrict only which downshifts it makes (3, "CANTCU configuration for the M67").
+- **No maximum duration.** A valid frame with `ST_TORQ_TAR_EGS` = 1 keeps the blip going as long as it is sent. The transmission decides, as on the E65.
+- **No EGS1 confirmation and no operating window.** The frame alone decides; there is no minimum engine speed, coolant temperature or vehicle speed.
+- **A valid but wrong request is not caught.** A sender fault that produces a correct checksum and a counting alive counter passes, as it does on the E65. Checksum and alive counter catch frozen frames and bit errors, nothing more.
+- **Mitigation outside the DDE:** keep *wrwBLP_MMX* low in the first tests, and set the limit in the frame (`TORQ_TAR_ADJR_POS_EGS`) and CANTCU's RPM limits and shift maps for the M67.
+
+### 9.5 Code
+
+The code is built by [`blip_patch.py`](DDE41A-RE/tools/blip_patch.py) (`build_strict`) from the same helpers as Option 1: hooks H1 and H2 are shared, H3 is `blp_main` with this flow:
+
+```text
+off if init marker ≠ 0x5AA5, wcwFUN_BLP = 0 or wrwBLP_MDN = 0
+status bit 2 (default data)        → blp_missing:  status 32, blip 0
+checksum or alive counter wrong    → blp_chkfail:  status 64, blip 0
+ST_TORQ_TAR_EGS ≠ 1, target or limit invalid, limit = default, MIN ≤ 0   → blp_norq: blip 0
+MD_IND_GS ≠ 0xFF                   → blp_window:   status 16, ramp
+Nm → MD scale → quantity, cap wrwBLP_MMX → blip, status 1
+blip → MAX(0xC43A, blip), original instruction at 0x0BC61C, return
+```
+
+The checksum and alive routine, the request decode, the quantity conversion and the ramp-and-apply step are the same routines Option 1 uses (see 5.4 for the instruction sequences). The generated `blip_patch_strict.lst` is the reference: 169 instructions at 0x0C0000-0x0C03EF, 610 program bytes and 28 data bytes changed.
+
+### 9.6 Build and self-test
+
+```powershell
+cd DDE41A-RE\tools
+python blip_patch.py strict     # writes *_blip_strict.bin and blip_patch_strict.lst to DDE41A-RE\patch
+python blip_selftest.py         # 52 checks, 26 of them for Option 2
+```
+
+The Option 2 checks (5.5 lists the common ones):
+
+- bad checksum, stuck alive counter and alive 0xF end the request at once (status 64) and the function **recovers on the next good frame**: 100 bad frames in a row don't lock it;
+- timeout gives status 32 and no request; the request ends abruptly when the status leaves 1;
+- EGS1 reducing ramps a running blip down (status 18, 18, 16) and prevents a new one (16);
+- *wcwFUN_BLP* = 0 and *wrwBLP_MDN* = 0 are inert; *wrwBLP_MMX* caps the quantity;
+- **no Option 1 protection exists**: the blip still runs at 6000 rpm, with a cold engine at standstill, during an upshift, and when held for 3000 polls;
+- 20,000 real E65 0x0B5 frames give no fault and no request, and 3,000 of them with the status forced to 1 give exactly `MIN(target, limit)` as quantity.
+
+### 9.7 Test plan changes
+
+Steps 0 to 3 and 5 of chapter 6 apply unchanged, with the sender of the real frame. Step 4 and 4a become:
+
+| Step | Setup | Pass criterion |
+|---|---|---|
+| 4. Fault injection | Stop 0x0B5 / send frames with a wrong checksum or a frozen alive counter / hold `ST_TORQ_TAR_EGS` = 1 with a valid frame | Stop: status 32, blip ends at once. Wrong checksum or frozen counter: status 64, blip ends at once, next good frame works. Valid frame held: the blip stays (no limit, 9.4); stop the test by dropping the frame |
+| 4a. Request validation | Send `ST_TORQ_TAR_EGS` = 1 with the default limit (raw 2000), with 800H in target or limit, and with status 2 and 3 | No request in every case |
+
+The CAN tool needs the checksum `fold8(Σ bytes 1..7 + 0xB5)` and an alive counter that counts 0..14 (3).
+
+### 9.8 Choosing
+
+Use **Option 2** once a sender of the real protected frame exists: it is the smallest change and behaves like the E65 towards the DDE. Use **Option 1** as long as the CANTCU User CAN Output is the only way, or if the extra protections are wanted. The options can't run together: they use the same code, calibration and descriptor addresses, so a flash carries one of them. Switching means building and flashing the other image.
 

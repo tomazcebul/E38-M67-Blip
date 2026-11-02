@@ -1,9 +1,9 @@
-"""Self-test for the blip patch logic (Blip-Function.md, 5.5).
+"""Self-test for the blip patch logic (Blip-Function.md, 5.5 and 9.6).
 
 Runs the patch code of blip_patch.py instruction by instruction in a minimal C167 interpreter
 (only the instructions the patch uses) against test frames: E65 TORQUE_GEARBX (0x0B5) layout,
-BMW checksum and alive counter, signal validity, MIN(target, limit), status handling, the
-extra protections and the switches.
+BMW checksum and alive counter, signal validity, MIN(target, limit) and status handling. It tests
+both options: Option 1 with its switchable extra protections and Option 2 (strict E65, nothing else).
 
 The interpreter works on the instruction texts the assembler emitted (they are decoded back from
 the binary with c166.py in blip_patch.py), so the bytes themselves aren't executed. It does not
@@ -19,10 +19,21 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import blip_patch as bp  # noqa: E402
 
-a = bp.build()
-prog = sorted(a.expect)                       # (address, instruction text)
-idx = {ad: i for i, (ad, _) in enumerate(prog)}
-labels = a.labels
+prog = idx = labels = None
+
+
+def load(profile):
+    """Assemble one option and make it the code under test."""
+    global prog, idx, labels
+    bp.set_profile(profile)
+    a = bp.build()
+    prog = sorted(a.expect)                   # (address, instruction text)
+    idx = {ad: i for i, (ad, _) in enumerate(prog)}
+    labels = a.labels
+    return a
+
+
+load("full")
 
 
 class Machine:
@@ -163,7 +174,7 @@ def run(m, entry, maxsteps=5000):
         pc = nxt
 
 
-CAL, RXB5 = bp.C, bp.RXB5
+RXB5 = bp.RXB5
 
 
 def frame(tar_raw, adj_raw, st, alive, bad_chk=False, tail=(0x30, 0x00, 0x30)):
@@ -187,7 +198,8 @@ def setup(**over):
     cv.update(FUN=1, MDN=1000, XEGS=0, NMX=4000)
     cv.update(over)
     for k, v in cv.items():
-        m.ww(CAL[k], v)
+        if k in bp.C:                         # Option 2 has fewer parameters
+            m.ww(bp.C[k], v)
     m.ww(bp.INIT, bp.INIT_MAGIC)
     m.ww(bp.EGS1_PTR, 0xD700)                 # EGS1 copy: gear 3, no S_SCHALT, MD_IND_GS = 0xFF
     m.wb(0xD700, 0x03)
@@ -235,6 +247,7 @@ def feed(m, n, tar, adj, st, al=0, **kw):
 
 
 # request, limit and status
+print("--- Option 1 (switchable extras)")
 m = setup(); (st, q, qty), _ = feed(m, 4, 200, 1200, 1)
 check("valid request passes through", st == 1 and q == q_of(100) and qty == q, f"stat={st} q={q}")
 m = setup(); (st, q, qty), _ = feed(m, 3, 800, 300, 1)
@@ -305,8 +318,8 @@ check("real E65 frame: checksum accepted, no request", q == 0 and not (st & 0x40
 
 # optional: real 0x0B5 frames from the E65 logs (Shared/CAN-Logs/E65), if available next to the repository
 LOG = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "Shared", "CAN-Logs", "E65", "Log2.log")
+real = []
 if os.path.exists(LOG):
-    real = []
     for line in open(LOG, errors="replace"):
         mt = re.match(r"\s*[\d.]+\s+\d+\s+B5\s+Rx\s+d\s+8((?:\s+[0-9A-Fa-f]{2}){8})", line)
         if mt:
@@ -334,6 +347,105 @@ if os.path.exists(LOG):
         elif q != exp and not (st & 4):
             bad += 1
     check("3000 real E65 frames with ST forced to 1: request equals MIN(target, limit)", bad == 0, f"mismatches={bad}")
+
+# ======================= Option 2: strict E65, nothing else =======================
+print("--- Option 2 (strict E65)")
+load("strict")
+S = "[strict] "
+
+m = setup(); (st, q, qty), _ = feed(m, 4, 200, 1200, 1)
+check(S + "valid request passes through", st == 1 and q == q_of(100) and qty == q, f"stat={st} q={q}")
+m = setup(); (st, q, qty), _ = feed(m, 3, 800, 300, 1)
+check(S + "MIN(target, limit)", st == 1 and q == q_of(150), f"stat={st} q={q}")
+for stv in (0, 2, 3):
+    m = setup(); (st, q, qty), _ = feed(m, 3, 200, 1200, stv)
+    check(S + f"ST={stv}: no request", q == 0 and st == 0, f"stat={st} q={q}")
+for name, tar, adj in (("TORQ_TAR invalid 800H", 0x800, 1200), ("ADJR_POS invalid 800H", 200, 0x800),
+                       ("ADJR_POS default 1000 Nm", 200, 2000), ("TORQ_TAR negative", 0xFF0, 1200)):
+    m = setup(); (st, q, qty), _ = feed(m, 3, tar, adj, 1)
+    check(S + name + ": no request", q == 0, f"stat={st} q={q}")
+
+# checksum, alive counter and timeout: signals at their defaults = no request, no counters, no lock
+m = setup(); _, al = feed(m, 3, 200, 1200, 1)
+put(m, frame(200, 1200, 1, al, bad_chk=True)); al = (al + 1) % 15
+st, q, qty = step(m)
+check(S + "bad checksum: status 64, request ends abruptly", st == 0x40 and q == 0 and qty == 0, f"stat={st} q={q}")
+put(m, frame(200, 1200, 1, al)); al = (al + 1) % 15
+st, q, qty = step(m)
+check(S + "next good frame: blip again (no debounce, no lock)", st == 1 and q == q_of(100), f"stat={st} q={q}")
+m = setup(); al = 0
+for _ in range(100):
+    put(m, frame(200, 1200, 1, al, bad_chk=True)); al = (al + 1) % 15; step(m)
+(st, q, qty), _ = feed(m, 2, 200, 1200, 1, al)
+check(S + "100 bad frames, then good: still no lock", st == 1 and q == q_of(100), f"stat={st} q={q}")
+m = setup(ALVN=5); sts = []
+for _ in range(12):
+    put(m, frame(200, 1200, 1, 3)); sts.append(step(m)[0])
+put(m, frame(200, 1200, 1, 4)); sts.append(step(m)[0])
+check(S + "stuck alive counter: status 64, recovers when it moves", sts[:6] == [1] * 6 and sts[6:12] == [0x40] * 6
+      and sts[12] == 1, str(sts))
+m = setup(); put(m, frame(200, 1200, 1, 0xF)); st, q, qty = step(m)
+check(S + "alive counter 0xF: fault", st == 0x40 and q == 0, f"stat={st} q={q}")
+m = setup(); put(m, frame(200, 1200, 1, 0)); step(m)
+put(m, frame(200, 1200, 1, 1), status=4); st, q, qty = step(m)
+check(S + "receive timeout: status 32, no request", st == 0x20 and q == 0 and qty == 0, f"stat={st} q={q}")
+m = setup(); _, al = feed(m, 3, 200, 1200, 1)
+put(m, frame(200, 1200, 0, al)); st, q, qty = step(m)
+check(S + "ST 1 -> 0 ends the blip abruptly", q == 0 and qty == 0, f"stat={st} q={q}")
+
+# permission: EGS1 reduction has priority, ramp only when the permission is withdrawn
+m = setup(RAMP=10); _, al = feed(m, 3, 200, 1200, 1)
+m.wb(0xD703, 0x80)
+out = []
+for _ in range(3):
+    put(m, frame(200, 1200, 1, al)); al = (al + 1) % 15; out.append(step(m))
+check(S + "EGS1 reducing: ramp to 0 (status 18, 18, 16)", [o[0] for o in out] == [18, 18, 16] and
+      [o[1] for o in out] == [q_of(100) - 10, q_of(100) - 20, 0], str(out))
+m = setup(); m.wb(0xD703, 0x80); (st, q, qty), _ = feed(m, 3, 200, 1200, 1)
+check(S + "EGS1 reducing from the start: no blip (status 16)", q == 0 and st == 0x10, f"stat={st} q={q}")
+
+# switches that remain: enable, MD_NORM, cap
+m = setup(FUN=0); put(m, frame(200, 1200, 1, 0)); st, q, qty = step(m)
+check(S + "FUN=0 is inert", q == 0 and qty == 0)
+m = setup(MDN=0); put(m, frame(200, 1200, 1, 0)); st, q, qty = step(m)
+check(S + "MDN=0 (MD_NORM not set) is inert", q == 0 and qty == 0)
+m = setup(MMX=10); (st, q, qty), _ = feed(m, 3, 200, 1200, 1)
+check(S + "cap MMX limits the quantity", q == 10, f"q={q}")
+
+# nothing else: no operating window, no ceiling, no duration limit, no EGS1 shift confirmation
+m = setup(); m.ww(bp.DZMNMIT, 6000); m.ww(bp.ANMWTF, 2000); m.ww(bp.FGMFGAKT, 0)
+(st, q, qty), _ = feed(m, 3, 200, 1200, 1)
+check(S + "no engine speed, temperature or vehicle speed conditions", st == 1 and q == q_of(100), f"stat={st} q={q}")
+m = setup(); m.wb(0xD700, 0x08 | 0x04)
+(st, q, qty), _ = feed(m, 3, 200, 1200, 1)
+check(S + "no EGS1 shift or gear confirmation", st == 1 and q == q_of(100), f"stat={st} q={q}")
+m = setup(); al = 0
+for _ in range(3000):
+    put(m, frame(200, 1200, 1, al)); al = (al + 1) % 15; st, q, qty = step(m)
+check(S + "no maximum duration: request held for 3000 polls", st == 1 and q == q_of(100), f"stat={st} q={q}")
+
+if real:
+    m = setup(); faults = reqs = 0
+    for b in real:
+        put(m, list(b)); st, q, qty = step(m)
+        faults += bool(st & 0x40); reqs += q != 0
+    check(S + f"{len(real)} real E65 frames: no checksum/alive fault, no request (the logs have no ST=1)",
+          faults == 0 and reqs == 0, f"faults={faults} requests={reqs}")
+    m = setup(); bad = 0
+    for b in real[:3000]:
+        f = list(b)
+        f[4] = (f[4] & 0xCF) | 0x10
+        f[3] = f[3] if (f[3] | ((f[4] & 15) << 8)) != 2000 else 0
+        s = sum(f[1:]) + 0xB5
+        f[0] = ((s & 0xFF) + (s >> 8)) & 0xFF
+        put(m, f); st, q, qty = step(m)
+        tar = (f[1] >> 4) | (f[2] << 4)
+        adj = f[3] | ((f[4] & 15) << 8)
+        exp = 0 if (tar >= 0x800 or adj >= 0x800 or adj == 2000) else q_of(min(tar, adj) >> 1)
+        if st & 0x40 or q != exp:
+            bad += 1
+    check(S + "3000 real E65 frames with ST forced to 1: request equals MIN(target, limit)", bad == 0,
+          f"mismatches={bad}")
 
 print(f"{sum(results)} of {len(results)} checks passed")
 sys.exit(0 if all(results) else 1)

@@ -15,7 +15,7 @@ The following content is included for research, documentation and interoperabili
 | Content | Location | Owner |
 |---|---|---|
 | Tables decoded from BMW diagnostic description files (SGBD `.prg`) | `*/sgbd/` | BMW AG |
-| Disassembly listings, cross references, calibration tables, map/curve extracts and other outputs derived from BMW/Bosch control-unit firmware | `*/out/`, `DDE41A-RE/patch/blip_patch.lst` | BMW AG / Robert Bosch GmbH (underlying firmware) |
+| Disassembly listings, cross references, calibration tables, map/curve extracts and other outputs derived from BMW/Bosch control-unit firmware | `*/out/`, `DDE41A-RE/patch/blip_patch.lst`, `DDE41A-RE/patch/blip_patch_strict.lst` | BMW AG / Robert Bosch GmbH (underlying firmware) |
 | Transmission data extracts derived from ZF/BMW firmware | `DDE51-RE/egs/`, `DDE63-RE/egs/` | ZF Friedrichshafen AG / BMW AG |
 | C166 opcode reference table | [`DDE41A-RE/tools/c166_is_ref.txt`](DDE41A-RE/tools/c166_is_ref.txt) | [hn/c166-dis](https://github.com/hn/c166-dis), **GPL-3.0** |
 

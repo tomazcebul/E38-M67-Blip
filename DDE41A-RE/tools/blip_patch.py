@@ -157,6 +157,32 @@ CAL_VALUES = dict(
 )
 TOUT = 0x0A      # receive timeout in time-base ticks (EGS1 uses 0x32); about 3 x 10 ms, to set after measuring
 
+# ---- Option 2 ("strict"): only what the DDE6.3 does (Blip-Function.md chapter 9) ----------------------
+# Every parameter has a DDE6.3 counterpart or is needed for the quantity domain of the DDE4.1:
+#   FUN  = wCAN_GbxPar+0x389 (enable positive intervention)   MMX = wGbxIf_Par+0x50 (cap of the increase)
+#   RAMP = wGbxIf_Par+0x54 (ramp when the permission changes) ADJD = wCAN_GbxPar+0x3FA (default of ADJR_POS)
+#   MDN  = MD_NORM scale (the DDE6.3 works in Nm, the DDE4.1 in quantity)
+#   ALVN = alive counter tolerance (the DDE4.1 polls the frame at its task period)
+C_STRICT = {k: CAL + o for k, o in dict(FUN=0x00, MMX=0x02, RAMP=0x04, MDN=0x06, ADJD=0x08, ALVN=0x0A).items()}
+CAL_VALUES_STRICT = dict(
+    FUN=0,       # wcwFUN_BLP          0 = off
+    MMX=3000,    # wrwBLP_MMX          0.01 mm3 = 30 mm3/stroke (DDE6.3: +0x50, open)
+    RAMP=200,    # wrwBLP_RAMP         0.01 mm3 per call (DDE6.3: 10 Nm per 20 ms)
+    MDN=0,       # wrwBLP_MDN          MD_NORM in Nm (DDE2 MUL_COD 3 x 16), 0 = not set -> off
+    ADJD=2000,   # wrwBLP_ADJD         TORQ_TAR_ADJR_POS_EGS default (raw, 0.5 Nm) = 1000 Nm: not a request
+    ALVN=5,      # wrwBLP_ALVN         polls with an unchanged alive counter until fault
+)
+C_FULL, CAL_VALUES_FULL = C, CAL_VALUES
+PROFILE = "full"
+
+
+def set_profile(name):
+    """Select the calibration layout and code variant: 'full' (Option 1) or 'strict' (Option 2)."""
+    global C, CAL_VALUES, PROFILE
+    assert name in ("full", "strict"), name
+    PROFILE = name
+    C, CAL_VALUES = (C_STRICT, CAL_VALUES_STRICT) if name == "strict" else (C_FULL, CAL_VALUES_FULL)
+
 
 def descriptor(obj, can_id, timeout=TOUT):
     arb = can_id << 5
@@ -178,10 +204,8 @@ OBJECTS = [  # (descriptor, buffer, counter, time)
 ]
 
 
-def build():
-    a = Asm(CODE_BASE)
-
-    # ===== H1: end of sub_099802 (CAN init) =====
+def emit_h1(a, words, bytes_):
+    """H1: end of sub_099802 (CAN init). words/bytes_: RAM words/bytes cleared at start-up."""
     a.org(H1_ENTRY)
     a.label("blp_can_init")
     for desc, buf, cnt, tim in OBJECTS:
@@ -191,16 +215,18 @@ def build():
         a.movb_mr(cnt, 1)
         a.mov_rm(1, T_NOW)
         a.mov_mr(tim, 1)
-    for m in (Q, T, QREQ, MREQ, ARM):
+    for m in words:
         a.mov_m0(m)
-    for m in (TOLOCK, NLOCK, EERR, EDEB, EDEB2, ARMED, SPREV, STPREV, STOLD, ALVPREV, ALVCNT, STAT):
+    for m in bytes_:
         a.movb_m0(m)
     a.mov_ri(1, INIT_MAGIC)
     a.mov_mr(INIT, 1)
     a.calls(SUB_097BE0)               # original instruction
     a.rets()
 
-    # ===== H2: fn_097F10 receive task, object 5 replaced =====
+
+def emit_h2(a):
+    """H2: fn_097F10 receive task, after object 5 (EGS1)."""
     a.org(H2_ENTRY)
     a.label("blp_can_rx")
     a.calls(SUB_097E8E)               # original: object 5
@@ -221,6 +247,176 @@ def build():
     a.pop(9)
     a.pop(7)
     a.rets()
+
+
+def emit_checksum_alive(a):
+    """BMW checksum and alive counter of TORQUE_GEARBX: chk = fold8(sum(bytes 1..7) + 0xB5), alive 0..14."""
+    a.mov_ri(4, 0xB5)
+    for i in range(1, 8):
+        a.movbz_rm(1, RXB5 + i); a.add_rr(4, 1)
+    a.mov_rr(2, 4)
+    a.mov_ri(1, 8); a.ashr_rr(2, 1)
+    a.and_ri(4, 0x00FF); a.add_rr(4, 2); a.and_ri(4, 0x00FF)
+    a.movbz_rm(1, RXB5); a.cmp_rr(4, 1); a.jmpa("NZ", "blp_chkfail")
+    a.movbz_rm(4, RXB5 + 1); a.and_ri(4, 0x000F)                     # ALIV_TORQ_EGS
+    a.cmp_ri(4, 0x000F); a.jmpa("Z", "blp_chkfail")                  # 0xF is never sent
+    a.movbz_rm(1, ALVPREV); a.cmp_rr(4, 1); a.jmpa("Z", "alv_same")
+    a.movb_mr(ALVPREV, 4)
+    a.movb_m0(ALVCNT)
+    a.jmpa("UC", "chk_done")
+    a.label("alv_same")
+    a.movbz_rm(4, ALVCNT); a.add_ri(4, 1); a.movb_mr(ALVCNT, 4)
+    a.cmp_rm(4, C["ALVN"]); a.jmpa("UGT", "blp_chkfail")
+    a.label("chk_done")
+
+
+def emit_request_decode(a, track_status):
+    """E65 request: ST_TORQ_TAR_EGS = 1, target and limit valid, limit not the default. Result: R6 = MIN(...) in Nm.
+    track_status: keep the status of the last two polls (only Option 1 uses it, for the extra check E2)."""
+    a.movbz_rm(4, RXB5 + 4)
+    a.and_ri(4, 0x0030)
+    a.mov_ri(1, 4); a.ashr_rr(4, 1)                                  # R4 = ST_TORQ_TAR_EGS
+    if track_status:
+        a.movbz_rm(2, STPREV); a.movb_mr(STOLD, 2)                   # previous status (Option 1: E2)
+        a.movb_mr(STPREV, 4)
+    a.cmp_ri(4, 1); a.jmpa("NZ", "blp_norq")                         # 0, 2 (decrease) and 3: no request
+    # TORQ_TAR_EGS: bits 12-23 (byte 1 high nibble, byte 2), 0.5 Nm; 0x800 = invalid, above = negative
+    a.movbz_rm(6, RXB5 + 2)
+    a.mov_ri(1, 16); a.mulu(6, 1); a.mov_rm(6, MDL)
+    a.movbz_rm(1, RXB5 + 1); a.mov_ri(2, 4); a.ashr_rr(1, 2); a.add_rr(6, 1)
+    a.cmp_ri(6, 0x0800); a.jmpa("UGE", "blp_norq")
+    # TORQ_TAR_ADJR_POS_EGS: bits 24-35 (byte 3, byte 4 low nibble); invalid, negative or default: no request
+    a.movbz_rm(1, RXB5 + 4); a.and_ri(1, 0x000F)
+    a.mov_ri(2, 256); a.mulu(1, 2); a.mov_rm(1, MDL)
+    a.movbz_rm(2, RXB5 + 3); a.add_rr(1, 2)
+    a.cmp_ri(1, 0x0800); a.jmpa("UGE", "blp_norq")
+    a.cmp_rm(1, C["ADJD"]); a.jmpa("Z", "blp_norq")
+    a.cmp_rr(6, 1); a.jmpa("ULE", "rq_min")                          # MIN(target, limit)
+    a.mov_rr(6, 1)
+    a.label("rq_min")
+    a.mov_ri(1, 1); a.ashr_rr(6, 1)                                  # 0.5 Nm -> Nm
+    a.cmp_ri(6, 0); a.jmpa("SLE", "blp_norq")
+
+
+def emit_quantity(a):
+    """Nm (R6) -> MD scale (x 255 / MD_NORM, max 254) -> x mroBI_SOLL / 500, max wrwBLP_MMX. Result: R4."""
+    a.mov_ri(1, 255)
+    a.mulu(6, 1)
+    a.mov_rm(1, C["MDN"])
+    a.divlu(1)
+    a.mov_rm(4, MDL)
+    a.cmp_ri(4, 254); a.jmpa("ULE", "q_md_ok")
+    a.mov_ri(4, 254)
+    a.label("q_md_ok")
+    a.mov_rm(1, BI_SOLL)
+    a.mulu(4, 1)
+    a.mov_ri(1, 500)
+    a.divlu(1)
+    a.mov_rm(4, MDL)
+    a.cmp_rm(4, C["MMX"]); a.jmpa("ULE", "q_ok")
+    a.mov_rm(4, C["MMX"])
+    a.label("q_ok")
+
+
+def emit_withdraw_and_apply(a):
+    """Ramp to 0 when the permission is withdrawn, then MAX(quantity after the EGS1 minimum, blip), then return."""
+    a.label("blp_withdraw")           # permission withdrawn -> ramp to 0
+    a.mov_rm(4, Q)
+    a.sub_rm(4, C["RAMP"])
+    a.jmpa("SGT", "wd_pos")
+    a.mov_ri(4, 0)
+    a.label("wd_pos")
+    a.mov_mr(Q, 4)
+    a.cmp_ri(4, 0); a.jmpa("Z", "blp_apply")
+    a.emit([0x77, 0xFE, 0x02, 0x00], "ORB RL7, #0x02")
+    a.jmpa("UC", "blp_apply")
+
+    a.label("blp_off")
+    a.mov_m0(Q)
+    a.label("blp_apply")
+    a.movb_mr(STAT, 7)
+    a.mov_rm(4, Q)
+    a.cmp_rm(4, QTY); a.jmpa("SLE", "blp_exit")
+    a.mov_mr(QTY, 4)                  # MAX(quantity after EGS1 minimum, blip)
+    a.label("blp_exit")
+    a.pop(7)
+    a.pop(6)
+    a.movb_rm(4, C480)                # original instruction at 0x0BC61C
+    a.rets()
+
+
+def build():
+    return build_strict() if PROFILE == "strict" else build_full()
+
+
+def build_strict():
+    """Option 2: the DDE6.3 chain and nothing else (Blip-Function.md chapter 9).
+
+    Receive -> default data on timeout -> BMW checksum and alive counter -> ST_TORQ_TAR_EGS = 1, target and
+    limit valid, limit not the default -> MIN(target, limit) -> quantity -> pass through unchanged, abrupt end
+    when the request ends, ramp only when the permission is withdrawn (EGS1 reducing) -> MAX after the EGS1 minimum.
+    A bad checksum, alive counter or timeout means 'signals at their defaults': no request, no lock, no counters.
+    """
+    a = Asm(CODE_BASE)
+    emit_h1(a, words=(Q,), bytes_=(ALVPREV, ALVCNT, STAT))
+    emit_h2(a)
+
+    # ===== H3: fn_0BB868 at 0x0BC61C =====
+    a.org(H3_ENTRY)
+    a.label("blp_main")
+    a.push(6)
+    a.push(7)
+    a.movb_ri(7, 0)
+    a.mov_rm(4, INIT);     a.cmp_ri(4, INIT_MAGIC); a.jmpa("NZ", "blp_off")
+    a.mov_rm(4, C["FUN"]); a.cmp_ri(4, 0);          a.jmpa("Z", "blp_off")
+    a.mov_rm(4, C["MDN"]); a.cmp_ri(4, 0);          a.jmpa("Z", "blp_off")
+
+    # message present (status bit 2 = default data after the receive timeout)
+    a.movbz_rm(4, RXB5 + 8); a.and_ri(4, 0x0004); a.jmpa("NZ", "blp_missing")
+    emit_checksum_alive(a)
+    emit_request_decode(a, track_status=False)
+
+    # permission: the EGS1 reduction keeps priority (in the DDE6.3 the reduction is the last minimum)
+    a.mov_rm(5, EGS1_PTR)
+    a.movb_rind(2, 5, 3)              # RL2 = MD_IND_GS
+    a.cmpb_ri(2, 0xFF); a.jmpa("NZ", "blp_window")
+
+    emit_quantity(a)
+    a.mov_mr(Q, 4)                    # permitted: pass through, no ramp
+    a.movb_ri(7, 0x01)
+    a.jmpa("UC", "blp_apply")
+
+    a.label("blp_norq")               # no request or request ended: abrupt end
+    a.mov_m0(Q)
+    a.jmpa("UC", "blp_apply")
+
+    a.label("blp_missing")            # message missing: signals at their defaults -> no request
+    a.movb_ri(7, 0x20)
+    a.mov_m0(Q)
+    a.jmpa("UC", "blp_apply")
+
+    a.label("blp_chkfail")            # checksum / alive counter wrong: signals at their defaults -> no request
+    a.movb_ri(7, 0x40)
+    a.mov_m0(Q)
+    a.jmpa("UC", "blp_apply")
+
+    a.label("blp_window")             # permission withdrawn (EGS1 reduces)
+    a.movb_ri(7, 0x10)
+    emit_withdraw_and_apply(a)
+
+    a.resolve()
+    return a
+
+
+def build_full():
+    a = Asm(CODE_BASE)
+
+    # ===== H1: end of sub_099802 (CAN init) =====
+    emit_h1(a, words=(Q, T, QREQ, MREQ, ARM),
+            bytes_=(TOLOCK, NLOCK, EERR, EDEB, EDEB2, ARMED, SPREV, STPREV, STOLD, ALVPREV, ALVCNT, STAT))
+
+    # ===== H2: fn_097F10 receive task, object 5 replaced =====
+    emit_h2(a)
 
     # ===== H3: fn_0BB868 at 0x0BC61C =====
     # in : QTY = quantity after EGS1 minimum, BI_SOLL = mroBI_SOLL ; out: QTY = MAX(QTY, wroM_EBLIP)
@@ -264,50 +460,12 @@ def build():
     a.movbz_rm(4, RXB5 + 8); a.and_ri(4, 0x0004); a.jmpa("NZ", "blp_missing")
 
     # BMW checksum and alive counter (switchable): E65 TORQUE_GEARBX 0x0B5
-    #   chk = fold8(sum(bytes 1..7) + 0xB5 + 0x00), alive = byte 1 low nibble, 0..14, counts up
     a.mov_rm(4, C["CHK"]); a.cmp_ri(4, 0); a.jmpa("Z", "chk_done")
-    a.mov_ri(4, 0xB5)
-    for i in range(1, 8):
-        a.movbz_rm(1, RXB5 + i); a.add_rr(4, 1)
-    a.mov_rr(2, 4)
-    a.mov_ri(1, 8); a.ashr_rr(2, 1)
-    a.and_ri(4, 0x00FF); a.add_rr(4, 2); a.and_ri(4, 0x00FF)
-    a.movbz_rm(1, RXB5); a.cmp_rr(4, 1); a.jmpa("NZ", "blp_chkfail")
-    a.movbz_rm(4, RXB5 + 1); a.and_ri(4, 0x000F)                     # ALIV_TORQ_EGS
-    a.cmp_ri(4, 0x000F); a.jmpa("Z", "blp_chkfail")                  # 0xF is never sent
-    a.movbz_rm(1, ALVPREV); a.cmp_rr(4, 1); a.jmpa("Z", "alv_same")
-    a.movb_mr(ALVPREV, 4)
-    a.movb_m0(ALVCNT)
-    a.jmpa("UC", "chk_done")
-    a.label("alv_same")
-    a.movbz_rm(4, ALVCNT); a.add_ri(4, 1); a.movb_mr(ALVCNT, 4)
-    a.cmp_rm(4, C["ALVN"]); a.jmpa("UGT", "blp_chkfail")
-    a.label("chk_done")
+    emit_checksum_alive(a)
     a.movb_m0(EDEB2)
 
     # 3. request: ST_TORQ_TAR_EGS = 1 (increase); 0, 2 (decrease, EGS1 carries the reduction) and 3: none
-    a.movbz_rm(4, RXB5 + 4)
-    a.and_ri(4, 0x0030)
-    a.mov_ri(1, 4); a.ashr_rr(4, 1)                                  # R4 = ST_TORQ_TAR_EGS
-    a.movbz_rm(2, STPREV); a.movb_mr(STOLD, 2)                       # previous status for E2
-    a.movb_mr(STPREV, 4)
-    a.cmp_ri(4, 1); a.jmpa("NZ", "blp_norq")
-    # TORQ_TAR_EGS: bits 12-23 (byte 1 high nibble, byte 2), 0.5 Nm; 0x800 = invalid, >= 0x800 negative
-    a.movbz_rm(6, RXB5 + 2)
-    a.mov_ri(1, 16); a.mulu(6, 1); a.mov_rm(6, MDL)
-    a.movbz_rm(1, RXB5 + 1); a.mov_ri(2, 4); a.ashr_rr(1, 2); a.add_rr(6, 1)
-    a.cmp_ri(6, 0x0800); a.jmpa("UGE", "blp_norq")
-    # TORQ_TAR_ADJR_POS_EGS: bits 24-35 (byte 3, byte 4 low nibble); invalid, negative or default: no request
-    a.movbz_rm(1, RXB5 + 4); a.and_ri(1, 0x000F)
-    a.mov_ri(2, 256); a.mulu(1, 2); a.mov_rm(1, MDL)
-    a.movbz_rm(2, RXB5 + 3); a.add_rr(1, 2)
-    a.cmp_ri(1, 0x0800); a.jmpa("UGE", "blp_norq")
-    a.cmp_rm(1, C["ADJD"]); a.jmpa("Z", "blp_norq")
-    a.cmp_rr(6, 1); a.jmpa("ULE", "rq_min")                          # MIN(target, limit)
-    a.mov_rr(6, 1)
-    a.label("rq_min")
-    a.mov_ri(1, 1); a.ashr_rr(6, 1)                                  # 0.5 Nm -> Nm
-    a.cmp_ri(6, 0); a.jmpa("SLE", "blp_norq")
+    emit_request_decode(a, track_status=True)
     a.cmp_ri(6, 2000); a.jmpa("SLE", "rq_lim_ok")
     a.mov_ri(6, 2000)                 # keeps the MULU/DIVLU below in range
     a.label("rq_lim_ok")
@@ -349,22 +507,7 @@ def build():
     a.add_ri(4, 1); a.mov_mr(T, 4)
 
     # quantity: Nm -> MD scale (x 255 / MD_NORM, max 254) -> x mroBI_SOLL / 500, max wrwBLP_MMX
-    a.mov_ri(1, 255)
-    a.mulu(6, 1)
-    a.mov_rm(1, C["MDN"])
-    a.divlu(1)
-    a.mov_rm(4, MDL)
-    a.cmp_ri(4, 254); a.jmpa("ULE", "q_md_ok")
-    a.mov_ri(4, 254)
-    a.label("q_md_ok")
-    a.mov_rm(1, BI_SOLL)
-    a.mulu(4, 1)
-    a.mov_ri(1, 500)
-    a.divlu(1)
-    a.mov_rm(4, MDL)
-    a.cmp_rm(4, C["MMX"]); a.jmpa("ULE", "q_ok")
-    a.mov_rm(4, C["MMX"])
-    a.label("q_ok")
+    emit_quantity(a)
     a.mov_mr(QREQ, 4)
     a.mov_mr(Q, 4)                    # permitted: pass through, no ramp
     a.movb_ri(7, 0x01)
@@ -409,29 +552,7 @@ def build():
 
     a.label("blp_window")
     a.movb_ri(7, 0x10)
-    a.label("blp_withdraw")           # permission withdrawn -> ramp to 0
-    a.mov_rm(4, Q)
-    a.sub_rm(4, C["RAMP"])
-    a.jmpa("SGT", "wd_pos")
-    a.mov_ri(4, 0)
-    a.label("wd_pos")
-    a.mov_mr(Q, 4)
-    a.cmp_ri(4, 0); a.jmpa("Z", "blp_apply")
-    a.emit([0x77, 0xFE, 0x02, 0x00], "ORB RL7, #0x02")
-    a.jmpa("UC", "blp_apply")
-
-    a.label("blp_off")
-    a.mov_m0(Q)
-    a.label("blp_apply")
-    a.movb_mr(STAT, 7)
-    a.mov_rm(4, Q)
-    a.cmp_rm(4, QTY); a.jmpa("SLE", "blp_exit")
-    a.mov_mr(QTY, 4)                  # MAX(quantity after EGS1 minimum, blip)
-    a.label("blp_exit")
-    a.pop(7)
-    a.pop(6)
-    a.movb_rm(4, C480)                # original instruction at 0x0BC61C
-    a.rets()
+    emit_withdraw_and_apply(a)
 
     a.resolve()
     return a
@@ -480,7 +601,10 @@ def verify(a, prog):
     return lines, errors
 
 
-def main():
+def build_images(profile):
+    """Build one option (profile 'full' = Option 1, 'strict' = Option 2) and write the patched copies."""
+    set_profile(profile)
+    suffix = "_strict" if profile == "strict" else ""
     prog = bytearray(open(os.path.join(BIN, "7787316O_program.bin"), "rb").read())
     data = bytearray(open(os.path.join(BIN, "Y7787646_data.bin"), "rb").read())
     full = bytearray(open(os.path.join(BIN, "DDE41A_O_full_80000.bin"), "rb").read())
@@ -515,12 +639,13 @@ def main():
 
     lines, errors = verify(a, prog)
     os.makedirs(OUT, exist_ok=True)
-    open(os.path.join(OUT, "7787316O_program_blip.bin"), "wb").write(prog)
-    open(os.path.join(OUT, "Y7787646_data_blip.bin"), "wb").write(data)
-    open(os.path.join(OUT, "DDE41A_O_full_80000_blip.bin"), "wb").write(full)
+    open(os.path.join(OUT, f"7787316O_program_blip{suffix}.bin"), "wb").write(prog)
+    open(os.path.join(OUT, f"Y7787646_data_blip{suffix}.bin"), "wb").write(data)
+    open(os.path.join(OUT, f"DDE41A_O_full_80000_blip{suffix}.bin"), "wb").write(full)
 
-    with open(os.path.join(OUT, "blip_patch.lst"), "w", encoding="utf-8") as f:
-        f.write("; DDE41A blip patch - generated by tools/blip_patch.py (see Blip-Function.md ch. 5)\n")
+    with open(os.path.join(OUT, f"blip_patch{suffix}.lst"), "w", encoding="utf-8") as f:
+        what = "Option 2, strict E65 (chapter 9)" if profile == "strict" else "Option 1, switchable extras (chapters 4-5)"
+        f.write(f"; DDE41A blip patch, {what} - generated by tools/blip_patch.py (see Blip-Function.md)\n")
         f.write("; Function DISABLED (wcwFUN_BLP = 0, wrwBLP_MDN = 0). EPROM checksum NOT corrected.\n\n")
         f.write("; Hooks\n" + "\n".join(hook_lines) + "\n\n")
         f.write(f"; Calibration 0x0F7880 ({len(cal)} bytes)\n")
@@ -533,11 +658,17 @@ def main():
 
     diff_p = sum(1 for x, y in zip(prog, open(os.path.join(BIN, "7787316O_program.bin"), "rb").read()) if x != y)
     diff_d = sum(1 for x, y in zip(data, open(os.path.join(BIN, "Y7787646_data.bin"), "rb").read()) if x != y)
-    print(f"code {len(a.code)} bytes at 0x{CODE_BASE:06X}, {len(a.expect)} instructions, "
+    print(f"[{profile}] code {len(a.code)} bytes at 0x{CODE_BASE:06X}, {len(a.expect)} instructions, "
           f"verification errors: {errors}")
-    print(f"program bytes changed: {diff_p}, data bytes changed: {diff_d}")
-    print("\n".join(hook_lines))
-    print(f"output: {OUT}")
+    print(f"[{profile}] program bytes changed: {diff_p}, data bytes changed: {diff_d}, output: {OUT}")
+    return errors
+
+
+def main():
+    """python blip_patch.py [full|strict]   (no argument: both options)"""
+    wanted = sys.argv[1:] or ["full", "strict"]
+    errors = sum(build_images(p) for p in wanted)
+    print("hooks: " + ", ".join(f"0x{a:06X} -> CALLS 0x{t:06X}" for a, _, t in HOOKS))
     return 1 if errors else 0
 
 
