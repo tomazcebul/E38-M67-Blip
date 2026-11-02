@@ -21,6 +21,20 @@ Status: design draft with two options for the DDE4.1 function. Both accept the r
 
 Both options share the hooks, the receive object and the descriptor. They occupy the same addresses, so one image carries one option. Sections 1-2 come from the static analysis in this repository. Sections 4-5 and chapter 9 are a proposal and haven't been flashed or tested on a car. The patch builder assembles and decodes both options cleanly, and the logic of both was run instruction by instruction against test frames, including real E65 frames (5.5, 9.6).
 
+### Summary: sender and protection
+
+Without CANformance changes (User CAN Output, Option 1, *wcwBLP_CHK* = 0):
+
+- It works with a stock CANTCU, but the frame has no checksum or alive counter, so it has no integrity protection.
+- It isn't completely unprotected. Option 1 still has the DDE's own checks: the engine speed ceiling E3, the maximum duration with lock and the operating window (minimum engine speed, coolant temperature and vehicle speed). E2, the EGS1 confirmation, adds to these once the log shows the timing. These catch a stuck or implausible request, but not a plausible wrong one.
+- The remaining risk is a wrong frame that stays inside those limits. Keep *wrwBLP_MMX* low in the first tests to limit it.
+
+With the CANformance add-on (protected 0x0B5):
+
+- Option 1 with *wcwBLP_CHK* = 1 gives BMW-level protection (checksum, alive counter, signal validity) plus the extra checks on top. It is the most protected variant.
+- Option 2 gives only the BMW-level protection, the same as the E65.
+- With Option 1 you can switch between the protected and the unprotected frame without rebuilding the code. You change *wcwBLP_CHK* in the data block, which needs a data-area flash.
+
 Sources: [DDE63-RE/Function-Description-EGS-Torque-Intervention.md](DDE63-RE/Function-Description-EGS-Torque-Intervention.md), [DDE41A-RE/README.md](DDE41A-RE/README.md), [CANTCU-Installation.md](../E38-8HP-Conversion/CANTCU-Installation.md), [EDC15C function description](../Shared/Documentation/EDC15C-Function-Description/en/03-Fuel-Quantity-Control.md), CANformance wiki ([ECU list](https://wiki.canformance.net/CANTCU/integrations/supportedECUs), [E38/39/46/53/83](https://wiki.canformance.net/CANTCU/integrations/supportedECUs/bmwe394653), [E6/7/8/9x](https://wiki.canformance.net/CANTCU/integrations/supportedECUs/BMWE6789x), [User CAN Outputs](https://wiki.canformance.net/en/CANTCU/software/config/canoutputs), [Race+ configuration](https://wiki.canformance.net/CANTCU/software/race-plus/configuration)).
 
 ---
