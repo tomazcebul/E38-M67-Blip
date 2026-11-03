@@ -792,19 +792,31 @@ This proves the logic, not the hardware: the interpreter follows the C167 manual
 State of the images:
 
 - Inert. `wcwFUN_BLP` = 0 and `wrwBLP_MDN` = 0, so the blip stage always outputs 0. Receive object 9 is still configured and polled.
-- Not flashable. The EPROM checksum isn't corrected (5.6; the data-region rule is open).
+- Checksums. The builder doesn't correct the EPROM checksums. The flash tool is expected to do it on write (5.6). BTT has to adapt the tool for the M67 master and slave first, so this isn't confirmed.
 - Placeholders. `TOUT` (0x0A ticks), `wrwBLP_TMX`, `wrwBLP_ALVN`, `wrwBLP_TARM` and `wrwBLP_NMX` are placeholders until the task period, the CAN log and the final shift maps are known (5.7, 6). In Option 1, *wcwBLP_CHK* ships as 1 (BMW) and *wcwBLP_XEGS* as 0. Option 2 has only *wrwBLP_ALVN* of these.
 - Start-up. RAM isn't cleared at reset, so H2 can poll object 9 once before H1 has configured it if `INIT` still holds 0x5AA5 from before the reset. This is harmless: no new data, at most default data, and H3 is still disabled. The bench test should confirm it.
 
 ### 5.6 Checksums and flashing
 
-The patched images aren't flashable yet, because the ECU's EPROM checksums aren't handled.
+Flashing uses a ready-made OBD tool, so the ECU's EPROM checksums don't have to be solved in this repository. The chosen route is [DDE4 Quickflash (EDC15C4)](https://www.bimmertuningtools.com/product/dde4-quickflash/) from Bimmer Tuning Tools (BTT). The vendor lists OBD dump and flash (full and partial), E38 among the supported cars, and "Automatic Checksum Correction". The builder only has to produce a complete image from a dump; the tool corrects the checksums on write.
 
-- EPROM checksum. The EDC15C self-test forms a checksum over the external EPROM at terminal 15 on, and continuously in the background (§8.4.2/8.4.3 of the function description). A failure gives restart code 09h, "EPROM checksum not equal to 0". It checks "Page_4" (the 16 KB page the ECU executes first), then "the remaining EPROM (excluding Page_4), code and data separately" (this part "can be disabled via generation"). The algorithm is in the segment-0 ROM, which isn't available.
-- What the patch touches. The hooks lie in the code area (0x94000-0xBFFFF), the new code in the free area from 0xC0000, and the calibration block 0xF7880-0xF790F in the data area, in a region that ends with a checksum trailer at 0xFBFFA. Page 4 isn't changed. The rule for that data-region trailer is not known, and it isn't known whether the code area has an active check. The analysis, with the dead ends and a plan, is kept in a local, unpublished note.
-- Plan. Use a commercial EDC15C4 corrector as an oracle (stock image must come back unchanged; diff the patched image against its output) and derive the rule from the two samples; or move the calibration block into the free code area, so the data regions stay identical to stock; or dump the internal ROM through the bootstrap loader. A bench flash on a spare ECU would show whether restart code 09h appears (no spare ECU is available).
-- File checksum. For WinKFP, the Intel-HEX file needs a correct `$CHECKSUMME` line ([hex2bin.py](DDE41A-RE/tools/hex2bin.py) reads it; a writer must recompute it). The formula isn't known.
-- Programming route. Prefer a bench flash with a full backup of the external flash (the `.ori` read in `DDE41A-RE/bin` is the stock reference).
+What is vendor information and not yet confirmed for this car:
+
+- The vendor page names the M57 engines and doesn't mention the M67 V8 or a master/slave pair. BTT's answer (November 2026): the tool isn't ready for it, but they can make tweaks so it works for both ECUs, and it will take some back and forth testing. So support for the M67 pair has to be built and tested together with the vendor. Still to ask: which regions the correction covers (page 4, code, data), and what the testing needs from us (dumps of both DDEs, a read-back after each write).
+- The ECU has self-tests for the EPROM: at terminal 15 on and continuously in the background, with restart code 09h, "EPROM checksum not equal to 0", on failure (§8.4.2/8.4.3 of the function description). Page 4 is the first 16 KB page the ECU runs; the rest is checked in code and data parts. The algorithm is in the segment-0 ROM, which isn't available, so there is no independent check of the tool's result.
+- The patch changes the code area (hooks from 0x94000, new code from 0xC0000) and the data area (calibration 0xF7880-0xF790F, in a region that ends with a checksum trailer at 0xFBFFA). Page 4 isn't changed. The trailer rule is unknown here, and it isn't known whether the code area has an active check. The analysis is kept in a local, unpublished note.
+
+Procedure:
+
+1. Read a full dump of the master DDE with the tool, and back up the EEPROM. Check that the dump is a 512 KB `7787316O` image like the example `.ori` in `DDE41A-RE/bin`; the builder stops otherwise.
+2. Run `blip_patch.py --source <dump>` (5.5). It keeps every byte of the dump except the patch, including the top sector 0xFC000-0xFFFFF.
+3. Flash the patched dump with the function still off (`wcwFUN_BLP` = 0). Don't use the tool's EWS/IMMO delete.
+4. Read the ECU back and diff it against the file that was written. Every difference is something the tool corrected, such as checksum trailers, and shows what it covers.
+5. Start the engine and check for restart code 09h and new faults (5.7, step 4).
+
+The slave DDE stays stock. If the tool offers a partial flash, the code from 0x94000 and the data area 0xF0000-0xFBFFF are enough. The top sector holds the flash-programming layer and must not be rewritten.
+
+An offline export of a corrected file isn't required, but it would let the stock dump and the patched file be compared before the first write. For WinKFP, the Intel-HEX file would still need a correct `$CHECKSUMME` line (the formula isn't known), so WinKFP isn't used.
 
 ### 5.7 Bench checks before driving
 
@@ -840,7 +852,7 @@ The patched images aren't flashable yet, because the ECU's EPROM checksums aren'
 - Fault and limp behaviour: what the 0x0B5 frame contains when CANTCU or the transmission is in a fault state (CANformance: not covered by the datastream; ask about the user output and the add-on). The DDE's timeout and ramp-to-0 handling covers a stopped frame; a frame stuck at "blip" is covered by *wrwBLP_TMX* and, with the BMW checks on, by the alive counter.
 - Shift maps and *wrwBLP_NMX*: the ceiling and the blip size depend on the final M67 shift maps and RPM limits (3, "CANTCU configuration for the M67").
 - Extra IDs on CAN3: the documents show no use of 0x0B5 on the E38 bus (3, "Is 0x0B5 free on the E38 vehicle CAN?"), but nodes the DDE doesn't talk to (Active Cruise Control, if fitted) can't be checked. CANformance asked what "extra IDs" means: it is the one added 8-byte frame. Confirm by log that 0x0B5 is absent from the stock bus and that the DSC and IKE accept the frame without faults.
-- EPROM checksum rule for the data regions (5.6): open; the analysis and plan are kept in a local, unpublished note.
+- Checksum correction by the flash tool (5.6): vendor claim; BTT offers to adapt the tool to both M67 ECUs after some testing. Verify by reading the ECU back after the first write.
 - Free RAM proof on the bench (5.7).
 - Third-party EDC15 solution: CANformance names A.K.T. for EDC15 blips. Comparing with it (message used, limits) would reduce risk.
 - Measurements on the car: most open points above need the real car and a CAN sniffer. See chapter 8.
